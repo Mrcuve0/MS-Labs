@@ -1,0 +1,260 @@
+m255
+K3
+13
+cModel Technology
+d/home/ms19.15/gr15_lab01/ex1/ex1.4/sim
+Ccfg_fa_behavioral
+Z0 abehavioral
+efa
+DAx4 work 2 fa 10 behavioral 22 :=D^j2_IDa4Hee^]DOX@m2
+Z1 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z2 DEx4 work 2 fa 0 22 zWO1M[UQeRGbPSJ3i[olh3
+32
+Z3 Mx1 4 ieee 14 std_logic_1164
+Z4 w1552842243
+Z5 d/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim
+Z6 8/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/fa.vhd
+Z7 F/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/fa.vhd
+l0
+L24
+V13Ween<TWOfRP:WAR4eMl3
+Z8 OL;C;6.5c;42
+Z9 o-work work
+Z10 tExplicit 1
+!s100 N8jaSFH>R4g@BRL@OEIF?2
+Ccfg_rca_behavioral
+Z11 abehavioral
+erca
+DAx4 work 3 rca 10 behavioral 22 kn7lZbOC`1Bk;ZU`mz9N92
+Z12 DPx4 work 9 constants 0 22 dDC_cI@jS3:i_ae]a18?m3
+Z13 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z14 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+R1
+Z15 DEx4 work 3 rca 0 22 ih:;bRRW2]o2RQ_m`kUeF0
+32
+Z16 Mx4 4 ieee 14 std_logic_1164
+Z17 Mx3 4 ieee 18 std_logic_unsigned
+Z18 Mx2 4 ieee 15 std_logic_arith
+Z19 Mx1 4 work 9 constants
+Z20 w1552853882
+R5
+Z21 8/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/rca.vhd
+Z22 F/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/rca.vhd
+l0
+L69
+V[Gd^CMCRk52`CTf[LVD0Z3
+R8
+R9
+R10
+!s100 eWJT8Q_1kHiN<<MA_:MUJ0
+Ccfg_rca_structural
+astructural
+erca
+R2
+DCx4 work 17 cfg_fa_behavioral 0 22 13Ween<TWOfRP:WAR4eMl3
+DAx4 work 3 rca 10 structural 22 4=36]oI1ei_:3JM?]edLQ3
+R12
+R13
+R14
+R1
+R15
+32
+R16
+R17
+R18
+R19
+R20
+R5
+R21
+R22
+l0
+L59
+VEEYXQSVETQdFZb0j]RIA33
+R8
+R9
+R10
+!s100 5=S26oIFHIPk4_H`]>a;l1
+Pconstants
+32
+R4
+R5
+8/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/constants.vhd
+F/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/constants.vhd
+l0
+L1
+VdDC_cI@jS3:i_ae]a18?m3
+R8
+R9
+R10
+!s100 VE<<U5>Fn;8_HfK=;^hL=0
+Efa
+R4
+R1
+R5
+R6
+R7
+l0
+L4
+VzWO1M[UQeRGbPSJ3i[olh3
+R8
+32
+R9
+R10
+!s100 f3OXb<b=8oJ?=6agDk5k?0
+Abehavioral
+R1
+R2
+32
+R3
+l16
+L14
+V:=D^j2_IDa4Hee^]DOX@m2
+R8
+R9
+R10
+!s100 hVPSNOF<;T`_^kGBHDgCF1
+Elfsr16
+R4
+R13
+R1
+R5
+Z23 8/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/lfsr.vhd
+Z24 F/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/lfsr.vhd
+l0
+L6
+VJOKMFfDBS_<;fE^1@c@?73
+R8
+32
+R9
+R10
+!s100 dJDRSUPlHiOOAR10YTf9A0
+Artl
+R13
+R1
+Z25 DEx4 work 6 lfsr16 0 22 JOKMFfDBS_<;fE^1@c@?73
+32
+Z26 Mx2 4 ieee 14 std_logic_1164
+Z27 Mx1 4 ieee 15 std_logic_arith
+l19
+L17
+VR2>hQNAJkNQiIj4Y=57853
+R8
+R9
+R10
+!s100 ;8BHc;7h5ki<MCGC8J1zG2
+Erca
+R20
+R12
+R13
+R14
+R1
+R5
+R21
+R22
+l0
+L6
+Vih:;bRRW2]o2RQ_m`kUeF0
+R8
+32
+R9
+R10
+!s100 ;hfOSHFgg3c:a5<YNWoB61
+Abehavioral
+R12
+R13
+R14
+R1
+R15
+32
+R16
+R17
+R18
+R19
+l51
+L47
+Vkn7lZbOC`1Bk;ZU`mz9N92
+R8
+R9
+R10
+!s100 YFXL2AIZkbZ>3id@O;@_50
+Astructural
+R12
+R13
+R14
+R1
+R15
+32
+R16
+R17
+R18
+R19
+l32
+L17
+V4=36]oI1ei_:3JM?]edLQ3
+R8
+R9
+R10
+!s100 B9M4McfLEl1NJ6DFl035l2
+Crcatest
+atest
+etbrca
+R25
+R15
+DCx4 work 18 cfg_rca_behavioral 0 22 [Gd^CMCRk52`CTf[LVD0Z3
+R13
+R14
+DCx4 work 18 cfg_rca_structural 0 22 EEYXQSVETQdFZb0j]RIA33
+DAx4 work 5 tbrca 4 test 22 mj=^e^1ac_LVY_@>gdKbW2
+R12
+Z28 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+R1
+Z29 DEx4 work 5 tbrca 0 22 @]4o@=Ee>dECJTXQi_GQU2
+32
+Mx5 4 ieee 14 std_logic_1164
+Mx4 4 ieee 11 numeric_std
+Mx3 4 work 9 constants
+Mx2 4 ieee 18 std_logic_unsigned
+R27
+Z30 w1552853965
+R5
+Z31 8/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/tb_rca.vhd
+Z32 F/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/tb_rca.vhd
+l0
+L93
+V3j65dZ;>IBQaKJVc`?VKK2
+R8
+R9
+R10
+!s100 DgnoJ96FXI=UT<g^8?QMc1
+Etbrca
+R30
+R12
+R28
+R1
+R5
+R31
+R32
+l0
+L6
+V@]4o@=Ee>dECJTXQi_GQU2
+R8
+32
+R9
+R10
+!s100 [=FD6n@aA>n[NK]`RgQn10
+Atest
+R12
+R28
+R1
+R29
+32
+Z33 Mx3 4 ieee 14 std_logic_1164
+Mx2 4 ieee 11 numeric_std
+R19
+l38
+L9
+Vmj=^e^1ac_LVY_@>gdKbW2
+R8
+R9
+R10
+!s100 NlF9JEQE2_FD^;dLL<Yc?1

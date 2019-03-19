@@ -1,0 +1,41 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity MUX21_GENERIC
+	Generic (N: integer:= numBit;
+		 DELAY_MUX: Time:= tp_mux);
+	Port (	A:	In	std_logic_vector(NBIT-1 downto 0);
+		B:	In	std_logic_vector(NBIT-1 downto 0);
+		SEL:	In	std_logic;
+		Y:	Out	std_logic_vector(NBIT-1 downto 0));
+end entity;
+
+architecture beh of MUX21_GENERIC is
+
+begin  -- architecture beh
+
+  process (A, B, SEL) is
+  begin  -- process
+    case SEL is
+    when '0' => Y <= A;
+    when others => Y <= B;
+  end case;
+  end process;
+  
+
+end architecture beh;
+
+architecture struct of MUX21_GENERIC is
+
+begin  -- architecture struct
+
+  
+
+end architecture struct;
+
+configuration CFG_MUX21_GEN_BEH of MUX21_GENERIC is
+
+  for beh
+  end for;
+
+end configuration CFG_MUX21_GEN_BEH;
