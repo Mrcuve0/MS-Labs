@@ -1,0 +1,48 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-957.5.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Load canceled
+vsim -t 10ps -novopt work.mux21test
+# vsim -t 10ps -novopt work.mux21test 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Refreshing /home/ms19.15/setup/vhdlsim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/setup/vhdlsim/work.mux21test
+# Loading work.mux21test
+# Refreshing /home/ms19.15/setup/vhdlsim/work.tbmux21(test)
+# Loading work.tbmux21(test)
+# Refreshing /home/ms19.15/setup/vhdlsim/work.cfg_mux21_behavioral_1
+# Loading work.cfg_mux21_behavioral_1
+# Refreshing /home/ms19.15/setup/vhdlsim/work.mux21(behavioral_1)
+# Loading work.mux21(behavioral_1)
+# Refreshing /home/ms19.15/setup/vhdlsim/work.cfg_mux21_behavioral_2
+# Loading work.cfg_mux21_behavioral_2
+# Refreshing /home/ms19.15/setup/vhdlsim/work.mux21(behavioral_2)
+# Loading work.mux21(behavioral_2)
+# Refreshing /home/ms19.15/setup/vhdlsim/work.cfg_mux21_behavioral_3
+# Loading work.cfg_mux21_behavioral_3
+# Refreshing /home/ms19.15/setup/vhdlsim/work.mux21(behavioral_3)
+# Loading work.mux21(behavioral_3)
+# Refreshing /home/ms19.15/setup/vhdlsim/work.cfg_mux21_structural
+# Loading work.cfg_mux21_structural
+# Refreshing /home/ms19.15/setup/vhdlsim/work.mux21(structural)
+# Loading work.mux21(structural)
+# Refreshing /home/ms19.15/setup/vhdlsim/work.cfg_iv_behavioral
+# Loading work.cfg_iv_behavioral
+# Refreshing /home/ms19.15/setup/vhdlsim/work.iv(behavioral)
+# Loading work.iv(behavioral)
+# Refreshing /home/ms19.15/setup/vhdlsim/work.cfg_nd2_arch2
+# Loading work.cfg_nd2_arch2
+# Refreshing /home/ms19.15/setup/vhdlsim/work.nd2(arch2)
+# Loading work.nd2(arch2)
+add waves *
+run 3 ns
+run 8000 ps
