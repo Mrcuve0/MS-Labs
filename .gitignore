@@ -1,7 +1,7 @@
-.dat
-.dbs
-.asm64
-.rw64
-.syn
-.mr
-.vif
+*.dat
+*.dbs
+*.asm64
+*.rw64
+*.syn
+*.mr
+*.vif
