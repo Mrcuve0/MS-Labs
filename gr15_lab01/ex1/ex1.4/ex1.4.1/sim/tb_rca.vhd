@@ -1,62 +1,63 @@
-library ieee; 
-use ieee.std_logic_1164.all; 
-use ieee.numeric_std.all; -- we need a conversion to unsigned 
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;               -- we need a conversion to unsigned 
 use WORK.constants.all;
 
-entity TBRCA is 
-end TBRCA; 
+entity TBRCA is
+end TBRCA;
 
 architecture TEST of TBRCA is
-  constant NBIT : integer :=6;
-  component LFSR16 
-    port (CLK, RESET, LD, EN : in std_logic; 
-          DIN : in std_logic_vector(15 downto 0); 
-          PRN : out std_logic_vector(15 downto 0); 
-          ZERO_D : out std_logic);
+  constant NBIT : integer := 6;
+
+  component LFSR16
+    port (CLK, RESET, LD, EN : in  std_logic;
+          DIN                : in  std_logic_vector(15 downto 0);
+          PRN                : out std_logic_vector(15 downto 0);
+          ZERO_D             : out std_logic);
   end component;
 
   component RCA
-        generic ( DRCAS : Time := 0 ns;
-	          DRCAC : Time := 0 ns;
-                  N : integer := NumBit);
-	Port (	A:	In	std_logic_vector(NBIT-1 downto 0);
-		B:	In	std_logic_vector(NBIT-1 downto 0);
-		Ci:	In	std_logic;
-		S:	Out	std_logic_vector(NBIT-1 downto 0);
-		Co:	Out	std_logic);
+    generic (DRCAS : time    := 0 ns;
+             DRCAC : time    := 0 ns;
+             N     : integer := NumBit);
+    port (A  : in  std_logic_vector(NBIT-1 downto 0);
+          B  : in  std_logic_vector(NBIT-1 downto 0);
+          Ci : in  std_logic;
+          S  : out std_logic_vector(NBIT-1 downto 0);
+          Co : out std_logic);
   end component;
-  
 
-  constant Period: time := 1 ns; -- Clock period (1 GHz)
-  signal CLK : std_logic :='0';
-  signal RESET,LD,EN,ZERO_D : std_logic;
-  signal DIN, PRN : std_logic_vector(15 downto 0);
 
-  signal A, B, S1, S2, S3 : std_logic_vector(NBIT-1 downto 0);
+  constant Period              : time      := 1 ns;  -- Clock period (1 GHz)
+  signal CLK                   : std_logic := '0';
+  signal RESET, LD, EN, ZERO_D : std_logic;
+  signal DIN, PRN              : std_logic_vector(15 downto 0);
+
+  signal A, B, S1, S2, S3  : std_logic_vector(NBIT-1 downto 0);
   signal Ci, Co1, Co2, Co3 : std_logic;
 
-Begin
+begin
 
 -- Instanciate the ADDER without delay in the carry generation
-  UADDER1: RCA 
-	   generic map (DRCAS => 0.02 ns, DRCAC => 0 ns,N=> NBIT) 
-	   port map (A, B, Ci, S1, Co1);
-  
+  UADDER1 : RCA
+    generic map (DRCAS => 0.02 ns, DRCAC => 0 ns, N => NBIT)
+    port map (A, B, Ci, S1, Co1);
+
 -- Instanciate the ADDER with delay
-  UADDER2: RCA 
-	   generic map (DRCAS => 0.02 ns, DRCAC => 0.02 ns,N=>NBIT) 
-	   port map (A, B, Ci, S2, Co2);
+  UADDER2 : RCA
+    generic map (DRCAS => 0.02 ns, DRCAC => 0.02 ns, N => NBIT)
+    port map (A, B, Ci, S2, Co2);
 
 -- Instanciate the ADDER behavioral
-  UADDER3: RCA 
-	   generic map (DRCAS => 0.02 ns, DRCAC => 0.02 ns,N=>NBIT) 
-	   port map (A, B, Ci, S3, Co3);
-  
+  UADDER3 : RCA
+    generic map (DRCAS => 0.02 ns, DRCAC => 0.02 ns, N => NBIT)
+    port map (A, B, Ci, S3, Co3);
+
 
 
 
 -- Forcing adder input to LFSR output
-  Ci <= '0';
+  Ci   <= '0';
   A(0) <= PRN(0);
   A(5) <= PRN(2);
   A(3) <= PRN(4);
@@ -72,19 +73,19 @@ Begin
   B(2) <= PRN(5);
 
 -- Instanciate the Unit Under Test (UUT)
-  UUT: LFSR16 port map (CLK=>CLK, RESET=>RESET, LD=>LD, EN=>EN, 
-                        DIN=>DIN,PRN=>PRN, ZERO_D=>ZERO_D);
+  UUT : LFSR16 port map (CLK => CLK, RESET => RESET, LD => LD, EN => EN,
+                         DIN => DIN, PRN => PRN, ZERO_D => ZERO_D);
 -- Create the permanent Clock and the Reset pulse
-  CLK <= not CLK after Period/2;
+  CLK   <= not CLK  after Period/2;
   RESET <= '1', '0' after Period;
 -- Open file, make a load, and wait for a timeout in case of design error.
-  STIMULUS1: process
+  STIMULUS1 : process
   begin
     DIN <= "0000000000000001";
-    EN <='1';
-    LD <='1';
+    EN  <= '1';
+    LD  <= '1';
     wait for 2 * PERIOD;
-    LD <='0';
+    LD  <= '0';
     wait for (65600 * PERIOD);
   end process STIMULUS1;
 
@@ -92,13 +93,13 @@ end TEST;
 
 configuration RCATEST of TBRCA is
   for TEST
-    for UADDER1: RCA
+    for UADDER1 : RCA
       use configuration WORK.CFG_RCA_STRUCTURAL;
     end for;
-    for UADDER2: RCA
+    for UADDER2 : RCA
       use configuration WORK.CFG_RCA_STRUCTURAL;
     end for;
-    for UADDER3: RCA
+    for UADDER3 : RCA
       use configuration WORK.CFG_RCA_BEHAVIORAL;
     end for;
   end for;

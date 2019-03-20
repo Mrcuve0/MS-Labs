@@ -3,32 +3,74 @@ K3
 13
 cModel Technology
 d/home/ms19.15/gr15_lab01/ex1.2/sim
-Ccfg_fd_pippo
-apippo
+Ccfg_fd_asyncarch
+aasyncarch
 efd
-DAx4 work 2 fd 5 pippo 22 QNIV[?@GXD:Zmm3^MeY@;0
+DAx4 work 2 fd 9 asyncarch 22 >:QTG8Yz?2S<=]J=BACC93
 Z0 DPx4 work 9 constants 0 22 dDC_cI@jS3:i_ae]a18?m3
 Z1 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
 Z2 DEx4 work 2 fd 0 22 KL>lH8I]W2FA@^DWY:3cE1
 32
 Z3 Mx2 4 ieee 14 std_logic_1164
 Z4 Mx1 4 work 9 constants
-Z5 w1552831486
-Z6 d/home/ms19.15/gr15_lab01/ex1/ex1.2/sim
-Z7 8/home/ms19.15/gr15_lab01/ex1/ex1.2/sim/fd.vhd
-Z8 F/home/ms19.15/gr15_lab01/ex1/ex1.2/sim/fd.vhd
+Z5 w1553033489
+Z6 d/home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim
+Z7 8/home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/fd_generic.vhd
+Z8 F/home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/fd_generic.vhd
 l0
-L49
-VQSB4[E;zNa@:ZEeLQFEMU2
+L55
+VlDZ0YLU4:1F<NcR@chcBH1
 Z9 OL;C;6.5c;42
 Z10 o-work work
 Z11 tExplicit 1
+!s100 E5eoQGXR46[j92l3lHh4F0
+Ccfg_fd_pippo
+apippo
+efd
+DAx4 work 2 fd 5 pippo 22 QNIV[?@GXD:Zmm3^MeY@;0
+Z12 DPx4 work 9 constants 0 22 dDC_cI@jS3:i_ae]a18?m3
+R1
+R2
+32
+R3
+R4
+Z13 w1552831486
+Z14 d/home/ms19.15/gr15_lab01/ex1/ex1.2/sim
+Z15 8/home/ms19.15/gr15_lab01/ex1/ex1.2/sim/fd.vhd
+Z16 F/home/ms19.15/gr15_lab01/ex1/ex1.2/sim/fd.vhd
+l0
+L49
+VQSB4[E;zNa@:ZEeLQFEMU2
+R9
+R10
+R11
 !s100 imEaWajkj3l4FR@:[H`jQ1
 Ccfg_fd_pluto
 apluto
 efd
 DAx4 work 2 fd 5 pluto 22 MT0b6M49iVW8>>;<o:Ebb3
-Z12 DPx4 work 9 constants 0 22 dDC_cI@jS3:i_ae]a18?m3
+R12
+R1
+R2
+32
+R3
+R4
+R13
+R14
+R15
+R16
+l0
+L55
+VWlBOzNLKXYQ2YQUcT<aL@3
+R9
+R10
+R11
+!s100 GiA]296j;P3a^njmVM3i=2
+Ccfg_fd_syncarch
+asyncarch
+efd
+DAx4 work 2 fd 8 syncarch 22 dUEc`U:b?zd3TRY59Lj5J3
+R12
 R1
 R2
 32
@@ -39,18 +81,18 @@ R6
 R7
 R8
 l0
-L55
-VWlBOzNLKXYQ2YQUcT<aL@3
+L49
+Vi>5N5QmQ?z`l9dihB]VXn1
 R9
 R10
 R11
-!s100 GiA]296j;P3a^njmVM3i=2
+!s100 ;kV7iCQ;Xo;WR68K`N:Ti2
 Pconstants
 32
-R5
+R13
 R6
-8/home/ms19.15/gr15_lab01/ex1/ex1.2/sim/constants.vhd
-F/home/ms19.15/gr15_lab01/ex1/ex1.2/sim/constants.vhd
+8/home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/constants.vhd
+F/home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/constants.vhd
 l0
 L1
 VdDC_cI@jS3:i_ae]a18?m3
@@ -73,6 +115,34 @@ R9
 R10
 R11
 !s100 lZ_oJ]=5j5Z;5fKoZIIF21
+Aasyncarch
+R12
+R1
+R2
+32
+R3
+R4
+l35
+L33
+V>:QTG8Yz?2S<=]J=BACC93
+R9
+R10
+R11
+!s100 oZIG0LZ_8I3iaNbmd`c;h2
+Asyncarch
+R12
+R1
+R2
+32
+R3
+R4
+l19
+L17
+VdUEc`U:b?zd3TRY59Lj5J3
+R9
+R10
+R11
+!s100 HKA;N=MZk^>@zheo@IU5[1
 Apluto
 R12
 R1
@@ -86,6 +156,10 @@ VMT0b6M49iVW8>>;<o:Ebb3
 R9
 R10
 R11
+R14
+R16
+R13
+R15
 !s100 VLkH3PfXdQR_nIo2TU;kz1
 Apippo
 R12
@@ -100,38 +174,42 @@ VQNIV[?@GXD:Zmm3^MeY@;0
 R9
 R10
 R11
+R14
+R16
+R13
+R15
 !s100 IJIIkQii6[SAzdCoL=Aa@1
 Cfdtest
 atest
 etbfd
 R2
-DCx4 work 12 cfg_fd_pluto 0 22 WlBOzNLKXYQ2YQUcT<aL@3
-DCx4 work 12 cfg_fd_pippo 0 22 QSB4[E;zNa@:ZEeLQFEMU2
+DCx4 work 16 cfg_fd_asyncarch 0 22 lDZ0YLU4:1F<NcR@chcBH1
+DCx4 work 15 cfg_fd_syncarch 0 22 i>5N5QmQ?z`l9dihB]VXn1
 DAx4 work 4 tbfd 4 test 22 <[zAL3U]3V]Bjk>`@64QZ2
 R12
 R1
-Z13 DEx4 work 4 tbfd 0 22 K6HkV[f[2lb7HDmfjSdfD1
+Z17 DEx4 work 4 tbfd 0 22 K6HkV[f[2lb7HDmfjSdfD1
 32
 R3
 R4
-Z14 w1552844367
+Z18 w1553033478
 R6
-Z15 8/home/ms19.15/gr15_lab01/ex1/ex1.2/sim/tb_fd.vhd
-Z16 F/home/ms19.15/gr15_lab01/ex1/ex1.2/sim/tb_fd.vhd
+Z19 8/home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/tb_fd_generic.vhd
+Z20 F/home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/tb_fd_generic.vhd
 l0
-L56
-VE8B6bE7W<[nN8^<DAm8gN2
+L53
+VJ9F<SCPPKl<lL1PG`]J3_2
 R9
 R10
 R11
-!s100 [Q;i?WI4nWFSj`[]=o3V40
+!s100 eYXQzD>Rfl3`8hTHDiM>l1
 Etbfd
-R14
+R18
 R12
 R1
 R6
-R15
-R16
+R19
+R20
 l0
 L5
 VK6HkV[f[2lb7HDmfjSdfD1
@@ -143,7 +221,7 @@ R11
 Atest
 R12
 R1
-R13
+R17
 32
 R3
 R4
@@ -153,4 +231,4 @@ V<[zAL3U]3V]Bjk>`@64QZ2
 R9
 R10
 R11
-!s100 6KTGDBTd:iYe9_YTiV[TF0
+!s100 <I3anfznldabEVJRJ_I6N3

@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Tue Mar 19 20:26:04 2019
+#@ # Date:   Tue Mar 19 22:44:32 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4720,7 +4720,7 @@ source /software/synopsys/syn_current_64/admin/setup/.synopsys_dc.setup
 #@ 
 #@ # -- End source /software/synopsys/syn_current_64/admin/setup/.synopsys_dc.setup
 
-source /home/ms19.15/gr15_lab01/ex1/ex1.1/syn/.synopsys_dc.setup
+source /home/ms19.15/MS/gr15_lab01/ex1/ex1.1/syn/.synopsys_dc.setup
 #@ #
 #@ #		".synopsys_dc.setup" Initialization File for
 #@ #
@@ -4769,72 +4769,25 @@ source /home/ms19.15/gr15_lab01/ex1/ex1.1/syn/.synopsys_dc.setup
 #@ 
 #@ 
 #@ 
-#@ # -- End source /home/ms19.15/gr15_lab01/ex1/ex1.1/syn/.synopsys_dc.setup
+#@ # -- End source /home/ms19.15/MS/gr15_lab01/ex1/ex1.1/syn/.synopsys_dc.setup
 
 gui_start
-analyze -library WORK -format vhdl {/home/ms19.15/gr15_lab01/ex1/ex1.1/syn/or21_generic.vhd /home/ms19.15/gr15_lab01/ex1/ex1.1/syn/not_generic.vhd /home/ms19.15/gr15_lab01/ex1/ex1.1/syn/mux21_generic.vhd /home/ms19.15/gr15_lab01/ex1/ex1.1/syn/constants.vhd /home/ms19.15/gr15_lab01/ex1/ex1.1/syn/and21_generic.vhd}
-elaborate MUX21_GENERIC -library WORK
-elaborate MUX21_GENERIC -architecture BEH -library WORK -parameters "N = 32, DELAY_MUX = "
-elaborate MUX21_GENERIC -architecture BEH -library WORK -parameters "N = 32"
-change_selection [get_s MUX21_GENERIC_N32]
-change_selection [get_s MUX21_GENERIC_N32]
-change_selection [get_s MUX21_GENERIC_N32]
-change_selection -name __slctBus6 -type {cell design} _sel124
-change_selection [get_s {B_1/A B_0/Z B_0/A I_0/Z I_0/A C42/CONTROL1_0 B_1/Z C42/CONTROL2_0 {C42/32 pins(DATA2_31,...)} C42/DATA2_31}]
-change_selection -add [get_s {C42/DATA2_30 C42/DATA2_29 C42/DATA2_28 C42/DATA2_27 C42/DATA2_26 C42/DATA2_25 C42/DATA2_24 C42/DATA2_23}]
-change_selection -add [get_s {C42/DATA2_22 C42/DATA2_21 C42/DATA2_20 C42/DATA2_19 C42/DATA2_18 C42/DATA2_17 C42/DATA2_16 C42/DATA2_15}]
-change_selection -add [get_s {C42/DATA2_14 C42/DATA2_13 C42/DATA2_12 C42/DATA2_11 C42/DATA2_10 C42/DATA2_9 C42/DATA2_8 C42/DATA2_7}]
-change_selection -add [get_s {C42/DATA2_6 C42/DATA2_5 C42/DATA2_4 C42/DATA2_3 C42/DATA2_2 C42/DATA2_1 C42/DATA2_0 {C42/32 pins(DATA1_31,...)}}]
-change_selection -add [get_s {C42/DATA1_31 C42/DATA1_30 C42/DATA1_29 C42/DATA1_28 C42/DATA1_27 C42/DATA1_26 C42/DATA1_25 C42/DATA1_24}]
-change_selection -add [get_s {C42/DATA1_23 C42/DATA1_22 C42/DATA1_21 C42/DATA1_20 C42/DATA1_19 C42/DATA1_18 C42/DATA1_17 C42/DATA1_16}]
-change_selection -add [get_s {C42/DATA1_15 C42/DATA1_14 C42/DATA1_13 C42/DATA1_12 C42/DATA1_11 C42/DATA1_10 C42/DATA1_9 C42/DATA1_8}]
-change_selection -add [get_s {C42/DATA1_7 C42/DATA1_6 C42/DATA1_5 C42/DATA1_4 C42/DATA1_3 C42/DATA1_2 C42/DATA1_1 C42/DATA1_0 C42}]
-change_selection -add [get_s {B_1 B_0 I_0 N2 SEL N0 N1 {A[31:0]} {A[31]} {A[30]} {A[29]} {A[28]} {A[27]} {A[26]} {A[25]} {A[24]} {A[23]} {A[22]} {A[21]} {A[20]}}]
-change_selection -add [get_s {{A[19]} {A[18]} {A[17]} {A[16]} {A[15]} {A[14]} {A[13]} {A[12]} {A[11]} {A[10]} {A[9]} {A[8]} {A[7]} {A[6]} {A[5]} {A[4]} {A[3]} {A[2]}}]
-change_selection -add [get_s {{A[1]} {A[0]} {B[31:0]} {B[31]} {B[30]} {B[29]} {B[28]} {B[27]} {B[26]} {B[25]} {B[24]} {B[23]} {B[22]} {B[21]} {B[20]} {B[19]} {B[18]}}]
-change_selection -add [get_s {{B[17]} {B[16]} {B[15]} {B[14]} {B[13]} {B[12]} {B[11]} {B[10]} {B[9]} {B[8]} {B[7]} {B[6]} {B[5]} {B[4]} {B[3]} {B[2]} {B[1]} {B[0]}}]
+analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab01/ex1/ex1.1/syn/or21_generic.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.1/syn/not_generic.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.1/syn/mux21_generic.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.1/syn/constants.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.1/syn/and21_generic.vhd}
+elaborate MUX21_GENERIC -architecture STRUCT -library WORK -parameters "N = 4, DELAY_MUX = "
+elaborate MUX21_GENERIC -architecture STRUCT -library WORK -parameters "N = 4"
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection -name __slctBus6 -type {cell design} _sel145
 change_selection 
-change_selection [get_s C42]
-change_selection [get_s C42]
-change_selection [get_s C42]
-change_selection -name __slctBus110 -type {cell design} _sel301
-change_selection [get_s C42]
-change_selection -name __slctBus113 -type {cell design} _sel334
-change_selection [get_s C42]
-change_selection [get_s C42]
-change_selection [get_s MUX21_GENERIC_N32]
-change_selection -name __slctBus208 -type {cell design} _sel461
-elaborate MUX21_GENERIC -architecture BEH -library WORK -parameters "N = 8, DELAY_MUX = "
-elaborate MUX21_GENERIC -architecture BEH -library WORK -parameters "N = 8"
-change_selection [get_s MUX21_GENERIC_N8]
-change_selection [get_s MUX21_GENERIC_N8]
-change_selection -name __slctBus213 -type {cell design} _sel595
-change_selection [get_s C18]
+write -hierarchy -format vhdl -output /home/ms19.15/MS/gr15_lab01/ex1/ex1.1/syn/mux21_generic_4_struct.vhdl
 compile -exact_map
-change_selection [get_s MUX21_GENERIC_N8]
-change_selection [get_s MUX21_GENERIC_N8]
-change_selection [get_s MUX21_GENERIC_N8]
-change_selection [get_s MUX21_GENERIC_N8]
-change_selection [get_s MUX21_GENERIC_N8]
-change_selection -name __slctBus267 -type {cell design} _sel951
-elaborate MUX21_GENERIC -architecture BEH -library WORK -parameters "N = 32, DELAY_MUX = "
-elaborate MUX21_GENERIC -architecture BEH -library WORK -parameters "N = 32"
-change_selection [get_s MUX21_GENERIC_N32]
-change_selection [get_s MUX21_GENERIC_N32]
-change_selection -name __slctBus275 -type {cell design} _sel1317
-change_selection [get_s C42]
-change_selection [get_s C42]
-compile -exact_map
-change_selection [get_s MUX21_GENERIC_N32]
-change_selection [get_s MUX21_GENERIC_N32]
-change_selection -name __slctBus375 -type {cell design} _sel1523
-elaborate MUX21_GENERIC -architecture BEH -library WORK -parameters "N = 4"
-change_selection [get_s MUX21_GENERIC_N4]
-change_selection [get_s MUX21_GENERIC_N4]
-change_selection -name __slctBus383 -type {cell design} _sel1825
-change_selection [get_s C14]
-change_selection [get_s C14]
-change_selection [get_s C14]
-change_selection 
-write -hierarchy -format ddc
-write -hierarchy -format vhdl -output /home/ms19.15/gr15_lab01/ex1/ex1.1/syn/mux21_generic_4_beh.vhdl
+change_selection [get_s And1]
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection -name __slctBus18 -type {cell design} _sel538
+change_selection [get_s Not1]
+change_selection [get_s And1]
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection [get_s Or2]

@@ -8,26 +8,26 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-vcom -reportprogress 300 -work work /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/constants.vhd
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/constants.vhd
 # Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
 # -- Loading package standard
 # -- Compiling package constants
-vcom -reportprogress 300 -work work /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/fd.vhd
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/fd_generic.vhd
 # Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
 # -- Loading package standard
 # -- Loading package std_logic_1164
 # -- Loading package constants
 # -- Compiling entity fd
-# -- Compiling architecture pippo of fd
-# -- Compiling architecture pluto of fd
+# -- Compiling architecture syncarch of fd
+# -- Compiling architecture asyncarch of fd
 # -- Loading entity fd
-# -- Compiling configuration cfg_fd_pippo
+# -- Compiling configuration cfg_fd_syncarch
 # -- Loading entity fd
-# -- Loading architecture pippo of fd
-# -- Compiling configuration cfg_fd_pluto
+# -- Loading architecture syncarch of fd
+# -- Compiling configuration cfg_fd_asyncarch
 # -- Loading entity fd
-# -- Loading architecture pluto of fd
-vcom -reportprogress 300 -work work /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/tb_fd.vhd
+# -- Loading architecture asyncarch of fd
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/tb_fd_generic.vhd
 # Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
 # -- Loading package standard
 # -- Loading package std_logic_1164
@@ -38,109 +38,25 @@ vcom -reportprogress 300 -work work /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/tb_fd
 # -- Loading entity tbfd
 # -- Loading architecture test of tbfd
 # -- Loading entity fd
-# -- Loading configuration cfg_fd_pippo
-# -- Loading configuration cfg_fd_pluto
-vcom -reportprogress 300 -work work /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/constants.vhd
-# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
-# -- Loading package standard
-# -- Compiling package constants
-vcom -reportprogress 300 -work work /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/fd.vhd
-# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package constants
-# -- Compiling entity fd
-# -- Compiling architecture pippo of fd
-# -- Compiling architecture pluto of fd
-# -- Loading entity fd
-# -- Compiling configuration cfg_fd_pippo
-# -- Loading entity fd
-# -- Loading architecture pippo of fd
-# -- Compiling configuration cfg_fd_pluto
-# -- Loading entity fd
-# -- Loading architecture pluto of fd
-vcom -reportprogress 300 -work work /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/tb_fd.vhd
-# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package constants
-# -- Compiling entity tbfd
-# -- Compiling architecture test of tbfd
-# -- Compiling configuration fdtest
-# -- Loading entity tbfd
-# -- Loading architecture test of tbfd
-# -- Loading entity fd
-# -- Loading configuration cfg_fd_pippo
-# -- Loading configuration cfg_fd_pluto
+# -- Loading configuration cfg_fd_syncarch
+# -- Loading configuration cfg_fd_asyncarch
 vsim -t 10ps -novopt work.fdtest
 # vsim -t 10ps -novopt work.fdtest 
 # Loading std.standard
 # Loading ieee.std_logic_1164(body)
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/work.constants
 # Loading work.constants
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.fdtest
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/work.fdtest
 # Loading work.fdtest
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.tbfd(test)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/work.tbfd(test)
 # Loading work.tbfd(test)
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.cfg_fd_pippo
-# Loading work.cfg_fd_pippo
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.fd(pippo)
-# Loading work.fd(pippo)
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.cfg_fd_pluto
-# Loading work.cfg_fd_pluto
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.fd(pluto)
-# Loading work.fd(pluto)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/work.cfg_fd_syncarch
+# Loading work.cfg_fd_syncarch
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/work.fd(syncarch)
+# Loading work.fd(syncarch)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/work.cfg_fd_asyncarch
+# Loading work.cfg_fd_asyncarch
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/sim/work.fd(asyncarch)
+# Loading work.fd(asyncarch)
 add waves *
-run 100 ns
-vcom -reportprogress 300 -work work /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/constants.vhd
-# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
-# -- Loading package standard
-# -- Compiling package constants
-vcom -reportprogress 300 -work work /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/fd.vhd
-# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package constants
-# -- Compiling entity fd
-# -- Compiling architecture pippo of fd
-# -- Compiling architecture pluto of fd
-# -- Loading entity fd
-# -- Compiling configuration cfg_fd_pippo
-# -- Loading entity fd
-# -- Loading architecture pippo of fd
-# -- Compiling configuration cfg_fd_pluto
-# -- Loading entity fd
-# -- Loading architecture pluto of fd
-vcom -reportprogress 300 -work work /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/tb_fd.vhd
-# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
-# -- Loading package standard
-# -- Loading package std_logic_1164
-# -- Loading package constants
-# -- Compiling entity tbfd
-# -- Compiling architecture test of tbfd
-# -- Compiling configuration fdtest
-# -- Loading entity tbfd
-# -- Loading architecture test of tbfd
-# -- Loading entity fd
-# -- Loading configuration cfg_fd_pippo
-# -- Loading configuration cfg_fd_pluto
-vsim -t 10ps -novopt work.fdtest
-# vsim -t 10ps -novopt work.fdtest 
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.constants
-# Loading work.constants
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.fdtest
-# Loading work.fdtest
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.tbfd(test)
-# Loading work.tbfd(test)
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.cfg_fd_pippo
-# Loading work.cfg_fd_pippo
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.fd(pippo)
-# Loading work.fd(pippo)
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.cfg_fd_pluto
-# Loading work.cfg_fd_pluto
-# Refreshing /home/ms19.15/gr15_lab01/ex1/ex1.2/sim/work.fd(pluto)
-# Loading work.fd(pluto)
-add waves *
-run 100 ns
+run 10 ns

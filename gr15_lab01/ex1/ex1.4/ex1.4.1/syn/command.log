@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Sun Mar 17 21:55:08 2019
+#@ # Date:   Wed Mar 20 21:48:25 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4720,7 +4720,7 @@ source /software/synopsys/syn_current_64/admin/setup/.synopsys_dc.setup
 #@ 
 #@ # -- End source /software/synopsys/syn_current_64/admin/setup/.synopsys_dc.setup
 
-source /home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/syn/.synopsys_dc.setup
+source /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/syn/.synopsys_dc.setup
 #@ #
 #@ #		".synopsys_dc.setup" Initialization File for
 #@ #
@@ -4769,19 +4769,6 @@ source /home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/syn/.synopsys_dc.setup
 #@ 
 #@ 
 #@ 
-#@ # -- End source /home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/syn/.synopsys_dc.setup
+#@ # -- End source /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/syn/.synopsys_dc.setup
 
 gui_start
-analyze -library WORK -format vhdl {/home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/syn/rca.vhd /home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/syn/lfsr.vhd /home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/syn/fa.vhd /home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/syn/constants.vhd}
-elaborate RCA -library WORK
-change_selection [get_s RCA]
-change_selection [get_s RCA]
-change_selection -name __slctBus6 -type {cell design} _sel51
-change_selection [get_s add_52]
-change_selection [get_s add_52]
-change_selection [get_s add_52_2]
-change_selection [get_s add_52_2]
-change_selection [get_s add_52_2]
-change_selection [get_s add_52]
-change_selection [get_s add_52]
-write -hierarchy -format vhdl -output /home/ms19.15/gr15_lab01/ex1/ex1.4/ex1.4.1/syn/rca.vhdl

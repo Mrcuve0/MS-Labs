@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Sun Mar 17 15:10:11 2019
+#@ # Date:   Tue Mar 19 23:27:47 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4720,7 +4720,7 @@ source /software/synopsys/syn_current_64/admin/setup/.synopsys_dc.setup
 #@ 
 #@ # -- End source /software/synopsys/syn_current_64/admin/setup/.synopsys_dc.setup
 
-source /home/ms19.15/gr15_lab01/ex1.2/syn/.synopsys_dc.setup
+source /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/syn/.synopsys_dc.setup
 #@ #
 #@ #		".synopsys_dc.setup" Initialization File for
 #@ #
@@ -4769,19 +4769,54 @@ source /home/ms19.15/gr15_lab01/ex1.2/syn/.synopsys_dc.setup
 #@ 
 #@ 
 #@ 
-#@ # -- End source /home/ms19.15/gr15_lab01/ex1.2/syn/.synopsys_dc.setup
+#@ # -- End source /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/syn/.synopsys_dc.setup
 
 gui_start
-analyze -library WORK -format vhdl {/home/ms19.15/gr15_lab01/ex1.2/syn/fd.vhd /home/ms19.15/gr15_lab01/ex1.2/syn/constants.vhd}
-elaborate FD -architecture PIPPO -library DEFAULT -parameters "N = "
-elaborate FD -architecture PIPPO -library DEFAULT
-change_selection [get_s FD]
-change_selection [get_s FD]
-change_selection -name __slctBus6 -type {cell design} _sel51
-compile -exact_map
-change_selection [get_s FD]
-change_selection [get_s FD]
+analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab01/ex1/ex1.2/syn/fd_generic.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/syn/constants.vhd}
+elaborate FD -architecture SYNCARCH -library WORK -parameters "N = 4"
+change_selection [get_s FD_N4]
+change_selection [get_s FD_N4]
+change_selection -name __slctBus6 -type {cell design} _sel67
+gui_scroll -habs 70331 -vabs -1578 -window [gui_get_current_window -view]
+change_selection [get_s *Logic0*]
+change_selection [get_s {{Q_reg[1]}}]
+change_selection [get_s {{Q_reg[1]}}]
+change_selection [get_s *Logic0*]
+write -hierarchy -format vhdl -output /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/syn/fd_generic_4_sync.vhdl
+elaborate FD -architecture ASYNCARCH -library WORK -parameters "N = 4"
+change_selection [get_s FD_N4_1]
+change_selection [get_s FD_N4_1]
+change_selection -name __slctBus110 -type {cell design} _sel548
+change_selection [get_s *Logic0*]
 change_selection 
-change_selection [get_s FD]
-change_selection -name __slctBus18 -type {cell design} _sel186
-write -hierarchy -format vhdl -output /home/ms19.15/gr15_lab01/ex1.2/syn/fd_beh.vhdl
+change_selection [get_s *Logic0*]
+elaborate FD -architecture SYNCARCH -library WORK -parameters "N = 4"
+change_selection [get_s FD_N4]
+change_selection [get_s FD_N4]
+change_selection -name __slctBus118 -type {cell design} _sel1084
+change_selection [get_s C15]
+change_selection [get_s C15]
+change_selection [get_s C15]
+write -hierarchy -format ddc
+change_selection 
+change_selection [get_s *Logic0*]
+current_design FD_N4_1
+change_selection [get_s FD_N4_1]
+change_selection [get_s FD_N4_1]
+change_selection [get_s FD_N4_1]
+change_selection [get_s FD_N4_1]
+change_selection -name __slctBus264 -type {cell design} _sel2223
+change_selection [get_s *Logic1*]
+elaborate FD -architecture ASYNCARCH -library WORK -parameters "N = 4"
+change_selection [get_s FD_N4_1]
+change_selection [get_s FD_N4_1]
+change_selection -name __slctBus272 -type {cell design} _sel2705
+change_selection [get_s *Logic0*]
+write -hierarchy -format vhdl -output /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/syn/fd_generic_4_async.vhdl
+elaborate FD -architecture SYNCARCH -library WORK -parameters "N = 4"
+change_selection [get_s FD_N4]
+change_selection [get_s FD_N4]
+change_selection [get_s FD_N4]
+change_selection [get_s FD_N4]
+change_selection -name __slctBus280 -type {cell design} _sel2850
+write -hierarchy -format vhdl -output /home/ms19.15/MS/gr15_lab01/ex1/ex1.2/syn/fd_generic_4_sync.vhdl
