@@ -22,13 +22,6 @@ architecture beh of OR21_GENERIC is
 
 begin  -- architecture beh
 
-  Y <= A or B; -- after NDDELAY;
+  Y <= A or B after NDDELAY;
 
 end architecture beh;
-
-configuration CFG_OR21_GEN_BEHAVIORAL of OR21_GENERIC is
-
-  for beh
-  end for;
-
-end configuration CFG_OR21_GEN_BEHAVIORAL;

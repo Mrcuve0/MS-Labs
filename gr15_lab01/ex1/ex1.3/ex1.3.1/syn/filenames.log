@@ -156,8 +156,14 @@
 /software/synopsys/syn_current_64/auxx/gui/common/pathinspector/create_window_and_menu.tcl
 /software/synopsys/syn_current_64/auxx/gui/common/misc/infotip.tcl
 /software/synopsys/syn_current_64/auxx/gui/common/misc/viewporthistory.tcl
-/home/ms19.15/gr15_lab01/ex1.1/syn/mux21_generic.vhd
+/home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/or21_generic.vhd
+/home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/not_generic.vhd
+/home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/mux21_generic.vhd
+/home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/constants.vhd
+/home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/and21_generic.vhd
 /home/mariagrazia.graziano/do/libnangate/NangateOpenCellLibrary_typical_ecsm.db
 /software/synopsys/syn_current_64/libraries/syn/gtech.db
 /software/synopsys/syn_current_64/libraries/syn/standard.sldb
 /software/synopsys/syn_current_64/libraries/syn/generic.sdb
+/home/mariagrazia.graziano/do/libnangate/NangateOpenCellLibrary_typical_ecsm.db
+/home/mariagrazia.graziano/do/libnangate/NangateOpenCellLibrary_typical_ecsm.db

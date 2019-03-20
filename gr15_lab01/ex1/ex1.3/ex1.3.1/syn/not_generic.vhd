@@ -22,13 +22,6 @@ architecture beh of NOT_GENERIC is
 
 begin  -- architecture beh
 
-  Y <= not A; -- after IVDELAY;
+  Y <= not A after IVDELAY;
 
 end architecture beh;
-
-configuration CFG_NOT_GEN_BEHAVIORAL of NOT_GENERIC is
-
-  for beh
-  end for;
-
-end configuration CFG_NOT_GEN_BEHAVIORAL;

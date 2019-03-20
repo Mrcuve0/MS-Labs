@@ -3,18 +3,18 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-package CONV_PACK_MUX21_GENERIC is
+package CONV_PACK_MUX21_GENERIC_N4_1 is
 
 -- define attributes
 attribute ENUM_ENCODING : STRING;
 
-end CONV_PACK_MUX21_GENERIC;
+end CONV_PACK_MUX21_GENERIC_N4_1;
 
 library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_MUX21_GENERIC.all;
+use work.CONV_PACK_MUX21_GENERIC_N4_1.all;
 
 entity AND21_GENERIC_N4_1 is
 
@@ -42,7 +42,7 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_MUX21_GENERIC.all;
+use work.CONV_PACK_MUX21_GENERIC_N4_1.all;
 
 entity OR21_GENERIC_N4 is
 
@@ -70,7 +70,7 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_MUX21_GENERIC.all;
+use work.CONV_PACK_MUX21_GENERIC_N4_1.all;
 
 entity NOT_GENERIC_N4 is
 
@@ -98,7 +98,7 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_MUX21_GENERIC.all;
+use work.CONV_PACK_MUX21_GENERIC_N4_1.all;
 
 entity AND21_GENERIC_N4_0 is
 
@@ -126,16 +126,16 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_MUX21_GENERIC.all;
+use work.CONV_PACK_MUX21_GENERIC_N4_1.all;
 
-entity MUX21_GENERIC is
+entity MUX21_GENERIC_N4_1 is
 
    port( A, B : in std_logic_vector (3 downto 0);  SEL : in std_logic;  Y : out
          std_logic_vector (3 downto 0));
 
-end MUX21_GENERIC;
+end MUX21_GENERIC_N4_1;
 
-architecture SYN_struct of MUX21_GENERIC is
+architecture SYN_struct of MUX21_GENERIC_N4_1 is
 
    component OR21_GENERIC_N4
       port( A, B : in std_logic_vector (3 downto 0);  Y : out std_logic_vector 

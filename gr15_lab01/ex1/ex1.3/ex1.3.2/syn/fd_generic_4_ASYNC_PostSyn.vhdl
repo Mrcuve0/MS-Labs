@@ -3,27 +3,27 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-package CONV_PACK_FD is
+package CONV_PACK_FD_N4 is
 
 -- define attributes
 attribute ENUM_ENCODING : STRING;
 
-end CONV_PACK_FD;
+end CONV_PACK_FD_N4;
 
 library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_FD.all;
+use work.CONV_PACK_FD_N4.all;
 
-entity FD is
+entity FD_N4 is
 
    port( D : in std_logic_vector (3 downto 0);  CK, RESET : in std_logic;  Q : 
          out std_logic_vector (3 downto 0));
 
-end FD;
+end FD_N4;
 
-architecture SYN_PLUTO of FD is
+architecture SYN_ASYNCARCH of FD_N4 is
 
    component INV_X1
       port( A : in std_logic;  ZN : out std_logic);
@@ -47,4 +47,4 @@ begin
                            QN => n_1003);
    U4 : INV_X1 port map( A => RESET, ZN => n1);
 
-end SYN_PLUTO;
+end SYN_ASYNCARCH;

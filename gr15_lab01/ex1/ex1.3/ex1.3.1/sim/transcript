@@ -32,5 +32,7 @@ vsim -t 10ps -novopt work.mux21gentest
 # Loading work.not_generic(beh)
 # Refreshing /home/ms19.15/gr15_lab01/ex1.1/sim/work.or21_generic(beh)
 # Loading work.or21_generic(beh)
+add waves
+# unknown command "add waves"
 add waves *
 run 100 ns

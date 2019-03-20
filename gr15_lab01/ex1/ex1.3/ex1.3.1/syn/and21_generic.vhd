@@ -23,13 +23,6 @@ architecture beh of AND21_GENERIC is
 
 begin  -- architecture beh
 
-  Y <= A and B; -- after NDDELAY;
+  Y <= A and B after NDDELAY;
 
 end architecture beh;
-
-configuration CFG_AND21_GEN_BEHAVIORAL of AND21_GENERIC is
-
-  for beh
-  end for;
-
-end configuration CFG_AND21_GEN_BEHAVIORAL;

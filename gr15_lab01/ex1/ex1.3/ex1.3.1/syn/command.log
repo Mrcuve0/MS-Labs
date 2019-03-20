@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Thu Mar 14 22:44:48 2019
+#@ # Date:   Wed Mar 20 20:06:36 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4720,7 +4720,7 @@ source /software/synopsys/syn_current_64/admin/setup/.synopsys_dc.setup
 #@ 
 #@ # -- End source /software/synopsys/syn_current_64/admin/setup/.synopsys_dc.setup
 
-source /home/ms19.15/gr15_lab01/ex1.1/syn/.synopsys_dc.setup
+source /home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/.synopsys_dc.setup
 #@ #
 #@ #		".synopsys_dc.setup" Initialization File for
 #@ #
@@ -4769,14 +4769,34 @@ source /home/ms19.15/gr15_lab01/ex1.1/syn/.synopsys_dc.setup
 #@ 
 #@ 
 #@ 
-#@ # -- End source /home/ms19.15/gr15_lab01/ex1.1/syn/.synopsys_dc.setup
+#@ # -- End source /home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/.synopsys_dc.setup
 
 gui_start
-analyze -library WORK -format vhdl {/home/ms19.15/gr15_lab01/ex1.1/syn/mux21_generic.vhd}
-elaborate MUX21_GENERIC -library WORK
-change_selection [get_s MUX21_GENERIC]
-change_selection [get_s MUX21_GENERIC]
-change_selection -name __slctBus6 -type {cell design} _sel103
-change_selection 
-gui_scroll -habs 66823 -vabs -18121 -window [gui_get_current_window -view]
+analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/or21_generic.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/not_generic.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/mux21_generic.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/constants.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/and21_generic.vhd}
+elaborate MUX21_GENERIC -architecture BEH -library WORK -parameters "N = 4, DELAY_MUX = "
+elaborate MUX21_GENERIC -architecture BEH -library WORK -parameters "N = 4"
+change_selection [get_s MUX21_GENERIC_N4]
+change_selection [get_s MUX21_GENERIC_N4]
+change_selection -name __slctBus6 -type {cell design} _sel43
+change_selection [get_s C14]
+compile -exact_map
+change_selection [get_s MUX21_GENERIC_N4]
+change_selection [get_s MUX21_GENERIC_N4]
+change_selection -name __slctBus64 -type {cell design} _sel212
+write -hierarchy -format vhdl -output /home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/mux21_generic_4_BEH_PostSyn.vhdl
+elaborate MUX21_GENERIC -architecture STRUCT -library WORK -parameters "N = 4, DELAY_MUX = , DELAY_MUX = "
+elaborate MUX21_GENERIC -architecture STRUCT -library WORK -parameters "N = 4"
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection -name __slctBus72 -type {cell design} _sel341
 change_selection [get_s And1]
+change_selection 
+change_selection [get_s Not1]
+change_selection [get_s {{And2/Y[3:0]} {And2/Y[3]} {And2/Y[2]} {And2/Y[1]} {And2/Y[0]} And2}]
+change_selection [get_s And2]
+compile -exact_map
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection [get_s MUX21_GENERIC_N4_1]
+change_selection -name __slctBus363 -type {cell design} _sel559
+change_selection [get_s And1]
+write -hierarchy -format vhdl -output /home/ms19.15/MS/gr15_lab01/ex1/ex1.3/ex1.3.1/syn/mux21_generic_4_STRUCT_PostSyn.vhdl

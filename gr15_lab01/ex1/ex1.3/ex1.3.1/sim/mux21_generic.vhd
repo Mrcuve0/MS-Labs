@@ -3,12 +3,12 @@ use ieee.std_logic_1164.all;
 use WORK.constants.all;
 
 entity MUX21_GENERIC is
-	Generic (N: integer:= numbit;
-                 DELAY_MUX: Time:= tp_mux);
-	Port (	A:	In	std_logic_vector(N-1 downto 0);
-		B:	In	std_logic_vector(N-1 downto 0);
-		SEL:	In	std_logic;
-		Y:	Out	std_logic_vector(N-1 downto 0));
+  generic (N         : integer := numbit;
+           DELAY_MUX : time    := tp_mux);
+  port (A           : in  std_logic_vector(N-1 downto 0);
+                B   : in  std_logic_vector(N-1 downto 0);
+                SEL : in  std_logic;
+                Y   : out std_logic_vector(N-1 downto 0));
 end entity;
 
 -------------------------------------------------------------------------------
@@ -22,9 +22,9 @@ begin  -- architecture beh
   process (A, B, SEL) is
   begin  -- process
     case SEL is
-    when '0' => Y <= A after TP_MUX;
-    when others => Y <= B after TP_MUX;
-  end case;
+      when '0'    => Y <= A after TP_MUX;
+      when others => Y <= B after TP_MUX;
+    end case;
   end process;
   
 
@@ -38,8 +38,8 @@ architecture struct of MUX21_GENERIC is
   
   component AND21_GENERIC is
     generic (
-      N         : integer
-    );
+      N : integer
+      );
     port (
       A : in  std_logic_vector(N-1 downto 0);
       B : in  std_logic_vector(N-1 downto 0);
@@ -48,8 +48,8 @@ architecture struct of MUX21_GENERIC is
 
   component NOT_GENERIC is
     generic (
-      N         : integer
-    );
+      N : integer
+      );
     port (
       A : in  std_logic_vector(N-1 downto 0);
       Y : out std_logic_vector(N-1 downto 0));
@@ -57,8 +57,8 @@ architecture struct of MUX21_GENERIC is
 
   component OR21_GENERIC is
     generic (
-      N        : integer
-    );
+      N : integer
+      );
     port (
       A : in  std_logic_vector(N-1 downto 0);
       B : in  std_logic_vector(N-1 downto 0);
@@ -66,34 +66,34 @@ architecture struct of MUX21_GENERIC is
   end component OR21_GENERIC;
 
   signal NotAnd1_s, AndOr1_s, AndOr2_s : std_logic_vector(N-1 downto 0);
-  signal S_s : std_logic_vector(N-1 downto 0);
+  signal S_s                           : std_logic_vector(N-1 downto 0);
   
 begin  -- architecture struct
 
-  S_s <= (others =>  SEL );
+  S_s <= (others => SEL);
 
   And1 : AND21_GENERIC generic map (
     N => N) port map (
-    A => A,
-    B => NotAnd1_s,
-    Y => AndOr1_s);
+      A => A,
+      B => NotAnd1_s,
+      Y => AndOr1_s);
 
   Not1 : NOT_GENERIC generic map (
     N => N) port  map (
-    A => S_s,
-    Y => NotAnd1_s);
+      A => S_s,
+      Y => NotAnd1_s);
 
   And2 : AND21_GENERIC generic map (
     N => N) port map (
-    A => B,
-    B => S_s,
-    Y => AndOr2_s);
+      A => B,
+      B => S_s,
+      Y => AndOr2_s);
 
   Or2 : OR21_GENERIC generic map (
     N => N) port map (
-    A => AndOr1_s,
-    B => AndOr2_s,
-    Y => Y);
+      A => AndOr1_s,
+      B => AndOr2_s,
+      Y => Y);
 
 end architecture struct;
 
