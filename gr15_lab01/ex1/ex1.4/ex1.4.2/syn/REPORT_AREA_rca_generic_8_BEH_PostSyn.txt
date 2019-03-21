@@ -1,0 +1,28 @@
+ 
+****************************************
+Report : area
+Design : RCA_N8
+Version: F-2011.09-SP3
+Date   : Thu Mar 21 18:38:54 2019
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /home/mariagrazia.graziano/do/libnangate/NangateOpenCellLibrary_typical_ecsm.db)
+
+Number of ports:                           26
+Number of nets:                            27
+Number of cells:                            1
+Number of combinational cells:              0
+Number of sequential cells:                 0
+Number of macros:                           0
+Number of buf/inv:                          0
+Number of references:                       1
+
+Combinational area:         34.048000
+Noncombinational area:       0.000000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:            34.048000
+Total area:                 undefined

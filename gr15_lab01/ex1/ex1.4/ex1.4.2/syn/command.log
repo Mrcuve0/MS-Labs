@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Wed Mar 20 21:57:42 2019
+#@ # Date:   Thu Mar 21 18:44:35 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4773,19 +4773,21 @@ source /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.2/syn/.synopsys_dc.setup
 
 gui_start
 read_file -format vhdl {/home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.2/syn/rca_generic_8_BEH_PostSyn.vhdl}
+current_design RCA_N8
+current_design RCA_N8_DW01_add_0
+current_design RCA_N8
+current_design RCA_N8_DW01_add_0
+current_design RCA_N8
+current_design RCA_N8_DW01_add_0
+current_design RCA_N8
+current_design RCA_N8_DW01_add_0
 change_selection [get_s RCA_N8_DW01_add_0]
 change_selection [get_s RCA_N8_DW01_add_0]
-change_selection -name __slctBus6 -type {cell design} _sel59
-uplevel #0 { report_area -nosplit }
-uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group }
-read_file -format vhdl {/home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.2/syn/rca_generic_8_BEH_PostSyn.vhdl}
+change_selection -name __slctBus6 -type {cell design} _sel207
+current_design RCA_N8
+change_selection [get_s RCA_N8]
+current_design RCA_N8_DW01_add_0
 change_selection [get_s RCA_N8_DW01_add_0]
-change_selection [get_s RCA_N8_DW01_add_0]
-change_selection -name __slctBus18 -type {cell design} _sel387
-uplevel #0 { report_area -nosplit }
-uplevel #0 { report_area -nosplit }
-uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group }
-read_file -format vhdl {/home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.2/syn/rca_generic_8_STRUCT_PostSyn.vhdl}
-change_selection [get_s FA_7]
-uplevel #0 { report_area -nosplit }
-uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group }
+current_design RCA_N8
+change_selection [get_s RCA_N8]
+current_design RCA_N8_DW01_add_0
