@@ -33,7 +33,7 @@ begin
 
   CTMP(0) <= Ci;
   S       <= STMP;
-  Co      <= CTMP(6);
+  Co      <= CTMP(N);
 
   ADDER1 : for I in 1 to N generate
     FAI : FA
