@@ -1,0 +1,35 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : ALU_N4
+Version: F-2011.09-SP3
+Date   : Mon Mar 25 18:42:05 2019
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: OUTALU_reg[3]
+              (positive level-sensitive latch)
+  Endpoint: OUTALU[3] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  ALU_N4             5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  OUTALU_reg[3]/G (DLH_X1)                 0.00       0.00 r
+  OUTALU_reg[3]/Q (DLH_X1)                 0.06       0.06 f
+  OUTALU[3] (out)                          0.00       0.06 f
+  data arrival time                                   0.06
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+

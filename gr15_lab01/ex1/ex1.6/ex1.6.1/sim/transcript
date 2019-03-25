@@ -1,0 +1,45 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-957.5.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+vsim -t 10ps -novopt work.alu_test
+# vsim -t 10ps -novopt work.alu_test 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu_types
+# Loading work.alu_types
+# Loading ieee.numeric_std(body)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu_test
+# Loading work.alu_test
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.tbalu(test)
+# Loading work.tbalu(test)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.cfg_alu_behavioral
+# Loading work.cfg_alu_behavioral
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu(behavior)
+# Loading work.alu(behavior)
+add waves *
+run 50 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu_types
+# Loading work.alu_types
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu_test
+# Loading work.alu_test
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.tbalu(test)
+# Loading work.tbalu(test)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.cfg_alu_behavioral
+# Loading work.cfg_alu_behavioral
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu(behavior)
+# Loading work.alu(behavior)
+run 50 ns

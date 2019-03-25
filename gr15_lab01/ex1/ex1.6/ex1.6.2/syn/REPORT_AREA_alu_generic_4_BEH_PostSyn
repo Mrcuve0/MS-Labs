@@ -1,0 +1,28 @@
+ 
+****************************************
+Report : area
+Design : ALU_N4
+Version: F-2011.09-SP3
+Date   : Mon Mar 25 18:41:33 2019
+****************************************
+
+Information: Updating design information... (UID-85)
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /home/mariagrazia.graziano/do/libnangate/NangateOpenCellLibrary_typical_ecsm.db)
+
+Number of ports:                           16
+Number of nets:                           126
+Number of cells:                          114
+Number of combinational cells:            110
+Number of sequential cells:                 4
+Number of macros:                           0
+Number of buf/inv:                         24
+Number of references:                      23
+
+Combinational area:        125.286000
+Noncombinational area:      10.640000
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:           135.926000
+Total area:                 undefined
