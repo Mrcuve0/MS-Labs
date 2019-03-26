@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Mon Mar 25 17:15:21 2019
+#@ # Date:   Tue Mar 26 19:45:20 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4773,10 +4773,11 @@ source /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/syn/.synopsys_dc.setup
 
 gui_start
 analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/syn/constants.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/syn/alu_type.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/syn/alu.vhd}
-analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/syn/constants.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/syn/alu_type.vhd /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/syn/alu.vhd}
 elaborate ALU -architecture BEHAVIOR -library WORK -parameters "N = 4"
 change_selection [get_s ALU_N4]
 change_selection [get_s ALU_N4]
+change_selection -name __slctBus6 -type {cell design} _sel59
+compile -exact_map
 change_selection [get_s ALU_N4]
 change_selection [get_s ALU_N4]
-change_selection -name __slctBus6 -type {cell design} _sel67
+change_selection -name __slctBus18 -type {cell design} _sel476

@@ -4,7 +4,7 @@ K3
 cModel Technology
 Z0 d/home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim
 Ealu
-Z1 w1553527990
+Z1 w1553605010
 Z2 DPx4 work 9 alu_types 0 22 UANB;G>K[=S;Pl8mFhLnJ3
 Z3 DPx4 work 9 constants 0 22 b=@60QTLViN;e@RYl>n6`3
 Z4 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
@@ -24,17 +24,17 @@ R3
 R4
 R5
 Z10 DEx4 work 3 alu 0 22 5HnOkZULz<2?IRi7kKQ3Q1
-l18
-L16
-V4_X68YRm?TbhM4X1jMS[61
-!s100 ]HDcnCFjHIX_bz?Def`oP2
-R8
 32
 Z11 Mx4 4 ieee 14 std_logic_1164
 Z12 Mx3 4 ieee 11 numeric_std
 Z13 Mx2 4 work 9 constants
 Z14 Mx1 4 work 9 alu_types
+l18
+L16
+V7m283[;DzlThR5bRan8QS0
+R8
 R9
+!s100 kg?G;>iKkB;N:G6BeE6Y;3
 Calu_test
 atest
 etbalu
@@ -48,14 +48,6 @@ Z15 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
 Z16 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
 R5
 Z17 DEx4 work 5 tbalu 0 22 n9<NS<D[WXdk^zQX91zRQ2
-Z18 w1553528616
-Z19 8tb_alu.vhd
-Z20 Ftb_alu.vhd
-l0
-L56
-V4<4EbiR[dALJ[AmcOXNSi3
-!s100 U>zg^BCbkU;5XgA^<7zjS0
-R8
 32
 Mx6 4 ieee 14 std_logic_1164
 Mx5 4 ieee 18 std_logic_unsigned
@@ -63,8 +55,17 @@ Mx4 4 ieee 15 std_logic_arith
 Mx3 4 work 9 constants
 Mx2 4 work 9 alu_types
 Mx1 4 ieee 11 numeric_std
+Z18 w1553604117
+Z19 8tb_alu.vhd
+Z20 Ftb_alu.vhd
+l0
+L56
+V4<4EbiR[dALJ[AmcOXNSi3
+R8
 R9
+!s100 U>zg^BCbkU;5XgA^<7zjS0
 Palu_types
+32
 w1553527342
 8alu_type.vhd
 Falu_type.vhd
@@ -72,33 +73,33 @@ l0
 L1
 VUANB;G>K[=S;Pl8mFhLnJ3
 R8
-32
 R9
 !s100 JG`KD:]KzMXSZ@CU>9:O:3
 Ccfg_alu_behavioral
 abehavior
 ealu
-DAx4 work 3 alu 8 behavior 22 4_X68YRm?TbhM4X1jMS[61
+DAx4 work 3 alu 8 behavior 22 7m283[;DzlThR5bRan8QS0
 R2
 R3
 R4
 R5
 R10
-R1
-R6
-R7
-l0
-L51
-V[N0XeIg_ec28>07bPX7WE0
-R8
 32
 R11
 R12
 R13
 R14
+R1
+R6
+R7
+l0
+L63
+V[N0XeIg_ec28>07bPX7WE0
+R8
 R9
-!s100 l5B4BbkXfEF5i^m1:hdgD3
+!s100 FVnMBDd8F@6O7mIeKJ1_g1
 Pconstants
+32
 w1552830656
 8constants.vhd
 Fconstants.vhd
@@ -106,7 +107,6 @@ l0
 L1
 Vb=@60QTLViN;e@RYl>n6`3
 R8
-32
 R9
 !s100 VE<<U5>Fn;8_HfK=;^hL=0
 Etbalu
@@ -121,10 +121,10 @@ R20
 l0
 L9
 Vn9<NS<D[WXdk^zQX91zRQ2
-!s100 1JSkJ`JPm2`Yc3Zaj<7nD2
 R8
 32
 R9
+!s100 1JSkJ`JPm2`Yc3Zaj<7nD2
 Atest
 R2
 R3
@@ -132,15 +132,15 @@ R15
 R16
 R5
 R17
+32
+Mx5 4 ieee 14 std_logic_1164
+Mx4 4 ieee 18 std_logic_unsigned
+Mx3 4 ieee 15 std_logic_arith
+R13
+R14
 l26
 L12
 Vo0PmdFE;aQABZ_KA>J0Wj0
-!s100 hGWcHi8jRZWFZF0@I4PK:1
 R8
-32
-Z21 Mx5 4 ieee 14 std_logic_1164
-Z22 Mx4 4 ieee 18 std_logic_unsigned
-Z23 Mx3 4 ieee 15 std_logic_arith
-R13
-R14
 R9
+!s100 hGWcHi8jRZWFZF0@I4PK:1

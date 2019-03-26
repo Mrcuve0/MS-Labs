@@ -7,7 +7,7 @@ Report : timing
         -sort_by group
 Design : ALU_N4
 Version: F-2011.09-SP3
-Date   : Mon Mar 25 18:42:05 2019
+Date   : Tue Mar 26 19:58:18 2019
 ****************************************
 
 Operating Conditions: typical   Library: NangateOpenCellLibrary

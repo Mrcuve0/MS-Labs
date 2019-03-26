@@ -22,27 +22,39 @@ begin
 
   begin
     case FUNC is
-      when ADD     =>
+      when ADD =>
         OUTALU <= std_logic_vector(unsigned(DATA1) + unsigned(DATA2));
-      when SUB     =>
+      when SUB =>
         OUTALU <= std_logic_vector(unsigned(DATA1) - unsigned(DATA2));
-      when MULT    =>
+      when MULT =>
         OUTALU <= std_logic_vector(unsigned(DATA1((N-1)/2 downto 0)) * unsigned(DATA2((N-1)/2 downto 0)));
-      when BITAND  =>                   -- Bitwise Operations
-        OUTALU <= DATA1 and DATA2;   
-      when BITOR   =>
+      when BITAND =>                    -- Bitwise Operations
+        OUTALU <= DATA1 and DATA2;
+      when BITOR =>
         OUTALU <= DATA1 or DATA2;
-      when BITXOR  =>
+      when BITXOR =>
         OUTALU <= DATA1 xor DATA2;
-      when FUNCLSL =>                   -- Logical Shift Left (Use concatenation)
-        OUTALU <= std_logic_vector(unsigned(DATA1) sll to_integer(unsigned(DATA2)));  
+      when FUNCLSL =>  -- Logical Shift Left (Use concatenation)
+        OUTALU(N-1 downto 1) <= DATA1(N-2 downto 0);
+        OUTALU(0)            <= '0';
+      -- Next line: DATA1 shiftedLeft by DATA2 positions (tested and working)
+      -- OUTALU <= std_logic_vector(unsigned(DATA1) sll to_integer(unsigned(DATA2)));  
       when FUNCLSR =>
-        OUTALU <= std_logic_vector(unsigned(DATA1) srl to_integer(unsigned(DATA2)));                -- Logical Shift Right
-      when FUNCRL  =>
-        OUTALU <= std_logic_vector(unsigned(DATA1) rol to_integer(unsigned(DATA2)));                -- Rotate Left
-      when FUNCRR  =>
-        OUTALU <= std_logic_vector(unsigned(DATA1) ror to_integer(unsigned(DATA2)));                -- Rotate Right
-      when others  => null;
+        OUTALU(N-2 downto 0) <= DATA1(N-1 downto 1);
+        OUTALU(N-1)          <= '0';
+      -- Next line: DATA1 shiftedRight by DATA2 positions (tested and working)
+      -- OUTALU <= std_logic_vector(unsigned(DATA1) srl to_integer(unsigned(DATA2)));             -- Logical Shift Right
+      when FUNCRL =>
+        OUTALU(N-1 downto 1) <= DATA1(N-2 downto 0);
+        OUTALU(0)            <= DATA1(N-1);
+      -- Next line: DATA1 rotatedLeft by DATA2 positions (tested and working)
+      -- OUTALU <= std_logic_vector(unsigned(DATA1) rol to_integer(unsigned(DATA2)));  -- Rotate Left
+      when FUNCRR =>
+        OUTALU(N-2 downto 0) <= DATA1(N-1 downto 1);
+        OUTALU(N-1)          <= DATA1(0);
+      -- Next line: DATA1 rotatedRight by DATA2 positions (tested and working  
+      -- OUTALU <= std_logic_vector(unsigned(DATA1) ror to_integer(unsigned(DATA2)));  -- Rotate Right
+      when others => null;
     end case;
   end process P_ALU;
 

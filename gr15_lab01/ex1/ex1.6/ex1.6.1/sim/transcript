@@ -43,3 +43,43 @@ restart
 # Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu(behavior)
 # Loading work.alu(behavior)
 run 50 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu_types
+# Loading work.alu_types
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu_test
+# Loading work.alu_test
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.tbalu(test)
+# Loading work.tbalu(test)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.cfg_alu_behavioral
+# Loading work.cfg_alu_behavioral
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu(behavior)
+# Loading work.alu(behavior)
+run 50 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu_types
+# Loading work.alu_types
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu_test
+# Loading work.alu_test
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.tbalu(test)
+# Loading work.tbalu(test)
+# Loading work.cfg_alu_behavioral
+# Loading work.alu(behavior)
+run 50 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu_types
+# Loading work.alu_types
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu_test
+# Loading work.alu_test
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.tbalu(test)
+# Loading work.tbalu(test)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.cfg_alu_behavioral
+# Loading work.cfg_alu_behavioral
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.1/sim/work.alu(behavior)
+# Loading work.alu(behavior)
+run 50 ns

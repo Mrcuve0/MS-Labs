@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Mon Mar 25 18:27:53 2019
+#@ # Date:   Tue Mar 26 19:53:56 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4777,17 +4777,13 @@ elaborate ALU -architecture BEHAVIOR -library WORK -parameters "N = 4"
 change_selection [get_s ALU_N4]
 change_selection [get_s ALU_N4]
 change_selection -name __slctBus6 -type {cell design} _sel51
-change_selection [get_s {{OUTALU_reg[0]/Q} {OUTALU_reg[0]} {OUTALU_reg[3]} {OUTALU[0]} {OUTALU[3:0]} {OUTALU[3]} {OUTALU[2]} {OUTALU[1]} {OUTALU[0]}}]
-change_selection 
-change_selection [get_s {N25 N0 N1 N2 N3 N4 N5 N6 N7 N8 N9}]
-change_selection [get_s N82]
-change_selection [get_s N32]
 compile -exact_map
 change_selection [get_s ALU_N4]
 change_selection [get_s ALU_N4]
-change_selection -name __slctBus18 -type {cell design} _sel1731
-change_selection 
-write -hierarchy -format vhdl -output /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.2/syn/alu_generic_4_BEH_PostSyn.vhd.vhdl
+change_selection [get_s ALU_N4]
+change_selection [get_s ALU_N4]
+change_selection -name __slctBus18 -type {cell design} _sel297
+write -hierarchy -format vhdl -output /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.2/syn/alu_generic_4_BEH_PostSyn.vhdl
 write -hierarchy -format vhdl -output /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.2/syn/alu_generic_4_BEH_PostSyn.vhdl
 write -hierarchy -format verilog -output /home/ms19.15/MS/gr15_lab01/ex1/ex1.6/ex1.6.2/syn/alu_generic_4_BEH_PostSyn.v
 uplevel #0 { report_area -nosplit }
