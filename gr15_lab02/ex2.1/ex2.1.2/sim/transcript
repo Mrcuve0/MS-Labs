@@ -1,0 +1,33 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-957.5.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+vsim -t 10ps -novopt work.tb(tb_arch)
+# vsim -t 10ps -novopt work.tb(tb_arch) 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.2/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.2/sim/work.tb(tb_arch)
+# Loading work.tb(tb_arch)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.2/sim/work.csb_generic(struct)
+# Loading work.csb_generic(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.2/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.2/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.2/sim/work.mux21_generic(beh)
+# Loading work.mux21_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.2/sim/work.lfsr16(rtl)
+# Loading work.lfsr16(rtl)
+add waves *
+run 200 ns
