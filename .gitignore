@@ -5,6 +5,7 @@
 *.syn
 *.mr
 *.vif
+*.wlf
 *.vhd~
 *.sh~
 work/
