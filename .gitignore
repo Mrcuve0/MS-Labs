@@ -5,3 +5,5 @@
 *.syn
 *.mr
 *.vif
+*.vhd~
+*.sh~
