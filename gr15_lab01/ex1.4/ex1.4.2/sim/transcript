@@ -1,0 +1,212 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-957.5.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/constants.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Compiling package constants
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/fa.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity fa
+# -- Compiling architecture behavioral of fa
+# -- Compiling configuration cfg_fa_behavioral
+# -- Loading entity fa
+# -- Loading architecture behavioral of fa
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/lfsr.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity lfsr16
+# -- Compiling architecture rtl of lfsr16
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/rca_generic.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package constants
+# -- Compiling entity rca
+# -- Compiling architecture structural of rca
+# -- Compiling architecture behavioral of rca
+# -- Loading entity rca
+# -- Compiling configuration cfg_rca_structural
+# -- Loading entity rca
+# -- Loading architecture structural of rca
+# -- Loading entity fa
+# -- Loading configuration cfg_fa_behavioral
+# -- Compiling configuration cfg_rca_behavioral
+# -- Loading entity rca
+# -- Loading architecture behavioral of rca
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/tb_rca.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package constants
+# -- Compiling entity tbrca
+# -- Compiling architecture test of tbrca
+# -- Compiling configuration rcatest
+# -- Loading entity tbrca
+# -- Loading architecture test of tbrca
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading entity rca
+# -- Loading entity lfsr16
+# -- Loading configuration cfg_rca_structural
+# -- Loading configuration cfg_rca_behavioral
+vsim -t 10ps -novopt work.rcatest
+# vsim -t 10ps -novopt work.rcatest 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.constants
+# Loading work.constants
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.rcatest
+# Loading work.rcatest
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.tbrca(test)
+# Loading work.tbrca(test)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.cfg_rca_structural
+# Loading work.cfg_rca_structural
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.cfg_fa_behavioral
+# Loading work.cfg_fa_behavioral
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.cfg_rca_behavioral
+# Loading work.cfg_rca_behavioral
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.rca(behavioral)
+# Loading work.rca(behavioral)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.lfsr16(rtl)
+# Loading work.lfsr16(rtl)
+add waves *
+run 100 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tbrca/uadder3
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/constants.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Compiling package constants
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/constants.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Compiling package constants
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/fa.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity fa
+# -- Compiling architecture behavioral of fa
+# -- Compiling configuration cfg_fa_behavioral
+# -- Loading entity fa
+# -- Loading architecture behavioral of fa
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/lfsr.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Compiling entity lfsr16
+# -- Compiling architecture rtl of lfsr16
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/rca_generic.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package constants
+# -- Compiling entity rca
+# -- Compiling architecture structural of rca
+# -- Compiling architecture behavioral of rca
+# -- Loading entity rca
+# -- Compiling configuration cfg_rca_structural
+# -- Loading entity rca
+# -- Loading architecture structural of rca
+# -- Loading entity fa
+# -- Loading configuration cfg_fa_behavioral
+# -- Compiling configuration cfg_rca_behavioral
+# -- Loading entity rca
+# -- Loading architecture behavioral of rca
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/tb_rca.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package constants
+# -- Compiling entity tbrca
+# -- Compiling architecture test of tbrca
+# -- Compiling configuration rcatest
+# -- Loading entity tbrca
+# -- Loading architecture test of tbrca
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading entity rca
+# -- Loading entity lfsr16
+# -- Loading configuration cfg_rca_structural
+# -- Loading configuration cfg_rca_behavioral
+vsim -t 10ps -novopt work.rcatest
+# vsim -t 10ps -novopt work.rcatest 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.constants
+# Loading work.constants
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.rcatest
+# Loading work.rcatest
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.tbrca(test)
+# Loading work.tbrca(test)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.cfg_rca_structural
+# Loading work.cfg_rca_structural
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.cfg_fa_behavioral
+# Loading work.cfg_fa_behavioral
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.cfg_rca_behavioral
+# Loading work.cfg_rca_behavioral
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.rca(behavioral)
+# Loading work.rca(behavioral)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.4/ex1.4.1/sim/work.lfsr16(rtl)
+# Loading work.lfsr16(rtl)
+add waves *
+run 100 ns
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 0  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tbrca/uadder3
+# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
+#    Time: 0 ps  Iteration: 1  Instance: /tbrca/uadder3

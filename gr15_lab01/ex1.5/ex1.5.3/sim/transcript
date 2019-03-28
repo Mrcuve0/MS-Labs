@@ -1,0 +1,71 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-957.5.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+vsim -t 10ps -novopt work.cfg_testacc
+# vsim -t 10ps -novopt work.cfg_testacc 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.5/ex1.5.2/sim/work.constants
+# Loading work.constants
+# Loading ieee.numeric_std(body)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.5/ex1.5.2/sim/work.cfg_testacc
+# Loading work.cfg_testacc
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.5/ex1.5.2/sim/work.acc_tb(test)
+# Loading work.acc_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.5/ex1.5.2/sim/work.cfg_acc_struct
+# Loading work.cfg_acc_struct
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.5/ex1.5.2/sim/work.acc(struct)
+# Loading work.acc(struct)
+# Loading work.cfg_mux21_gen_structural
+# Loading work.mux21_generic(struct)
+# Loading work.and21_generic(beh)
+# Loading work.not_generic(beh)
+# Loading work.or21_generic(beh)
+# Loading work.cfg_fd_syncarch
+# Loading work.fd_generic(syncarch)
+# Loading work.cfg_rca_structural
+# Loading work.rca_generic(structural)
+# Loading work.cfg_fa_behavioral
+# Loading work.fa(behavioral)
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.5/ex1.5.2/sim/work.cfg_acc_beh
+# Loading work.cfg_acc_beh
+# Refreshing /home/ms19.15/MS/gr15_lab01/ex1/ex1.5/ex1.5.2/sim/work.acc(beh)
+# Loading work.acc(beh)
+add waves *
+run 100 ns
+vsim -t 10ps -novopt work.cfg_testacc
+# vsim -t 10ps -novopt work.cfg_testacc 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.constants
+# Loading ieee.numeric_std(body)
+# Loading work.cfg_testacc
+# Loading work.acc_tb(test)
+# Loading work.cfg_acc_struct
+# Loading work.acc(struct)
+# Loading work.cfg_mux21_gen_structural
+# Loading work.mux21_generic(struct)
+# Loading work.and21_generic(beh)
+# Loading work.not_generic(beh)
+# Loading work.or21_generic(beh)
+# Loading work.cfg_fd_syncarch
+# Loading work.fd_generic(syncarch)
+# Loading work.cfg_rca_structural
+# Loading work.rca_generic(structural)
+# Loading work.cfg_fa_behavioral
+# Loading work.fa(behavioral)
+# Loading work.cfg_acc_beh
+# Loading work.acc(beh)
+add waves *
+run 100 ns
