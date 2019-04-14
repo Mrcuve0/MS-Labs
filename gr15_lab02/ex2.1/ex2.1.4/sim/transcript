@@ -1,0 +1,88 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-957.5.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+vsim -t 10ps -novopt work.tb
+# vsim -t 10ps -novopt work.tb 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.constants
+# Loading work.constants
+# Loading ieee.math_real(body)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.tb(tb_arch)
+# Loading work.tb(tb_arch)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.sparsetree(struct)
+# Loading work.sparsetree(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.pgnetwork(struct)
+# Loading work.pgnetwork(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.specialpgblock(struct)
+# Loading work.specialpgblock(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.pgnetblock(beh)
+# Loading work.pgnetblock(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.generalgenerate(beh)
+# Loading work.generalgenerate(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.st_row1and2(struct)
+# Loading work.st_row1and2(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.triblockspecial(struct)
+# Loading work.triblockspecial(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.generalpropagategenerate(beh)
+# Loading work.generalpropagategenerate(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.triblock(struct)
+# Loading work.triblock(struct)
+add wave *
+run 100 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.tb(tb_arch)
+# Loading work.tb(tb_arch)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.sparsetree(struct)
+# Loading work.sparsetree(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.pgnetwork(struct)
+# Loading work.pgnetwork(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.specialpgblock(struct)
+# Loading work.specialpgblock(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.pgnetblock(beh)
+# Loading work.pgnetblock(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.generalgenerate(beh)
+# Loading work.generalgenerate(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.st_row1and2(struct)
+# Loading work.st_row1and2(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.triblockspecial(struct)
+# Loading work.triblockspecial(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.generalpropagategenerate(beh)
+# Loading work.generalpropagategenerate(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.triblock(struct)
+# Loading work.triblock(struct)
+run 100 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.tb(tb_arch)
+# Loading work.tb(tb_arch)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.sparsetree(struct)
+# Loading work.sparsetree(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.pgnetwork(struct)
+# Loading work.pgnetwork(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.specialpgblock(struct)
+# Loading work.specialpgblock(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.pgnetblock(beh)
+# Loading work.pgnetblock(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.generalgenerate(beh)
+# Loading work.generalgenerate(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.st_row1and2(struct)
+# Loading work.st_row1and2(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.triblockspecial(struct)
+# Loading work.triblockspecial(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.generalpropagategenerate(beh)
+# Loading work.generalpropagategenerate(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sim/work.triblock(struct)
+# Loading work.triblock(struct)
+run 100 ns

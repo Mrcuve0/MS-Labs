@@ -3,18 +3,18 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-package CONV_PACK_SparseTree_N64_RADIX4 is
+package CONV_PACK_SparseTree_N64_RADIX4_1 is
 
 -- define attributes
 attribute ENUM_ENCODING : STRING;
 
-end CONV_PACK_SparseTree_N64_RADIX4;
+end CONV_PACK_SparseTree_N64_RADIX4_1;
 
 library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_SparseTree_N64_RADIX4.all;
+use work.CONV_PACK_SparseTree_N64_RADIX4_1.all;
 
 entity triBlock is
 
@@ -59,7 +59,7 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_SparseTree_N64_RADIX4.all;
+use work.CONV_PACK_SparseTree_N64_RADIX4_1.all;
 
 entity triBlockSpecial is
 
@@ -103,7 +103,7 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_SparseTree_N64_RADIX4.all;
+use work.CONV_PACK_SparseTree_N64_RADIX4_1.all;
 
 entity PGNetBlock is
 
@@ -132,7 +132,7 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_SparseTree_N64_RADIX4.all;
+use work.CONV_PACK_SparseTree_N64_RADIX4_1.all;
 
 entity SpecialPGBlock is
 
@@ -166,7 +166,7 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_SparseTree_N64_RADIX4.all;
+use work.CONV_PACK_SparseTree_N64_RADIX4_1.all;
 
 entity GeneralPropagateGenerate is
 
@@ -200,7 +200,7 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_SparseTree_N64_RADIX4.all;
+use work.CONV_PACK_SparseTree_N64_RADIX4_1.all;
 
 entity GeneralGenerate is
 
@@ -232,7 +232,7 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_SparseTree_N64_RADIX4.all;
+use work.CONV_PACK_SparseTree_N64_RADIX4_1.all;
 
 entity ST_row1And2_N64 is
 
@@ -373,7 +373,7 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_SparseTree_N64_RADIX4.all;
+use work.CONV_PACK_SparseTree_N64_RADIX4_1.all;
 
 entity PGNetwork_N64 is
 
@@ -529,16 +529,16 @@ library IEEE;
 
 use IEEE.std_logic_1164.all;
 
-use work.CONV_PACK_SparseTree_N64_RADIX4.all;
+use work.CONV_PACK_SparseTree_N64_RADIX4_1.all;
 
-entity SparseTree_N64_RADIX4 is
+entity SparseTree_N64_RADIX4_1 is
 
    port( A, B : in std_logic_vector (63 downto 0);  Cin : in std_logic;  
          carryVector : out std_logic_vector (15 downto 0));
 
-end SparseTree_N64_RADIX4;
+end SparseTree_N64_RADIX4_1;
 
-architecture SYN_struct of SparseTree_N64_RADIX4 is
+architecture SYN_struct of SparseTree_N64_RADIX4_1 is
 
    component GeneralGenerate
       port( Gk_1 : in std_logic;  GikPik : in std_logic_vector (1 downto 0);  
@@ -560,7 +560,12 @@ architecture SYN_struct of SparseTree_N64_RADIX4 is
             gpSignals : out std_logic_vector (127 downto 0));
    end component;
    
-   signal X_Logic0_port, sigMatrix_0_127_port, sigMatrix_0_126_port, 
+   signal carryVector_15_port, carryVector_14_port, carryVector_13_port, 
+      carryVector_12_port, carryVector_11_port, carryVector_10_port, 
+      carryVector_9_port, carryVector_8_port, carryVector_7_port, 
+      carryVector_6_port, carryVector_5_port, carryVector_4_port, 
+      carryVector_3_port, carryVector_2_port, carryVector_1_port, 
+      carryVector_0_port, sigMatrix_0_127_port, sigMatrix_0_126_port, 
       sigMatrix_0_125_port, sigMatrix_0_124_port, sigMatrix_0_123_port, 
       sigMatrix_0_122_port, sigMatrix_0_121_port, sigMatrix_0_120_port, 
       sigMatrix_0_119_port, sigMatrix_0_118_port, sigMatrix_0_117_port, 
@@ -613,33 +618,37 @@ architecture SYN_struct of SparseTree_N64_RADIX4 is
       sigMatrix_1_46_port, sigMatrix_1_39_port, sigMatrix_1_38_port, 
       sigMatrix_1_31_port, sigMatrix_1_30_port, sigMatrix_1_23_port, 
       sigMatrix_1_22_port, sigMatrix_1_15_port, sigMatrix_1_14_port, 
-      sigMatrix_1_7_port, sigMatrix_2_127_port, sigMatrix_2_126_port, 
-      sigMatrix_2_111_port, sigMatrix_2_110_port, sigMatrix_2_95_port, 
-      sigMatrix_2_94_port, sigMatrix_2_79_port, sigMatrix_2_78_port, 
-      sigMatrix_2_63_port, sigMatrix_2_62_port, sigMatrix_2_47_port, 
-      sigMatrix_2_46_port, sigMatrix_2_31_port, sigMatrix_2_30_port, 
-      sigMatrix_2_7_port, sigMatrix_3_127_port, sigMatrix_3_126_port, 
-      sigMatrix_3_119_port, sigMatrix_3_118_port, sigMatrix_3_95_port, 
-      sigMatrix_3_94_port, sigMatrix_3_63_port, sigMatrix_3_62_port, 
-      sigMatrix_3_55_port, sigMatrix_3_54_port, sigMatrix_3_7_port, 
-      sigMatrix_4_127_port, sigMatrix_4_126_port, sigMatrix_4_119_port, 
-      sigMatrix_4_118_port, sigMatrix_4_111_port, sigMatrix_4_110_port, 
-      sigMatrix_4_103_port, sigMatrix_4_102_port, sigMatrix_4_7_port, n_1114, 
-      n_1115, n_1116, n_1117, n_1118, n_1119, n_1120, n_1121, n_1122, n_1123, 
-      n_1124, n_1125, n_1126, n_1127, n_1128, n_1129, n_1130, n_1131, n_1132, 
-      n_1133, n_1134, n_1135, n_1136, n_1137, n_1138, n_1139, n_1140, n_1141, 
-      n_1142, n_1143, n_1144, n_1145, n_1146, n_1147, n_1148, n_1149, n_1150, 
-      n_1151, n_1152, n_1153, n_1154, n_1155, n_1156, n_1157, n_1158, n_1159, 
-      n_1160, n_1161, n_1162, n_1163, n_1164, n_1165, n_1166, n_1167, n_1168, 
-      n_1169, n_1170, n_1171, n_1172, n_1173, n_1174, n_1175, n_1176, n_1177, 
-      n_1178, n_1179, n_1180, n_1181, n_1182, n_1183, n_1184, n_1185, n_1186, 
-      n_1187, n_1188, n_1189, n_1190, n_1191, n_1192, n_1193, n_1194, n_1195, 
-      n_1196, n_1197, n_1198, n_1199, n_1200, n_1201, n_1202, n_1203, n_1204, 
-      n_1205, n_1206, n_1207, n_1208, n_1209, n_1210, n_1211, n_1212, n_1213, 
-      n_1214, n_1215, n_1216, n_1217, n_1218, n_1219, n_1220, n_1221, n_1222, 
-      n_1223, n_1224 : std_logic;
+      sigMatrix_2_127_port, sigMatrix_2_126_port, sigMatrix_2_111_port, 
+      sigMatrix_2_110_port, sigMatrix_2_95_port, sigMatrix_2_94_port, 
+      sigMatrix_2_79_port, sigMatrix_2_78_port, sigMatrix_2_63_port, 
+      sigMatrix_2_62_port, sigMatrix_2_47_port, sigMatrix_2_46_port, 
+      sigMatrix_2_31_port, sigMatrix_2_30_port, sigMatrix_3_127_port, 
+      sigMatrix_3_126_port, sigMatrix_3_119_port, sigMatrix_3_118_port, 
+      sigMatrix_3_95_port, sigMatrix_3_94_port, sigMatrix_3_87_port, 
+      sigMatrix_3_86_port, sigMatrix_3_63_port, sigMatrix_3_62_port, 
+      sigMatrix_3_55_port, sigMatrix_3_54_port, sigMatrix_4_127_port, 
+      sigMatrix_4_126_port, sigMatrix_4_119_port, sigMatrix_4_118_port, 
+      sigMatrix_4_111_port, sigMatrix_4_110_port, sigMatrix_4_103_port, 
+      sigMatrix_4_102_port, n_1098, n_1099, n_1100, n_1101, n_1102, n_1103, 
+      n_1104, n_1105, n_1106, n_1107, n_1108, n_1109, n_1110, n_1111, n_1112, 
+      n_1113, n_1114, n_1115, n_1116, n_1117, n_1118, n_1119, n_1120, n_1121, 
+      n_1122, n_1123, n_1124, n_1125, n_1126, n_1127, n_1128, n_1129, n_1130, 
+      n_1131, n_1132, n_1133, n_1134, n_1135, n_1136, n_1137, n_1138, n_1139, 
+      n_1140, n_1141, n_1142, n_1143, n_1144, n_1145, n_1146, n_1147, n_1148, 
+      n_1149, n_1150, n_1151, n_1152, n_1153, n_1154, n_1155, n_1156, n_1157, 
+      n_1158, n_1159, n_1160, n_1161, n_1162, n_1163, n_1164, n_1165, n_1166, 
+      n_1167, n_1168, n_1169, n_1170, n_1171, n_1172, n_1173, n_1174, n_1175, 
+      n_1176, n_1177, n_1178, n_1179, n_1180, n_1181, n_1182, n_1183, n_1184, 
+      n_1185, n_1186, n_1187, n_1188, n_1189, n_1190, n_1191, n_1192, n_1193, 
+      n_1194 : std_logic;
 
 begin
+   carryVector <= ( carryVector_15_port, carryVector_14_port, 
+      carryVector_13_port, carryVector_12_port, carryVector_11_port, 
+      carryVector_10_port, carryVector_9_port, carryVector_8_port, 
+      carryVector_7_port, carryVector_6_port, carryVector_5_port, 
+      carryVector_4_port, carryVector_3_port, carryVector_2_port, 
+      carryVector_1_port, carryVector_0_port );
    
    PGNetwork_1 : PGNetwork_N64 port map( A(63) => A(63), A(62) => A(62), A(61) 
                            => A(61), A(60) => A(60), A(59) => A(59), A(58) => 
@@ -936,145 +945,146 @@ begin
                            input(2) => sigMatrix_0_2_port, input(1) => 
                            sigMatrix_0_1_port, input(0) => sigMatrix_0_0_port, 
                            output(127) => sigMatrix_1_127_port, output(126) => 
-                           sigMatrix_1_126_port, output(125) => n_1114, 
-                           output(124) => n_1115, output(123) => n_1116, 
-                           output(122) => n_1117, output(121) => n_1118, 
-                           output(120) => n_1119, output(119) => 
+                           sigMatrix_1_126_port, output(125) => n_1098, 
+                           output(124) => n_1099, output(123) => n_1100, 
+                           output(122) => n_1101, output(121) => n_1102, 
+                           output(120) => n_1103, output(119) => 
                            sigMatrix_1_119_port, output(118) => 
-                           sigMatrix_1_118_port, output(117) => n_1120, 
-                           output(116) => n_1121, output(115) => n_1122, 
-                           output(114) => n_1123, output(113) => n_1124, 
-                           output(112) => n_1125, output(111) => 
+                           sigMatrix_1_118_port, output(117) => n_1104, 
+                           output(116) => n_1105, output(115) => n_1106, 
+                           output(114) => n_1107, output(113) => n_1108, 
+                           output(112) => n_1109, output(111) => 
                            sigMatrix_1_111_port, output(110) => 
-                           sigMatrix_1_110_port, output(109) => n_1126, 
-                           output(108) => n_1127, output(107) => n_1128, 
-                           output(106) => n_1129, output(105) => n_1130, 
-                           output(104) => n_1131, output(103) => 
+                           sigMatrix_1_110_port, output(109) => n_1110, 
+                           output(108) => n_1111, output(107) => n_1112, 
+                           output(106) => n_1113, output(105) => n_1114, 
+                           output(104) => n_1115, output(103) => 
                            sigMatrix_1_103_port, output(102) => 
-                           sigMatrix_1_102_port, output(101) => n_1132, 
-                           output(100) => n_1133, output(99) => n_1134, 
-                           output(98) => n_1135, output(97) => n_1136, 
-                           output(96) => n_1137, output(95) => 
+                           sigMatrix_1_102_port, output(101) => n_1116, 
+                           output(100) => n_1117, output(99) => n_1118, 
+                           output(98) => n_1119, output(97) => n_1120, 
+                           output(96) => n_1121, output(95) => 
                            sigMatrix_1_95_port, output(94) => 
-                           sigMatrix_1_94_port, output(93) => n_1138, 
-                           output(92) => n_1139, output(91) => n_1140, 
-                           output(90) => n_1141, output(89) => n_1142, 
-                           output(88) => n_1143, output(87) => 
+                           sigMatrix_1_94_port, output(93) => n_1122, 
+                           output(92) => n_1123, output(91) => n_1124, 
+                           output(90) => n_1125, output(89) => n_1126, 
+                           output(88) => n_1127, output(87) => 
                            sigMatrix_1_87_port, output(86) => 
-                           sigMatrix_1_86_port, output(85) => n_1144, 
-                           output(84) => n_1145, output(83) => n_1146, 
-                           output(82) => n_1147, output(81) => n_1148, 
-                           output(80) => n_1149, output(79) => 
+                           sigMatrix_1_86_port, output(85) => n_1128, 
+                           output(84) => n_1129, output(83) => n_1130, 
+                           output(82) => n_1131, output(81) => n_1132, 
+                           output(80) => n_1133, output(79) => 
                            sigMatrix_1_79_port, output(78) => 
-                           sigMatrix_1_78_port, output(77) => n_1150, 
-                           output(76) => n_1151, output(75) => n_1152, 
-                           output(74) => n_1153, output(73) => n_1154, 
-                           output(72) => n_1155, output(71) => 
+                           sigMatrix_1_78_port, output(77) => n_1134, 
+                           output(76) => n_1135, output(75) => n_1136, 
+                           output(74) => n_1137, output(73) => n_1138, 
+                           output(72) => n_1139, output(71) => 
                            sigMatrix_1_71_port, output(70) => 
-                           sigMatrix_1_70_port, output(69) => n_1156, 
-                           output(68) => n_1157, output(67) => n_1158, 
-                           output(66) => n_1159, output(65) => n_1160, 
-                           output(64) => n_1161, output(63) => 
+                           sigMatrix_1_70_port, output(69) => n_1140, 
+                           output(68) => n_1141, output(67) => n_1142, 
+                           output(66) => n_1143, output(65) => n_1144, 
+                           output(64) => n_1145, output(63) => 
                            sigMatrix_1_63_port, output(62) => 
-                           sigMatrix_1_62_port, output(61) => n_1162, 
-                           output(60) => n_1163, output(59) => n_1164, 
-                           output(58) => n_1165, output(57) => n_1166, 
-                           output(56) => n_1167, output(55) => 
+                           sigMatrix_1_62_port, output(61) => n_1146, 
+                           output(60) => n_1147, output(59) => n_1148, 
+                           output(58) => n_1149, output(57) => n_1150, 
+                           output(56) => n_1151, output(55) => 
                            sigMatrix_1_55_port, output(54) => 
-                           sigMatrix_1_54_port, output(53) => n_1168, 
-                           output(52) => n_1169, output(51) => n_1170, 
-                           output(50) => n_1171, output(49) => n_1172, 
-                           output(48) => n_1173, output(47) => 
+                           sigMatrix_1_54_port, output(53) => n_1152, 
+                           output(52) => n_1153, output(51) => n_1154, 
+                           output(50) => n_1155, output(49) => n_1156, 
+                           output(48) => n_1157, output(47) => 
                            sigMatrix_1_47_port, output(46) => 
-                           sigMatrix_1_46_port, output(45) => n_1174, 
-                           output(44) => n_1175, output(43) => n_1176, 
-                           output(42) => n_1177, output(41) => n_1178, 
-                           output(40) => n_1179, output(39) => 
+                           sigMatrix_1_46_port, output(45) => n_1158, 
+                           output(44) => n_1159, output(43) => n_1160, 
+                           output(42) => n_1161, output(41) => n_1162, 
+                           output(40) => n_1163, output(39) => 
                            sigMatrix_1_39_port, output(38) => 
-                           sigMatrix_1_38_port, output(37) => n_1180, 
-                           output(36) => n_1181, output(35) => n_1182, 
-                           output(34) => n_1183, output(33) => n_1184, 
-                           output(32) => n_1185, output(31) => 
+                           sigMatrix_1_38_port, output(37) => n_1164, 
+                           output(36) => n_1165, output(35) => n_1166, 
+                           output(34) => n_1167, output(33) => n_1168, 
+                           output(32) => n_1169, output(31) => 
                            sigMatrix_1_31_port, output(30) => 
-                           sigMatrix_1_30_port, output(29) => n_1186, 
-                           output(28) => n_1187, output(27) => n_1188, 
-                           output(26) => n_1189, output(25) => n_1190, 
-                           output(24) => n_1191, output(23) => 
+                           sigMatrix_1_30_port, output(29) => n_1170, 
+                           output(28) => n_1171, output(27) => n_1172, 
+                           output(26) => n_1173, output(25) => n_1174, 
+                           output(24) => n_1175, output(23) => 
                            sigMatrix_1_23_port, output(22) => 
-                           sigMatrix_1_22_port, output(21) => n_1192, 
-                           output(20) => n_1193, output(19) => n_1194, 
-                           output(18) => n_1195, output(17) => n_1196, 
-                           output(16) => n_1197, output(15) => 
+                           sigMatrix_1_22_port, output(21) => n_1176, 
+                           output(20) => n_1177, output(19) => n_1178, 
+                           output(18) => n_1179, output(17) => n_1180, 
+                           output(16) => n_1181, output(15) => 
                            sigMatrix_1_15_port, output(14) => 
-                           sigMatrix_1_14_port, output(13) => n_1198, 
-                           output(12) => n_1199, output(11) => n_1200, 
-                           output(10) => n_1201, output(9) => n_1202, output(8)
-                           => n_1203, output(7) => sigMatrix_1_7_port, 
-                           output(6) => n_1204, output(5) => n_1205, output(4) 
-                           => n_1206, output(3) => n_1207, output(2) => n_1208,
-                           output(1) => n_1209, output(0) => n_1210);
-   G_1_0_0_0 : GeneralGenerate port map( Gk_1 => sigMatrix_1_7_port, GikPik(1) 
+                           sigMatrix_1_14_port, output(13) => n_1182, 
+                           output(12) => n_1183, output(11) => n_1184, 
+                           output(10) => n_1185, output(9) => n_1186, output(8)
+                           => n_1187, output(7) => carryVector_0_port, 
+                           output(6) => n_1188, output(5) => n_1189, output(4) 
+                           => n_1190, output(3) => n_1191, output(2) => n_1192,
+                           output(1) => n_1193, output(0) => n_1194);
+   G_1_0_0_0 : GeneralGenerate port map( Gk_1 => carryVector_0_port, GikPik(1) 
                            => sigMatrix_1_15_port, GikPik(0) => 
-                           sigMatrix_1_14_port, Gij => sigMatrix_2_7_port);
-   PG_x_0_1_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
+                           sigMatrix_1_14_port, Gij => carryVector_1_port);
+   PG_1_0_1_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_1_23_port, Gk_1Pk_1(0) => 
                            sigMatrix_1_22_port, GikPik(1) => 
                            sigMatrix_1_31_port, GikPik(0) => 
                            sigMatrix_1_30_port, GijPij(1) => 
                            sigMatrix_2_31_port, GijPij(0) => 
                            sigMatrix_2_30_port);
-   PG_x_0_2_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
+   PG_1_0_2_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_1_39_port, Gk_1Pk_1(0) => 
                            sigMatrix_1_38_port, GikPik(1) => 
                            sigMatrix_1_47_port, GikPik(0) => 
                            sigMatrix_1_46_port, GijPij(1) => 
                            sigMatrix_2_47_port, GijPij(0) => 
                            sigMatrix_2_46_port);
-   PG_x_0_3_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
+   PG_1_0_3_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_1_55_port, Gk_1Pk_1(0) => 
                            sigMatrix_1_54_port, GikPik(1) => 
                            sigMatrix_1_63_port, GikPik(0) => 
                            sigMatrix_1_62_port, GijPij(1) => 
                            sigMatrix_2_63_port, GijPij(0) => 
                            sigMatrix_2_62_port);
-   PG_x_0_4_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
+   PG_1_0_4_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_1_71_port, Gk_1Pk_1(0) => 
                            sigMatrix_1_70_port, GikPik(1) => 
                            sigMatrix_1_79_port, GikPik(0) => 
                            sigMatrix_1_78_port, GijPij(1) => 
                            sigMatrix_2_79_port, GijPij(0) => 
                            sigMatrix_2_78_port);
-   PG_x_0_5_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
+   PG_1_0_5_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_1_87_port, Gk_1Pk_1(0) => 
                            sigMatrix_1_86_port, GikPik(1) => 
                            sigMatrix_1_95_port, GikPik(0) => 
                            sigMatrix_1_94_port, GijPij(1) => 
                            sigMatrix_2_95_port, GijPij(0) => 
                            sigMatrix_2_94_port);
-   PG_x_0_6_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
+   PG_1_0_6_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_1_103_port, Gk_1Pk_1(0) => 
                            sigMatrix_1_102_port, GikPik(1) => 
                            sigMatrix_1_111_port, GikPik(0) => 
                            sigMatrix_1_110_port, GijPij(1) => 
                            sigMatrix_2_111_port, GijPij(0) => 
                            sigMatrix_2_110_port);
-   PG_x_0_7_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
+   PG_1_0_7_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_1_119_port, Gk_1Pk_1(0) => 
                            sigMatrix_1_118_port, GikPik(1) => 
                            sigMatrix_1_127_port, GikPik(0) => 
                            sigMatrix_1_126_port, GijPij(1) => 
                            sigMatrix_2_127_port, GijPij(0) => 
                            sigMatrix_2_126_port);
-   G_1_1_0_0 : GeneralGenerate port map( Gk_1 => sigMatrix_2_7_port, GikPik(1) 
-                           => X_Logic0_port, GikPik(0) => X_Logic0_port, Gij =>
-                           sigMatrix_3_7_port);
-   G_1_1_0_1 : GeneralGenerate port map( Gk_1 => sigMatrix_2_7_port, GikPik(1) 
+   G_1_1_0_0 : GeneralGenerate port map( Gk_1 => carryVector_1_port, GikPik(1) 
+                           => sigMatrix_1_23_port, GikPik(0) => 
+                           sigMatrix_1_22_port, Gij => carryVector_2_port);
+   G_1_1_0_1 : GeneralGenerate port map( Gk_1 => carryVector_1_port, GikPik(1) 
                            => sigMatrix_2_31_port, GikPik(0) => 
-                           sigMatrix_2_30_port, Gij => n_1211);
+                           sigMatrix_2_30_port, Gij => carryVector_3_port);
    PG_1_1_1_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_2_47_port, Gk_1Pk_1(0) => 
-                           sigMatrix_2_46_port, GikPik(1) => X_Logic0_port, 
-                           GikPik(0) => X_Logic0_port, GijPij(1) => 
+                           sigMatrix_2_46_port, GikPik(1) => 
+                           sigMatrix_1_55_port, GikPik(0) => 
+                           sigMatrix_1_54_port, GijPij(1) => 
                            sigMatrix_3_55_port, GijPij(0) => 
                            sigMatrix_3_54_port);
    PG_1_1_1_1 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
@@ -1086,9 +1096,11 @@ begin
                            sigMatrix_3_62_port);
    PG_1_1_2_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_2_79_port, Gk_1Pk_1(0) => 
-                           sigMatrix_2_78_port, GikPik(1) => X_Logic0_port, 
-                           GikPik(0) => X_Logic0_port, GijPij(1) => n_1212, 
-                           GijPij(0) => n_1213);
+                           sigMatrix_2_78_port, GikPik(1) => 
+                           sigMatrix_1_87_port, GikPik(0) => 
+                           sigMatrix_1_86_port, GijPij(1) => 
+                           sigMatrix_3_87_port, GijPij(0) => 
+                           sigMatrix_3_86_port);
    PG_1_1_2_1 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_2_79_port, Gk_1Pk_1(0) => 
                            sigMatrix_2_78_port, GikPik(1) => 
@@ -1098,8 +1110,9 @@ begin
                            sigMatrix_3_94_port);
    PG_1_1_3_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_2_111_port, Gk_1Pk_1(0) => 
-                           sigMatrix_2_110_port, GikPik(1) => X_Logic0_port, 
-                           GikPik(0) => X_Logic0_port, GijPij(1) => 
+                           sigMatrix_2_110_port, GikPik(1) => 
+                           sigMatrix_1_119_port, GikPik(0) => 
+                           sigMatrix_1_118_port, GijPij(1) => 
                            sigMatrix_3_119_port, GijPij(0) => 
                            sigMatrix_3_118_port);
    PG_1_1_3_1 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
@@ -1109,28 +1122,30 @@ begin
                            sigMatrix_2_126_port, GijPij(1) => 
                            sigMatrix_3_127_port, GijPij(0) => 
                            sigMatrix_3_126_port);
-   G_1_2_0_0 : GeneralGenerate port map( Gk_1 => sigMatrix_3_7_port, GikPik(1) 
-                           => X_Logic0_port, GikPik(0) => X_Logic0_port, Gij =>
-                           sigMatrix_4_7_port);
-   G_1_2_0_1 : GeneralGenerate port map( Gk_1 => sigMatrix_3_7_port, GikPik(1) 
-                           => X_Logic0_port, GikPik(0) => X_Logic0_port, Gij =>
-                           n_1214);
-   G_1_2_0_2 : GeneralGenerate port map( Gk_1 => sigMatrix_3_7_port, GikPik(1) 
+   G_1_2_0_0 : GeneralGenerate port map( Gk_1 => carryVector_2_port, GikPik(1) 
+                           => sigMatrix_1_39_port, GikPik(0) => 
+                           sigMatrix_1_38_port, Gij => carryVector_4_port);
+   G_1_2_0_1 : GeneralGenerate port map( Gk_1 => carryVector_2_port, GikPik(1) 
+                           => sigMatrix_2_47_port, GikPik(0) => 
+                           sigMatrix_2_46_port, Gij => carryVector_5_port);
+   G_1_2_0_2 : GeneralGenerate port map( Gk_1 => carryVector_2_port, GikPik(1) 
                            => sigMatrix_3_55_port, GikPik(0) => 
-                           sigMatrix_3_54_port, Gij => n_1215);
-   G_1_2_0_3 : GeneralGenerate port map( Gk_1 => sigMatrix_3_7_port, GikPik(1) 
+                           sigMatrix_3_54_port, Gij => carryVector_6_port);
+   G_1_2_0_3 : GeneralGenerate port map( Gk_1 => carryVector_2_port, GikPik(1) 
                            => sigMatrix_3_63_port, GikPik(0) => 
-                           sigMatrix_3_62_port, Gij => n_1216);
+                           sigMatrix_3_62_port, Gij => carryVector_7_port);
    PG_1_2_1_0 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_3_95_port, Gk_1Pk_1(0) => 
-                           sigMatrix_3_94_port, GikPik(1) => X_Logic0_port, 
-                           GikPik(0) => X_Logic0_port, GijPij(1) => 
+                           sigMatrix_3_94_port, GikPik(1) => 
+                           sigMatrix_1_103_port, GikPik(0) => 
+                           sigMatrix_1_102_port, GijPij(1) => 
                            sigMatrix_4_103_port, GijPij(0) => 
                            sigMatrix_4_102_port);
    PG_1_2_1_1 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
                            sigMatrix_3_95_port, Gk_1Pk_1(0) => 
-                           sigMatrix_3_94_port, GikPik(1) => X_Logic0_port, 
-                           GikPik(0) => X_Logic0_port, GijPij(1) => 
+                           sigMatrix_3_94_port, GikPik(1) => 
+                           sigMatrix_2_111_port, GikPik(0) => 
+                           sigMatrix_2_110_port, GijPij(1) => 
                            sigMatrix_4_111_port, GijPij(0) => 
                            sigMatrix_4_110_port);
    PG_1_2_1_2 : GeneralPropagateGenerate port map( Gk_1Pk_1(1) => 
@@ -1147,30 +1162,29 @@ begin
                            sigMatrix_3_126_port, GijPij(1) => 
                            sigMatrix_4_127_port, GijPij(0) => 
                            sigMatrix_4_126_port);
-   G_1_3_0_0 : GeneralGenerate port map( Gk_1 => sigMatrix_4_7_port, GikPik(1) 
-                           => X_Logic0_port, GikPik(0) => X_Logic0_port, Gij =>
-                           n_1217);
-   G_1_3_0_1 : GeneralGenerate port map( Gk_1 => sigMatrix_4_7_port, GikPik(1) 
-                           => X_Logic0_port, GikPik(0) => X_Logic0_port, Gij =>
-                           n_1218);
-   G_1_3_0_2 : GeneralGenerate port map( Gk_1 => sigMatrix_4_7_port, GikPik(1) 
-                           => X_Logic0_port, GikPik(0) => X_Logic0_port, Gij =>
-                           n_1219);
-   G_1_3_0_3 : GeneralGenerate port map( Gk_1 => sigMatrix_4_7_port, GikPik(1) 
-                           => X_Logic0_port, GikPik(0) => X_Logic0_port, Gij =>
-                           n_1220);
-   G_1_3_0_4 : GeneralGenerate port map( Gk_1 => sigMatrix_4_7_port, GikPik(1) 
+   G_1_3_0_0 : GeneralGenerate port map( Gk_1 => carryVector_4_port, GikPik(1) 
+                           => sigMatrix_1_71_port, GikPik(0) => 
+                           sigMatrix_1_70_port, Gij => carryVector_8_port);
+   G_1_3_0_1 : GeneralGenerate port map( Gk_1 => carryVector_4_port, GikPik(1) 
+                           => sigMatrix_2_79_port, GikPik(0) => 
+                           sigMatrix_2_78_port, Gij => carryVector_9_port);
+   G_1_3_0_2 : GeneralGenerate port map( Gk_1 => carryVector_4_port, GikPik(1) 
+                           => sigMatrix_3_87_port, GikPik(0) => 
+                           sigMatrix_3_86_port, Gij => carryVector_10_port);
+   G_1_3_0_3 : GeneralGenerate port map( Gk_1 => carryVector_4_port, GikPik(1) 
+                           => sigMatrix_3_95_port, GikPik(0) => 
+                           sigMatrix_3_94_port, Gij => carryVector_11_port);
+   G_1_3_0_4 : GeneralGenerate port map( Gk_1 => carryVector_4_port, GikPik(1) 
                            => sigMatrix_4_103_port, GikPik(0) => 
-                           sigMatrix_4_102_port, Gij => n_1221);
-   G_1_3_0_5 : GeneralGenerate port map( Gk_1 => sigMatrix_4_7_port, GikPik(1) 
+                           sigMatrix_4_102_port, Gij => carryVector_12_port);
+   G_1_3_0_5 : GeneralGenerate port map( Gk_1 => carryVector_4_port, GikPik(1) 
                            => sigMatrix_4_111_port, GikPik(0) => 
-                           sigMatrix_4_110_port, Gij => n_1222);
-   G_1_3_0_6 : GeneralGenerate port map( Gk_1 => sigMatrix_4_7_port, GikPik(1) 
+                           sigMatrix_4_110_port, Gij => carryVector_13_port);
+   G_1_3_0_6 : GeneralGenerate port map( Gk_1 => carryVector_4_port, GikPik(1) 
                            => sigMatrix_4_119_port, GikPik(0) => 
-                           sigMatrix_4_118_port, Gij => n_1223);
-   G_1_3_0_7 : GeneralGenerate port map( Gk_1 => sigMatrix_4_7_port, GikPik(1) 
+                           sigMatrix_4_118_port, Gij => carryVector_14_port);
+   G_1_3_0_7 : GeneralGenerate port map( Gk_1 => carryVector_4_port, GikPik(1) 
                            => sigMatrix_4_127_port, GikPik(0) => 
-                           sigMatrix_4_126_port, Gij => n_1224);
-   X_Logic0_port <= '0';
+                           sigMatrix_4_126_port, Gij => carryVector_15_port);
 
 end SYN_struct;

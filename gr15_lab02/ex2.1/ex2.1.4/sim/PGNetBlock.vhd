@@ -3,11 +3,9 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity PGNetBlock is
-  
   port (
     a, b : in  std_logic;
     gp : out std_logic_vector(1 downto 0));  -- g (MSB), p (LSB)
-
 end entity PGNetBlock;
 
 -------------------------------------------------------------------------------

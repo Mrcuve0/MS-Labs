@@ -76,50 +76,56 @@ begin  -- architecture struct
       input  => sigMatrix(0),
       output => sigMatrix(1));
 
-  -- i = 0, 1, 2
-  -- j = 0, 1, 2, 3
-  -- k = 0, 1, 2, 3
+  carryVector(0) <= sigMatrix(1)(7);
+
 
   rowGen : for i in 0 to (rows-2)-1 generate  -- genera il numero di righe necessario
+    
     blockGen : for j in 0 to 2**(rows-3-i)-1 generate  -- genera i sottogruppi
-      
-      generateCondition : if j = 0 generate  -- Primo sottogruppo di ogni riga
-        groupingGenerate : for k in 0 to (2**i)-1 generate  -- Blocchi Generate da
-                                        -- generare nel sottogruppo
+
+
+      -------------------------------------------------------------------------
+      -- GENERATE
+      -------------------------------------------------------------------------
+      GENERATE_BLOCK : if j = 0 generate
+        
+        grouping_G : for k in 0 to (2**i)-1 generate
           G_1 : GeneralGenerate port map (
             Gk_1   => sigMatrix(1+i)(7),
-            GikPik => sigMatrix(1+i)((8*(2**i)) + 7 + (k*8) downto (8*(2**i)) + 6 + (k*8)),  --gli indici si spostano per ogni sottogruppo di 8* le potenze di
-                                        --2,-+8 per ogni blocco
+            GikPik => sigMatrix(1+i)((8*(2**i)) + 7 + (k*8) downto (8*(2**i)) + 6 + (k*8)),
             Gij    => sigMatrix(2+i)((k+1)*7));
-        end generate groupingGenerate;
-      end generate generateCondition;
 
-      propagateGenerateCondition : if j > 0 generate
-        
-        specialPGrow : if i = 0 generate
-          groupingPropagateGenerate : for k in 0 to (2**i)-1 generate
-            PG_x : GeneralPropagateGenerate port map (
-              Gk_1Pk_1 => sigMatrix(1+i)(j*16 + 7 downto j*16 + 6),
-              GikPik   => sigMatrix(1+i)(j*16 + 15 downto j*16 + 14),
-              GijPij   => sigMatrix(2+i)(j*16 + 15 downto j*16 + 14));
-          end generate groupingPropagateGenerate;
-        end generate specialPGrow;
+          carryVector(2**i + k) <= sigMatrix(2+i)((k+1)*7);
 
-        otherPGrows : if i > 0 generate
-          boh : for k in 0 to (2**i)-1 generate
-            PG_1 : GeneralPropagateGenerate port map (
-              -- non dipende da k
-              Gk_1Pk_1 => sigMatrix(1+i)( ((8*2**i) - 1 + ((j*2**(i+1))*8)) downto (((8*2**i) - 1 + ((j*2**(i+1))*8)) - 1) ),
-              -- dipende da k
-              GikPik   => sigMatrix(1+i)( (((1 + 2**i)*8 - 1 + ((j*(2**(i+1)))*8)) + 8*k) downto (((1 + 2**i)*8 - 1 + ((j*(2**(i+1)))*8)) + 8*k) - 1 ),
-              -- dipende da k
-              GijPij   => sigMatrix(2+i)( (((1 + 2**i)*8 - 1 + ((j*(2**(i+1)))*8)) + 8*k) downto (((1 + 2**i)*8 - 1 + ((j*(2**(i+1)))*8)) + 8*k) - 1 ));
-          end generate boh;
-        end generate otherPGrows;
+        end generate grouping_G;
         
-      end generate propagateGenerateCondition;
-      
+      end generate GENERATE_BLOCK;
+
+
+
+      -------------------------------------------------------------------------
+      -- PROPAGATE
+      -------------------------------------------------------------------------
+      PROPAGATE_BLOCK : if j > 0 generate
+        
+        grouping_PG : for k in 0 to (2**i)-1 generate
+          PG_1 : GeneralPropagateGenerate port map (
+            -- non dipende da k
+            Gk_1Pk_1 => sigMatrix(1+i)(((8*2**i) - 1 + ((j*2**(i+1))*8)) downto (((8*2**i) - 1 + ((j*2**(i+1))*8)) - 1)),
+            -- dipende da k
+            GikPik   => sigMatrix(1+i)((((1 + 2**i)*8 - 1 + ((j*(2**(i+1)))*8)) + 8*k) downto (((1 + 2**i)*8 - 1 + ((j*(2**(i+1)))*8)) + 8*k) - 1),
+            -- dipende da k
+            GijPij   => sigMatrix(2+i)((((1 + 2**i)*8 - 1 + ((j*(2**(i+1)))*8)) + 8*k) downto (((1 + 2**i)*8 - 1 + ((j*(2**(i+1)))*8)) + 8*k) - 1));
+
+          sigMatrix(2+i)(((8*(2**(i+1)+1) - 1) + (8*(j-1)*2**(i+1)) + k*8) downto ((8*(2**(i+1)+1) - 1) + (8*(j-1)*2**(i+1) + k*8) - 1))
+            <= sigMatrix(1+i)(((8*(2**(i+1)+1) - 1) + (8*(j-1)*2**(i+1)) + k*8) downto ((8*(2**(i+1)+1) - 1) + (8*(j-1)*2**(i+1) + k*8) - 1));
+
+        end generate grouping_PG;
+        
+      end generate PROPAGATE_BLOCK;
+
     end generate blockGen;
+    
   end generate rowGen;
-
+  
 end architecture struct;
