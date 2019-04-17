@@ -16,7 +16,7 @@ architecture beh of PGNetBlock is
 
 begin  -- architecture beh
 
-  gp(0) <= a and b;
-  gp(1) <= a xor b;
+  gp(1) <= a and b;
+  gp(0) <= a xor b;
 
 end architecture beh;

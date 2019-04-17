@@ -20,7 +20,7 @@ architecture beh of GeneralPropagateGenerate is
 begin  -- architecture beh
 
   -- General generate section
-  GijPij(1) <= (GikPik(1) or GikPik(0)) and Gk_1Pk_1(1);
+  GijPij(1) <= GikPik(1) or (GikPik(0) and Gk_1Pk_1(1));
 
   -- General propagate section
   GijPij(0) <= GikPik(0) and Gk_1Pk_1(0);

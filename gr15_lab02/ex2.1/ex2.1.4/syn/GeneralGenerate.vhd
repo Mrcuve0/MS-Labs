@@ -17,6 +17,6 @@ architecture beh of GeneralGenerate is
 
 begin  -- architecture beh
 
-  Gij <= (GikPik(1) or GikPik(0)) and Gk_1;
+  Gij <= GikPik(1) or (GikPik(0) and Gk_1);
 
 end architecture beh;

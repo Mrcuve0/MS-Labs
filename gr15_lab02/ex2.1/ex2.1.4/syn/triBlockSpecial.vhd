@@ -4,12 +4,12 @@ use ieee.numeric_std.all;
 
 entity triBlockSpecial is
   port (
-    Gk_1Pk_1_left : in std_logic_vector(1 downto 0);
     GikPik_left   : in std_logic_vector(1 downto 0);
+    Gk_1Pk_1_left : in std_logic_vector(1 downto 0);
 
     GikPik_right : in std_logic_vector(1 downto 0);
     Gk_1_right   : in std_logic;
-  
+
     Gij : out std_logic);
 end entity triBlockSpecial;
 

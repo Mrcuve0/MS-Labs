@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Sun Apr 14 20:24:04 2019
+#@ # Date:   Tue Apr 16 21:04:44 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4776,4 +4776,18 @@ analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/sy
 elaborate SPARSETREE -architecture STRUCT -library WORK -parameters "N = 32, RADIX = 4"
 change_selection [get_s SparseTree_N32_RADIX4]
 change_selection [get_s SparseTree_N32_RADIX4]
-change_selection -name __slctBus6 -type {cell design} _sel215
+change_selection -name __slctBus6 -type {cell design} _sel237
+change_selection [get_s {{carryVector[0]}}]
+change_selection [get_s {{15 nets(sigMatrix[1][63],...)} {sigMatrix[1][63]} {sigMatrix[1][62]} {sigMatrix[1][55]} {sigMatrix[1][54]} {sigMatrix[1][47]}}]
+change_selection -add [get_s {{sigMatrix[1][46]} {sigMatrix[1][39]} {sigMatrix[1][38]} {sigMatrix[1][31]} {sigMatrix[1][30]} {sigMatrix[1][23]}}]
+change_selection -add [get_s {{sigMatrix[1][22]} {sigMatrix[1][15]} {sigMatrix[1][14]} {carryVector[0]}}]
+change_selection 
+change_selection [get_s {{15 nets(sigMatrix[1][63],...)} {sigMatrix[1][63]} {sigMatrix[1][62]} {sigMatrix[1][55]} {sigMatrix[1][54]} {sigMatrix[1][47]}}]
+change_selection -add [get_s {{sigMatrix[1][46]} {sigMatrix[1][39]} {sigMatrix[1][38]} {sigMatrix[1][31]} {sigMatrix[1][30]} {sigMatrix[1][23]}}]
+change_selection -add [get_s {{sigMatrix[1][22]} {sigMatrix[1][15]} {sigMatrix[1][14]} {carryVector[0]}}]
+change_selection 
+change_selection [get_s {{15 nets(sigMatrix[1][63],...)} {sigMatrix[1][63]} {sigMatrix[1][62]} {sigMatrix[1][55]} {sigMatrix[1][54]} {sigMatrix[1][47]}}]
+change_selection -add [get_s {{sigMatrix[1][46]} {sigMatrix[1][39]} {sigMatrix[1][38]} {sigMatrix[1][31]} {sigMatrix[1][30]} {sigMatrix[1][23]}}]
+change_selection -add [get_s {{sigMatrix[1][22]} {sigMatrix[1][15]} {sigMatrix[1][14]} {carryVector[0]}}]
+change_selection [get_s {{carryVector[7:0]} {carryVector[7]} {carryVector[6]} {carryVector[5]} {carryVector[4]} {carryVector[3]} {carryVector[2]}}]
+change_selection -add [get_s {{carryVector[1]} {carryVector[0]}}]

@@ -41,8 +41,8 @@ begin  -- architecture struct
     GijPij   => PG_right_block_out);
 
   PG_3 : GeneralPropagateGenerate port map (
-    Gk_1Pk_1 => PG_left_block_out,
-    GikPik   => PG_right_block_out,
+    Gk_1Pk_1 => PG_right_block_out,
+    GikPik   => PG_left_block_out,
     GijPij   => GijPij);
 
 end architecture struct;

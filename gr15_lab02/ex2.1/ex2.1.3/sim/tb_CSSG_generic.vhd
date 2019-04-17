@@ -109,11 +109,5 @@ begin  -- architecture tb_arch
     wait for 1 ns;
     carry_vector_s <= "ZZZZZZZZ";
   end process carries;
-
-  process
-  begin
-    wait for 20 ns;
-    assert false report "SImulation Finished" severity failure;
-  end process;
   
 end architecture tb_arch;

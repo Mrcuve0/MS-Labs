@@ -8,8 +8,8 @@
 # //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
-vsim -t 10ps -novopt work.tb(tb_arch)
-# vsim -t 10ps -novopt work.tb(tb_arch) 
+vsim -t 10ps -novopt work.tb
+# vsim -t 10ps -novopt work.tb 
 # Loading std.standard
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
@@ -29,5 +29,6 @@ vsim -t 10ps -novopt work.tb(tb_arch)
 # Loading work.mux21_generic(beh)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.2/sim/work.lfsr16(rtl)
 # Loading work.lfsr16(rtl)
-add waves *
-run 200 ns
+add wave *
+run 40 ns
+# Window cannot be closed because the modal window "Quit Vsim" is still open.

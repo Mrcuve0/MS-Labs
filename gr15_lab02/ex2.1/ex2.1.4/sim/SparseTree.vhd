@@ -90,11 +90,21 @@ begin  -- architecture struct
       GENERATE_BLOCK : if j = 0 generate
         
         grouping_G : for k in 0 to (2**i)-1 generate
-          G_1 : GeneralGenerate port map (
+
+          first_generate: if i = 0 generate
+            G_1 : GeneralGenerate port map (
             Gk_1   => sigMatrix(1+i)(7),
             GikPik => sigMatrix(1+i)((8*(2**i)) + 7 + (k*8) downto (8*(2**i)) + 6 + (k*8)),
             Gij    => sigMatrix(2+i)((k+1)*7));
+          end generate first_generate;
 
+          othes_generate: if i > 0 generate
+            G_1 : GeneralGenerate port map (
+            Gk_1   => sigMatrix(1+i)((2**(i-1))*7),
+            GikPik => sigMatrix(1+i)((8*(2**i)) + 7 + (k*8) downto (8*(2**i)) + 6 + (k*8)),
+            Gij    => sigMatrix(2+i)((k+1)*7));
+          end generate othes_generate;
+          
           carryVector(2**i + k) <= sigMatrix(2+i)((k+1)*7);
 
         end generate grouping_G;

@@ -37,6 +37,8 @@ begin  -- architecture struct
     b  => b,
     gp => g1p1);
 
+--  g1p1(0) <= '0';
+
   GGBlock : GeneralGenerate port map (
     Gk_1   => Cin,
     GikPik => g1p1,

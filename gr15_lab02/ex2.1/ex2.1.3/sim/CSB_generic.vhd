@@ -7,7 +7,7 @@ use work.constants.all;
 entity CSB_generic is
 
   generic (
-    N : integer := numBit);
+    N : integer := radixN);
   port (
     A, B : in  std_logic_vector(N-1 downto 0);
     Cin  : in  std_logic;
@@ -23,7 +23,7 @@ architecture struct of CSB_generic is
 
   component RCA is
     generic (
-      N : integer := numBit);
+      N : integer := radixN);
     port (
       A  : in  std_logic_vector(N-1 downto 0);
       B  : in  std_logic_vector(N-1 downto 0);
@@ -34,7 +34,7 @@ architecture struct of CSB_generic is
 
   component MUX21_GENERIC is
     generic (
-      N : integer := numBit);
+      N : integer := radixN);
     port (
       A   : in  std_logic_vector(N-1 downto 0);
       B   : in  std_logic_vector(N-1 downto 0);
@@ -51,7 +51,7 @@ architecture struct of CSB_generic is
 begin  -- architecture struct
 
   RCA_1 : RCA generic map (
-    N => numBit)
+    N => radixN)
     port map (
       A  => A,
       B  => B,
@@ -59,7 +59,7 @@ begin  -- architecture struct
       S  => RCA1toMux);
 
   RCA_2 : RCA generic map (
-    N => numBit)
+    N => radixN)
     port map (
       A  => A,
       B  => B,
@@ -67,7 +67,7 @@ begin  -- architecture struct
       S  => RCA2toMux);
 
   MUX21_1 : MUX21_GENERIC generic map (
-    N => numBit)
+    N => radixN)
     port map (
       A   => RCA1toMux,
       B   => RCA2toMux,
