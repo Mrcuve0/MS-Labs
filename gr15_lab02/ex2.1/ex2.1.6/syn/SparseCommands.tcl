@@ -1,0 +1,3 @@
+gui_start
+analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/syn/constants.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/syn/GeneralPropagateGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/syn/GeneralGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/syn/PGNetBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/syn/PGNetBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/syn/PGNetwork.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/syn/triBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/syn/triBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/syn/ST_row1And2.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.4/syn/SparseTree.vhd}
+elaborate SPARSETREE -architecture STRUCT -library WORK -parameters "N = 64, RADIX = 4"
