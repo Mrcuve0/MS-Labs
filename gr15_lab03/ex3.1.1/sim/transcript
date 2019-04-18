@@ -1,0 +1,122 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-957.5.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+vsim -t 10ps -novopt work.tbregisterfile
+# vsim -t 10ps -novopt work.tbregisterfile 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Loading ieee.numeric_std(body)
+# Loading ieee.math_real(body)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(a)
+# Loading work.register_file(a)
+add wave *
+run 100 ns
+restart
+run 100 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(a)
+# Loading work.register_file(a)
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/clk'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/reset'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/enable'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/rd1'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/rd2'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/wr'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/add_wr'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/add_rd1'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/add_rd2'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/datain'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/out1'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/tbregisterfile/out2'. 
+add wave *
+restart
+run 100 ns
+restart
+run 100 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(a)
+# Loading work.register_file(a)
+run 100 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(a)
+# Loading work.register_file(a)
+run 100 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(a)
+# Loading work.register_file(a)
+run 100 ns
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(a)
+# Loading work.register_file(a)
+run 100 ns
+restart /f
+restart -f
+run 1us
+vsim -t 10ps -novopt work.tbregisterfile
+# vsim -t 10ps -novopt work.tbregisterfile 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.math_real(body)
+# Loading work.constants
+# Loading work.tbregisterfile(testa)
+# Loading ieee.numeric_std(body)
+# Loading work.register_file(a)
+add wave sim:/tbregisterfile/rg/*
+run 1us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(a)
+# Loading work.register_file(a)
+run 1us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(a)
+# Loading work.register_file(a)
+run 1us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(a)
+# Loading work.register_file(a)
+run 1us
+restart -f
+run 40 ns
