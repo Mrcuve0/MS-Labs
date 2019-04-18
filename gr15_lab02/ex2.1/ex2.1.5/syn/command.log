@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Wed Apr 17 23:08:21 2019
+#@ # Date:   Thu Apr 18 13:53:20 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4775,24 +4775,8 @@ gui_start
 analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/constants.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/mux21_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/fa.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/rca_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/CSB_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/CSSG_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/GeneralGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/GeneralPropagateGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetwork.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/triBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/triBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/ST_row1And2.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/SparseTree.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/completeAdder.vhd}
 elaborate COMPLETEADDER -architecture STRUCT -library DEFAULT -parameters "N = 32, RADIX = 4"
 change_selection [get_s completeAdder_N32_RADIX4]
+change_selection 
 change_selection [get_s completeAdder_N32_RADIX4]
-change_selection -name __slctBus6 -type {cell design} _sel103
-change_selection [get_s CSSG]
-analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/constants.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/mux21_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/fa.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/rca_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/CSB_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/CSSG_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/GeneralGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/GeneralPropagateGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetwork.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/triBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/triBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/ST_row1And2.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/SparseTree.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/completeAdder.vhd}
-elaborate COMPLETEADDER -architecture STRUCT -library DEFAULT -parameters "N = 16, RADIX = 4"
-change_selection [get_s completeAdder_N16_RADIX4]
-change_selection [get_s completeAdder_N16_RADIX4]
-change_selection -name __slctBus112 -type {cell design} _sel708
+change_selection -name __slctBus6 -type {cell design} _sel105
 change_selection [get_s ST]
-change_selection [get_s ST/ST_row1And2_1]
-analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/constants.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/mux21_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/fa.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/rca_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/CSB_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/CSSG_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/GeneralGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/GeneralPropagateGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetwork.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/triBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/triBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/ST_row1And2.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/SparseTree.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/completeAdder.vhd}
-elaborate COMPLETEADDER -architecture STRUCT -library DEFAULT -parameters "N = 4, RADIX = 4"
-change_selection [get_s completeAdder_N4_RADIX4]
-change_selection [get_s completeAdder_N4_RADIX4]
-change_selection -name __slctBus214 -type {cell design} _sel1048
 change_selection [get_s CSSG]
-change_selection [get_s CSSG]
-change_selection -name __slctBus269 -type {cell design} _sel1137
-change_selection [get_s ST]
-change_selection [get_s ST/PGNetwork_1]
-change_selection [get_s ST/ST_row1And2_1]

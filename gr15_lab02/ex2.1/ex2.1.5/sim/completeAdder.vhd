@@ -21,7 +21,6 @@ end entity completeAdder;
 
 architecture struct of completeAdder is
   
-  
   component SparseTree is
     generic (
       N     : integer;
@@ -45,15 +44,21 @@ architecture struct of completeAdder is
   end component CSSG_generic;
   
   signal carryConnect : std_logic_vector(N/RADIX-1 downto 0);
+
+  signal Cin_vectored : std_logic_vector(N-1 downto 0);
+  signal B_XORed : std_logic_vector(N-1 downto 0);
   
 begin  -- architecture struct
+
+  Cin_vectored <= (others => Cin);
+  B_XORed <= B xor Cin_vectored;
 
   ST : SparseTree generic map (
     N     => numBit,
     RADIX => radixN)
     port map (
       A           => A,
-      B           => B,
+      B           => B_Xored,
       Cin         => Cin,
       carryVector => carryConnect);
 
@@ -62,11 +67,10 @@ begin  -- architecture struct
     RADIX => radixN)
     port map (
       A            => A,
-      B            => B,
+      B            => B_XORed,
       Cin          => Cin,
       carry_vector => carryConnect(N/RADIX-1 downto 0),
       Cout         => Cout,
       S            => Sum);
-
 
 end architecture struct;
