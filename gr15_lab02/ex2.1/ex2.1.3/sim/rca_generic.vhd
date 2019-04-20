@@ -3,6 +3,10 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use WORK.constants.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the Ripple Carry Adder (RCA) composing the Carry Select Block (CSB)
+--------------------------------------------------------------------------------
+
 entity RCA is
   generic (
     N : integer := NumBit);
@@ -12,6 +16,11 @@ entity RCA is
         S  : out std_logic_vector(N-1 downto 0);
         Co : out std_logic);
 end RCA;
+
+
+--------------------------------------------------------------------------------
+-- Structural Architecture
+--------------------------------------------------------------------------------
 
 architecture STRUCTURAL of RCA is
 
@@ -39,6 +48,9 @@ begin
 
 end STRUCTURAL;
 
+--------------------------------------------------------------------------------
+-- Behavioral Architecture
+--------------------------------------------------------------------------------
 
 architecture BEHAVIORAL of RCA is
 

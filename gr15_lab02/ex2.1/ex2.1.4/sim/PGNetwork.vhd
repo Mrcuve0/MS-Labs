@@ -4,14 +4,23 @@ use ieee.numeric_std.all;
 
 use WORK.constants.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the overall structure composing the PG-Network
+--
+-- The first block (i = 0) is the "special" one, while all the others (i > 0) 
+-- are "normal" ones.
+--------------------------------------------------------------------------------
+
 entity PGNetwork is
   generic (
     N : integer := numBit);
   port (
-    A         : in  std_logic_vector(N-1 downto 0);
-    B         : in  std_logic_vector(N-1 downto 0);
-    Cin       : in  std_logic;
-    gpSignals : out std_logic_vector(2*N-1 downto 0));
+    A         : in  std_logic_vector(N-1 downto 0);     -- Operand A
+    B         : in  std_logic_vector(N-1 downto 0);     -- Operand B
+    Cin       : in  std_logic;                          -- Carry In
+    gpSignals : out std_logic_vector(2*N-1 downto 0));  
+    -- Vector of "g" and "p" signals, interface with the first 2 rows of the Sparse tree 
+    -- (ST_row1And2.vhd)
 end entity PGNetwork;
 
 -------------------------------------------------------------------------------
@@ -36,7 +45,7 @@ architecture struct of PGNetwork is
 begin  -- architecture struct
 
   BlockGeneration : for i in 0 to N-1 generate
-    SpecialBlock : if i = 0 generate
+    SpecialBlock : if i = 0 generate              -- Instantiate the "special" block
       SpecBlock : SpecialPGBlock port map (
         a    => A(i),
         b    => B(i),
@@ -44,7 +53,7 @@ begin  -- architecture struct
         G1_0 => gpSignals(i));
     end generate SpecialBlock;
 
-    OtherBlocks : if i > 0 generate
+    OtherBlocks : if i > 0 generate               -- Instantiate the "normal" blocks
       PGBlock : PGNetBlock port map (
         a  => A(i),
         b  => B(i),

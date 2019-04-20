@@ -4,14 +4,23 @@ use ieee.numeric_std.all;
 
 use work.constants.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the Carry Select Block (CSB) composing the Pentium4
+-- Carry Select Sum Generator.
+
+-- Each block is composed by 2 Ripple Carry Adders: the first ic feeded with Cin = '0'
+-- the secondo is feeded with Cin = '1'. 
+-- The real CarryIn (coming from the Sparse Tree) will decide the correct result value to pick.
+--------------------------------------------------------------------------------
+
 entity CSB_generic is
 
   generic (
     N : integer := radixN);
   port (
-    A, B : in  std_logic_vector(N-1 downto 0);
-    Cin  : in  std_logic;
-    S    : out std_logic_vector(N-1 downto 0));
+    A, B : in  std_logic_vector(N-1 downto 0);      -- Input operands
+    Cin  : in  std_logic;                           -- Real CarryIn
+    S    : out std_logic_vector(N-1 downto 0));     -- Real result value
 
 end entity CSB_generic;
 
@@ -21,7 +30,7 @@ end entity CSB_generic;
 
 architecture struct of CSB_generic is
 
-  component RCA is
+  component RCA is                                  -- Ripple Carry Adder
     generic (
       N : integer := radixN);
     port (
@@ -32,7 +41,8 @@ architecture struct of CSB_generic is
       Co : out std_logic);
   end component RCA;
 
-  component MUX21_GENERIC is
+  component MUX21_GENERIC is                        -- Mux to select the correct result value, 
+                                                    -- the real Cin is the select signal
     generic (
       N : integer := radixN);
     port (
@@ -42,7 +52,7 @@ architecture struct of CSB_generic is
       Y   : out std_logic_vector(N-1 downto 0));
   end component MUX21_GENERIC;
 
-  signal RCA1toMux, RCA2toMux : std_logic_vector(N-1 downto 0);
+  signal RCA1toMux, RCA2toMux : std_logic_vector(N-1 downto 0);   -- Interconnects the outouts of the RCAs to the                                                                       -- inputs of the MUX
 
   for RCA_1   : RCA use entity work.RCA (STRUCTURAL);
   for RCA_2   : RCA use entity work.RCA (STRUCTURAL);
@@ -55,7 +65,7 @@ begin  -- architecture struct
     port map (
       A  => A,
       B  => B,
-      Ci => '0',
+      Ci => '0',                                     -- Cin = '0'
       S  => RCA1toMux);
 
   RCA_2 : RCA generic map (
@@ -63,15 +73,15 @@ begin  -- architecture struct
     port map (
       A  => A,
       B  => B,
-      Ci => '1',
+      Ci => '1',                                    -- Cin = '1'
       S  => RCA2toMux);
 
   MUX21_1 : MUX21_GENERIC generic map (
     N => radixN)
     port map (
-      A   => RCA1toMux,
-      B   => RCA2toMux,
-      SEL => Cin,
+      A   => RCA1toMux,                             -- Result coming from the first RCA
+      B   => RCA2toMux,                             -- Result coming from the second RCA
+      SEL => Cin,                                   -- Real Carry In
       Y   => S);
 
 end architecture struct;
