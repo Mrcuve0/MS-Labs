@@ -7,7 +7,7 @@ Report : timing
         -max_paths 1
 Design : completeAdder
 Version: F-2011.09-SP3
-Date   : Thu Apr 18 14:48:44 2019
+Date   : Sat Apr 20 16:43:38 2019
 ****************************************
 
 Operating Conditions: typical   Library: NangateOpenCellLibrary

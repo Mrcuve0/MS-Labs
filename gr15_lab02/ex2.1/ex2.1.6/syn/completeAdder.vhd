@@ -77,7 +77,7 @@ begin  -- architecture struct
     RADIX => radixN)
     port map (
       A           => A,
-      B           => B_XOR  ed,
+      B           => B_XORed,
       Cin         => Cin,
       carryVector => carryConnect);
 

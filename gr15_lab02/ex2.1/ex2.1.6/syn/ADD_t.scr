@@ -28,8 +28,8 @@ elaborate completeAdder -architecture struct
 # first compilation, without constraints #
 compile 
 # reporting riming and power after the first synthesis without constraints #
-report_timing > ADD_timeopt_1t.rpt
-report_area > ADD_timeopt_1a.rpt
+report_timing > "./reports/done by the given script/ADD_timeopt_1t.rpt"
+report_area > "./reports/done by the given script/ADD_timeopt_1a.rpt"
 # forces a combinational max delay of REQUIRED_TIME from each of the inputs
 # to each of th eoutput, that is a delay lower than the one found after
 # the first compilation step #
@@ -38,8 +38,8 @@ set_max_delay 0.624 -from [all_inputs] -to [all_outputs]
 # optimize
 compile -map_effort high
 # save report
-report_timing > ADD_timeopt_2t.rpt
-report_area > ADD_timeopt_2a.rpt
+report_timing > "./reports/done by the given script/ADD_timeopt_2t.rpt"
+report_area > "./reports/done by the given script/ADD_timeopt_2a.rpt"
 # saving files
 write -hierarchy -format ddc -output ADD-structural-topt.ddc
 write -hierarchy -format vhdl -output ADD-structural-topt.vhdl
