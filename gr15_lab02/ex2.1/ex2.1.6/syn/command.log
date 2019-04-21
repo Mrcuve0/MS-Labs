@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Sat Apr 20 16:43:01 2019
+#@ # Date:   Sat Apr 20 18:28:08 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4771,52 +4771,21 @@ source /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.6/syn/.synopsys_dc.setup
 #@ 
 #@ # -- End source /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.6/syn/.synopsys_dc.setup
 
-source ADD_t.scr
-#@ ##############################################################
-#@ #SCRIPT FOR SPEEDING UP and RECORDING the ADDER SYNTHESIS#
-#@ # analyzing and checking vhdl netlist#
-#@ # here the analyze command is used for each file from bottom to top #
-#@ ##############################################################
-#@ analyze -library WORK -format vhdl {constants.vhd}
-#@ analyze -library WORK -format vhdl {fa.vhd}
-#@ # fill these lines with your files ...
-#@ analyze -library WORK -format vhdl {mux21_generic.vhd}
-#@ analyze -library WORK -format vhdl {rca_generic.vhd}
-#@ analyze -library WORK -format vhdl {CSB_generic.vhd}
-#@ analyze -library WORK -format vhdl {CSSG_generic.vhd}
-#@ analyze -library WORK -format vhdl {GeneralGenerate.vhd}
-#@ analyze -library WORK -format vhdl {GeneralPropagateGenerate.vhd}
-#@ analyze -library WORK -format vhdl {PGNetBlockSpecial.vhd}
-#@ analyze -library WORK -format vhdl {PGNetBlock.vhd}
-#@ analyze -library WORK -format vhdl {PGNetwork.vhd}
-#@ analyze -library WORK -format vhdl {triBlockSpecial.vhd}
-#@ analyze -library WORK -format vhdl {triBlock.vhd}
-#@ analyze -library WORK -format vhdl {ST_row1And2.vhd}
-#@ analyze -library WORK -format vhdl {SparseTree.vhd}
-#@ analyze -library WORK -format vhdl {completeAdder.vhd}
-#@ ##############################################################
-#@ # elaborating the top entity -- here supposed P4ADD#
-#@ # choose the architecture you want
-#@ elaborate completeAdder -architecture struct
-#@ ##########################################
-#@ # first compilation, without constraints #
-#@ compile 
-#@ # reporting riming and power after the first synthesis without constraints #
-#@ report_timing > "./reports/done by the given script/ADD_timeopt_1t.rpt"
-#@ report_area > "./reports/done by the given script/ADD_timeopt_1a.rpt"
-#@ # forces a combinational max delay of REQUIRED_TIME from each of the inputs
-#@ # to each of th eoutput, that is a delay lower than the one found after
-#@ # the first compilation step #
-#@ # often this is the working clock period of your system #
-#@ set_max_delay 0.624 -from [all_inputs] -to [all_outputs]
-#@ # optimize
-#@ compile -map_effort high
-#@ # save report
-#@ report_timing > "./reports/done by the given script/ADD_timeopt_2t.rpt"
-#@ report_area > "./reports/done by the given script/ADD_timeopt_2a.rpt"
-#@ # saving files
-#@ write -hierarchy -format ddc -output ADD-structural-topt.ddc
-#@ write -hierarchy -format vhdl -output ADD-structural-topt.vhdl
-#@ write -hierarchy -format verilog -output ADD-structural-topt.v
-#@ # -- End source ADD_t.scr
-
+gui_start
+analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/constants.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/mux21_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/fa.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/rca_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/CSB_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/CSSG_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/GeneralGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/GeneralPropagateGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetwork.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/triBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/triBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/ST_row1And2.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/SparseTree.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/completeAdder.vhd}
+elaborate COMPLETEADDER -architecture STRUCT -library DEFAULT -parameters "N = 32, RADIX = 4"
+elaborate COMPLETEADDER -architecture STRUCT -library DEFAULT -parameters "N = 32, RADIX = 4"
+set max delay 0.62 -from [all inputs] -to [all outputs]
+set max_delay 0.62 -from [all inputs] -to [all outputs]
+set max_delay 0.63 -from [all inputs] -to [all outputs]
+set_max_delay 0.62 -from [all inputs] -to [all outputs]
+set_max_delay 0.62 -from [all_inputs] -to [all_outputs]
+compile -map_effort max
+compile -map_effort max
+compile
+compile -map_effort max
+set_max_delay 0.62 -from [all_inputs] -to [all_outputs]
+compile -map_effort max
+report_units
+get_die_area
+get_die_area completeAdder_N32_RADIX4

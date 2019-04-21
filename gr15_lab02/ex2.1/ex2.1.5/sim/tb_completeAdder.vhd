@@ -37,7 +37,7 @@ architecture tb_arch of tb is
   signal DIN, PRN              : std_logic_vector(15 downto 0);
 
   signal A_s, B_s      : std_logic_vector(numBit-1 downto 0) := (others => '0');
-  signal Cin_s, Cout_S : std_logic                           := '0';
+  signal Cin_s, Cout_S : std_logic;                           
   signal Sum_s         : std_logic_vector(numBit-1 downto 0);
 
 begin  -- architecture tb_arch
@@ -62,46 +62,46 @@ begin  -- architecture tb_arch
   -----------------------------------------------------------------------------
   -- Comment/Uncomment for LFSR input
   -----------------------------------------------------------------------------
-  -- Cin_s <= '0';      -- Test ADDER functionalities
-  Cin_s  <= '1';                        -- Test SUBTRACTOR functionalities
-  A_s(0) <= PRN(0);
-  A_s(5) <= PRN(2);
-  A_s(3) <= PRN(4);
-  A_s(1) <= PRN(6);
-  A_s(4) <= PRN(8);
-  A_s(2) <= PRN(10);
-  A_s(6) <= PRN(12);
-  A_s(7) <= PRN(14);
+  --Cin_s <= '0';      -- Test ADDER functionalities
+  --Cin_s  <= '1';                        -- Test SUBTRACTOR functionalities
+  --A_s(0) <= PRN(0);
+  --A_s(5) <= PRN(2);
+  --A_s(3) <= PRN(4);
+  --A_s(1) <= PRN(6);
+  --A_s(4) <= PRN(8);
+  --A_s(2) <= PRN(10);
+  --A_s(6) <= PRN(12);
+  --A_s(7) <= PRN(14);
 
-  B_s(0) <= PRN(15);
-  B_s(5) <= PRN(13);
-  B_s(3) <= PRN(11);
-  B_s(1) <= PRN(9);
-  B_s(4) <= PRN(7);
-  B_s(2) <= PRN(5);
-  B_s(6) <= PRN(3);
-  B_s(7) <= PRN(1);
+  --B_s(0) <= PRN(15);
+  --B_s(5) <= PRN(13);
+  --B_s(3) <= PRN(11);
+  --B_s(1) <= PRN(9);
+  --B_s(4) <= PRN(7);
+  --B_s(2) <= PRN(5);
+  --B_s(6) <= PRN(3);
+  --B_s(7) <= PRN(1);
 
 
   -----------------------------------------------------------------------------
   -- Comment/Uncomment for special input patterns
   -----------------------------------------------------------------------------
-  --LFSRStimuli : process
-  --begin
-  --  A_s   <= X"0000FFFF";
-  --  B_s   <= X"000000FF";
-  --  Cin_s <= '0';
-  --  wait for 10 ns;
-  --  A_s   <= X"FFFFFFFF";
-  --  B_s   <= X"FFFFFFFF";
-  --  wait for 10 ns;
-  --  A_s   <= X"FFFF0000";
-  --  B_s   <= X"0001FFFF";
-  --  wait for 10 ns;
-  --  A_s   <= X"FFFFFFFF";
-  --  B_s   <= X"00000001";
-  --  wait;
-  --end process LFSRStimuli;
+  LFSRStimuli : process
+  begin
+    Cin_s <= '1';
+    A_s   <= X"0000FFFF";
+    B_s   <= X"000000FF";
+    wait for 10 ns;
+    A_s   <= X"FFFFFFFF";
+    B_s   <= X"FFFFFFFF";
+    wait for 10 ns;
+    A_s   <= X"FFFF0000";
+    B_s   <= X"0001FFFF";
+    wait for 10 ns;
+    A_s   <= X"FFFFFFFF";
+    B_s   <= X"00000001";
+    wait;
+  end process LFSRStimuli;
 
 
 
