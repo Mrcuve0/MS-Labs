@@ -91,13 +91,13 @@ begin  -- architecture tb_arch
     Cin_s <= '1';
     A_s   <= X"0000FFFF";
     B_s   <= X"000000FF";
-    wait for 10 ns;
+    wait for 5 ns;
     A_s   <= X"FFFFFFFF";
     B_s   <= X"FFFFFFFF";
-    wait for 10 ns;
+    wait for 5 ns;
     A_s   <= X"FFFF0000";
     B_s   <= X"0001FFFF";
-    wait for 10 ns;
+    wait for 5 ns;
     A_s   <= X"FFFFFFFF";
     B_s   <= X"00000001";
     wait;
