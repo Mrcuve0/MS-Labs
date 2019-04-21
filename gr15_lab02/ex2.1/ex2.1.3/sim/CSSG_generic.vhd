@@ -17,8 +17,8 @@ use work.constants.all;
 
 entity CSSG_generic is
   generic (
-    N     : integer := numBit;
-    RADIX : integer := radixN);
+    N     : integer := CSSG_NBIT;
+    RADIX : integer := numBit);
   port (A, B         : in  std_logic_vector(N-1 downto 0);
         Cin          : in  std_logic;
         carry_vector : in  std_logic_vector(N/RADIX-1 downto 0);
@@ -43,7 +43,7 @@ begin  -- architecture struct
                                                               -- external world
     firstCSB : if i = 0 generate
       CSB : CSB_generic generic map (
-        N => radixN)
+        N => numBit)
         port map (
           A   => A(i*RADIX+RADIX-1 downto i*RADIX),
           B   => B(i*RADIX+RADIX-1 downto i*RADIX),
@@ -54,7 +54,7 @@ begin  -- architecture struct
     othersCSB : if i > 0 generate                             -- All the others CBS blocks receives the "real" carryIn
                                                               -- from the Sparse Tree
       CSB : CSB_generic generic map (
-        N => radixN)
+        N => numBit)
         port map (
           A   => A(i*RADIX+RADIX-1 downto i*RADIX),
           B   => B(i*RADIX+RADIX-1 downto i*RADIX),

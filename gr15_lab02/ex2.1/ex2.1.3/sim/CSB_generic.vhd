@@ -16,7 +16,7 @@ use work.constants.all;
 entity CSB_generic is
 
   generic (
-    N : integer := radixN);
+    N : integer := numBit);
   port (
     A, B : in  std_logic_vector(N-1 downto 0);      -- Input operands
     Cin  : in  std_logic;                           -- Real CarryIn
@@ -32,7 +32,7 @@ architecture struct of CSB_generic is
 
   component RCA is                                  -- Ripple Carry Adder
     generic (
-      N : integer := radixN);
+      N : integer := numBit);
     port (
       A  : in  std_logic_vector(N-1 downto 0);
       B  : in  std_logic_vector(N-1 downto 0);
@@ -44,7 +44,7 @@ architecture struct of CSB_generic is
   component MUX21_GENERIC is                        -- Mux to select the correct result value, 
                                                     -- the real Cin is the select signal
     generic (
-      N : integer := radixN);
+      N : integer := numBit);
     port (
       A   : in  std_logic_vector(N-1 downto 0);
       B   : in  std_logic_vector(N-1 downto 0);
@@ -61,7 +61,7 @@ architecture struct of CSB_generic is
 begin  -- architecture struct
 
   RCA_1 : RCA generic map (
-    N => radixN)
+    N => numBit)
     port map (
       A  => A,
       B  => B,
@@ -69,7 +69,7 @@ begin  -- architecture struct
       S  => RCA1toMux);
 
   RCA_2 : RCA generic map (
-    N => radixN)
+    N => numBit)
     port map (
       A  => A,
       B  => B,
@@ -77,7 +77,7 @@ begin  -- architecture struct
       S  => RCA2toMux);
 
   MUX21_1 : MUX21_GENERIC generic map (
-    N => radixN)
+    N => numBit)
     port map (
       A   => RCA1toMux,                             -- Result coming from the first RCA
       B   => RCA2toMux,                             -- Result coming from the second RCA

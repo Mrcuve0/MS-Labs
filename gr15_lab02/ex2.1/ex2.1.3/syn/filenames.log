@@ -157,8 +157,8 @@
 /software/synopsys/syn_current_64/auxx/gui/common/misc/infotip.tcl
 /software/synopsys/syn_current_64/auxx/gui/common/misc/viewporthistory.tcl
 /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.3/syn/constants.vhd
-/home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.3/syn/mux21_generic.vhd
 /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.3/syn/fa.vhd
+/home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.3/syn/mux21_generic.vhd
 /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.3/syn/rca_generic.vhd
 /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.3/syn/CSB_generic.vhd
 /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.3/syn/CSSG_generic.vhd
