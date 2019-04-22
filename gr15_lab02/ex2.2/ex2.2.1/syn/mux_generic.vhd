@@ -6,7 +6,7 @@ use WORK.constants.all;
 
 entity MUX_GENERIC is
   generic (N : integer;       --numBit*2
-           M : integer);      -- 3 bit
+           RADIX : integer);      -- 3 bit
   port (plusA   : in  std_logic_vector(N-1 downto 0);
         minusA  : in  std_logic_vector(N-1 downto 0);
         plus2A  : in  std_logic_vector(N-1 downto 0);

@@ -7,12 +7,13 @@ use ieee.numeric_std.all;
 
 entity booth_mul_row is
   generic (
-    N : integer);
+    N : integer;
+    RADIX: integer);
   port (
     prevA     : in  std_logic_vector(N-1 downto 0);
     prevSum   : in  std_logic_vector(N-1 downto 0);
-    encoderIn : in  std_logic_vector(radixN-1 downto 0);
-    nextA     : out std_logic_vector(N-1 downto O);
+    encoderIn : in  std_logic_vector(RADIX-1 downto 0);
+    nextA     : out std_logic_vector(N-1 downto 0);
     nextSum   : out std_logic_vector(N-1 downto 0));
 end entity booth_mul_row;
 
@@ -25,10 +26,11 @@ architecture struct of booth_mul_row is
 
   component encoder is
     generic (
-      N : integer);
+      N : integer;
+      RADIX : integer);
     port (
-      X : in  std_logic_vector(radixN-1 downto 0);
-      Z : out std_logic_vector(N-1 downto 0));
+      X : in  std_logic_vector(RADIX-1 downto 0);
+      Z : out std_logic_vector(RADIX-1 downto 0));
   end component encoder;
 
   component ShiftnCompl is
@@ -42,13 +44,13 @@ architecture struct of booth_mul_row is
   component MUX_GENERIC is
     generic (
       N : integer;
-      M : integer);
+      RADIX : integer);
     port (
       plusA   : in  std_logic_vector(N-1 downto 0);
       minusA  : in  std_logic_vector(N-1 downto 0);
       plus2A  : in  std_logic_vector(N-1 downto 0);
       minus2A : in  std_logic_vector(N-1 downto 0);
-      SEL     : in  std_logic_vector(radixN-1 downto 0);
+      SEL     : in  std_logic_vector(RADIX-1 downto 0);
       Y       : out std_logic_vector(N-1 downto 0));
   end component MUX_GENERIC;
 
@@ -64,7 +66,7 @@ architecture struct of booth_mul_row is
   end component RCA;
 
   -- interconnections between encoder and mux
-  signal encoder_to_mux : std_logic_vector(radixN-1 downto 0);
+  signal encoder_to_mux : std_logic_vector(RADIX-1 downto 0);
 
   -- additional interconnectios
   -- signal nextA_s        : std_logic_vector(N-1 downto 0);
@@ -79,7 +81,8 @@ begin  -- architecture struct
 
 
   encoder_1 : encoder generic map (
-    N => N)
+    N => N,
+    RADIX => RADIX)
     port map (
       X => encoderIn,
       Z => encoder_to_mux);
@@ -95,7 +98,7 @@ begin  -- architecture struct
 
   mux_1 : MUX_GENERIC generic map (
     N => N,
-    M => M)
+    RADIX => RADIX)
     port map (
       plusA   => plus2A_s,
       minusA  => minus2A_s,
@@ -108,7 +111,7 @@ begin  -- architecture struct
     N => N)
     port map (
       A  => mux_to_adder,
-      B  => prevA,
+      B  => prevSum,
       Ci => '0',
       S  => nextSum);
 
