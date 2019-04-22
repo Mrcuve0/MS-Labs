@@ -39,6 +39,5 @@ begin  -- architecture beh
     end case;
   end process;
 
-
 end architecture beh;
 
