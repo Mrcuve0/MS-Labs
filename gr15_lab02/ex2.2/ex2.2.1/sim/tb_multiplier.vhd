@@ -6,11 +6,10 @@ use WORK.constants.all;
 entity tb_multiplier is
 end tb_multiplier;
 
+architecture TEST of tb_multiplier is
 
-architecture TEST of MULTIPLIER_tb is
 
-
-  constant numBit : integer := 16;  -- :=8  --:=16
+  constant numBit : integer := 32;  -- :=8  --:=16
 
   component Booth is
     generic (
@@ -42,24 +41,35 @@ begin
       P => Y_mp_i);
 
 
--- PROCESS FOR TESTING TEST - COMLETE CYCLE ---------
-  test : process
-  begin
+-- PROCESS FOR TESTING TEST - COMPLETE CYCLE ---------
 
-    -- cycle for operand A
-    NumROW : for i in 0 to 2**(NumBit)-1 loop
+  -- Comment/Uncomment the following process to test 4, 8, 16bit combinations.
+  -- Cannot test 32bit configurations with the following method, integer
+  -- exponentiation overflows on 32bits.
+  
+  --test : process
+  --begin
 
-      -- cycle for operand B
-      NumCOL : for i in 0 to 2**(NumBit)-1 loop
-        wait for 10 ns;
-        B_mp_i <= B_mp_i + '1';
-      end loop NumCOL;
+  --  -- cycle for operand A
+  --  NumROW : for i in 0 to 2**(NumBit)-1 loop
 
-      A_mp_i <= A_mp_i + '1';
-    end loop NumROW;
+  --    -- cycle for operand B
+  --    NumCOL : for i in 0 to 2**(NumBit)-1 loop
+  --      wait for 10 ns;
+  --      B_mp_i <= B_mp_i + '1';
+  --    end loop NumCOL;
 
-    wait;
-  end process test;
+  --    A_mp_i <= A_mp_i + '1';
+  --  end loop NumROW;
+
+  --  wait;
+  --end process test;
+
+  -- Comment/Uncomment the following section to test a 32bit configuration -->
+  -- This configuration has been used to generate the waveforms ".pdf" files
+  A_mp_i <= X"00000010", X"FFFFFF10" after 5 ns, X"00000055" after 10 ns, X"FFFFFFF0" after 15 ns;
+  B_mp_i <= X"FFFFFF10", X"00000010" after 5 ns, X"00000002" after 10 ns, X"00000003" after 15 ns;
+  
 
 
 end TEST;
