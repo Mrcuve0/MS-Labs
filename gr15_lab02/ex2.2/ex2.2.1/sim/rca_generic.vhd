@@ -5,7 +5,8 @@ use ieee.std_logic_unsigned.all;
 use WORK.constants.all;
 
 --------------------------------------------------------------------------------
--- Definition of the Ripple Carry Adder (RCA)
+-- Definition of the Ripple Carry Adder (RCA), used into the Booth's multiplier.
+-- The Structural Architecture is used here.
 --------------------------------------------------------------------------------
 
 entity RCA is

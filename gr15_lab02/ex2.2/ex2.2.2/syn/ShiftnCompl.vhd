@@ -4,6 +4,16 @@ use ieee.numeric_std.all;
 
 use work.constants.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the ShiftnCompl, "normal" version.
+--
+-- This component instantiates 2 shifters and 2 complementers.
+-- The first shifter creates, given the "A" input, the "2A" output.
+-- The second shifter creates, given the "2A" input (coming from the 1st shifter),
+-- the "4A" output. 
+-- The first complementer creates, given the "2A" input, the "-2A" output.
+-- The second complementer creates, given the "4A" input, the "-4A" output.
+--------------------------------------------------------------------------------
 
 entity ShiftnCompl is
   generic (
@@ -40,25 +50,25 @@ architecture struct of ShiftnCompl is
 
 begin  -- architecture struct
 
-  shifter_1 : shifter generic map (
+  shifter_1 : shifter generic map (           -- Generates the "2A" output
     N => N)
     port map (
       input           => plusA,
       shiftLeftOnePos => plus2A_s);
 
-  shifter_2 : shifter generic map (
+  shifter_2 : shifter generic map (           -- Generates the "4A" output
     N => N)
     port map (
       input           => plus2A_s,
       shiftLeftOnePos => plus4A_s);
 
-  complementer_1 : complementer generic map (
+  complementer_1 : complementer generic map ( -- Generates the "-2A" output
     N => N)
     port map (
       input       => plus2A_s,
       complement2 => minus2A_out);
 
-  complementer_2 : complementer generic map (
+  complementer_2 : complementer generic map ( -- Generates the "-4A" output
     N => N)
     port map (
       input       => plus4A_s,

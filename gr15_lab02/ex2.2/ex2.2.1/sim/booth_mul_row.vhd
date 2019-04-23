@@ -4,6 +4,16 @@ use ieee.numeric_std.all;
 
 -- use work.constants.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the "general" row of the Booth multiplier.
+--
+-- This structure is composed by an encoder, a ShiftnCompl entity,
+-- a multiplexer and a Ripple Carry Adder.
+-- 
+-- The input values are the previoud operand and 3bits selected from the "B" operand.
+--
+-- The output values are the "2*(prevA)" value and the sum generated in this stage.
+--------------------------------------------------------------------------------
 
 entity booth_mul_row is
   generic (
@@ -54,7 +64,7 @@ architecture struct of booth_mul_row is
       Y       : out std_logic_vector(N-1 downto 0));
   end component MUX_GENERIC;
 
-  component RCA is
+  component RCA is            
     generic (
       N : integer);
     port (
@@ -107,13 +117,14 @@ begin  -- architecture struct
       SEL     => encoder_to_mux,
       Y       => mux_to_adder);
 
-  rca_1 : RCA generic map (
+  rca_1 : RCA generic map (             -- Instantiation of the Ripple Carry Adder, 
+                                        -- the result will be propagated to the next stage
     N => N)
     port map (
       A  => mux_to_adder,
       B  => prevSum,
       Ci => '0',
-      S  => nextSum);
+      S  => nextSum);                   -- the result is propagated to the next stage
 
-  nextA <= plus4A_s;
+  nextA <= plus4A_s;                    -- the 2*(prevA) value is propagated to the next stage
 end architecture struct;

@@ -4,6 +4,11 @@ use ieee.numeric_std.all;
 
 use WORK.constants.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the MUX component.
+-- The selection signals come from the Booth's encoder.
+--------------------------------------------------------------------------------
+
 entity MUX_GENERIC is
   generic (N : integer;       --numBit*2
            RADIX : integer);      -- 3 bit

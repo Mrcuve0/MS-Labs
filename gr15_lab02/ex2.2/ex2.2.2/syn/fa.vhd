@@ -1,6 +1,11 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the Full Adder component used in the structural architecture 
+-- of the Ripple CArry Adder.
+--------------------------------------------------------------------------------
+
 entity FA is
   port (A  : in  std_logic;
         B  : in  std_logic;

@@ -4,6 +4,19 @@ use ieee.numeric_std.all;
 
 use work.constants.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the very first row of the Booth multiplier.
+--
+-- This structure is composed by an encoder, the ShiftnCompl_special entity and
+-- the multiplexer.
+-- 
+-- The input values are the "A" operand and 3bits coming from the "B" operand.
+-- (firts 2 Least Significan Bits + '0' bit value => first radix window).
+
+-- The output values are the 2A value and the selected value to be fed to the 
+-- next-row adder.
+--------------------------------------------------------------------------------
+
 entity booth_mul_row_special is
   generic (
     N     : integer;
@@ -61,14 +74,14 @@ architecture struct of booth_mul_row_special is
 
 begin  -- architecture struct
 
-  encoder_1 : encoder generic map (
+  encoder_1 : encoder generic map (       -- Instantiation of the first encoder
     N     => N,
     RADIX => RADIX)
     port map (
       X => encoderIn,
       Z => encoder_to_mux);
 
-  ShiftnCompl_special_1 : ShiftnCompl_special generic map (
+  ShiftnCompl_special_1 : ShiftnCompl_special generic map (   -- Generates A, -A, 2A and -2A
     N => N)
     port map (
       plusA       => A,
@@ -77,7 +90,9 @@ begin  -- architecture struct
       plus2A_out  => plus2A_s,
       minus2A_out => minus2A_s);
 
-  mux_1 : MUX_GENERIC generic map (
+  mux_1 : MUX_GENERIC generic map (       -- Instantiation of the multiplexer, 
+                                          -- it is connected with the encoder 
+                                          -- and with the ShiftnCompl_special component.
     N     => N,
     RADIX => RADIX)
     port map (

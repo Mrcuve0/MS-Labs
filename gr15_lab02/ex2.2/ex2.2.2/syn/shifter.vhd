@@ -4,6 +4,11 @@ use ieee.numeric_std.all;
 
 use work.constants.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the Shifter used in the Booth's multiplier.
+-- This component shifts the input pattern by one position to the left.
+-- This component will be instantiated only in the "booth_mul_row" component.
+--------------------------------------------------------------------------------
 
 entity shifter is
   generic (
