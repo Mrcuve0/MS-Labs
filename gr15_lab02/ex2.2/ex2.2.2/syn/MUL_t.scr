@@ -6,7 +6,6 @@
 analyze -library WORK -format vhdl {constants.vhd}
 analyze -library WORK -format vhdl {fa.vhd}
 # fill these lines with your files ...
-analyze -library WORK -format vhdl {constants.vhd}
 analyze -library WORK -format vhdl {encoder.vhd}
 analyze -library WORK -format vhdl {mux_generic.vhd}
 analyze -library WORK -format vhdl {rca_generic.vhd}
@@ -20,7 +19,7 @@ analyze -library WORK -format vhdl {booth.vhd}
 ##############################################################
 # elaborating the top entity -- here supposed BOOTHMUL#
 # choose the architecture you want
-elaborate Booth -architecture STRUCTURAL 
+elaborate Booth -architecture booth_struct 
 ##########################################
 # first compilation, without constraints #
 compile 
@@ -31,7 +30,7 @@ report_area > rca_timeopt_1a.rpt
 # to each of th eoutput, that is a delay lower than the one found after
 # the first compilation step #
 # often this is the working clock period of your system #
-set_max_delay 0.50 -from [all_inputs] -to [all_outputs]
+set_max_delay 7.03 -from [all_inputs] -to [all_outputs]
 # optimize
 compile -map_effort high
 # save report

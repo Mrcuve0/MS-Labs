@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Tue Apr 23 14:07:13 2019
+#@ # Date:   Tue Apr 23 19:28:32 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4771,71 +4771,138 @@ source /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/.synopsys_dc.setup
 #@ 
 #@ # -- End source /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/.synopsys_dc.setup
 
-gui_start
-analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/constants.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/shifter.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/encoder.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/fa.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/mux_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/rca_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/complementer.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/booth_mul_row_special.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/booth_mul_row.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/ShiftnCompl_special.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/ShiftnCompl.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/booth.vhd}
-elaborate BOOTH -architecture BOOTH_STRUCT -library WORK -parameters "N = 8, RADIX = 3"
-change_selection [get_s Booth_N8_RADIX3]
-change_selection [get_s Booth_N8_RADIX3]
-change_selection [get_s Booth_N8_RADIX3]
-change_selection [get_s Booth_N8_RADIX3]
-change_selection -name __slctBus6 -type {cell design} _sel155
-change_selection [get_s booth_mul_row_special_1_0]
-change_selection 
-compile -exact_map
-change_selection [get_s Booth_N8_RADIX3]
-change_selection [get_s Booth_N8_RADIX3]
-change_selection -name __slctBus112 -type {cell design} _sel1218
-change_selection [get_s booth_mul_row_special_1_0]
-change_selection [get_s booth_mul_row_special_1_0/ShiftnCompl_special_1]
-change_selection [get_s booth_mul_row_special_1_0/ShiftnCompl_special_1/shifter_1]
-change_selection [get_s booth_mul_row_special_1_0/ShiftnCompl_special_1/complementer_1]
-change_selection [get_s booth_mul_row_special_1_0/ShiftnCompl_special_1/complementer_2]
-change_selection [get_s booth_mul_row_special_1_0/encoder_1]
-change_selection [get_s booth_mul_row_special_1_0/mux_1]
-change_selection [get_s booth_mul_row_1_1]
-change_selection [get_s {{booth_mul_row_1_1/plus2A_s[15:0]} {booth_mul_row_1_1/plus2A_s[15]} {booth_mul_row_1_1/plus2A_s[14]} {booth_mul_row_1_1/plus2A_s[13]}}]
-change_selection -add [get_s {{booth_mul_row_1_1/plus2A_s[12]} {booth_mul_row_1_1/plus2A_s[11]} {booth_mul_row_1_1/plus2A_s[10]} {booth_mul_row_1_1/plus2A_s[9]}}]
-change_selection -add [get_s {{booth_mul_row_1_1/plus2A_s[8]} {booth_mul_row_1_1/plus2A_s[7]} {booth_mul_row_1_1/plus2A_s[6]} {booth_mul_row_1_1/plus2A_s[5]}}]
-change_selection -add [get_s {{booth_mul_row_1_1/plus2A_s[4]} {booth_mul_row_1_1/plus2A_s[3]} {booth_mul_row_1_1/plus2A_s[2]} {booth_mul_row_1_1/plus2A_s[1]}}]
-change_selection -add [get_s {{booth_mul_row_1_1/plus2A_s[0]}}]
-change_selection 
-change_selection [get_s {{booth_mul_row_1_1/plus2A_s[15:1],nextA[0]} {booth_mul_row_1_1/plus2A_s[15]} {booth_mul_row_1_1/plus2A_s[14]}}]
-change_selection -add [get_s {{booth_mul_row_1_1/plus2A_s[13]} {booth_mul_row_1_1/plus2A_s[12]} {booth_mul_row_1_1/plus2A_s[11]} {booth_mul_row_1_1/plus2A_s[10]}}]
-change_selection -add [get_s {{booth_mul_row_1_1/plus2A_s[9]} {booth_mul_row_1_1/plus2A_s[8]} {booth_mul_row_1_1/plus2A_s[7]} {booth_mul_row_1_1/plus2A_s[6]}}]
-change_selection -add [get_s {{booth_mul_row_1_1/plus2A_s[5]} {booth_mul_row_1_1/plus2A_s[4]} {booth_mul_row_1_1/plus2A_s[3]} {booth_mul_row_1_1/plus2A_s[2]}}]
-change_selection -add [get_s {{booth_mul_row_1_1/plus2A_s[1]} {booth_mul_row_1_1/nextA[0]}}]
-change_selection [get_s booth_mul_row_1_3]
-change_selection [get_s booth_mul_row_1_2]
-change_selection [get_s booth_mul_row_1_1]
-change_selection [get_s booth_mul_row_1_1/mux_1]
-write -hierarchy -format vhdl -output /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/booth_PostSyn.vhdl
-analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/constants.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/shifter.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/encoder.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/fa.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/mux_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/rca_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/complementer.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/booth_mul_row_special.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/booth_mul_row.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/ShiftnCompl_special.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/ShiftnCompl.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/booth.vhd}
-elaborate BOOTH -architecture BOOTH_STRUCT -library WORK -parameters "N = 8, RADIX = 3"
-uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group }
-compile -exact_map
-uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group }
-change_selection [get_s Booth_N8_RADIX3]
-uplevel #0 { report_timing -path full -delay max -nworst 10 -max_paths 10 -significant_digits 2 -sort_by group }
-analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/constants.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/shifter.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/encoder.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/fa.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/mux_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/rca_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/complementer.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/booth_mul_row_special.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/booth_mul_row.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/ShiftnCompl_special.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/ShiftnCompl.vhd /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.2/syn/booth.vhd}
-elaborate BOOTH -architecture BOOTH_STRUCT -library WORK -parameters "N = 8, RADIX = 3"
-change_selection [get_s Booth_N8_RADIX3]
-elaborate BOOTH -architecture BOOTH_STRUCT -library WORK -parameters "N = 32, RADIX = 3"
-change_selection [get_s Booth_N32_RADIX3]
-change_selection [get_s Booth_N32_RADIX3]
-change_selection -name __slctBus1247 -type {cell design} _sel3649
-compile -exact_map
-change_selection [get_s Booth_N32_RADIX3]
-change_selection [get_s Booth_N32_RADIX3]
-change_selection -name __slctBus1255 -type {cell design} _sel5311
-change_selection [get_s booth_mul_row_special_1_0]
-change_selection [get_s booth_mul_row_special_1_0/ShiftnCompl_special_1]
-change_selection [get_s booth_mul_row_special_1_0/ShiftnCompl_special_1/complementer_2]
-change_selection [get_s booth_mul_row_special_1_0/ShiftnCompl_special_1/complementer_2/sub_add_29_b0]
-report timing > mul-timing-no-opt.txt
-report_timing > mul-timing-no-opt.txt
-report_area > mul-area-no-opt.txt
-set_max_delay 7.03 -for [all inputs] -to [all outputs]
-set_max_delay 7.03 -for [all_inputs] -to [all_outputs]
-set_max_delay 7 -for [all_inputs] -to [all_outputs]
-set_max_delay 7.03 -from [all_inputs] -to [all_outputs]
-compile -map_effort high
+source MUL_t.scr
+#@ ##############################################################
+#@ #SCRIPT FOR SPEEDING UP and RECORDING the MULTIPLIER SYNTHESIS#
+#@ # analyzing and checking vhdl netlist#
+#@ # here the analyze command is used for each file from bottom to top #
+#@ ##############################################################
+#@ analyze -library WORK -format vhdl {constants.vhd}
+#@ analyze -library WORK -format vhdl {fa.vhd}
+#@ # fill these lines with your files ...
+#@ analyze -library WORK -format vhdl {encoder.vhd}
+#@ analyze -library WORK -format vhdl {mux_generic.vhd}
+#@ analyze -library WORK -format vhdl {rca_generic.vhd}
+#@ analyze -library WORK -format vhdl {complementer.vhd}
+#@ analyze -library WORK -format vhdl {shifter.vhd}
+#@ analyze -library WORK -format vhdl {ShiftnCompl.vhd}
+#@ analyze -library WORK -format vhdl {ShiftnCompl_special.vhd}
+#@ analyze -library WORK -format vhdl {booth_mul_row.vhd}
+#@ analyze -library WORK -format vhdl {booth_mul_row_special.vhd}
+#@ analyze -library WORK -format vhdl {booth.vhd}
+#@ ##############################################################
+#@ # elaborating the top entity -- here supposed BOOTHMUL#
+#@ # choose the architecture you want
+#@ elaborate Booth -architecture STRUCTURAL 
+#@ ##########################################
+#@ # first compilation, without constraints #
+#@ compile 
+#@ # reporting riming and power after the first synthesis without constraints #
+#@ report_timing > rca_timeopt_1t.rpt
+#@ report_area > rca_timeopt_1a.rpt
+#@ # forces a combinational max delay of REQUIRED_TIME from each of the inputs
+#@ # to each of th eoutput, that is a delay lower than the one found after
+#@ # the first compilation step #
+#@ # often this is the working clock period of your system #
+#@ set_max_delay 7.03 -from [all_inputs] -to [all_outputs]
+#@ # optimize
+#@ compile -map_effort high
+#@ # save report
+#@ report_timing > rca_timeopt_2t.rpt
+#@ report_area > rca_timeopt_2a.rpt
+#@ # saving files
+#@ write -hierarchy -format ddc -output Booth-structural-topt.ddc
+#@ write -hierarchy -format vhdl -output Booth-structural-topt.vhdl
+#@ write -hierarchy -format verilog -output Booth-structural-topt.v
+#@ # -- End source MUL_t.scr
+
+source MUL_t.scr
+#@ ##############################################################
+#@ #SCRIPT FOR SPEEDING UP and RECORDING the MULTIPLIER SYNTHESIS#
+#@ # analyzing and checking vhdl netlist#
+#@ # here the analyze command is used for each file from bottom to top #
+#@ ##############################################################
+#@ analyze -library WORK -format vhdl {constants.vhd}
+#@ analyze -library WORK -format vhdl {fa.vhd}
+#@ # fill these lines with your files ...
+#@ analyze -library WORK -format vhdl {encoder.vhd}
+#@ analyze -library WORK -format vhdl {mux_generic.vhd}
+#@ analyze -library WORK -format vhdl {rca_generic.vhd}
+#@ analyze -library WORK -format vhdl {complementer.vhd}
+#@ analyze -library WORK -format vhdl {shifter.vhd}
+#@ analyze -library WORK -format vhdl {ShiftnCompl.vhd}
+#@ analyze -library WORK -format vhdl {ShiftnCompl_special.vhd}
+#@ analyze -library WORK -format vhdl {booth_mul_row.vhd}
+#@ analyze -library WORK -format vhdl {booth_mul_row_special.vhd}
+#@ analyze -library WORK -format vhdl {booth.vhd}
+#@ ##############################################################
+#@ # elaborating the top entity -- here supposed BOOTHMUL#
+#@ # choose the architecture you want
+#@ elaborate Booth -architecture struct 
+#@ ##########################################
+#@ # first compilation, without constraints #
+#@ compile 
+#@ # reporting riming and power after the first synthesis without constraints #
+#@ report_timing > rca_timeopt_1t.rpt
+#@ report_area > rca_timeopt_1a.rpt
+#@ # forces a combinational max delay of REQUIRED_TIME from each of the inputs
+#@ # to each of th eoutput, that is a delay lower than the one found after
+#@ # the first compilation step #
+#@ # often this is the working clock period of your system #
+#@ set_max_delay 7.03 -from [all_inputs] -to [all_outputs]
+#@ # optimize
+#@ compile -map_effort high
+#@ # save report
+#@ report_timing > rca_timeopt_2t.rpt
+#@ report_area > rca_timeopt_2a.rpt
+#@ # saving files
+#@ write -hierarchy -format ddc -output Booth-structural-topt.ddc
+#@ write -hierarchy -format vhdl -output Booth-structural-topt.vhdl
+#@ write -hierarchy -format verilog -output Booth-structural-topt.v
+#@ # -- End source MUL_t.scr
+
+source MUL_t.scr
+#@ ##############################################################
+#@ #SCRIPT FOR SPEEDING UP and RECORDING the MULTIPLIER SYNTHESIS#
+#@ # analyzing and checking vhdl netlist#
+#@ # here the analyze command is used for each file from bottom to top #
+#@ ##############################################################
+#@ analyze -library WORK -format vhdl {constants.vhd}
+#@ analyze -library WORK -format vhdl {fa.vhd}
+#@ # fill these lines with your files ...
+#@ analyze -library WORK -format vhdl {encoder.vhd}
+#@ analyze -library WORK -format vhdl {mux_generic.vhd}
+#@ analyze -library WORK -format vhdl {rca_generic.vhd}
+#@ analyze -library WORK -format vhdl {complementer.vhd}
+#@ analyze -library WORK -format vhdl {shifter.vhd}
+#@ analyze -library WORK -format vhdl {ShiftnCompl.vhd}
+#@ analyze -library WORK -format vhdl {ShiftnCompl_special.vhd}
+#@ analyze -library WORK -format vhdl {booth_mul_row.vhd}
+#@ analyze -library WORK -format vhdl {booth_mul_row_special.vhd}
+#@ analyze -library WORK -format vhdl {booth.vhd}
+#@ ##############################################################
+#@ # elaborating the top entity -- here supposed BOOTHMUL#
+#@ # choose the architecture you want
+#@ elaborate Booth -architecture booth_struct 
+#@ ##########################################
+#@ # first compilation, without constraints #
+#@ compile 
+#@ # reporting riming and power after the first synthesis without constraints #
+#@ report_timing > rca_timeopt_1t.rpt
+#@ report_area > rca_timeopt_1a.rpt
+#@ # forces a combinational max delay of REQUIRED_TIME from each of the inputs
+#@ # to each of th eoutput, that is a delay lower than the one found after
+#@ # the first compilation step #
+#@ # often this is the working clock period of your system #
+#@ set_max_delay 7.03 -from [all_inputs] -to [all_outputs]
+#@ # optimize
+#@ compile -map_effort high
+#@ # save report
+#@ report_timing > rca_timeopt_2t.rpt
+#@ report_area > rca_timeopt_2a.rpt
+#@ # saving files
+#@ write -hierarchy -format ddc -output Booth-structural-topt.ddc
+#@ write -hierarchy -format vhdl -output Booth-structural-topt.vhdl
+#@ write -hierarchy -format verilog -output Booth-structural-topt.v
+#@ # -- End source MUL_t.scr
+

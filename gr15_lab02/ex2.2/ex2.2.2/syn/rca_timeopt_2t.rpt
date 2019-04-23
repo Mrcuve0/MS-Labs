@@ -1,0 +1,464 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : Booth
+Version: F-2011.09-SP3
+Date   : Tue Apr 23 20:25:11 2019
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: B[0] (input port)
+  Endpoint: P[63] (output port)
+  Path Group: default
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Booth              5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  input external delay                                    0.00       0.00 r
+  B[0] (in)                                               0.00       0.00 r
+  booth_mul_row_special_1_0/encoderIn[1] (booth_mul_row_special_N64_RADIX3)
+                                                          0.00       0.00 r
+  booth_mul_row_special_1_0/encoder_1/X[1] (encoder_N64_RADIX3_0)
+                                                          0.00       0.00 r
+  booth_mul_row_special_1_0/encoder_1/U2/ZN (OAI21_X1)
+                                                          0.03       0.03 f
+  booth_mul_row_special_1_0/encoder_1/U4/ZN (OAI22_X1)
+                                                          0.05       0.08 r
+  booth_mul_row_special_1_0/encoder_1/Z[1] (encoder_N64_RADIX3_0)
+                                                          0.00       0.08 r
+  booth_mul_row_special_1_0/mux_1/SEL[1] (MUX_GENERIC_N64_RADIX3_0)
+                                                          0.00       0.08 r
+  booth_mul_row_special_1_0/mux_1/U15/Z (BUF_X2)          0.05       0.13 r
+  booth_mul_row_special_1_0/mux_1/U12/ZN (OAI21_X1)       0.04       0.17 f
+  booth_mul_row_special_1_0/mux_1/U14/ZN (INV_X1)         0.03       0.21 r
+  booth_mul_row_special_1_0/mux_1/Y_tri[0]/Z (TBUF_X2)
+                                                          0.13       0.33 f
+  booth_mul_row_special_1_0/mux_1/Y[0] (MUX_GENERIC_N64_RADIX3_0)
+                                                          0.00       0.33 f
+  booth_mul_row_special_1_0/nextSum[0] (booth_mul_row_special_N64_RADIX3)
+                                                          0.00       0.33 f
+  booth_mul_row_1_1/prevSum[0] (booth_mul_row_N64_RADIX3_0)
+                                                          0.00       0.33 f
+  booth_mul_row_1_1/rca_1/B[0] (RCA_N64_0)                0.00       0.33 f
+  booth_mul_row_1_1/rca_1/FAI_1/B (FA_0)                  0.00       0.33 f
+  booth_mul_row_1_1/rca_1/FAI_1/U1/ZN (AOI22_X1)          0.05       0.38 r
+  booth_mul_row_1_1/rca_1/FAI_1/U2/ZN (INV_X1)            0.03       0.41 f
+  booth_mul_row_1_1/rca_1/FAI_1/Co (FA_0)                 0.00       0.41 f
+  booth_mul_row_1_1/rca_1/FAI_2/Ci (FA_959)               0.00       0.41 f
+  booth_mul_row_1_1/rca_1/FAI_2/U1/ZN (AOI21_X1)          0.04       0.45 r
+  booth_mul_row_1_1/rca_1/FAI_2/U2/ZN (INV_X1)            0.03       0.48 f
+  booth_mul_row_1_1/rca_1/FAI_2/Co (FA_959)               0.00       0.48 f
+  booth_mul_row_1_1/rca_1/FAI_3/Ci (FA_958)               0.00       0.48 f
+  booth_mul_row_1_1/rca_1/FAI_3/U4/ZN (AOI21_X1)          0.06       0.53 r
+  booth_mul_row_1_1/rca_1/FAI_3/U5/ZN (NOR2_X1)           0.03       0.56 f
+  booth_mul_row_1_1/rca_1/FAI_3/Co (FA_958)               0.00       0.56 f
+  booth_mul_row_1_1/rca_1/FAI_4/Ci (FA_957)               0.00       0.56 f
+  booth_mul_row_1_1/rca_1/FAI_4/U3/ZN (AOI22_X1)          0.06       0.62 r
+  booth_mul_row_1_1/rca_1/FAI_4/U5/ZN (INV_X1)            0.03       0.65 f
+  booth_mul_row_1_1/rca_1/FAI_4/Co (FA_957)               0.00       0.65 f
+  booth_mul_row_1_1/rca_1/FAI_5/Ci (FA_956)               0.00       0.65 f
+  booth_mul_row_1_1/rca_1/FAI_5/U2/ZN (AOI22_X1)          0.06       0.70 r
+  booth_mul_row_1_1/rca_1/FAI_5/U1/ZN (INV_X1)            0.03       0.73 f
+  booth_mul_row_1_1/rca_1/FAI_5/Co (FA_956)               0.00       0.73 f
+  booth_mul_row_1_1/rca_1/FAI_6/Ci (FA_955)               0.00       0.73 f
+  booth_mul_row_1_1/rca_1/FAI_6/U2/ZN (AOI22_X1)          0.06       0.79 r
+  booth_mul_row_1_1/rca_1/FAI_6/U1/ZN (INV_X1)            0.03       0.82 f
+  booth_mul_row_1_1/rca_1/FAI_6/Co (FA_955)               0.00       0.82 f
+  booth_mul_row_1_1/rca_1/FAI_7/Ci (FA_954)               0.00       0.82 f
+  booth_mul_row_1_1/rca_1/FAI_7/U1/ZN (AOI22_X1)          0.06       0.87 r
+  booth_mul_row_1_1/rca_1/FAI_7/U2/ZN (INV_X1)            0.03       0.90 f
+  booth_mul_row_1_1/rca_1/FAI_7/Co (FA_954)               0.00       0.90 f
+  booth_mul_row_1_1/rca_1/FAI_8/Ci (FA_953)               0.00       0.90 f
+  booth_mul_row_1_1/rca_1/FAI_8/U2/ZN (AOI22_X1)          0.06       0.96 r
+  booth_mul_row_1_1/rca_1/FAI_8/U1/ZN (INV_X1)            0.03       0.99 f
+  booth_mul_row_1_1/rca_1/FAI_8/Co (FA_953)               0.00       0.99 f
+  booth_mul_row_1_1/rca_1/FAI_9/Ci (FA_952)               0.00       0.99 f
+  booth_mul_row_1_1/rca_1/FAI_9/U1/ZN (AOI22_X1)          0.06       1.04 r
+  booth_mul_row_1_1/rca_1/FAI_9/U2/ZN (INV_X1)            0.03       1.07 f
+  booth_mul_row_1_1/rca_1/FAI_9/Co (FA_952)               0.00       1.07 f
+  booth_mul_row_1_1/rca_1/FAI_10/Ci (FA_951)              0.00       1.07 f
+  booth_mul_row_1_1/rca_1/FAI_10/U2/ZN (AOI22_X1)         0.06       1.13 r
+  booth_mul_row_1_1/rca_1/FAI_10/U1/ZN (INV_X1)           0.03       1.16 f
+  booth_mul_row_1_1/rca_1/FAI_10/Co (FA_951)              0.00       1.16 f
+  booth_mul_row_1_1/rca_1/FAI_11/Ci (FA_950)              0.00       1.16 f
+  booth_mul_row_1_1/rca_1/FAI_11/U2/ZN (AOI22_X1)         0.06       1.21 r
+  booth_mul_row_1_1/rca_1/FAI_11/U1/ZN (INV_X1)           0.03       1.24 f
+  booth_mul_row_1_1/rca_1/FAI_11/Co (FA_950)              0.00       1.24 f
+  booth_mul_row_1_1/rca_1/FAI_12/Ci (FA_949)              0.00       1.24 f
+  booth_mul_row_1_1/rca_1/FAI_12/U1/ZN (AOI22_X1)         0.06       1.30 r
+  booth_mul_row_1_1/rca_1/FAI_12/U2/ZN (INV_X1)           0.03       1.33 f
+  booth_mul_row_1_1/rca_1/FAI_12/Co (FA_949)              0.00       1.33 f
+  booth_mul_row_1_1/rca_1/FAI_13/Ci (FA_948)              0.00       1.33 f
+  booth_mul_row_1_1/rca_1/FAI_13/U2/ZN (AOI22_X1)         0.06       1.38 r
+  booth_mul_row_1_1/rca_1/FAI_13/U1/ZN (INV_X1)           0.03       1.41 f
+  booth_mul_row_1_1/rca_1/FAI_13/Co (FA_948)              0.00       1.41 f
+  booth_mul_row_1_1/rca_1/FAI_14/Ci (FA_947)              0.00       1.41 f
+  booth_mul_row_1_1/rca_1/FAI_14/U1/ZN (AOI22_X1)         0.06       1.47 r
+  booth_mul_row_1_1/rca_1/FAI_14/U2/ZN (INV_X1)           0.03       1.50 f
+  booth_mul_row_1_1/rca_1/FAI_14/Co (FA_947)              0.00       1.50 f
+  booth_mul_row_1_1/rca_1/FAI_15/Ci (FA_946)              0.00       1.50 f
+  booth_mul_row_1_1/rca_1/FAI_15/U2/ZN (AOI22_X1)         0.06       1.55 r
+  booth_mul_row_1_1/rca_1/FAI_15/U1/ZN (INV_X1)           0.03       1.58 f
+  booth_mul_row_1_1/rca_1/FAI_15/Co (FA_946)              0.00       1.58 f
+  booth_mul_row_1_1/rca_1/FAI_16/Ci (FA_945)              0.00       1.58 f
+  booth_mul_row_1_1/rca_1/FAI_16/U3/ZN (AOI22_X1)         0.06       1.64 r
+  booth_mul_row_1_1/rca_1/FAI_16/U4/ZN (INV_X1)           0.03       1.66 f
+  booth_mul_row_1_1/rca_1/FAI_16/Co (FA_945)              0.00       1.66 f
+  booth_mul_row_1_1/rca_1/FAI_17/Ci (FA_944)              0.00       1.66 f
+  booth_mul_row_1_1/rca_1/FAI_17/U1/ZN (AOI22_X1)         0.06       1.72 r
+  booth_mul_row_1_1/rca_1/FAI_17/U2/ZN (INV_X1)           0.03       1.75 f
+  booth_mul_row_1_1/rca_1/FAI_17/Co (FA_944)              0.00       1.75 f
+  booth_mul_row_1_1/rca_1/FAI_18/Ci (FA_943)              0.00       1.75 f
+  booth_mul_row_1_1/rca_1/FAI_18/U2/ZN (AOI22_X1)         0.06       1.81 r
+  booth_mul_row_1_1/rca_1/FAI_18/U1/ZN (INV_X1)           0.03       1.83 f
+  booth_mul_row_1_1/rca_1/FAI_18/Co (FA_943)              0.00       1.83 f
+  booth_mul_row_1_1/rca_1/FAI_19/Ci (FA_942)              0.00       1.83 f
+  booth_mul_row_1_1/rca_1/FAI_19/U1/ZN (AOI22_X1)         0.06       1.89 r
+  booth_mul_row_1_1/rca_1/FAI_19/U2/ZN (INV_X1)           0.03       1.92 f
+  booth_mul_row_1_1/rca_1/FAI_19/Co (FA_942)              0.00       1.92 f
+  booth_mul_row_1_1/rca_1/FAI_20/Ci (FA_941)              0.00       1.92 f
+  booth_mul_row_1_1/rca_1/FAI_20/U2/ZN (AOI22_X1)         0.06       1.98 r
+  booth_mul_row_1_1/rca_1/FAI_20/U1/ZN (INV_X1)           0.03       2.00 f
+  booth_mul_row_1_1/rca_1/FAI_20/Co (FA_941)              0.00       2.00 f
+  booth_mul_row_1_1/rca_1/FAI_21/Ci (FA_940)              0.00       2.00 f
+  booth_mul_row_1_1/rca_1/FAI_21/U1/ZN (AOI22_X1)         0.06       2.06 r
+  booth_mul_row_1_1/rca_1/FAI_21/U2/ZN (INV_X1)           0.03       2.09 f
+  booth_mul_row_1_1/rca_1/FAI_21/Co (FA_940)              0.00       2.09 f
+  booth_mul_row_1_1/rca_1/FAI_22/Ci (FA_939)              0.00       2.09 f
+  booth_mul_row_1_1/rca_1/FAI_22/U1/ZN (AOI22_X1)         0.06       2.14 r
+  booth_mul_row_1_1/rca_1/FAI_22/U2/ZN (INV_X1)           0.03       2.17 f
+  booth_mul_row_1_1/rca_1/FAI_22/Co (FA_939)              0.00       2.17 f
+  booth_mul_row_1_1/rca_1/FAI_23/Ci (FA_938)              0.00       2.17 f
+  booth_mul_row_1_1/rca_1/FAI_23/U2/ZN (AOI22_X1)         0.06       2.23 r
+  booth_mul_row_1_1/rca_1/FAI_23/U1/ZN (INV_X1)           0.03       2.26 f
+  booth_mul_row_1_1/rca_1/FAI_23/Co (FA_938)              0.00       2.26 f
+  booth_mul_row_1_1/rca_1/FAI_24/Ci (FA_937)              0.00       2.26 f
+  booth_mul_row_1_1/rca_1/FAI_24/U1/ZN (AOI22_X1)         0.06       2.31 r
+  booth_mul_row_1_1/rca_1/FAI_24/U2/ZN (INV_X1)           0.03       2.34 f
+  booth_mul_row_1_1/rca_1/FAI_24/Co (FA_937)              0.00       2.34 f
+  booth_mul_row_1_1/rca_1/FAI_25/Ci (FA_936)              0.00       2.34 f
+  booth_mul_row_1_1/rca_1/FAI_25/U3/Z (XOR2_X1)           0.06       2.40 r
+  booth_mul_row_1_1/rca_1/FAI_25/S (FA_936)               0.00       2.40 r
+  booth_mul_row_1_1/rca_1/S[24] (RCA_N64_0)               0.00       2.40 r
+  booth_mul_row_1_1/nextSum[24] (booth_mul_row_N64_RADIX3_0)
+                                                          0.00       2.40 r
+  booth_mul_row_1_2/prevSum[24] (booth_mul_row_N64_RADIX3_14)
+                                                          0.00       2.40 r
+  booth_mul_row_1_2/rca_1/B[24] (RCA_N64_14)              0.00       2.40 r
+  booth_mul_row_1_2/rca_1/FAI_25/B (FA_872)               0.00       2.40 r
+  booth_mul_row_1_2/rca_1/FAI_25/U4/Z (XOR2_X1)           0.08       2.48 r
+  booth_mul_row_1_2/rca_1/FAI_25/U3/Z (XOR2_X1)           0.08       2.56 r
+  booth_mul_row_1_2/rca_1/FAI_25/S (FA_872)               0.00       2.56 r
+  booth_mul_row_1_2/rca_1/S[24] (RCA_N64_14)              0.00       2.56 r
+  booth_mul_row_1_2/nextSum[24] (booth_mul_row_N64_RADIX3_14)
+                                                          0.00       2.56 r
+  booth_mul_row_1_3/prevSum[24] (booth_mul_row_N64_RADIX3_13)
+                                                          0.00       2.56 r
+  booth_mul_row_1_3/rca_1/B[24] (RCA_N64_13)              0.00       2.56 r
+  booth_mul_row_1_3/rca_1/FAI_25/B (FA_808)               0.00       2.56 r
+  booth_mul_row_1_3/rca_1/FAI_25/U4/Z (XOR2_X1)           0.08       2.65 r
+  booth_mul_row_1_3/rca_1/FAI_25/U3/Z (XOR2_X1)           0.08       2.73 r
+  booth_mul_row_1_3/rca_1/FAI_25/S (FA_808)               0.00       2.73 r
+  booth_mul_row_1_3/rca_1/S[24] (RCA_N64_13)              0.00       2.73 r
+  booth_mul_row_1_3/nextSum[24] (booth_mul_row_N64_RADIX3_13)
+                                                          0.00       2.73 r
+  booth_mul_row_1_4/prevSum[24] (booth_mul_row_N64_RADIX3_12)
+                                                          0.00       2.73 r
+  booth_mul_row_1_4/rca_1/B[24] (RCA_N64_12)              0.00       2.73 r
+  booth_mul_row_1_4/rca_1/FAI_25/B (FA_744)               0.00       2.73 r
+  booth_mul_row_1_4/rca_1/FAI_25/U2/ZN (XNOR2_X1)         0.07       2.80 r
+  booth_mul_row_1_4/rca_1/FAI_25/U3/Z (XOR2_X1)           0.08       2.88 r
+  booth_mul_row_1_4/rca_1/FAI_25/S (FA_744)               0.00       2.88 r
+  booth_mul_row_1_4/rca_1/S[24] (RCA_N64_12)              0.00       2.88 r
+  booth_mul_row_1_4/nextSum[24] (booth_mul_row_N64_RADIX3_12)
+                                                          0.00       2.88 r
+  booth_mul_row_1_5/prevSum[24] (booth_mul_row_N64_RADIX3_11)
+                                                          0.00       2.88 r
+  booth_mul_row_1_5/rca_1/B[24] (RCA_N64_11)              0.00       2.88 r
+  booth_mul_row_1_5/rca_1/FAI_25/B (FA_680)               0.00       2.88 r
+  booth_mul_row_1_5/rca_1/FAI_25/U4/ZN (XNOR2_X1)         0.07       2.95 r
+  booth_mul_row_1_5/rca_1/FAI_25/U3/Z (XOR2_X1)           0.08       3.03 r
+  booth_mul_row_1_5/rca_1/FAI_25/S (FA_680)               0.00       3.03 r
+  booth_mul_row_1_5/rca_1/S[24] (RCA_N64_11)              0.00       3.03 r
+  booth_mul_row_1_5/nextSum[24] (booth_mul_row_N64_RADIX3_11)
+                                                          0.00       3.03 r
+  booth_mul_row_1_6/prevSum[24] (booth_mul_row_N64_RADIX3_10)
+                                                          0.00       3.03 r
+  booth_mul_row_1_6/rca_1/B[24] (RCA_N64_10)              0.00       3.03 r
+  booth_mul_row_1_6/rca_1/FAI_25/B (FA_616)               0.00       3.03 r
+  booth_mul_row_1_6/rca_1/FAI_25/U6/ZN (XNOR2_X1)         0.07       3.10 r
+  booth_mul_row_1_6/rca_1/FAI_25/U3/Z (XOR2_X1)           0.08       3.18 r
+  booth_mul_row_1_6/rca_1/FAI_25/S (FA_616)               0.00       3.18 r
+  booth_mul_row_1_6/rca_1/S[24] (RCA_N64_10)              0.00       3.18 r
+  booth_mul_row_1_6/nextSum[24] (booth_mul_row_N64_RADIX3_10)
+                                                          0.00       3.18 r
+  booth_mul_row_1_7/prevSum[24] (booth_mul_row_N64_RADIX3_9)
+                                                          0.00       3.18 r
+  booth_mul_row_1_7/rca_1/B[24] (RCA_N64_9)               0.00       3.18 r
+  booth_mul_row_1_7/rca_1/FAI_25/B (FA_552)               0.00       3.18 r
+  booth_mul_row_1_7/rca_1/FAI_25/U4/ZN (XNOR2_X1)         0.07       3.25 r
+  booth_mul_row_1_7/rca_1/FAI_25/U3/Z (XOR2_X1)           0.08       3.33 r
+  booth_mul_row_1_7/rca_1/FAI_25/S (FA_552)               0.00       3.33 r
+  booth_mul_row_1_7/rca_1/S[24] (RCA_N64_9)               0.00       3.33 r
+  booth_mul_row_1_7/nextSum[24] (booth_mul_row_N64_RADIX3_9)
+                                                          0.00       3.33 r
+  booth_mul_row_1_8/prevSum[24] (booth_mul_row_N64_RADIX3_8)
+                                                          0.00       3.33 r
+  booth_mul_row_1_8/rca_1/B[24] (RCA_N64_8)               0.00       3.33 r
+  booth_mul_row_1_8/rca_1/FAI_25/B (FA_488)               0.00       3.33 r
+  booth_mul_row_1_8/rca_1/FAI_25/U6/ZN (XNOR2_X1)         0.07       3.40 r
+  booth_mul_row_1_8/rca_1/FAI_25/U3/Z (XOR2_X1)           0.08       3.48 r
+  booth_mul_row_1_8/rca_1/FAI_25/S (FA_488)               0.00       3.48 r
+  booth_mul_row_1_8/rca_1/S[24] (RCA_N64_8)               0.00       3.48 r
+  booth_mul_row_1_8/nextSum[24] (booth_mul_row_N64_RADIX3_8)
+                                                          0.00       3.48 r
+  booth_mul_row_1_9/prevSum[24] (booth_mul_row_N64_RADIX3_7)
+                                                          0.00       3.48 r
+  booth_mul_row_1_9/rca_1/B[24] (RCA_N64_7)               0.00       3.48 r
+  booth_mul_row_1_9/rca_1/FAI_25/B (FA_424)               0.00       3.48 r
+  booth_mul_row_1_9/rca_1/FAI_25/U6/ZN (XNOR2_X1)         0.07       3.54 r
+  booth_mul_row_1_9/rca_1/FAI_25/U3/Z (XOR2_X1)           0.08       3.62 r
+  booth_mul_row_1_9/rca_1/FAI_25/S (FA_424)               0.00       3.62 r
+  booth_mul_row_1_9/rca_1/S[24] (RCA_N64_7)               0.00       3.62 r
+  booth_mul_row_1_9/nextSum[24] (booth_mul_row_N64_RADIX3_7)
+                                                          0.00       3.62 r
+  booth_mul_row_1_10/prevSum[24] (booth_mul_row_N64_RADIX3_6)
+                                                          0.00       3.62 r
+  booth_mul_row_1_10/rca_1/B[24] (RCA_N64_6)              0.00       3.62 r
+  booth_mul_row_1_10/rca_1/FAI_25/B (FA_360)              0.00       3.62 r
+  booth_mul_row_1_10/rca_1/FAI_25/U2/ZN (XNOR2_X1)        0.07       3.69 r
+  booth_mul_row_1_10/rca_1/FAI_25/U3/Z (XOR2_X1)          0.08       3.77 r
+  booth_mul_row_1_10/rca_1/FAI_25/S (FA_360)              0.00       3.77 r
+  booth_mul_row_1_10/rca_1/S[24] (RCA_N64_6)              0.00       3.77 r
+  booth_mul_row_1_10/nextSum[24] (booth_mul_row_N64_RADIX3_6)
+                                                          0.00       3.77 r
+  booth_mul_row_1_11/prevSum[24] (booth_mul_row_N64_RADIX3_5)
+                                                          0.00       3.77 r
+  booth_mul_row_1_11/rca_1/B[24] (RCA_N64_5)              0.00       3.77 r
+  booth_mul_row_1_11/rca_1/FAI_25/B (FA_296)              0.00       3.77 r
+  booth_mul_row_1_11/rca_1/FAI_25/U6/ZN (XNOR2_X1)        0.07       3.84 r
+  booth_mul_row_1_11/rca_1/FAI_25/U3/Z (XOR2_X1)          0.08       3.92 r
+  booth_mul_row_1_11/rca_1/FAI_25/S (FA_296)              0.00       3.92 r
+  booth_mul_row_1_11/rca_1/S[24] (RCA_N64_5)              0.00       3.92 r
+  booth_mul_row_1_11/nextSum[24] (booth_mul_row_N64_RADIX3_5)
+                                                          0.00       3.92 r
+  booth_mul_row_1_12/prevSum[24] (booth_mul_row_N64_RADIX3_4)
+                                                          0.00       3.92 r
+  booth_mul_row_1_12/rca_1/B[24] (RCA_N64_4)              0.00       3.92 r
+  booth_mul_row_1_12/rca_1/FAI_25/B (FA_232)              0.00       3.92 r
+  booth_mul_row_1_12/rca_1/FAI_25/U4/Z (XOR2_X1)          0.08       4.01 r
+  booth_mul_row_1_12/rca_1/FAI_25/U3/Z (XOR2_X1)          0.08       4.09 r
+  booth_mul_row_1_12/rca_1/FAI_25/S (FA_232)              0.00       4.09 r
+  booth_mul_row_1_12/rca_1/S[24] (RCA_N64_4)              0.00       4.09 r
+  booth_mul_row_1_12/nextSum[24] (booth_mul_row_N64_RADIX3_4)
+                                                          0.00       4.09 r
+  booth_mul_row_1_13/prevSum[24] (booth_mul_row_N64_RADIX3_3)
+                                                          0.00       4.09 r
+  booth_mul_row_1_13/rca_1/B[24] (RCA_N64_3)              0.00       4.09 r
+  booth_mul_row_1_13/rca_1/FAI_25/B (FA_168)              0.00       4.09 r
+  booth_mul_row_1_13/rca_1/FAI_25/U4/Z (XOR2_X1)          0.05       4.14 f
+  booth_mul_row_1_13/rca_1/FAI_25/U2/ZN (AOI22_X1)        0.06       4.20 r
+  booth_mul_row_1_13/rca_1/FAI_25/U5/ZN (INV_X1)          0.03       4.23 f
+  booth_mul_row_1_13/rca_1/FAI_25/Co (FA_168)             0.00       4.23 f
+  booth_mul_row_1_13/rca_1/FAI_26/Ci (FA_167)             0.00       4.23 f
+  booth_mul_row_1_13/rca_1/FAI_26/U2/ZN (AOI22_X1)        0.06       4.28 r
+  booth_mul_row_1_13/rca_1/FAI_26/U1/ZN (INV_X1)          0.03       4.31 f
+  booth_mul_row_1_13/rca_1/FAI_26/Co (FA_167)             0.00       4.31 f
+  booth_mul_row_1_13/rca_1/FAI_27/Ci (FA_166)             0.00       4.31 f
+  booth_mul_row_1_13/rca_1/FAI_27/U2/ZN (AOI22_X1)        0.06       4.37 r
+  booth_mul_row_1_13/rca_1/FAI_27/U5/ZN (INV_X1)          0.03       4.40 f
+  booth_mul_row_1_13/rca_1/FAI_27/Co (FA_166)             0.00       4.40 f
+  booth_mul_row_1_13/rca_1/FAI_28/Ci (FA_165)             0.00       4.40 f
+  booth_mul_row_1_13/rca_1/FAI_28/U4/ZN (AOI22_X1)        0.06       4.45 r
+  booth_mul_row_1_13/rca_1/FAI_28/U5/ZN (INV_X1)          0.03       4.48 f
+  booth_mul_row_1_13/rca_1/FAI_28/Co (FA_165)             0.00       4.48 f
+  booth_mul_row_1_13/rca_1/FAI_29/Ci (FA_164)             0.00       4.48 f
+  booth_mul_row_1_13/rca_1/FAI_29/U4/ZN (AOI22_X1)        0.06       4.54 r
+  booth_mul_row_1_13/rca_1/FAI_29/U5/ZN (INV_X1)          0.03       4.57 f
+  booth_mul_row_1_13/rca_1/FAI_29/Co (FA_164)             0.00       4.57 f
+  booth_mul_row_1_13/rca_1/FAI_30/Ci (FA_163)             0.00       4.57 f
+  booth_mul_row_1_13/rca_1/FAI_30/U2/ZN (AOI22_X1)        0.06       4.62 r
+  booth_mul_row_1_13/rca_1/FAI_30/U5/ZN (INV_X1)          0.03       4.65 f
+  booth_mul_row_1_13/rca_1/FAI_30/Co (FA_163)             0.00       4.65 f
+  booth_mul_row_1_13/rca_1/FAI_31/Ci (FA_162)             0.00       4.65 f
+  booth_mul_row_1_13/rca_1/FAI_31/U5/ZN (AOI22_X1)        0.06       4.71 r
+  booth_mul_row_1_13/rca_1/FAI_31/U4/ZN (INV_X1)          0.03       4.74 f
+  booth_mul_row_1_13/rca_1/FAI_31/Co (FA_162)             0.00       4.74 f
+  booth_mul_row_1_13/rca_1/FAI_32/Ci (FA_161)             0.00       4.74 f
+  booth_mul_row_1_13/rca_1/FAI_32/U4/ZN (AOI22_X1)        0.06       4.79 r
+  booth_mul_row_1_13/rca_1/FAI_32/U5/ZN (INV_X1)          0.03       4.82 f
+  booth_mul_row_1_13/rca_1/FAI_32/Co (FA_161)             0.00       4.82 f
+  booth_mul_row_1_13/rca_1/FAI_33/Ci (FA_160)             0.00       4.82 f
+  booth_mul_row_1_13/rca_1/FAI_33/U2/ZN (AOI22_X1)        0.06       4.88 r
+  booth_mul_row_1_13/rca_1/FAI_33/U5/ZN (INV_X1)          0.03       4.91 f
+  booth_mul_row_1_13/rca_1/FAI_33/Co (FA_160)             0.00       4.91 f
+  booth_mul_row_1_13/rca_1/FAI_34/Ci (FA_159)             0.00       4.91 f
+  booth_mul_row_1_13/rca_1/FAI_34/U4/ZN (AOI22_X1)        0.06       4.96 r
+  booth_mul_row_1_13/rca_1/FAI_34/U5/ZN (INV_X1)          0.03       4.99 f
+  booth_mul_row_1_13/rca_1/FAI_34/Co (FA_159)             0.00       4.99 f
+  booth_mul_row_1_13/rca_1/FAI_35/Ci (FA_158)             0.00       4.99 f
+  booth_mul_row_1_13/rca_1/FAI_35/U4/ZN (AOI22_X1)        0.06       5.05 r
+  booth_mul_row_1_13/rca_1/FAI_35/U5/ZN (INV_X1)          0.03       5.08 f
+  booth_mul_row_1_13/rca_1/FAI_35/Co (FA_158)             0.00       5.08 f
+  booth_mul_row_1_13/rca_1/FAI_36/Ci (FA_157)             0.00       5.08 f
+  booth_mul_row_1_13/rca_1/FAI_36/U6/ZN (AOI22_X1)        0.06       5.13 r
+  booth_mul_row_1_13/rca_1/FAI_36/U5/ZN (INV_X1)          0.03       5.16 f
+  booth_mul_row_1_13/rca_1/FAI_36/Co (FA_157)             0.00       5.16 f
+  booth_mul_row_1_13/rca_1/FAI_37/Ci (FA_156)             0.00       5.16 f
+  booth_mul_row_1_13/rca_1/FAI_37/U2/ZN (AOI22_X1)        0.06       5.22 r
+  booth_mul_row_1_13/rca_1/FAI_37/U5/ZN (INV_X1)          0.03       5.24 f
+  booth_mul_row_1_13/rca_1/FAI_37/Co (FA_156)             0.00       5.24 f
+  booth_mul_row_1_13/rca_1/FAI_38/Ci (FA_155)             0.00       5.24 f
+  booth_mul_row_1_13/rca_1/FAI_38/U2/ZN (AOI22_X1)        0.06       5.30 r
+  booth_mul_row_1_13/rca_1/FAI_38/U5/ZN (INV_X1)          0.03       5.33 f
+  booth_mul_row_1_13/rca_1/FAI_38/Co (FA_155)             0.00       5.33 f
+  booth_mul_row_1_13/rca_1/FAI_39/Ci (FA_154)             0.00       5.33 f
+  booth_mul_row_1_13/rca_1/FAI_39/U2/ZN (AOI22_X1)        0.06       5.39 r
+  booth_mul_row_1_13/rca_1/FAI_39/U5/ZN (INV_X1)          0.03       5.41 f
+  booth_mul_row_1_13/rca_1/FAI_39/Co (FA_154)             0.00       5.41 f
+  booth_mul_row_1_13/rca_1/FAI_40/Ci (FA_153)             0.00       5.41 f
+  booth_mul_row_1_13/rca_1/FAI_40/U2/ZN (AOI22_X1)        0.06       5.47 r
+  booth_mul_row_1_13/rca_1/FAI_40/U5/ZN (INV_X1)          0.03       5.50 f
+  booth_mul_row_1_13/rca_1/FAI_40/Co (FA_153)             0.00       5.50 f
+  booth_mul_row_1_13/rca_1/FAI_41/Ci (FA_152)             0.00       5.50 f
+  booth_mul_row_1_13/rca_1/FAI_41/U5/ZN (AOI22_X1)        0.06       5.56 r
+  booth_mul_row_1_13/rca_1/FAI_41/U2/ZN (INV_X1)          0.03       5.58 f
+  booth_mul_row_1_13/rca_1/FAI_41/Co (FA_152)             0.00       5.58 f
+  booth_mul_row_1_13/rca_1/FAI_42/Ci (FA_151)             0.00       5.58 f
+  booth_mul_row_1_13/rca_1/FAI_42/U4/ZN (AOI22_X1)        0.06       5.64 r
+  booth_mul_row_1_13/rca_1/FAI_42/U5/ZN (INV_X1)          0.03       5.67 f
+  booth_mul_row_1_13/rca_1/FAI_42/Co (FA_151)             0.00       5.67 f
+  booth_mul_row_1_13/rca_1/FAI_43/Ci (FA_150)             0.00       5.67 f
+  booth_mul_row_1_13/rca_1/FAI_43/U3/Z (XOR2_X1)          0.07       5.74 f
+  booth_mul_row_1_13/rca_1/FAI_43/S (FA_150)              0.00       5.74 f
+  booth_mul_row_1_13/rca_1/S[42] (RCA_N64_3)              0.00       5.74 f
+  booth_mul_row_1_13/nextSum[42] (booth_mul_row_N64_RADIX3_3)
+                                                          0.00       5.74 f
+  booth_mul_row_1_14/prevSum[42] (booth_mul_row_N64_RADIX3_2)
+                                                          0.00       5.74 f
+  booth_mul_row_1_14/rca_1/B[42] (RCA_N64_2)              0.00       5.74 f
+  booth_mul_row_1_14/rca_1/FAI_43/B (FA_86)               0.00       5.74 f
+  booth_mul_row_1_14/rca_1/FAI_43/U4/Z (XOR2_X1)          0.08       5.82 f
+  booth_mul_row_1_14/rca_1/FAI_43/U2/ZN (AOI22_X1)        0.06       5.88 r
+  booth_mul_row_1_14/rca_1/FAI_43/U5/ZN (INV_X1)          0.03       5.91 f
+  booth_mul_row_1_14/rca_1/FAI_43/Co (FA_86)              0.00       5.91 f
+  booth_mul_row_1_14/rca_1/FAI_44/Ci (FA_85)              0.00       5.91 f
+  booth_mul_row_1_14/rca_1/FAI_44/U5/ZN (AOI22_X1)        0.06       5.97 r
+  booth_mul_row_1_14/rca_1/FAI_44/U2/ZN (INV_X1)          0.03       5.99 f
+  booth_mul_row_1_14/rca_1/FAI_44/Co (FA_85)              0.00       5.99 f
+  booth_mul_row_1_14/rca_1/FAI_45/Ci (FA_84)              0.00       5.99 f
+  booth_mul_row_1_14/rca_1/FAI_45/U4/ZN (AOI22_X1)        0.06       6.05 r
+  booth_mul_row_1_14/rca_1/FAI_45/U5/ZN (INV_X1)          0.03       6.08 f
+  booth_mul_row_1_14/rca_1/FAI_45/Co (FA_84)              0.00       6.08 f
+  booth_mul_row_1_14/rca_1/FAI_46/Ci (FA_83)              0.00       6.08 f
+  booth_mul_row_1_14/rca_1/FAI_46/U5/ZN (AOI22_X1)        0.06       6.13 r
+  booth_mul_row_1_14/rca_1/FAI_46/U4/ZN (INV_X1)          0.03       6.16 f
+  booth_mul_row_1_14/rca_1/FAI_46/Co (FA_83)              0.00       6.16 f
+  booth_mul_row_1_14/rca_1/FAI_47/Ci (FA_82)              0.00       6.16 f
+  booth_mul_row_1_14/rca_1/FAI_47/U5/ZN (AOI22_X1)        0.06       6.22 r
+  booth_mul_row_1_14/rca_1/FAI_47/U4/ZN (INV_X1)          0.03       6.25 f
+  booth_mul_row_1_14/rca_1/FAI_47/Co (FA_82)              0.00       6.25 f
+  booth_mul_row_1_14/rca_1/FAI_48/Ci (FA_81)              0.00       6.25 f
+  booth_mul_row_1_14/rca_1/FAI_48/U5/ZN (AOI22_X1)        0.06       6.30 r
+  booth_mul_row_1_14/rca_1/FAI_48/U6/ZN (INV_X1)          0.03       6.33 f
+  booth_mul_row_1_14/rca_1/FAI_48/Co (FA_81)              0.00       6.33 f
+  booth_mul_row_1_14/rca_1/FAI_49/Ci (FA_80)              0.00       6.33 f
+  booth_mul_row_1_14/rca_1/FAI_49/U5/ZN (AOI22_X1)        0.06       6.39 r
+  booth_mul_row_1_14/rca_1/FAI_49/U2/ZN (INV_X1)          0.03       6.42 f
+  booth_mul_row_1_14/rca_1/FAI_49/Co (FA_80)              0.00       6.42 f
+  booth_mul_row_1_14/rca_1/FAI_50/Ci (FA_79)              0.00       6.42 f
+  booth_mul_row_1_14/rca_1/FAI_50/U2/ZN (AOI22_X1)        0.06       6.47 r
+  booth_mul_row_1_14/rca_1/FAI_50/U5/ZN (INV_X1)          0.03       6.50 f
+  booth_mul_row_1_14/rca_1/FAI_50/Co (FA_79)              0.00       6.50 f
+  booth_mul_row_1_14/rca_1/FAI_51/Ci (FA_78)              0.00       6.50 f
+  booth_mul_row_1_14/rca_1/FAI_51/U1/ZN (AOI22_X1)        0.06       6.56 r
+  booth_mul_row_1_14/rca_1/FAI_51/U2/ZN (INV_X1)          0.03       6.59 f
+  booth_mul_row_1_14/rca_1/FAI_51/Co (FA_78)              0.00       6.59 f
+  booth_mul_row_1_14/rca_1/FAI_52/Ci (FA_77)              0.00       6.59 f
+  booth_mul_row_1_14/rca_1/FAI_52/U4/ZN (AOI22_X1)        0.06       6.64 r
+  booth_mul_row_1_14/rca_1/FAI_52/U5/ZN (INV_X1)          0.03       6.67 f
+  booth_mul_row_1_14/rca_1/FAI_52/Co (FA_77)              0.00       6.67 f
+  booth_mul_row_1_14/rca_1/FAI_53/Ci (FA_76)              0.00       6.67 f
+  booth_mul_row_1_14/rca_1/FAI_53/U4/ZN (AOI22_X1)        0.06       6.73 r
+  booth_mul_row_1_14/rca_1/FAI_53/U5/ZN (INV_X1)          0.03       6.76 f
+  booth_mul_row_1_14/rca_1/FAI_53/Co (FA_76)              0.00       6.76 f
+  booth_mul_row_1_14/rca_1/FAI_54/Ci (FA_75)              0.00       6.76 f
+  booth_mul_row_1_14/rca_1/FAI_54/U2/ZN (AOI22_X1)        0.06       6.81 r
+  booth_mul_row_1_14/rca_1/FAI_54/U4/ZN (INV_X1)          0.03       6.84 f
+  booth_mul_row_1_14/rca_1/FAI_54/Co (FA_75)              0.00       6.84 f
+  booth_mul_row_1_14/rca_1/FAI_55/Ci (FA_74)              0.00       6.84 f
+  booth_mul_row_1_14/rca_1/FAI_55/U2/ZN (AOI22_X1)        0.06       6.90 r
+  booth_mul_row_1_14/rca_1/FAI_55/U4/ZN (INV_X1)          0.03       6.93 f
+  booth_mul_row_1_14/rca_1/FAI_55/Co (FA_74)              0.00       6.93 f
+  booth_mul_row_1_14/rca_1/FAI_56/Ci (FA_73)              0.00       6.93 f
+  booth_mul_row_1_14/rca_1/FAI_56/U2/ZN (AOI22_X1)        0.06       6.98 r
+  booth_mul_row_1_14/rca_1/FAI_56/U4/ZN (INV_X1)          0.03       7.01 f
+  booth_mul_row_1_14/rca_1/FAI_56/Co (FA_73)              0.00       7.01 f
+  booth_mul_row_1_14/rca_1/FAI_57/Ci (FA_72)              0.00       7.01 f
+  booth_mul_row_1_14/rca_1/FAI_57/U2/ZN (AOI22_X1)        0.06       7.07 r
+  booth_mul_row_1_14/rca_1/FAI_57/U4/ZN (INV_X1)          0.03       7.09 f
+  booth_mul_row_1_14/rca_1/FAI_57/Co (FA_72)              0.00       7.09 f
+  booth_mul_row_1_14/rca_1/FAI_58/Ci (FA_71)              0.00       7.09 f
+  booth_mul_row_1_14/rca_1/FAI_58/U3/Z (XOR2_X1)          0.07       7.17 f
+  booth_mul_row_1_14/rca_1/FAI_58/S (FA_71)               0.00       7.17 f
+  booth_mul_row_1_14/rca_1/S[57] (RCA_N64_2)              0.00       7.17 f
+  booth_mul_row_1_14/nextSum[57] (booth_mul_row_N64_RADIX3_2)
+                                                          0.00       7.17 f
+  booth_mul_row_1_15/prevSum[57] (booth_mul_row_N64_RADIX3_1)
+                                                          0.00       7.17 f
+  booth_mul_row_1_15/rca_1/B[57] (RCA_N64_1)              0.00       7.17 f
+  booth_mul_row_1_15/rca_1/FAI_58/B (FA_7)                0.00       7.17 f
+  booth_mul_row_1_15/rca_1/FAI_58/U5/ZN (XNOR2_X1)        0.06       7.23 f
+  booth_mul_row_1_15/rca_1/FAI_58/U7/ZN (AOI22_X1)        0.06       7.29 r
+  booth_mul_row_1_15/rca_1/FAI_58/U8/ZN (INV_X1)          0.03       7.32 f
+  booth_mul_row_1_15/rca_1/FAI_58/Co (FA_7)               0.00       7.32 f
+  booth_mul_row_1_15/rca_1/FAI_59/Ci (FA_6)               0.00       7.32 f
+  booth_mul_row_1_15/rca_1/FAI_59/U6/ZN (AOI22_X1)        0.06       7.37 r
+  booth_mul_row_1_15/rca_1/FAI_59/U5/ZN (INV_X1)          0.03       7.40 f
+  booth_mul_row_1_15/rca_1/FAI_59/Co (FA_6)               0.00       7.40 f
+  booth_mul_row_1_15/rca_1/FAI_60/Ci (FA_5)               0.00       7.40 f
+  booth_mul_row_1_15/rca_1/FAI_60/U4/ZN (AOI21_X1)        0.05       7.45 r
+  booth_mul_row_1_15/rca_1/FAI_60/U5/ZN (NOR2_X1)         0.03       7.48 f
+  booth_mul_row_1_15/rca_1/FAI_60/Co (FA_5)               0.00       7.48 f
+  booth_mul_row_1_15/rca_1/FAI_61/Ci (FA_4)               0.00       7.48 f
+  booth_mul_row_1_15/rca_1/FAI_61/U4/ZN (AOI21_X1)        0.05       7.53 r
+  booth_mul_row_1_15/rca_1/FAI_61/U5/ZN (NOR2_X1)         0.03       7.56 f
+  booth_mul_row_1_15/rca_1/FAI_61/Co (FA_4)               0.00       7.56 f
+  booth_mul_row_1_15/rca_1/FAI_62/Ci (FA_3)               0.00       7.56 f
+  booth_mul_row_1_15/rca_1/FAI_62/U4/ZN (AOI21_X1)        0.05       7.61 r
+  booth_mul_row_1_15/rca_1/FAI_62/U5/ZN (NOR2_X1)         0.03       7.64 f
+  booth_mul_row_1_15/rca_1/FAI_62/Co (FA_3)               0.00       7.64 f
+  booth_mul_row_1_15/rca_1/FAI_63/Ci (FA_2)               0.00       7.64 f
+  booth_mul_row_1_15/rca_1/FAI_63/U4/ZN (AOI21_X1)        0.05       7.70 r
+  booth_mul_row_1_15/rca_1/FAI_63/U5/ZN (NOR2_X1)         0.03       7.72 f
+  booth_mul_row_1_15/rca_1/FAI_63/Co (FA_2)               0.00       7.72 f
+  booth_mul_row_1_15/rca_1/FAI_64/Ci (FA_1)               0.00       7.72 f
+  booth_mul_row_1_15/rca_1/FAI_64/U4/ZN (XNOR2_X1)        0.06       7.78 f
+  booth_mul_row_1_15/rca_1/FAI_64/S (FA_1)                0.00       7.78 f
+  booth_mul_row_1_15/rca_1/S[63] (RCA_N64_1)              0.00       7.78 f
+  booth_mul_row_1_15/nextSum[63] (booth_mul_row_N64_RADIX3_1)
+                                                          0.00       7.78 f
+  P[63] (out)                                             0.00       7.78 f
+  data arrival time                                                  7.78
+
+  max_delay                                               7.03       7.03
+  output external delay                                   0.00       7.03
+  data required time                                                 7.03
+  --------------------------------------------------------------------------
+  data required time                                                 7.03
+  data arrival time                                                 -7.78
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.75
+
+
+1
