@@ -6,8 +6,8 @@ use work.constants.all;
 
 entity booth_mul_row_special is
   generic (
-    N : integer;
-    RADIX: integer);
+    N     : integer;
+    RADIX : integer);
   port (
     A         : in  std_logic_vector(N-1 downto 0);
     encoderIn : in  std_logic_vector(RADIX-1 downto 0);
@@ -24,8 +24,8 @@ architecture struct of booth_mul_row_special is
 
   component encoder is
     generic (
-      N : integer;
-      RADIX: integer);
+      N     : integer;
+      RADIX : integer);
     port (
       X : in  std_logic_vector(RADIX-1 downto 0);
       Z : out std_logic_vector(RADIX-1 downto 0));
@@ -41,7 +41,7 @@ architecture struct of booth_mul_row_special is
 
   component MUX_GENERIC is
     generic (
-      N : integer;
+      N     : integer;
       RADIX : integer);
     port (
       plusA   : in  std_logic_vector(N-1 downto 0);
@@ -62,7 +62,7 @@ architecture struct of booth_mul_row_special is
 begin  -- architecture struct
 
   encoder_1 : encoder generic map (
-    N => N,
+    N     => N,
     RADIX => RADIX)
     port map (
       X => encoderIn,
@@ -78,7 +78,7 @@ begin  -- architecture struct
       minus2A_out => minus2A_s);
 
   mux_1 : MUX_GENERIC generic map (
-    N => N,
+    N     => N,
     RADIX => RADIX)
     port map (
       plusA   => plusA_s,

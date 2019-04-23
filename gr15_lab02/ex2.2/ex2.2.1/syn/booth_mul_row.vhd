@@ -65,11 +65,11 @@ architecture struct of booth_mul_row is
       Co : out std_logic);
   end component RCA;
 
+  for all : RCA
+    use entity work.RCA(STRUCTURAL);
+
   -- interconnections between encoder and mux
   signal encoder_to_mux : std_logic_vector(RADIX-1 downto 0);
-
-  -- additional interconnectios
-  -- signal nextA_s        : std_logic_vector(N-1 downto 0);
 
   -- interconnections between ShiftnCompl and MUX
   signal plus2A_s, minus2A_s, plus4A_s, minus4A_s : std_logic_vector(N-1 downto 0);

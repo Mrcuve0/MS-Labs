@@ -10,7 +10,7 @@ use WORK.constants.all;
 
 entity RCA is
   generic (
-    N : integer := NumBit);
+    N : integer);
   port (A  : in  std_logic_vector(N-1 downto 0);
         B  : in  std_logic_vector(N-1 downto 0);
         Ci : in  std_logic;
@@ -53,16 +53,16 @@ end STRUCTURAL;
 -- Behavioral Architecture
 --------------------------------------------------------------------------------
 
-architecture BEHAVIORAL of RCA is
+--architecture BEHAVIORAL of RCA is
 
-  signal S7 : std_logic_vector(N downto 0);
-begin
-  
-  S7 <= ('0'&A) + ('0'&B) + (Ci); -- after DRCAS;
-  Co <= S7(N);                  -- after DRCAC;
-  S  <= S7(N-1 downto 0);
-  
-end BEHAVIORAL;
+--  signal S7 : std_logic_vector(N downto 0);
+--begin
+
+--  S7 <= ('0'&A) + ('0'&B) + (Ci); -- after DRCAS;
+--  Co <= S7(N);                  -- after DRCAC;
+--  S  <= S7(N-1 downto 0);
+
+--end BEHAVIORAL;
 
 configuration CFG_RCA_STRUCTURAL of RCA is
   for STRUCTURAL
@@ -74,7 +74,7 @@ configuration CFG_RCA_STRUCTURAL of RCA is
   end for;
 end CFG_RCA_STRUCTURAL;
 
-configuration CFG_RCA_BEHAVIORAL of RCA is
-  for BEHAVIORAL
-  end for;
-end CFG_RCA_BEHAVIORAL;
+--configuration CFG_RCA_BEHAVIORAL of RCA is
+--  for BEHAVIORAL
+--  end for;
+--end CFG_RCA_BEHAVIORAL;

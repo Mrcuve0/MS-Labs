@@ -1,0 +1,158 @@
+Warning: Design 'Booth_N8_RADIX3' has '5' unresolved references. For more detailed information, use the "link" command. (UID-341)
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+        -sort_by group
+Design : Booth_N8_RADIX3
+Version: F-2011.09-SP3
+Date   : Tue Apr 23 16:05:55 2019
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: B[3] (input port)
+  Endpoint: P[15] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  Booth_N8_RADIX3    5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  input external delay                                    0.00       0.00 r
+  B[3] (in)                                               0.00       0.00 r
+  booth_mul_row_1_1/encoderIn[2] (booth_mul_row_N16_RADIX3)
+                                                          0.00       0.00 r
+  booth_mul_row_1_1/encoder_1/X[2] (encoder_N16_RADIX3)
+                                                          0.00       0.00 r
+  booth_mul_row_1_1/encoder_1/I_0/Z (GTECH_NOT)           0.00       0.00 f
+  booth_mul_row_1_1/encoder_1/C23/Z (GTECH_OR2)           0.00       0.01 f
+  booth_mul_row_1_1/encoder_1/C24/Z (GTECH_OR2)           0.00       0.01 f
+  booth_mul_row_1_1/encoder_1/I_6/Z (GTECH_NOT)           0.00       0.01 r
+  booth_mul_row_1_1/encoder_1/B_0/Z (GTECH_BUF)           0.00       0.01 r
+  booth_mul_row_1_1/encoder_1/Z[2] (encoder_N16_RADIX3)
+                                                          0.00       0.01 r
+  booth_mul_row_1_1/mux_1/SEL[2] (MUX_GENERIC_N16_RADIX3)
+                                                          0.00       0.01 r
+  booth_mul_row_1_1/mux_1/C26/Z (GTECH_AND2)              0.00       0.02 r
+  booth_mul_row_1_1/mux_1/C148/Z (GTECH_OR2)              0.00       0.02 r
+  booth_mul_row_1_1/mux_1/I_23/Z (GTECH_NOT)              0.00       0.02 f
+  booth_mul_row_1_1/mux_1/I_15/Z (GTECH_NOT)              0.01       0.03 r
+  booth_mul_row_1_1/mux_1/Y_tri[0]/output (**TSGEN**)     0.00       0.03 r
+  booth_mul_row_1_1/mux_1/Y[0] (MUX_GENERIC_N16_RADIX3)
+                                                          0.00       0.03 r
+  booth_mul_row_1_1/rca_1/A[0] (RCA_N16)                  0.00       0.03 r
+  booth_mul_row_1_1/rca_1/FAI_1/A (FA)                    0.00       0.03 r
+  booth_mul_row_1_1/rca_1/FAI_1/C9/Z (GTECH_XOR2)         0.00       0.03 r
+  booth_mul_row_1_1/rca_1/FAI_1/C8/Z (GTECH_XOR2)         0.00       0.03 r
+  booth_mul_row_1_1/rca_1/FAI_1/S (FA)                    0.00       0.03 r
+  booth_mul_row_1_1/rca_1/S[0] (RCA_N16)                  0.00       0.03 r
+  booth_mul_row_1_1/nextSum[0] (booth_mul_row_N16_RADIX3)
+                                                          0.00       0.03 r
+  booth_mul_row_1_2/prevSum[0] (booth_mul_row_N16_RADIX3)
+                                                          0.00       0.03 r
+  booth_mul_row_1_2/rca_1/B[0] (RCA_N16)                  0.00       0.03 r
+  booth_mul_row_1_2/rca_1/FAI_1/B (FA)                    0.00       0.03 r
+  booth_mul_row_1_2/rca_1/FAI_1/C12/Z (GTECH_AND2)        0.00       0.04 r
+  booth_mul_row_1_2/rca_1/FAI_1/C11/Z (GTECH_OR2)         0.00       0.04 r
+  booth_mul_row_1_2/rca_1/FAI_1/C10/Z (GTECH_OR2)         0.00       0.04 r
+  booth_mul_row_1_2/rca_1/FAI_1/Co (FA)                   0.00       0.04 r
+  booth_mul_row_1_2/rca_1/FAI_2/Ci (FA)                   0.00       0.04 r
+  booth_mul_row_1_2/rca_1/FAI_2/C13/Z (GTECH_AND2)        0.00       0.04 r
+  booth_mul_row_1_2/rca_1/FAI_2/C11/Z (GTECH_OR2)         0.00       0.05 r
+  booth_mul_row_1_2/rca_1/FAI_2/C10/Z (GTECH_OR2)         0.00       0.05 r
+  booth_mul_row_1_2/rca_1/FAI_2/Co (FA)                   0.00       0.05 r
+  booth_mul_row_1_2/rca_1/FAI_3/Ci (FA)                   0.00       0.05 r
+  booth_mul_row_1_2/rca_1/FAI_3/C13/Z (GTECH_AND2)        0.00       0.05 r
+  booth_mul_row_1_2/rca_1/FAI_3/C11/Z (GTECH_OR2)         0.00       0.05 r
+  booth_mul_row_1_2/rca_1/FAI_3/C10/Z (GTECH_OR2)         0.00       0.05 r
+  booth_mul_row_1_2/rca_1/FAI_3/Co (FA)                   0.00       0.05 r
+  booth_mul_row_1_2/rca_1/FAI_4/Ci (FA)                   0.00       0.05 r
+  booth_mul_row_1_2/rca_1/FAI_4/C13/Z (GTECH_AND2)        0.00       0.06 r
+  booth_mul_row_1_2/rca_1/FAI_4/C11/Z (GTECH_OR2)         0.00       0.06 r
+  booth_mul_row_1_2/rca_1/FAI_4/C10/Z (GTECH_OR2)         0.00       0.06 r
+  booth_mul_row_1_2/rca_1/FAI_4/Co (FA)                   0.00       0.06 r
+  booth_mul_row_1_2/rca_1/FAI_5/Ci (FA)                   0.00       0.06 r
+  booth_mul_row_1_2/rca_1/FAI_5/C13/Z (GTECH_AND2)        0.00       0.06 r
+  booth_mul_row_1_2/rca_1/FAI_5/C11/Z (GTECH_OR2)         0.00       0.07 r
+  booth_mul_row_1_2/rca_1/FAI_5/C10/Z (GTECH_OR2)         0.00       0.07 r
+  booth_mul_row_1_2/rca_1/FAI_5/Co (FA)                   0.00       0.07 r
+  booth_mul_row_1_2/rca_1/FAI_6/Ci (FA)                   0.00       0.07 r
+  booth_mul_row_1_2/rca_1/FAI_6/C13/Z (GTECH_AND2)        0.00       0.07 r
+  booth_mul_row_1_2/rca_1/FAI_6/C11/Z (GTECH_OR2)         0.00       0.07 r
+  booth_mul_row_1_2/rca_1/FAI_6/C10/Z (GTECH_OR2)         0.00       0.08 r
+  booth_mul_row_1_2/rca_1/FAI_6/Co (FA)                   0.00       0.08 r
+  booth_mul_row_1_2/rca_1/FAI_7/Ci (FA)                   0.00       0.08 r
+  booth_mul_row_1_2/rca_1/FAI_7/C13/Z (GTECH_AND2)        0.00       0.08 r
+  booth_mul_row_1_2/rca_1/FAI_7/C11/Z (GTECH_OR2)         0.00       0.08 r
+  booth_mul_row_1_2/rca_1/FAI_7/C10/Z (GTECH_OR2)         0.00       0.08 r
+  booth_mul_row_1_2/rca_1/FAI_7/Co (FA)                   0.00       0.08 r
+  booth_mul_row_1_2/rca_1/FAI_8/Ci (FA)                   0.00       0.08 r
+  booth_mul_row_1_2/rca_1/FAI_8/C13/Z (GTECH_AND2)        0.00       0.08 r
+  booth_mul_row_1_2/rca_1/FAI_8/C11/Z (GTECH_OR2)         0.00       0.09 r
+  booth_mul_row_1_2/rca_1/FAI_8/C10/Z (GTECH_OR2)         0.00       0.09 r
+  booth_mul_row_1_2/rca_1/FAI_8/Co (FA)                   0.00       0.09 r
+  booth_mul_row_1_2/rca_1/FAI_9/Ci (FA)                   0.00       0.09 r
+  booth_mul_row_1_2/rca_1/FAI_9/C13/Z (GTECH_AND2)        0.00       0.09 r
+  booth_mul_row_1_2/rca_1/FAI_9/C11/Z (GTECH_OR2)         0.00       0.09 r
+  booth_mul_row_1_2/rca_1/FAI_9/C10/Z (GTECH_OR2)         0.00       0.10 r
+  booth_mul_row_1_2/rca_1/FAI_9/Co (FA)                   0.00       0.10 r
+  booth_mul_row_1_2/rca_1/FAI_10/Ci (FA)                  0.00       0.10 r
+  booth_mul_row_1_2/rca_1/FAI_10/C13/Z (GTECH_AND2)       0.00       0.10 r
+  booth_mul_row_1_2/rca_1/FAI_10/C11/Z (GTECH_OR2)        0.00       0.10 r
+  booth_mul_row_1_2/rca_1/FAI_10/C10/Z (GTECH_OR2)        0.00       0.10 r
+  booth_mul_row_1_2/rca_1/FAI_10/Co (FA)                  0.00       0.10 r
+  booth_mul_row_1_2/rca_1/FAI_11/Ci (FA)                  0.00       0.10 r
+  booth_mul_row_1_2/rca_1/FAI_11/C13/Z (GTECH_AND2)       0.00       0.11 r
+  booth_mul_row_1_2/rca_1/FAI_11/C11/Z (GTECH_OR2)        0.00       0.11 r
+  booth_mul_row_1_2/rca_1/FAI_11/C10/Z (GTECH_OR2)        0.00       0.11 r
+  booth_mul_row_1_2/rca_1/FAI_11/Co (FA)                  0.00       0.11 r
+  booth_mul_row_1_2/rca_1/FAI_12/Ci (FA)                  0.00       0.11 r
+  booth_mul_row_1_2/rca_1/FAI_12/C13/Z (GTECH_AND2)       0.00       0.11 r
+  booth_mul_row_1_2/rca_1/FAI_12/C11/Z (GTECH_OR2)        0.00       0.11 r
+  booth_mul_row_1_2/rca_1/FAI_12/C10/Z (GTECH_OR2)        0.00       0.12 r
+  booth_mul_row_1_2/rca_1/FAI_12/Co (FA)                  0.00       0.12 r
+  booth_mul_row_1_2/rca_1/FAI_13/Ci (FA)                  0.00       0.12 r
+  booth_mul_row_1_2/rca_1/FAI_13/C13/Z (GTECH_AND2)       0.00       0.12 r
+  booth_mul_row_1_2/rca_1/FAI_13/C11/Z (GTECH_OR2)        0.00       0.12 r
+  booth_mul_row_1_2/rca_1/FAI_13/C10/Z (GTECH_OR2)        0.00       0.12 r
+  booth_mul_row_1_2/rca_1/FAI_13/Co (FA)                  0.00       0.12 r
+  booth_mul_row_1_2/rca_1/FAI_14/Ci (FA)                  0.00       0.12 r
+  booth_mul_row_1_2/rca_1/FAI_14/C13/Z (GTECH_AND2)       0.00       0.13 r
+  booth_mul_row_1_2/rca_1/FAI_14/C11/Z (GTECH_OR2)        0.00       0.13 r
+  booth_mul_row_1_2/rca_1/FAI_14/C10/Z (GTECH_OR2)        0.00       0.13 r
+  booth_mul_row_1_2/rca_1/FAI_14/Co (FA)                  0.00       0.13 r
+  booth_mul_row_1_2/rca_1/FAI_15/Ci (FA)                  0.00       0.13 r
+  booth_mul_row_1_2/rca_1/FAI_15/C13/Z (GTECH_AND2)       0.00       0.13 r
+  booth_mul_row_1_2/rca_1/FAI_15/C11/Z (GTECH_OR2)        0.00       0.13 r
+  booth_mul_row_1_2/rca_1/FAI_15/C10/Z (GTECH_OR2)        0.00       0.14 r
+  booth_mul_row_1_2/rca_1/FAI_15/Co (FA)                  0.00       0.14 r
+  booth_mul_row_1_2/rca_1/FAI_16/Ci (FA)                  0.00       0.14 r
+  booth_mul_row_1_2/rca_1/FAI_16/C8/Z (GTECH_XOR2)        0.00       0.14 r
+  booth_mul_row_1_2/rca_1/FAI_16/S (FA)                   0.00       0.14 r
+  booth_mul_row_1_2/rca_1/S[15] (RCA_N16)                 0.00       0.14 r
+  booth_mul_row_1_2/nextSum[15] (booth_mul_row_N16_RADIX3)
+                                                          0.00       0.14 r
+  booth_mul_row_1_3/prevSum[15] (booth_mul_row_N16_RADIX3)
+                                                          0.00       0.14 r
+  booth_mul_row_1_3/rca_1/B[15] (RCA_N16)                 0.00       0.14 r
+  booth_mul_row_1_3/rca_1/FAI_16/B (FA)                   0.00       0.14 r
+  booth_mul_row_1_3/rca_1/FAI_16/C9/Z (GTECH_XOR2)        0.00       0.14 r
+  booth_mul_row_1_3/rca_1/FAI_16/C8/Z (GTECH_XOR2)        0.00       0.14 r
+  booth_mul_row_1_3/rca_1/FAI_16/S (FA)                   0.00       0.14 r
+  booth_mul_row_1_3/rca_1/S[15] (RCA_N16)                 0.00       0.14 r
+  booth_mul_row_1_3/nextSum[15] (booth_mul_row_N16_RADIX3)
+                                                          0.00       0.14 r
+  P[15] (out)                                             0.00       0.15 r
+  data arrival time                                                  0.15
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+

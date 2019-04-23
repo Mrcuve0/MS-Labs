@@ -29,133 +29,27 @@ vsim -t 10ps -novopt work.multiplier_tb
 # Loading work.shiftncompl_special(struct)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
 # Loading work.shifter(beh)
-# ** Warning: (vsim-3473) Component instance "complementer_1 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__0/first_level/booth_mul_row_special_1/shiftncompl_special_1  File: ShiftnCompl_special.vhd
-# ** Warning: (vsim-3473) Component instance "complementer_2 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__0/first_level/booth_mul_row_special_1/shiftncompl_special_1  File: ShiftnCompl_special.vhd
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
 # Loading work.mux_generic(beh)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
 # Loading work.booth_mul_row(struct)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
 # Loading work.shiftncompl(struct)
-# ** Warning: (vsim-3473) Component instance "complementer_1 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-# ** Warning: (vsim-3473) Component instance "complementer_2 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(behavioral)
-# Loading work.rca(behavioral)
-# ** Warning: (vsim-3473) Component instance "complementer_1 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-# ** Warning: (vsim-3473) Component instance "complementer_2 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-# ** Warning: (vsim-3473) Component instance "complementer_1 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-# ** Warning: (vsim-3473) Component instance "complementer_2 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
 add wave *
 run 100 ns
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 6  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 6  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 8  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 8  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 6  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 6  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 8  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 8  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 80 ns  Iteration: 3  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 80 ns  Iteration: 3  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 80 ns  Iteration: 3  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 80 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 80 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-vsim -t 10ps -novopt work.multiplier_tb
-# vsim -t 10ps -novopt work.multiplier_tb 
-# Loading std.standard
-# Loading ieee.std_logic_1164(body)
-# Loading ieee.std_logic_arith(body)
-# Loading ieee.std_logic_unsigned(body)
+restart
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
 # Loading work.constants
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
 # Loading work.multiplier_tb(test)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
 # Loading work.booth(booth_struct)
-# Loading ieee.numeric_std(body)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
 # Loading work.booth_mul_row_special(struct)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
@@ -164,117 +58,337 @@ vsim -t 10ps -novopt work.multiplier_tb
 # Loading work.shiftncompl_special(struct)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
 # Loading work.shifter(beh)
-# ** Warning: (vsim-3473) Component instance "complementer_1 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__0/first_level/booth_mul_row_special_1/shiftncompl_special_1  File: ShiftnCompl_special.vhd
-# ** Warning: (vsim-3473) Component instance "complementer_2 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__0/first_level/booth_mul_row_special_1/shiftncompl_special_1  File: ShiftnCompl_special.vhd
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
 # Loading work.mux_generic(beh)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
 # Loading work.booth_mul_row(struct)
 # Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
 # Loading work.shiftncompl(struct)
-# ** Warning: (vsim-3473) Component instance "complementer_1 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-# ** Warning: (vsim-3473) Component instance "complementer_2 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(behavioral)
-# Loading work.rca(behavioral)
-# ** Warning: (vsim-3473) Component instance "complementer_1 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-# ** Warning: (vsim-3473) Component instance "complementer_2 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-# ** Warning: (vsim-3473) Component instance "complementer_1 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-# ** Warning: (vsim-3473) Component instance "complementer_2 : complementer" is not bound.
-#    Time: 0 ps  Iteration: 0  Region: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/shiftncompl_1  File: ShiftnCompl.vhd
-add wave *
-run 100 ns
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 0  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 1  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 0 ps  Iteration: 2  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 6  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 6  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 8  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 20 ns  Iteration: 8  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 6  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 6  Instance: /multiplier_tb/booth_1/bool_generate__2/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 8  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 60 ns  Iteration: 8  Instance: /multiplier_tb/booth_1/bool_generate__3/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 80 ns  Iteration: 3  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 80 ns  Iteration: 3  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 80 ns  Iteration: 3  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 80 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 80 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
-# ** Warning: There is an 'U'|'X'|'W'|'Z'|'-' in an arithmetic operand, the result will be 'X'(es).
-#    Time: 100 ns  Iteration: 4  Instance: /multiplier_tb/booth_1/bool_generate__1/other_levels/booth_mul_row_1/rca_1
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 2us
+restart
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
+# Loading work.multiplier_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
+# Loading work.booth(booth_struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
+# Loading work.booth_mul_row_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
+# Loading work.encoder(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl_special(struct)
+# Loading work.shiftncompl_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
+# Loading work.shifter(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
+# Loading work.mux_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
+# Loading work.booth_mul_row(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
+# Loading work.shiftncompl(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 2us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
+# Loading work.multiplier_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
+# Loading work.booth(booth_struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
+# Loading work.booth_mul_row_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
+# Loading work.encoder(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl_special(struct)
+# Loading work.shiftncompl_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
+# Loading work.shifter(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
+# Loading work.mux_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
+# Loading work.booth_mul_row(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
+# Loading work.shiftncompl(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 2us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
+# Loading work.multiplier_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
+# Loading work.booth(booth_struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
+# Loading work.booth_mul_row_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
+# Loading work.encoder(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl_special(struct)
+# Loading work.shiftncompl_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
+# Loading work.shifter(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
+# Loading work.mux_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
+# Loading work.booth_mul_row(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
+# Loading work.shiftncompl(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 2us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
+# Loading work.multiplier_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
+# Loading work.booth(booth_struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
+# Loading work.booth_mul_row_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
+# Loading work.encoder(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl_special(struct)
+# Loading work.shiftncompl_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
+# Loading work.shifter(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
+# Loading work.mux_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
+# Loading work.booth_mul_row(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
+# Loading work.shiftncompl(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 2us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
+# Loading work.multiplier_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
+# Loading work.booth(booth_struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
+# Loading work.booth_mul_row_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
+# Loading work.encoder(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl_special(struct)
+# Loading work.shiftncompl_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
+# Loading work.shifter(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
+# Loading work.mux_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
+# Loading work.booth_mul_row(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
+# Loading work.shiftncompl(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 2us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
+# Loading work.multiplier_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
+# Loading work.booth(booth_struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
+# Loading work.booth_mul_row_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
+# Loading work.encoder(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl_special(struct)
+# Loading work.shiftncompl_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
+# Loading work.shifter(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
+# Loading work.mux_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
+# Loading work.booth_mul_row(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
+# Loading work.shiftncompl(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 2us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
+# Loading work.multiplier_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
+# Loading work.booth(booth_struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
+# Loading work.booth_mul_row_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
+# Loading work.encoder(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl_special(struct)
+# Loading work.shiftncompl_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
+# Loading work.shifter(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
+# Loading work.mux_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
+# Loading work.booth_mul_row(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
+# Loading work.shiftncompl(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 2us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
+# Loading work.multiplier_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
+# Loading work.booth(booth_struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
+# Loading work.booth_mul_row_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
+# Loading work.encoder(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl_special(struct)
+# Loading work.shiftncompl_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
+# Loading work.shifter(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
+# Loading work.mux_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
+# Loading work.booth_mul_row(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
+# Loading work.shiftncompl(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 2us
+run 2us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
+# Loading work.multiplier_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
+# Loading work.booth(booth_struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
+# Loading work.booth_mul_row_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
+# Loading work.encoder(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl_special(struct)
+# Loading work.shiftncompl_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
+# Loading work.shifter(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
+# Loading work.mux_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
+# Loading work.booth_mul_row(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
+# Loading work.shiftncompl(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 4us
+run 4us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+run 10us
+restart -f
+run 3s
+# Invalid time value: 3s
+run 3 s
+# Invalid time value: 3 s
+run 2 s
+# Invalid time value: 2 s
+run 1 s
+# Invalid time value: 1 s
+run 1000us
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.multiplier_tb(test)
+# Loading work.multiplier_tb(test)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth(booth_struct)
+# Loading work.booth(booth_struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row_special(struct)
+# Loading work.booth_mul_row_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.encoder(beh)
+# Loading work.encoder(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl_special(struct)
+# Loading work.shiftncompl_special(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shifter(beh)
+# Loading work.shifter(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.complementer(beh)
+# Loading work.complementer(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.mux_generic(beh)
+# Loading work.mux_generic(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.booth_mul_row(struct)
+# Loading work.booth_mul_row(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.shiftncompl(struct)
+# Loading work.shiftncompl(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.rca(structural)
+# Loading work.rca(structural)
+# Refreshing /home/ms19.15/MS/gr15_lab02/ex2.2/ex2.2.1/sim/work.fa(behavioral)
+# Loading work.fa(behavioral)
+run 2000us
+restart -f
+run 20000us

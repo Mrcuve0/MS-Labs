@@ -4,6 +4,7 @@ vcom rca_generic.vhd
 vcom mux_generic.vhd
 vcom encoder.vhd
 vcom shifter.vhd
+vcom complementer.vhd
 vcom ShiftnCompl.vhd
 vcom ShiftnCompl_special.vhd
 vcom booth_mul_row_special.vhd

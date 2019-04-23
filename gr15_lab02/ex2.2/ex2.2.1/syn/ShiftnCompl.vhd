@@ -7,7 +7,7 @@ use work.constants.all;
 
 entity ShiftnCompl is
   generic (
-    N : integer);
+    N : integer:=numBit);
   port (
     plusA                                            : in  std_logic_vector(N-1 downto 0);
     plus2A_out, minus2A_out, plus4A_out, minus4A_out : out std_logic_vector(N-1 downto 0));

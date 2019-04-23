@@ -9,7 +9,7 @@ entity encoder is
     RADIX: integer);                       -- Supposing radixN = 3
   port(
     X : in  std_logic_vector(radixN-1 downto 0);
-    Z : out std_logic_vector(RADIX-1 downto 0));
+    Z : out std_logic_vector(radixN-1 downto 0));
 end encoder;
 
 

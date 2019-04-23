@@ -1,5 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 use WORK.constants.all;
 
@@ -53,9 +54,11 @@ architecture booth_struct of Booth is
 
 begin  -- architecture booth_struct
 
-  firstInput(2*N-1 downto N) <= (others => '0');
-  firstInput(N-1 downto 0) <= A;
+ -- firstInput(2*N-1 downto N) <= (others => '0');
+ -- firstInput(N-1 downto 0) <= A;
   firstEnconderVector <= B(1 downto 0) & '0';
+
+  firstInput <= std_logic_vector(resize(signed(A), firstInput'length));
 
   bool_generate : for i in 0 to N/2-1 generate  -- numBit=8, N=16, gen=4
     first_level : if i = 0 generate

@@ -2,12 +2,12 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
--- use work.constants.all;
+use work.constants.all;
 
 
 entity ShiftnCompl_special is
   generic (
-    N : integer);
+    N : integer:=numBit);
   port (
     plusA                                          : in  std_logic_vector(N-1 downto 0);
     plusA_out, minusA_out, plus2A_out, minus2A_out : out std_logic_vector(N-1 downto 0));
