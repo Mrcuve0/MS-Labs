@@ -1,7 +1,7 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
-use ieee.math_real."log2";
+use ieee.math_real.all;
 
 use WORK.constants.all;
 
@@ -33,7 +33,7 @@ end register_file;
 -- Behavioral Architecture
 -------------------------------------------------------------------------------
 
-architecture A of register_file is
+architecture beh of register_file is
 
   -- suggested structures
   subtype REG_ADDR is natural range 0 to NRegs-1;  -- using natural type
@@ -44,10 +44,12 @@ architecture A of register_file is
   
 begin
 
-  resetProc : process (clk, reset) is
+  RFproc : process (clk, reset) is
   begin
-    if enable = '1' then
-      if rising_edge(clk) then
+    if rising_edge(clk) then
+
+      if enable = '1' then
+        
         if rd1 = '1' then
           out1 <= registers(to_integer(unsigned(add_rd1)));
         end if;
@@ -65,56 +67,14 @@ begin
             out2 <= dataIn;
           end if;
         end if;
+        
       end if;
-    end if;
 
-    if rising_edge(clk) then            -- Synchronous reset
       if reset = '1' then
         registers <= (others => (others => '0'));
       end if;
-    end if;
-  end process resetProc;
+      
+    end if;  
+  end process RFproc;
 
-  --rd1Proc : process(clk)
-  --begin
-  --  if enable = '1' then
-  --    if rising_edge(clk) then
-  --      if rd1 = '1' then
-  --        out1 <= registers(to_integer(unsigned(add_rd1)));
-  --      end if;
-  --    end if;
-  --  end if;
-  --end process;
-
-  --rd2Proc : process(clk)
-  --begin
-  --  if enable = '1' then
-  --    if rising_edge(clk) then
-  --      if rd2 = '1' then
-  --        out2 <= registers(to_integer(unsigned(add_rd2)));
-  --      end if;
-  --    end if;
-  --  end if;
-  --end process;
-
-  --wr1Proc : process(clk)
-  --begin
-  --  if enable = '1' then
-  --    if rising_edge(clk) then
-  --      if wr = '1' then
-  --        registers(to_integer(unsigned(add_wr))) <= datain;
-  --      end if;
-  --    end if;
-  --  end if;
-  --end process;
-
-  --resetProc : process(clk)
-  --begin
-  --  if rising_edge(clk) then            -- Synchronous reset
-  --    if reset = '1' then
-  --      registers <= (others => (others => '0'));
-  --    end if;
-  --  end if;
-  --end process;
-
-end A;
+end beh;
