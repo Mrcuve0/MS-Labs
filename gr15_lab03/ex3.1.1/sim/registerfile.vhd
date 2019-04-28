@@ -5,12 +5,15 @@ use ieee.math_real."log2";
 
 use WORK.constants.all;
 
+-------------------------------------------------------------------------------
+-- Definition of the generic behavioral Register File
+-------------------------------------------------------------------------------
 
 entity register_file is
   generic (
-    NData : integer := numBitData;
-    NRegs : integer := numRegs;
-    NAddr : integer := integer(log2(real(numRegs)))); 
+    NData : integer := numBitData;      -- Bit width of the regs
+    NRegs : integer := numRegs;         -- Number of registers
+    NAddr : integer := integer(log2(real(numRegs))));  -- Number of address lines
   port (CLK     : in  std_logic;
         RESET   : in  std_logic;
         ENABLE  : in  std_logic;
@@ -30,39 +33,88 @@ end register_file;
 -- Behavioral Architecture
 -------------------------------------------------------------------------------
 
-
 architecture A of register_file is
 
   -- suggested structures
   subtype REG_ADDR is natural range 0 to NRegs-1;  -- using natural type
   type REG_ARRAY is array(REG_ADDR) of std_logic_vector(NData-1 downto 0);
-  signal REGISTERS : REG_ARRAY;
+
+  signal REGISTERS : REG_ARRAY;         -- Definition of the Array of registers
 
   
 begin
--- write your RF code
 
   resetProc : process (clk, reset) is
   begin
     if enable = '1' then
       if rising_edge(clk) then
-        if wr = '1' then
-          registers(to_integer(unsigned(add_wr))) <= datain; 
-        end if;
         if rd1 = '1' then
           out1 <= registers(to_integer(unsigned(add_rd1)));
         end if;
+
         if rd2 = '1' then
           out2 <= registers(to_integer(unsigned(add_rd2)));
         end if;
+
+        if wr = '1' then                -- Write port #1
+          registers(to_integer(unsigned(add_wr))) <= datain;
+          if rd1 = '1' then             -- Simultaneous write/read
+            out1 <= dataIn;
+          end if;
+          if rd2 = '1' then             -- Simultaneous write/read
+            out2 <= dataIn;
+          end if;
+        end if;
       end if;
     end if;
-    
+
     if rising_edge(clk) then            -- Synchronous reset
       if reset = '1' then
-          registers <= (others => (others => '0'));
+        registers <= (others => (others => '0'));
       end if;
     end if;
   end process resetProc;
+
+  --rd1Proc : process(clk)
+  --begin
+  --  if enable = '1' then
+  --    if rising_edge(clk) then
+  --      if rd1 = '1' then
+  --        out1 <= registers(to_integer(unsigned(add_rd1)));
+  --      end if;
+  --    end if;
+  --  end if;
+  --end process;
+
+  --rd2Proc : process(clk)
+  --begin
+  --  if enable = '1' then
+  --    if rising_edge(clk) then
+  --      if rd2 = '1' then
+  --        out2 <= registers(to_integer(unsigned(add_rd2)));
+  --      end if;
+  --    end if;
+  --  end if;
+  --end process;
+
+  --wr1Proc : process(clk)
+  --begin
+  --  if enable = '1' then
+  --    if rising_edge(clk) then
+  --      if wr = '1' then
+  --        registers(to_integer(unsigned(add_wr))) <= datain;
+  --      end if;
+  --    end if;
+  --  end if;
+  --end process;
+
+  --resetProc : process(clk)
+  --begin
+  --  if rising_edge(clk) then            -- Synchronous reset
+  --    if reset = '1' then
+  --      registers <= (others => (others => '0'));
+  --    end if;
+  --  end if;
+  --end process;
 
 end A;

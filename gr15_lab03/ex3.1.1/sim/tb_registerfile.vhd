@@ -50,29 +50,29 @@ begin
     NData => numBitData,
     NRegs => numRegs,
     Naddr => NAddr)
-  port map (
-    CLK     => clk_s,
-    RESET   => reset_s,
-    ENABLE  => enable_s,
-    RD1     => rd1_s,
-    RD2     => rd2_s,
-    WR      => wr_s,
-    ADD_WR  => add_wr_s,
-    ADD_RD1 => add_rd1_s,
-    ADD_RD2 => add_rd2_s,
-    DATAIN  => datain_s,
-    OUT1    => out1_s,
-    OUT2    => out2_s);
+    port map (
+      CLK     => clk_s,
+      RESET   => reset_s,
+      ENABLE  => enable_s,
+      RD1     => rd1_s,
+      RD2     => rd2_s,
+      WR      => wr_s,
+      ADD_WR  => add_wr_s,
+      ADD_RD1 => add_rd1_s,
+      ADD_RD2 => add_rd2_s,
+      DATAIN  => datain_s,
+      OUT1    => out1_s,
+      OUT2    => out2_s);
 
-  reset_s   <= '1', '0'                         after 5 ns;
-  enable_s  <= '0', '1'                         after 3 ns, '0' after 10 ns, '1' after 15 ns;
-  wr_s      <= '0', '1'                         after 6 ns, '0' after 7 ns, '1' after 10 ns, '0' after 20 ns;
-  rd1_s     <= '1', '0'                         after 5 ns, '1' after 13 ns, '0' after 20 ns;
-  rd2_s     <= '0', '1'                         after 17 ns;
-  add_wr_s  <= "10110", "01000"                 after 9 ns;
-  add_rd1_s <= "10110", "01000"                 after 9 ns;
-  add_rd2_s <= "11100", "01000"                 after 9 ns;
-  datain_s  <= (others => '0'), (others => '1') after 8 ns;
+  reset_s   <= '1', '0'                             after 5 ns;
+  enable_s  <= '0', '1'                             after 3 ns, '0' after 10 ns, '1' after 15 ns;
+  wr_s      <= '0', '1'                             after 6 ns, '0' after 7 ns, '1' after 10 ns, '0' after 20 ns;
+  rd1_s     <= '1', '0'                             after 5 ns, '1' after 7 ns, '0' after 8 ns, '1' after 13 ns, '0' after 20 ns;
+  rd2_s     <= '0', '1'                             after 17 ns;
+  add_wr_s  <= "10110", "01000"                     after 9 ns;
+  add_rd1_s <= "10110", "01000"                     after 9 ns;
+  add_rd2_s <= "11100", "01000"                     after 9 ns;
+  datain_s  <= (others => '0'), X"FFFFFFFF00000000" after 6 ns, (others => '1') after 8 ns;
 
 
 

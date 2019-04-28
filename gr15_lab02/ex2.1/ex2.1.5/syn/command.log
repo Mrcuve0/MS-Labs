@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Thu Apr 18 13:53:20 2019
+#@ # Date:   Sun Apr 28 00:10:26 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4773,10 +4773,40 @@ source /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/.synopsys_dc.setup
 
 gui_start
 analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/constants.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/mux21_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/fa.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/rca_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/CSB_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/CSSG_generic.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/GeneralGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/GeneralPropagateGenerate.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/PGNetwork.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/triBlockSpecial.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/triBlock.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/ST_row1And2.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/SparseTree.vhd /home/ms19.15/MS/gr15_lab02/ex2.1/ex2.1.5/syn/completeAdder.vhd}
-elaborate COMPLETEADDER -architecture STRUCT -library DEFAULT -parameters "N = 32, RADIX = 4"
+elaborate COMPLETEADDER -architecture STRUCT -library WORK -parameters "N = 32, RADIX = 4"
 change_selection [get_s completeAdder_N32_RADIX4]
-change_selection 
 change_selection [get_s completeAdder_N32_RADIX4]
-change_selection -name __slctBus6 -type {cell design} _sel105
+change_selection -name __slctBus6 -type {cell design} _sel95
 change_selection [get_s ST]
-change_selection [get_s CSSG]
+change_selection [get_s ST/PGNetwork_1]
+change_selection [get_s ST/PGNetwork_1/PGBlock_2]
+change_selection [get_s ST/ST_row1And2_1]
+change_selection [get_s ST/ST_row1And2_1/TBS_0]
+change_selection [get_s ST/ST_row1And2_1/TB_1]
+change_selection [get_s ST/ST_row1And2_1/TB_1/PG_2]
+change_selection [get_s ST/ST_row1And2_1/TB_1/PG_2]
+change_selection [get_s ST/ST_row1And2_1/TB_1/PG_2]
+change_selection [get_s {{ST/carryVector[7:0]} {ST/carryVector[7]} {ST/carryVector[6]} {ST/carryVector[5]} {ST/carryVector[4]} {ST/carryVector[3]}}]
+change_selection -add [get_s {{ST/carryVector[2]} {ST/carryVector[1]} {ST/carryVector[0]}}]
+compile -exact_map
+change_selection [get_s completeAdder_N32_RADIX4]
+change_selection [get_s completeAdder_N32_RADIX4]
+change_selection -name __slctBus862 -type {cell design} _sel1362
+change_selection [get_s ST]
+change_selection [get_s ST/PGNetwork_1]
+change_selection [get_s ST/PGNetwork_1/PGBlock_14]
+change_selection [get_s ST/ST_row1And2_1]
+change_selection [get_s ST/ST_row1And2_1/TB_1]
+change_selection [get_s ST/ST_row1And2_1/TB_1/PG_2]
+change_selection [get_s ST/ST_row1And2_1/TB_1/PG_2/U2]
+change_selection [get_s ST/ST_row1And2_1/TB_1/PG_2/U1]
+change_selection 
+change_selection [get_s ST/ST_row1And2_1/TB_1/PG_2/U3]
+change_selection [get_s ST/ST_row1And2_1/TB_1/PG_2/U2]
+change_selection 
+change_selection [get_s ST/ST_row1And2_1/TB_1/PG_2/U2]
+change_selection [get_s ST/ST_row1And2_1/TB_1/PG_2/U1]
+change_selection [get_s {ST/ST_row1And2_1/TB_1/PG_2/U1/A ST/ST_row1And2_1/TB_1/PG_2/U1}]
+change_selection [get_s ST/G_1_1_0_1]
+change_selection [get_s ST/G_1_1_0_1/U2]
+uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group }
