@@ -8,7 +8,7 @@ Report : timing
         -max_paths 1
 Design : register_file
 Version: F-2011.09-SP3
-Date   : Sun Apr 28 17:37:30 2019
+Date   : Mon Apr 29 12:25:57 2019
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -16,9 +16,9 @@ Date   : Sun Apr 28 17:37:30 2019
 Operating Conditions: typical   Library: NangateOpenCellLibrary
 Wire Load Model Mode: top
 
-  Startpoint: REGISTERS_reg[9][4]
+  Startpoint: REGISTERS_reg[28][0]
               (rising edge-triggered flip-flop clocked by CLK)
-  Endpoint: OUT1_reg[4]
+  Endpoint: OUT1_reg[0]
             (rising edge-triggered flip-flop clocked by CLK)
   Path Group: CLK
   Path Type: max
@@ -31,26 +31,25 @@ Wire Load Model Mode: top
   -----------------------------------------------------------
   clock CLK (rise edge)                    0.00       0.00
   clock network delay (ideal)              0.00       0.00
-  REGISTERS_reg[9][4]/CK (DFF_X1)          0.00 #     0.00 r
-  REGISTERS_reg[9][4]/QN (DFF_X1)          0.07       0.07 r
-  U12861/ZN (OAI22_X1)                     0.04       0.11 f
-  U17052/ZN (AOI221_X1)                    0.09       0.20 r
-  U17049/ZN (NAND4_X1)                     0.05       0.25 f
-  U15547/ZN (OAI21_X1)                     0.05       0.30 r
-  U15545/ZN (OAI221_X1)                    0.05       0.34 f
-  OUT1_reg[4]/D (DFF_X1)                   0.01       0.35 f
-  data arrival time                                   0.35
+  REGISTERS_reg[28][0]/CK (DFF_X1)         0.00 #     0.00 r
+  REGISTERS_reg[28][0]/Q (DFF_X1)          0.08       0.08 f
+  U15877/ZN (AOI222_X1)                    0.11       0.19 r
+  U15876/ZN (OAI221_X1)                    0.06       0.24 f
+  U15404/ZN (NOR4_X1)                      0.07       0.31 r
+  U17516/ZN (NAND4_X1)                     0.05       0.36 f
+  OUT1_reg[0]/D (DFF_X1)                   0.01       0.37 f
+  data arrival time                                   0.37
 
   clock CLK (rise edge)                    2.00       2.00
   clock network delay (ideal)              0.00       2.00
-  OUT1_reg[4]/CK (DFF_X1)                  0.00       2.00 r
-  library setup time                      -0.05       1.95
-  data required time                                  1.95
+  OUT1_reg[0]/CK (DFF_X1)                  0.00       2.00 r
+  library setup time                      -0.04       1.96
+  data required time                                  1.96
   -----------------------------------------------------------
-  data required time                                  1.95
-  data arrival time                                  -0.35
+  data required time                                  1.96
+  data arrival time                                  -0.37
   -----------------------------------------------------------
-  slack (MET)                                         1.60
+  slack (MET)                                         1.59
 
 
 1

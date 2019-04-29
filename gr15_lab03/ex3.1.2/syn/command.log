@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Sun Apr 28 17:51:09 2019
+#@ # Date:   Mon Apr 29 12:22:08 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4720,7 +4720,7 @@ source /software/synopsys/syn_current_64/admin/setup/.synopsys_dc.setup
 #@ 
 #@ # -- End source /software/synopsys/syn_current_64/admin/setup/.synopsys_dc.setup
 
-source /home/ms19.15/MS/gr15_lab03/ex3.1.1/syn/.synopsys_dc.setup
+source /home/ms19.15/MS/gr15_lab03/ex3.1.2/syn/.synopsys_dc.setup
 #@ #
 #@ #		".synopsys_dc.setup" Initialization File for
 #@ #
@@ -4769,25 +4769,92 @@ source /home/ms19.15/MS/gr15_lab03/ex3.1.1/syn/.synopsys_dc.setup
 #@ 
 #@ 
 #@ 
-#@ # -- End source /home/ms19.15/MS/gr15_lab03/ex3.1.1/syn/.synopsys_dc.setup
+#@ # -- End source /home/ms19.15/MS/gr15_lab03/ex3.1.2/syn/.synopsys_dc.setup
 
-gui_start
-analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab03/ex3.1.1/syn/constants.vhd /home/ms19.15/MS/gr15_lab03/ex3.1.1/syn/registerfile.vhd}
-elaborate REGISTER_FILE -architecture BEH -library WORK -parameters "NData = , NRegs = , NAddr = "
-elaborate REGISTER_FILE -architecture BEH -library WORK
-change_selection [get_s register_file]
-change_selection [get_s register_file]
-change_selection -name __slctBus6 -type {cell design} _sel51
-analyze -library WORK -format vhdl {/home/ms19.15/MS/gr15_lab03/ex3.1.1/syn/constants.vhd /home/ms19.15/MS/gr15_lab03/ex3.1.1/syn/registerfile.vhd}
-elaborate REGISTER_FILE -architecture BEH -library WORK
-change_selection [get_s register_file]
-compile -exact_map
-uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group }
-uplevel #0 { report_area -nosplit }
-create_clock -name "CLK" -period 2 CLK
-report_clock
-compile
-uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group }
-set_max_delay 2 -from [all_inputs] -to [all_outputs]
-compile
-uplevel #0 { report_timing -path full -delay max -nworst 1 -max_paths 1 -significant_digits 2 -sort_by group }
+source RF_SynthesisScript.scr
+#@ # Analyzing and checking vhdl files
+#@ analyze -library WORK -format vhdl {constants.vhd}
+#@ # -- End source RF_SynthesisScript.scr
+
+source RF_SynthesisScript.scr
+#@ # Analyzing and checking vhdl files
+#@ analyze -library WORK -format vhdl {constants.vhd}
+#@ analyze -library WORK -format vhdl {registerfile.vhd}
+#@ 
+#@ # elaborating the top entity
+#@ elaborate register_file -architecture 
+#@ 
+#@ # first compilation, without constraints #
+#@ compile 
+#@ # reporting riming and power after the first synthesis without constraints #
+#@ report_timing > RF_timeopt_1t.rpt
+#@ report_area > RF_timeopt_1a.rpt
+#@ 
+#@ # Constraint the synthesis (sequential part), 2ns period
+#@ create_clock -name "CLK" -period 2 CLK
+#@ report_clock
+#@ 
+#@ # optimize
+#@ compile
+#@ 
+#@ # reporting riming and power after the second synthesis with constraints #
+#@ report_timing > RF_timeopt_2t.rpt
+#@ report_area > RF_timeopt_2a.rpt
+#@ 
+#@ # Constraint the synthesis (combinational part), 2ns max delay
+#@ set_max_delay 2 -from [all_inputs] -to [all_outputs]
+#@ 
+#@ # optimize
+#@ compile
+#@ 
+#@ # reporting riming and power after the third synthesis with constraints #
+#@ report_timing > RF_timeopt_3t.rpt
+#@ report_area > RF_timeopt_3a.rpt
+#@ 
+#@ # saving files
+#@ write -hierarchy -format ddc -output RF-behavioral-topt.ddc
+#@ write -hierarchy -format vhdl -output RF-behavioral-topt.vhdl
+#@ write -hierarchy -format verilog -output RF-behavioral-topt.v
+#@ # -- End source RF_SynthesisScript.scr
+
+source RF_SynthesisScript.scr
+#@ # Analyzing and checking vhdl files
+#@ analyze -library WORK -format vhdl {constants.vhd}
+#@ analyze -library WORK -format vhdl {registerfile.vhd}
+#@ 
+#@ # elaborating the top entity
+#@ elaborate register_file -architecture beh
+#@ 
+#@ # first compilation, without constraints #
+#@ compile 
+#@ # reporting riming and power after the first synthesis without constraints #
+#@ report_timing > RF_timeopt_1t.rpt
+#@ report_area > RF_timeopt_1a.rpt
+#@ 
+#@ # Constraint the synthesis (sequential part), 2ns period
+#@ create_clock -name "CLK" -period 2 CLK
+#@ report_clock
+#@ 
+#@ # optimize
+#@ compile
+#@ 
+#@ # reporting riming and power after the second synthesis with constraints #
+#@ report_timing > RF_timeopt_2t.rpt
+#@ report_area > RF_timeopt_2a.rpt
+#@ 
+#@ # Constraint the synthesis (combinational part), 2ns max delay
+#@ set_max_delay 2 -from [all_inputs] -to [all_outputs]
+#@ 
+#@ # optimize
+#@ compile
+#@ 
+#@ # reporting riming and power after the third synthesis with constraints #
+#@ report_timing > RF_timeopt_3t.rpt
+#@ report_area > RF_timeopt_3a.rpt
+#@ 
+#@ # saving files
+#@ write -hierarchy -format ddc -output RF-behavioral-topt.ddc
+#@ write -hierarchy -format vhdl -output RF-behavioral-topt.vhdl
+#@ write -hierarchy -format verilog -output RF-behavioral-topt.v
+#@ # -- End source RF_SynthesisScript.scr
+

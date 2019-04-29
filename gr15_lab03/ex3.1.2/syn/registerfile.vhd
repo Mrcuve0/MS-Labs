@@ -41,23 +41,24 @@ architecture beh of register_file is
 
   signal REGISTERS : REG_ARRAY;         -- Definition of the Array of registers
 
-  
+
 begin
 
   RFproc : process (clk, reset) is
   begin
     if rising_edge(clk) then
 
+      if reset = '1' then
+        registers <= (others => (others => '0'));
+      end if;
+
       if enable = '1' then
-        
         if rd1 = '1' then
           out1 <= registers(to_integer(unsigned(add_rd1)));
         end if;
-
         if rd2 = '1' then
           out2 <= registers(to_integer(unsigned(add_rd2)));
         end if;
-
         if wr = '1' then                -- Write port #1
           registers(to_integer(unsigned(add_wr))) <= datain;
           if rd1 = '1' then             -- Simultaneous write/read
@@ -67,14 +68,12 @@ begin
             out2 <= dataIn;
           end if;
         end if;
-        
+      else                              -- Enable = '0'
+        out1 <= (others => 'Z');
+        out2 <= (others => 'Z');
       end if;
 
-      if reset = '1' then
-        registers <= (others => (others => '0'));
-      end if;
-      
-    end if;  
+    end if;
   end process RFproc;
 
 end beh;

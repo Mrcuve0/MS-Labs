@@ -8,7 +8,7 @@ Report : timing
         -max_paths 1
 Design : register_file
 Version: F-2011.09-SP3
-Date   : Sun Apr 28 17:36:30 2019
+Date   : Mon Apr 29 12:24:50 2019
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -16,9 +16,9 @@ Date   : Sun Apr 28 17:36:30 2019
 Operating Conditions: typical   Library: NangateOpenCellLibrary
 Wire Load Model Mode: top
 
-  Startpoint: OUT2_reg[63]
+  Startpoint: OUT1_tri_enable_reg[63]
               (rising edge-triggered flip-flop)
-  Endpoint: OUT2[63] (output port)
+  Endpoint: OUT1[63] (output port)
   Path Group: (none)
   Path Type: max
 
@@ -28,10 +28,11 @@ Wire Load Model Mode: top
 
   Point                                    Incr       Path
   -----------------------------------------------------------
-  OUT2_reg[63]/CK (DFF_X1)                 0.00 #     0.00 r
-  OUT2_reg[63]/Q (DFF_X1)                  0.09       0.09 r
-  OUT2[63] (out)                           0.00       0.09 r
-  data arrival time                                   0.09
+  OUT1_tri_enable_reg[63]/CK (DFF_X1)      0.00 #     0.00 r
+  OUT1_tri_enable_reg[63]/Q (DFF_X1)       0.09       0.09 r
+  OUT1_tri[63]/Z (TBUF_X1)                 0.14       0.23 f
+  OUT1[63] (out)                           0.00       0.23 f
+  data arrival time                                   0.23
   -----------------------------------------------------------
   (Path is unconstrained)
 

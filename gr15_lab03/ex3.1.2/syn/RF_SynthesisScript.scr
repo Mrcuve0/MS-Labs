@@ -1,9 +1,9 @@
 # Analyzing and checking vhdl files
 analyze -library WORK -format vhdl {constants.vhd}
-analyze -library WORK -format vhdl {registerfile.
+analyze -library WORK -format vhdl {registerfile.vhd}
 
 # elaborating the top entity
-elaborate register_file -architecture 
+elaborate register_file -architecture beh
 
 # first compilation, without constraints #
 compile 
