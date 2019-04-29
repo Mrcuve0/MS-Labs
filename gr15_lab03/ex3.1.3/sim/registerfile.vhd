@@ -1,6 +1,6 @@
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
 use ieee.math_real.all;
 
 use WORK.constants.all;
@@ -12,10 +12,8 @@ use WORK.constants.all;
 entity register_file is
   generic (
     NData : integer := numBitData;      -- Bit width of the regs
-    NAddr : integer := integer(log2(real(numRegs)));  -- Number of address lines
-    M     : integer := numM;    -- Number of global registers
-    N     : integer := numN;    -- Number of register in each window
-    F     : integer := numF);   -- Number of windows
+    NRegs : integer := numRegs;         -- Number of registers
+    NAddr : integer := integer(log2(real(numRegs))));  -- Number of address lines
   port (CLK     : in  std_logic;
         RESET   : in  std_logic;
         ENABLE  : in  std_logic;
@@ -50,16 +48,17 @@ begin
   begin
     if rising_edge(clk) then
 
-      if enable = '1' then
+      if reset = '1' then
+        registers <= (others => (others => '0'));
+      end if;
 
+      if enable = '1' then
         if rd1 = '1' then
           out1 <= registers(to_integer(unsigned(add_rd1)));
         end if;
-
         if rd2 = '1' then
           out2 <= registers(to_integer(unsigned(add_rd2)));
         end if;
-
         if wr = '1' then                -- Write port #1
           registers(to_integer(unsigned(add_wr))) <= datain;
           if rd1 = '1' then             -- Simultaneous write/read
@@ -69,11 +68,9 @@ begin
             out2 <= dataIn;
           end if;
         end if;
-
-      end if;
-
-      if reset = '1' then
-        registers <= (others => (others => '0'));
+      else                              -- Enable = '0'
+        out1 <= (others => 'Z');
+        out2 <= (others => 'Z');
       end if;
 
     end if;
