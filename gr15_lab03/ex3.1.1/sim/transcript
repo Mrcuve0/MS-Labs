@@ -22,3 +22,28 @@ vsim -t 10ps -novopt work.tbregisterfile
 # Loading work.register_file(beh)
 add wave *
 run 100 ns
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(beh)
+# Loading work.register_file(beh)
+
+run 100 ns
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(beh)
+# Loading work.register_file(beh)
+run 100 ns
+restart -f
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.tbregisterfile(testa)
+# Loading work.tbregisterfile(testa)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.1/sim/work.register_file(beh)
+# Loading work.register_file(beh)
+run 100 ns

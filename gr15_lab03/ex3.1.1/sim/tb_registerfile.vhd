@@ -72,7 +72,7 @@ begin
   add_wr_s  <= "10110", "01000"                     after 9 ns;
   add_rd1_s <= "10110", "01000"                     after 9 ns;
   add_rd2_s <= "11100", "01000"                     after 9 ns;
-  datain_s  <= (others => '0'), X"FFFFFFFF00000000" after 6 ns, (others => '1') after 8 ns;
+  datain_s  <= (others => '0'), X"F0F0F0F0F0F0F0F0" after 6 ns, (others => '1') after 8 ns;
 
 
 
