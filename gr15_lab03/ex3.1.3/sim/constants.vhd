@@ -1,11 +1,19 @@
-
 package constants is
 
-  constant numBitData : integer := 64;
---  constant numRegs    : integer := 32;
+  -- Register File Parameters
+  constant numBitData : integer := 32;  -- Register Length
 
-  constant numM : integer;    -- Constant for the number of global registers
-  constant numN : integer;    -- Constant for the number of registers in each window 
-  constant numF : integer:    -- Constant for the number of windows
+  -- Windowed RF Parameters
+  constant numM            : integer := 8;  -- Number of global registers
+  constant numN            : integer := 8;  -- Number of registers in each window block 
+  constant numF            : integer := 3;  -- Number of windows
+  constant numWindowBlocks : integer := 3;  -- IN - LOCAL - OUT
+
+  -- Number of maximum times the windows can overlap themselves
+  -- (affects number of fill-spills that can be performed)
+  constant windowRounds : integer := 4;
+  
+  -- Physical RF Parameters
+  constant numRegs_physical_RF : integer := (numM + numN*numWindowBlocks*numF)
 
 end package constants;

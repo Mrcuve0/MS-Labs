@@ -9,11 +9,12 @@ use WORK.constants.all;
 -- Definition of the generic behavioral Register File
 -------------------------------------------------------------------------------
 
-entity register_file is
+entity physical_RF is
   generic (
-    NData : integer := numBitData;      -- Bit width of the regs
-    NRegs : integer := numRegs;         -- Number of registers
-    NAddr : integer := integer(log2(real(numRegs))));  -- Number of address lines
+    NData : integer := numBitData;                   -- Bit width of the regs
+    NRegs : integer := numRegs_physical_RF;          -- Number of registers in
+                                                     -- the physical Register File
+    NAddr : integer := integer(log2(real(NRegs))));  -- Number of address lines
   port (CLK     : in  std_logic;
         RESET   : in  std_logic;
         ENABLE  : in  std_logic;
@@ -26,14 +27,14 @@ entity register_file is
         DATAIN  : in  std_logic_vector(NData-1 downto 0);
         OUT1    : out std_logic_vector(NData-1 downto 0);
         OUT2    : out std_logic_vector(NData-1 downto 0));
-end register_file;
+end physical_RF;
 
 
 -------------------------------------------------------------------------------
 -- Behavioral Architecture
 -------------------------------------------------------------------------------
 
-architecture beh of register_file is
+architecture beh of physical_RF is
 
   -- suggested structures
   subtype REG_ADDR is natural range 0 to NRegs-1;  -- using natural type
@@ -76,4 +77,4 @@ begin
     end if;
   end process RFproc;
 
-end beh;
+end architecture beh;
