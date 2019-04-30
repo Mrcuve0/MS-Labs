@@ -14,6 +14,6 @@ package constants is
   constant windowRounds : integer := 4;
   
   -- Physical RF Parameters
-  constant numRegs_physical_RF : integer := (numM + numN*numWindowBlocks*numF)
+  constant numRegs_physical_RF : integer := (numM + numN*numWindowBlocks*numF);
 
 end package constants;

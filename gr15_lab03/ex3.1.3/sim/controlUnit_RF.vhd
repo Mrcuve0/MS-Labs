@@ -1,6 +1,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use ieee.math_real.all;
 
 use work.constants.all;
 
@@ -12,7 +13,7 @@ entity controlUnit_RF is
     F            : integer := numF;
     windowBlocks : integer := numWindowBlocks;
     NData        : integer := numBitData;
-    NAddr        : integer := integer(log2(real(N*windowBlocks + M))));
+    NAddr        : integer := integer(log2(real(numN*numwindowBlocks + numM))));
   port (
     clk    : in std_logic;
     reset  : in std_logic;
@@ -21,7 +22,7 @@ entity controlUnit_RF is
     resetPhysicalRF : out std_logic;
 
     call  : in  std_logic;
-    ret   : out std_logic;
+    ret   : in std_logic;
     fill  : out std_logic;
     spill : out std_logic;
 
@@ -32,21 +33,21 @@ end entity controlUnit_RF;
 architecture beh of controlUnit_RF is
 
   -- Stores the number of the last called subroutine
-  signal CWP : std_logic_vector(log2(windowRounds)-1 downto 0);
+  signal CWP : std_logic_vector(integer(log2(real(windowRounds)))-1 downto 0);
   -- Stores the number of the last spilled subroutine
-  signal SWP : std_logic_vector(log2(windowRounds)-1 downto 0);
+  signal SWP : std_logic_vector(integer(log2(real(windowRounds)))-1 downto 0);
 
 
   -- Stores the number of available (empty) windows.
   -- If the number is  equal to zero, then no space is available
   -- and a SPILL operation is needed
-  signal cansave : std_logic_vector(log2(F)-1 downto 0);
+  signal cansave : std_logic_vector(integer(log2(real(F)))-1 downto 0);
 
   -- Stores the number of occupied (full) windows.
-  signal canrestore : std_logic_vector(log2(F)-1 downto 0);
+  signal canrestore : std_logic_vector(integer(log2(real(F)))-1 downto 0);
 
   type state_t is (resetState, waitState, callState, retState, spillState, fillState);
-  signal currentState : state_t := waitState;
+  signal currentState, nextState : state_t := waitState;
 
 begin  -- architecture beh
 
@@ -59,7 +60,7 @@ begin  -- architecture beh
   begin
     case currentState is
 
-      when rstState =>
+      when resetState =>
 
         -- Outputs Handling
         resetPhysicalRF <= '1';         -- Informs the RF to resets its outputs
@@ -101,12 +102,12 @@ begin  -- architecture beh
       when callState =>
 
         -- Outputs Handling
-        cansave    <= cansave - 1;
-        canrestore <= canrestore + 1;
+        cansave    <= std_logic_vector(unsigned(cansave) - to_unsigned(1, cansave'length));
+        canrestore <= std_logic_vector(unsigned(canrestore) + to_unsigned(1, canrestore'length));
         call_cnt := call_cnt + 1;
         cwp <= std_logic_vector(to_unsigned(call_cnt - 1, cwp'length));
 
-        if to_integer(unsigned(cansave)) = '-1' then
+        if to_integer(signed(cansave)) = -1 then
           need_to_spill := 1;
         else
           need_to_spill := 0;
@@ -129,8 +130,8 @@ begin  -- architecture beh
         -- Ouptuts Handling
         need_to_spill := 0;
         
-        cansave    <= cansave + 1;
-        canrestore <= canrestore - 1;
+        cansave    <= std_logic_vector(unsigned(cansave) + to_unsigned(1, cansave'length));
+        canrestore <= std_logic_vector(unsigned(canrestore) - to_unsigned(1, canrestore'length));
         swp <= std_logic_vector(to_unsigned(call_cnt mod F+1, swp'length));
 
         -- State Handling
@@ -146,12 +147,12 @@ begin  -- architecture beh
       when retState =>
 
         -- Outputs Handling
-        cansave    <= cansave + 1;
-        canrestore <= canrestore - 1;
+        cansave    <= std_logic_vector(unsigned(cansave) + to_unsigned(1, cansave'length));
+        canrestore <= std_logic_vector(unsigned(canrestore) - to_unsigned(1, canrestore'length));
         call_cnt := call_cnt - 1;
         cwp <= std_logic_vector(to_unsigned(call_cnt - 1, cwp'length));
 
-        if to_integer(unsigned(canrestore)) = '0' then
+        if to_integer(unsigned(canrestore)) = 0 then
           need_to_fill := 1;
         end if;
 
@@ -173,13 +174,13 @@ begin  -- architecture beh
         -- Outputs Handling
         need_to_fill := 0;
 
-        cansave <= cansave - 1;
-        canrestore <= canrestore + 1;
-        swp <= swp - 1;
+        cansave    <= std_logic_vector(unsigned(cansave) - to_unsigned(1, cansave'length));
+        canrestore <= std_logic_vector(unsigned(canrestore) + to_unsigned(1, canrestore'length));
+        swp <= std_logic_vector(unsigned(swp) - to_unsigned(1, swp'length));
 
         -- State Handling
         if reset = '1' then
-          nextState <= rstState;
+          nextState <= resetState;
         elsif ret = '1' then
           nextState <= retState;
         else
