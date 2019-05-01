@@ -1,0 +1,33 @@
+$ version 1.1
+
+# Signals in packages :
+
+# Signals in entities :
+/tb_controlunit_rf/clk_s
+/tb_controlunit_rf/reset_s
+/tb_controlunit_rf/enable_s
+/tb_controlunit_rf/resetphysicalrf_s
+/tb_controlunit_rf/call_s
+/tb_controlunit_rf/ret_s
+/tb_controlunit_rf/fill_s
+/tb_controlunit_rf/spill_s
+/tb_controlunit_rf/dataack_s
+/tb_controlunit_rf/cwpout_s
+/tb_controlunit_rf/swpout_s
+/tb_controlunit_rf/dut/clk
+/tb_controlunit_rf/dut/reset
+/tb_controlunit_rf/dut/enable
+/tb_controlunit_rf/dut/cwpout
+/tb_controlunit_rf/dut/swpout
+/tb_controlunit_rf/dut/resetphysicalrf
+/tb_controlunit_rf/dut/call
+/tb_controlunit_rf/dut/ret
+/tb_controlunit_rf/dut/fill
+/tb_controlunit_rf/dut/spill
+/tb_controlunit_rf/dut/dataack
+/tb_controlunit_rf/dut/cwp
+/tb_controlunit_rf/dut/swp
+/tb_controlunit_rf/dut/cansave
+/tb_controlunit_rf/dut/canrestore
+/tb_controlunit_rf/dut/currentstate
+/tb_controlunit_rf/dut/nextstate
