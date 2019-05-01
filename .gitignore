@@ -8,4 +8,8 @@
 *.wlf
 *.vhd~
 *.sh~
+*.o
+*.cf
+*.ghv
+*.vcd
 work/
