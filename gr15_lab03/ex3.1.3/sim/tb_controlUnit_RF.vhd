@@ -67,9 +67,10 @@ begin  -- architecture tb_arch
 
   inputStimuli : process
   begin
-    reset_s <= '1', '0' after 8 ns, '1' after 12 ns, '0' after 14 ns;
-    call_s  <= '0', '1' after 2.5 ns, '0' after 5 ns, '1' after 9 ns, '0' after 9.5 ns, '1' after 15 ns, '0' after 24 ns, '1' after 32 ns;
-    ret_s   <= '0', '1' after 2.5 ns, '0' after 5 ns, '1' after 24 ns, '0' after 32 ns;
+    enable_s <= '1';
+    reset_s  <= '1', '0' after 8 ns, '1' after 12 ns, '0' after 14 ns;
+    call_s   <= '0', '1' after 2.5 ns, '0' after 5 ns, '1' after 9 ns, '0' after 9.5 ns, '1' after 15.5 ns, '0' after 28.5 ns, '1' after 36.5 ns;
+    ret_s    <= '0', '1' after 2.5 ns, '0' after 5 ns, '1' after 28.5 ns, '0' after 36.5 ns;
     wait;
   end process;
 
