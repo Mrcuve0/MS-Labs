@@ -29,7 +29,8 @@ entity controlUnit_RF is
     fill  : out std_logic;
     spill : out std_logic;
 
-    dataACK : out std_logic);
+    MMUStrobe : in  std_logic;
+    dataACK   : out std_logic);
 end entity controlUnit_RF;
 
 
@@ -47,184 +48,211 @@ architecture beh of controlUnit_RF is
   -- Stores the number of available (empty) windows.
   -- If the number is  equal to zero, then no space is available
   -- and a SPILL operation is needed
-  signal cansave    : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
-  -- signal cansaveNext    : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+  signal cansave        : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+  signal cansaveNext    : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
   -- Stores the number of occupied (full) windows.
-  signal canrestore : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
-  -- signal canrestoreNext : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+  signal canrestore     : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+  signal canrestoreNext : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+
+  signal call_cnt, call_cntNext : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
 
   type state_t is (waitState, resetState, callState, retState, spillState, fillState);
-  signal currentState : state_t := waitState;
+  signal currentState, nextState : state_t := resetState;
 
 begin  -- architecture beh
 
-
-  combLogic : process (clk) is
+  combLogic : process (reset, enable, call, ret, MMUStrobe, currentState, call_cnt, cansave, canrestore) is
     variable need_to_spill : integer := 0;
     variable need_to_fill  : integer := 0;
-    variable call_cnt      : integer := 0;
-
+    variable call_cntVar   : integer := 0;
+    variable actual_round : integer := 0;
   begin
 
-    if reset = '1' and enable = '1' then
+    case currentState is
+      when waitState =>
 
-      resetPhysicalRF <= '1';           -- Informs the RF to resets its outputs
-      call_cnt        := 0;
+        resetPhysicalRF <= '0';
+        need_to_fill    := 0;
+        need_to_spill   := 0;
 
-      -- cansave = 4
-      cansave    <= std_logic_vector(to_unsigned(Fplus1, cansave'length));
-      canrestore <= (others => '0');
-      cwp <= (others => '0');
-      swp <= (others => '0');
+        spill   <= '0';
+        fill    <= '0';
+        dataACK <= '0';
 
-      spill <= '0';
-      fill  <= '0';
+        if call = '1' then
+          -- call_cntNext <= std_logic_vector(unsigned(call_cnt) + to_unsigned(1, call_cnt'length));
+          nextState <= callState;
+        elsif ret = '1' then
+          nextState <= retState;
+        else
+          nextState <= waitState;
+        end if;
 
-    elsif reset = '0' and enable = '1' then
-      if rising_edge(clk) then
-        case currentState is
-          when waitState =>
+--------------------------------------------------------------------------------
 
-            -- Outputs Handling
+      when resetState =>
 
-            resetPhysicalRF <= '0';
-            need_to_fill  := 0;
-            need_to_spill := 0;
+        resetPhysicalRF <= '1';         -- Informs the RF to resets its outputs
+        call_cntNext    <= (others => '0');  --std_logic_vector(to_unsigned(1, call_cntNext'length));
 
-            spill <= '0';
-            fill  <= '0';
+        -- cansave = 3
+        cansaveNext    <= std_logic_vector(to_unsigned(F-1, cansave'length));
+        canrestoreNext <= (others => '0');
+        cwp            <= (others => '0');
+        swp            <= (others => '0');
 
-            -- State Handling
-            if call = '1' then
-              currentState <= callState;
-            elsif ret = '1' then
-              currentState <= retState;
-            else
-              currentState <= waitState;
-            end if;
+        spill   <= '0';
+        fill    <= '0';
+        dataACK <= '0';
 
-          when callState =>
+        if reset = '1' then
+          nextState <= resetState;
+        else
+          nextState <= waitState;
+        end if;
 
-            -- Outputs Handling
-            resetPhysicalRF <= '0';
-            call_cnt        := call_cnt + 1;
+-------------------------------------------------------------------------------          
 
-            cansave    <= std_logic_vector(unsigned(cansave) - to_unsigned(1, cansave'length));
-            canrestore <= std_logic_vector(unsigned(canrestore) + to_unsigned(1, canrestore'length));
+      when callState =>
 
-            cwp <= std_logic_vector(to_unsigned(call_cnt - 1, cwp'length));
+        resetPhysicalRF <= '0';
+        spill           <= '0';
+        fill            <= '0';
+        dataACK         <= '0';
 
-            spill <= '0';
-            fill  <= '0';
+        call_cntNext <= std_logic_vector(unsigned(call_cnt) + to_unsigned(1, call_cnt'length));
+        cwp          <= call_cnt;
 
-            if to_integer(unsigned(cansave)) = -1 then
-              need_to_spill := 1;
-            else
-              need_to_spill := 0;
-            end if;
+        if to_integer(unsigned(cansave)) = 0 then  -- If the previous call
+                                                   -- emptied the buffer ...
+          need_to_spill := 1;           -- We must SPILL
+        else                            -- There's no need to SPILL now
 
-            -- State Handling
-            if call = '1' and need_to_spill = 1 then
-              currentState <= spillState;
-            elsif call = '1' and need_to_spill = 0 then
-              currentState <= callState;
-            elsif ret = '1' then
-              currentState <= retState;
-            else
-              currentState <= waitState;
-            end if;
+          need_to_spill := 0;
+          -- So let's update the statistics with this recordered CALL action
 
--------------------------------------------------------------------------------        
+          cansaveNext    <= std_logic_vector(unsigned(cansave) - to_unsigned(1, cansave'length));
+          canrestoreNext <= std_logic_vector(unsigned(canrestore) + to_unsigned(1, canrestore'length));
 
-          when spillState =>
+        end if;
 
-            -- Ouptuts Handling
-            need_to_spill := 0;
 
-            cansave    <= std_logic_vector(unsigned(cansave) + to_unsigned(1, cansave'length));
-            canrestore <= std_logic_vector(unsigned(canrestore) - to_unsigned(1, canrestore'length));
-
-            swp <= std_logic_vector(to_unsigned(call_cnt mod F+1, swp'length));
-
-            spill <= '1';
-            fill  <= '0';
-
-            -- State Handling
-            if call = '1' then
-              currentState <= callState;
-            elsif ret = '1' then
-              currentState <= retState;
-            else
-              currentState <= waitState;
-            end if;
+        -- STATE TRANSITIONS
+        if need_to_spill = 1 then
+          nextState <= spillState;
+        elsif need_to_spill = 0 and call = '1'then
+          nextState <= callState;
+        elsif call = '0' and ret = '1' then
+          nextState <= retState;
+        else
+          nextState <= waitState;
+        end if;
 
 -------------------------------------------------------------------------------        
 
-          when retState =>
+      when spillState =>
 
-            -- Outputs Handling
-            resetPhysicalRF <= '0';
-            call_cnt        := call_cnt - 1;
+        need_to_spill := 0;
+        spill         <= '1';
+        fill          <= '0';
 
-            cansave    <= std_logic_vector(unsigned(cansave) + to_unsigned(1, cansave'length));
-            canrestore <= std_logic_vector(unsigned(canrestore) - to_unsigned(1, canrestore'length));
+        call_cntVar := to_integer(unsigned(call_cnt));
+        call_cntVar := call_cntVar mod (F);
+        if call_cntVar = 0 then
+          actual_round := to_integer(unsigned(call_cnt) / F);
+        end if;
+        swp <= std_logic_vector(to_unsigned(call_cntVar + (actual_round-1)*F, swp'length));
+        cwp <= call_cnt;
+        
 
-            cwp <= std_logic_vector(to_signed(call_cnt, cwp'length));
-            cwp <= std_logic_vector(unsigned(cwp) - to_unsigned(1, cwp'length));
-
-            spill <= '0';
-            fill  <= '0';
-
-            if to_integer(unsigned(canrestore)) = 0 then
-              need_to_fill := 1;
-            end if;
-
-            -- State Handling
-            if ret = '1' and need_to_fill = 1 then
-              currentState <= fillState;
-            elsif ret = '1' and need_to_fill = 0 then
-              currentState <= retState;
-            elsif call = '1' then
-              currentState <=  callState;
-            else
-              currentState <= waitState;
-            end if;
+        if MMUStrobe = '0' then
+          dataACK   <= '0';
+          nextState <= spillState;
+        else
+          dataACK   <= '1' after 0.2 ns;  -- IRL asserted afer a certain delay
+                                          -- (equal to the time needed to retrieve
+                                          -- data from the bus)
+          nextState <= waitState;
+        end if;
 
 -------------------------------------------------------------------------------        
 
-          when fillState =>
+      when retState =>
 
-            -- Outputs Handling
-            need_to_fill := 0;
+        resetPhysicalRF <= '0';
+        call_cntNext    <= std_logic_vector(unsigned(call_cnt) - to_unsigned(1, call_cnt'length));
 
-            cansave    <= std_logic_vector(unsigned(cansave) - to_unsigned(1, cansave'length));
-            canrestore <= std_logic_vector(unsigned(canrestore) + to_unsigned(1, canrestore'length));
+        cansaveNext    <= std_logic_vector(unsigned(cansave) + to_unsigned(1, cansave'length));
+        canrestoreNext <= std_logic_vector(unsigned(canrestore) - to_unsigned(1, canrestore'length));
 
-            swp <= std_logic_vector(unsigned(swp) - to_unsigned(1, swp'length));
+        cwp <= call_cnt;
+        cwp <= std_logic_vector(unsigned(cwp) - to_unsigned(1, cwp'length));
 
-            spill <= '0';
-            fill  <= '1';
+        spill   <= '0';
+        fill    <= '0';
+        dataACK <= '0';
 
-            -- State Handling
-            if ret = '1' then
-              currentState <= retState;
-            elsif call = '1' then
-              currentState <= callState;
-            else
-              currentState <= waitState;
-            end if;
+        if to_integer(unsigned(canrestore)) = 0 then
+          need_to_fill := 1;
+        end if;
 
-          when others => currentState <= waitState;
-        end case;
-      end if;
+        if need_to_fill = 1 then
+          nextState <= fillState;
+        elsif need_to_fill = 0 and ret = '1' then
+          nextState <= retState;
+        elsif call = '1' then
+          nextState <= callState;
+        else
+          nextState <= waitState;
+        end if;
 
-    else
-    -- 'Z' output qui
-    end if;
+
+-------------------------------------------------------------------------------        
+
+      when fillState =>
+
+        need_to_fill := 0;
+
+        cansaveNext    <= std_logic_vector(unsigned(cansave) - to_unsigned(1, cansave'length));
+        canrestoreNext <= std_logic_vector(unsigned(canrestore) + to_unsigned(1, canrestore'length));
+
+        swp <= std_logic_vector(unsigned(swp) - to_unsigned(1, swp'length));
+
+        spill   <= '0';
+        fill    <= '1';
+        dataACK <= '0';
+
+        if MMUStrobe = '0' then
+          dataACK   <= '0';
+          nextState <= spillState;
+        else
+          dataACK   <= '1';
+          nextState <= waitState;
+        end if;
+
+      when others => nextState <= waitState;
+    end case;
+
   end process combLogic;
+
+
+  stateReg : process(clk, reset, enable)
+  begin
+    if reset = '1' and enable = '1' then
+      currentState <= resetState;
+      cansave      <= std_logic_vector(to_unsigned(F-1, cansave'length));
+      canrestore   <= (others => '0');
+      call_cnt     <= (others => '0');  --std_logic_vector(to_unsigned(1, call_cnt'length));
+    elsif rising_edge(clk) and enable = '1' and reset = '0' then
+      cansave      <= cansaveNext;
+      canrestore   <= canrestoreNext;
+      call_cnt     <= call_cntNext;
+      currentState <= nextState;
+    end if;
+  end process;
+
 
   cwpOut <= cwp;
   swpOut <= swp;
-
 
 end architecture beh;
