@@ -181,11 +181,6 @@ begin  -- architecture tb_arch
     call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
     MMUStrobe_s <= '1', '0' after 2.5 ns;
 
-<<<<<<< HEAD
-    ret_s       <= '0', '1' after 2.5 ns, '0' after 5 ns, '1' after 51.5 ns, '0' after 56.5 ns;
-    MMUStrobe_s <= '0', '1' after 22.5 ns, '0' after 24.5 ns, '1' after 32.5 ns, '0' after 34.5 ns, '1' after 38.5 ns, '0' after 40.5 ns, '1' after 48.5 ns, '0' after 50.5 ns;
-	wait;
-=======
     wait for 6 ns;
     wait for fill_spill_time;
     -- Here time = 472 ns;
@@ -194,7 +189,6 @@ begin  -- architecture tb_arch
     reset_s <= '1' after 2.5 ns, '0' after 8.5 ns;
 
     wait;
->>>>>>> aa00f81b5dc3ad28d6ca008a2ddcc82849c155bb
   end process;
 
 end architecture arch;
