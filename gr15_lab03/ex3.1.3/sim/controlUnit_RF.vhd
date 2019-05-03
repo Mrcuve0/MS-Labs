@@ -40,10 +40,8 @@ architecture beh of controlUnit_RF is
 
   -- Stores the number of the last called subroutine
   signal cwp : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
-  -- signal cwpNext : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
   -- Stores the number of the last spilled subroutine
   signal swp : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
-  -- signal swpNext : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
 
   -- Stores the number of available (empty) windows.
   -- If the number is  equal to zero, then no space is available
@@ -65,7 +63,7 @@ begin  -- architecture beh
     variable need_to_spill : integer := 0;
     variable need_to_fill  : integer := 0;
     variable call_cntVar   : integer := 0;
-    variable actual_round : integer := 0;
+    variable actual_round  : integer := 0;
   begin
 
     case currentState is
@@ -80,7 +78,6 @@ begin  -- architecture beh
         dataACK <= '0';
 
         if call = '1' then
-          -- call_cntNext <= std_logic_vector(unsigned(call_cnt) + to_unsigned(1, call_cnt'length));
           nextState <= callState;
         elsif ret = '1' then
           nextState <= retState;
@@ -93,9 +90,8 @@ begin  -- architecture beh
       when resetState =>
 
         resetPhysicalRF <= '1';         -- Informs the RF to resets its outputs
-        call_cntNext    <= (others => '0');  --std_logic_vector(to_unsigned(1, call_cntNext'length));
+        call_cntNext    <= (others => '0');
 
-        -- cansave = 3
         cansaveNext    <= std_logic_vector(to_unsigned(F-1, cansave'length));
         canrestoreNext <= (others => '0');
         cwp            <= (others => '0');
@@ -120,7 +116,7 @@ begin  -- architecture beh
         fill            <= '0';
         dataACK         <= '0';
 
-        call_cntNext <= std_logic_vector(unsigned(call_cnt) + to_unsigned(1, call_cnt'length));
+        call_cntNext <= std_logic_vector(unsigned(call_cnt) + 1);
         cwp          <= call_cnt;
 
         if to_integer(unsigned(cansave)) = 0 then  -- If the previous call
@@ -131,8 +127,8 @@ begin  -- architecture beh
           need_to_spill := 0;
           -- So let's update the statistics with this recordered CALL action
 
-          cansaveNext    <= std_logic_vector(unsigned(cansave) - to_unsigned(1, cansave'length));
-          canrestoreNext <= std_logic_vector(unsigned(canrestore) + to_unsigned(1, canrestore'length));
+          cansaveNext    <= std_logic_vector(unsigned(cansave) - 1);
+          canrestoreNext <= std_logic_vector(unsigned(canrestore) + 1);
 
         end if;
 
@@ -161,17 +157,18 @@ begin  -- architecture beh
         if call_cntVar = 0 then
           actual_round := to_integer(unsigned(call_cnt) / F);
         end if;
-        swp <= std_logic_vector(to_unsigned(call_cntVar + (actual_round-1)*F, swp'length));
-        cwp <= call_cnt;
-        
+
 
         if MMUStrobe = '0' then
           dataACK   <= '0';
           nextState <= spillState;
         else
-          dataACK   <= '1' after 0.2 ns;  -- IRL asserted afer a certain delay
-                                          -- (equal to the time needed to retrieve
-                                          -- data from the bus)
+          dataACK <= '1' after 0.2 ns;  -- IRL asserted afer a certain delay
+                                        -- (equal to the time needed to retrieve
+                                        -- data from the bus)
+          cwp     <= call_cnt;
+          swp     <= std_logic_vector(to_unsigned(call_cntVar + (actual_round-1)*F, swp'length));
+
           nextState <= waitState;
         end if;
 
@@ -180,29 +177,33 @@ begin  -- architecture beh
       when retState =>
 
         resetPhysicalRF <= '0';
-        call_cntNext    <= std_logic_vector(unsigned(call_cnt) - to_unsigned(1, call_cnt'length));
+        spill           <= '0';
+        fill            <= '0';
+        dataACK         <= '0';
 
-        cansaveNext    <= std_logic_vector(unsigned(cansave) + to_unsigned(1, cansave'length));
-        canrestoreNext <= std_logic_vector(unsigned(canrestore) - to_unsigned(1, canrestore'length));
-
-        cwp <= call_cnt;
-        cwp <= std_logic_vector(unsigned(cwp) - to_unsigned(1, cwp'length));
-
-        spill   <= '0';
-        fill    <= '0';
-        dataACK <= '0';
+        call_cntNext <= std_logic_vector(unsigned(call_cnt) - 1);
 
         if to_integer(unsigned(canrestore)) = 0 then
           need_to_fill := 1;
+        else
+          need_to_fill   := 0;
+          cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
+          canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
         end if;
+
+        -- Added lastly
+        cwp <= std_logic_vector(unsigned(call_cnt));
 
         if need_to_fill = 1 then
           nextState <= fillState;
         elsif need_to_fill = 0 and ret = '1' then
+          cwp       <= call_cnt;
           nextState <= retState;
-        elsif call = '1' then
+        elsif call = '1'and ret = '0' then
+          cwp       <= call_cnt;
           nextState <= callState;
         else
+          cwp       <= call_cnt;
           nextState <= waitState;
         end if;
 
@@ -212,21 +213,18 @@ begin  -- architecture beh
       when fillState =>
 
         need_to_fill := 0;
-
-        cansaveNext    <= std_logic_vector(unsigned(cansave) - to_unsigned(1, cansave'length));
-        canrestoreNext <= std_logic_vector(unsigned(canrestore) + to_unsigned(1, canrestore'length));
-
-        swp <= std_logic_vector(unsigned(swp) - to_unsigned(1, swp'length));
-
-        spill   <= '0';
-        fill    <= '1';
-        dataACK <= '0';
+        spill        <= '0';
+        fill         <= '1';
+        dataACK      <= '0';
+        
 
         if MMUStrobe = '0' then
           dataACK   <= '0';
-          nextState <= spillState;
+          nextState <= fillState;
         else
-          dataACK   <= '1';
+          dataACK   <= '1' after 0.2 ns;
+          cwp       <= std_logic_vector(unsigned(cwp) - 1);
+          swp       <= std_logic_vector(unsigned(swp) - 1);
           nextState <= waitState;
         end if;
 
