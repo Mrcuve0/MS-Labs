@@ -126,7 +126,6 @@ begin  -- architecture tb_arch
     ret_s       <= '1'      after 2.5 ns, '0' after 8.5 ns;
 
     wait for 6 ns;
-    -- Here time = 212 ns;
     wait for fill_spill_time;
     -- Here time = 244 ns;
     write(lb, now);
@@ -134,13 +133,61 @@ begin  -- architecture tb_arch
     MMUStrobe_s <= '1', '0' after 2.5 ns;
     ret_s       <= '1'      after 2.5 ns, '0' after 8.5 ns;
 
-    -- call_s <= '1' after 3*fill_spill_time + 45.5 ns, '0' after 3*fill_spill_time + 50.5 ns;
-    -- wait for fill_spill_time;
-    -- ret_s <= '0', '1' after 2.5 ns, '0' after 5 ns, '1' after 51.5 ns, '0' after 56.5 ns,
-    --          '1' after 60.4 ns, '0' after 66.5 ns;
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 282 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1', '0' after 2.5 ns;
+    ret_s       <= '1'      after 2.5 ns, '0' after 8.5 ns;
 
-    -- '1' after 3*fill_spill_time + 48.5 ns, '0' after 3*fill_spill_time + 50.5 ns, '1' after 4*fill_spill_time + 58.5 ns,
-    -- '0' after 4*fill_spill_time + 60.5 ns, '1' after 5*fill_spill_time + 65.5 ns, '0' after 5*fill_spill_time + 67.5 ns;
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 320 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1', '0' after 2.5 ns;
+    ret_s       <= '1'      after 2.5 ns, '0' after 8.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 358 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1', '0' after 2.5 ns;
+    ret_s       <= '1'      after 2.5 ns, '0' after 8.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 396 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1', '0' after 2.5 ns;
+    call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 434 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1', '0' after 2.5 ns;
+    call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 472 ns;
+    write(lb, now);
+    writeline(output, lb);
+    call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
+    MMUStrobe_s <= '1', '0' after 2.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 472 ns;
+    write(lb, now);
+    writeline(output, lb);
+    reset_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
+
     wait;
   end process;
 

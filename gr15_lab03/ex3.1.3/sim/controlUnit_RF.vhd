@@ -79,7 +79,9 @@ begin  -- architecture beh
 
         if call = '1' then
           nextState <= callState;
-        elsif ret = '1' then
+        elsif ret = '1' and unsigned(swp) /= 0 then
+          nextState <= retState;
+        elsif ret = '1' and unsigned(swp) = 0 and unsigned(cwp) = 1 then
           nextState <= retState;
         else
           nextState <= waitState;
@@ -125,6 +127,7 @@ begin  -- architecture beh
         else                            -- There's no need to SPILL now
 
           need_to_spill := 0;
+          --call_cntNext <= std_logic_vector(unsigned(call_cnt) + 1);
           -- So let's update the statistics with this recordered CALL action
 
           cansaveNext    <= std_logic_vector(unsigned(cansave) - 1);
@@ -136,7 +139,7 @@ begin  -- architecture beh
         -- STATE TRANSITIONS
         if need_to_spill = 1 then
           nextState <= spillState;
-        elsif need_to_spill = 0 and call = '1'then
+        elsif need_to_spill = 0 and call = '1' then
           nextState <= callState;
         elsif call = '0' and ret = '1' then
           nextState <= retState;
@@ -181,13 +184,18 @@ begin  -- architecture beh
         fill            <= '0';
         dataACK         <= '0';
 
-        call_cntNext <= std_logic_vector(unsigned(call_cnt) - 1);
+        if unsigned(call_cnt) /= 0 then
+          call_cntNext <= std_logic_vector(unsigned(call_cnt) - 1);
+        end if;
 
-        if to_integer(unsigned(canrestore)) = 0 then
+        if unsigned(cansave) /= (F-1) then
+          cansaveNext  <= std_logic_vector(unsigned(cansave) + 1);
+        end if;
+
+        if to_integer(unsigned(canrestore)) = 0 and (to_integer(unsigned(swp)) /= 0) then
           need_to_fill := 1;
         else
           need_to_fill   := 0;
-          cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
           canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
         end if;
 
@@ -196,7 +204,7 @@ begin  -- architecture beh
 
         if need_to_fill = 1 then
           nextState <= fillState;
-        elsif need_to_fill = 0 and ret = '1' then
+        elsif need_to_fill = 0 and ret = '1' and unsigned(call_cnt) /= 0 then
           cwp       <= call_cnt;
           nextState <= retState;
         elsif call = '1'and ret = '0' then
@@ -208,6 +216,7 @@ begin  -- architecture beh
         end if;
 
 
+
 -------------------------------------------------------------------------------        
 
       when fillState =>
@@ -216,7 +225,7 @@ begin  -- architecture beh
         spill        <= '0';
         fill         <= '1';
         dataACK      <= '0';
-        
+
 
         if MMUStrobe = '0' then
           dataACK   <= '0';
