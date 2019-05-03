@@ -186,7 +186,7 @@ begin  -- architecture tb_arch
     -- Here time = 472 ns;
     write(lb, now);
     writeline(output, lb);
-    reset_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
+    reset_s <= '1' after 2.5 ns, '0' after 8.5 ns;
 
     wait;
   end process;

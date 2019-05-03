@@ -189,7 +189,7 @@ begin  -- architecture beh
         end if;
 
         if unsigned(cansave) /= (F-1) then
-          cansaveNext  <= std_logic_vector(unsigned(cansave) + 1);
+          cansaveNext <= std_logic_vector(unsigned(cansave) + 1);
         end if;
 
         if to_integer(unsigned(canrestore)) = 0 and (to_integer(unsigned(swp)) /= 0) then
