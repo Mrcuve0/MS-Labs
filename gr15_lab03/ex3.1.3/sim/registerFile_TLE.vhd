@@ -42,16 +42,150 @@ entity registerFile_TLE is
     spill: out std_logic;               -- RF is full, need to spill in memory 
     call: in std_logic;                 -- SUBroutine call
     ret: in std_logic;                  -- SUBroutine ret
-    dataACK: out std_logic;             -- raised by the RF to inform the MMU
+    dataACK: out std_logic;
+    MMUStrobe : in std_logic);             -- raised by the RF to inform the MMU
                                         -- that the data to be filled has been
                                         -- collected correctly
     end entity registerFile_TLE;
 
 
-    architecture struct of registerFile_TLE is
+ architecture struct of registerFile_TLE is
+   ----------------------------------------------------------------------------
+   -- Componets
+   ----------------------------------------------------------------------------
+          component physical_RF is
+            generic (
+              NData : integer;
+              NRegs : integer;
+              NAddr : integer);
+            port (
+              CLK     : in  std_logic;
+              RESET   : in  std_logic;
+              ENABLE  : in  std_logic;
+              RD1     : in  std_logic;
+              RD2     : in  std_logic;
+              WR      : in  std_logic;
+              ADD_WR  : in  std_logic_vector(NAddr-1 downto 0);
+              ADD_RD1 : in  std_logic_vector(NAddr-1 downto 0);
+              ADD_RD2 : in  std_logic_vector(NAddr-1 downto 0);
+              DATAIN  : in  std_logic_vector(NData-1 downto 0);
+              OUT1    : out std_logic_vector(NData-1 downto 0);
+              OUT2    : out std_logic_vector(NData-1 downto 0));
+          end component physical_RF;
 
+              component controlUnit_RF is
+                generic (
+                  N            : integer;
+                  M            : integer;
+                  F            : integer;
+                  windowBlocks : integer;
+                  NData        : integer;
+                  NAddr        : integer);
+                port (
+                  clk             : in  std_logic;
+                  reset           : in  std_logic;
+                  enable          : in  std_logic;
+                  cwpOut          : out std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+                  swpOut          : out std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+                  resetPhysicalRF : out std_logic;
+                  call            : in  std_logic;
+                  ret             : in  std_logic;
+                  fill            : out std_logic;
+                  spill           : out std_logic;
+                  MMUStrobe       : in  std_logic;
+                  dataACK         : out std_logic);
+              end component controlUnit_RF;
+
+             component translationUnit_RF is
+               generic (
+                 N            : integer;
+                 M            : integer;
+                 windowBlocks : integer;
+                 F            : integer;
+                 NAddr        : integer;
+               port (
+                 clk         : in  std_logic;
+                 reset       : in  std_logic;
+                 enable      : in  std_logic;
+                 rd1         : in  std_logic;
+                 rd2         : in  std_logic;
+                 wr          : in  std_logic;
+                 add_wr      : in  std_logic_vector(NAddr-1 downto 0);
+                 add_rd1     : in  std_logic_vector(NAddr-1 downto 0);
+                 add_rd2     : in  std_logic_vector(NAddr-1 downto 0);
+                 cwp         : in  std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+                 add_wr_out  : out std_logic_vector(NAddr-1 downto 0);
+                 add_rd1_out : out std_logic_vector(NAddr-1 downto 0);
+                 add_rd2_out : out std_logic_vector(NAddr-1 downto 0));
+             end component translationUnit_RF; 
+
+-------------------------------------------------------------------------------
+-- Signals
+-------------------------------------------------------------------------------
+         signal cwp_s,swp_s : std_logic_vector(integer(log2(real(windowRounds*numF))) downto 0);
+         signal add_wr_out_s, add_rd1_out_s,add_rd2_out_s: std_logic_vector(NAddr-1 downto 0);
+         signal reset_s : std_logic;
+                                                          
     begin  -- architecture struct
+      
+          translU : translationUnit_RF generic map (
+            N => N,
+            M => M,
+            windowBlocks => windowBlocks,
+            F =>  F,
+            NAddr => NAddr)
+            port map (
+              clk         => clk,
+              reset       => reset,
+              enable      => enable,
+              rd1         => rd1,
+              rd2         => rd2,
+              wr          => wr,
+              add_wr      => add_wr,
+              add_rd1     => add_rd1,
+              add_rd2     => add_rd2,
+              cwp         => cwp_s,     -- cwp by control Unit
+              add_wr_out  => add_wr_out_s,
+              add_rd1_out => add_rd1_out_s,
+              add_rd2_out => add_rd2_out_s);
 
-
-
+          physRF : physical_RF generic map (
+            NData => NData,
+            NRegs => NRegs,
+            NAddr => NAddr)
+            port map (
+              clk     => clk,
+              reset   => reset_s,
+              enable  => enable,
+              rd1     => rd1,
+              rd2     => rd2,
+              wr      => wr,
+              add_wr  => add_wr_out_s,  --addresses by the translation Unit
+              add_rd1 => add_rd1_out_s,
+              add_rd2 => add_rd2_out_s,
+              datain  => dataIn,
+              out1    => dataOut1,
+              out2    => dataOut2);
+          
+          contrU : controlUnit_RF generic map (
+            N            => N,
+            M            => M,
+            F            => F,
+            windowBlocks => windowBlocks,
+            NData        => NData,
+            NAddr        => NAddr)
+            port map (
+              clk             => clk,
+              reset           => reset,
+              enable          => enable,
+              cwpOut          => cwp_s,
+              swpOut          => swp_s,
+              resetPhysicalRF => reset_s,
+              call            => call,
+              ret             => ret,
+              fill            => fill,
+              spill           => spill,
+              MMUStrobe       => MMUStrobe,
+              dataACK         => dataACK);
+          
     end architecture struct;
