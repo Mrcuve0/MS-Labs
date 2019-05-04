@@ -13,7 +13,7 @@ entity registerFile_TLE is
     NData        : integer := numBitData;       -- Register width
 
     -- Interface with the external world
-    NAddr_Windowed : integer := integer(log2(real(numN*numwindowBlocks + numM))));
+    NAddr_Windowed : integer := integer(ceil(log2(real(numN*numwindowBlocks + numM)))));
   port (
     clk    : in std_logic;
     reset  : in std_logic;
@@ -57,7 +57,7 @@ architecture struct of registerFile_TLE is
   -- Components
   ----------------------------------------------------------------------------
 
-  constant NAddr_Physical : integer := integer(log2(real(numRegs_physical_RF)));
+  constant NAddr_Physical : integer := integer(ceil(log2(real(numRegs_physical_RF))));
 
   component controlUnit_RF is
     generic (
@@ -71,8 +71,8 @@ architecture struct of registerFile_TLE is
       clk             : in  std_logic;
       reset           : in  std_logic;
       enable          : in  std_logic;
-      cwpOut          : out std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
-      swpOut          : out std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+      cwpOut          : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
+      swpOut          : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
       resetPhysicalRF : out std_logic;
       call            : in  std_logic;
       ret             : in  std_logic;
@@ -88,8 +88,8 @@ architecture struct of registerFile_TLE is
       M              : integer;
       windowBlocks   : integer;
       F              : integer;
-      NAddr_Windowed : integer := integer(log2(real(numN * numwindowBlocks + numM)));
-      NAddr_Physical : integer := integer(log2(real(numRegs_physical_RF))));
+      NAddr_Windowed : integer := integer(ceil(log2(real(numN * numwindowBlocks + numM))));
+      NAddr_Physical : integer := integer(ceil(log2(real(numRegs_physical_RF)))));
     port (
       clk         : in  std_logic;
       reset       : in  std_logic;
@@ -100,7 +100,7 @@ architecture struct of registerFile_TLE is
       add_wr      : in  std_logic_vector(NAddr_Windowed-1 downto 0);
       add_rd1     : in  std_logic_vector(NAddr_Windowed-1 downto 0);
       add_rd2     : in  std_logic_vector(NAddr_Windowed-1 downto 0);
-      cwp         : in  std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+      cwp         : in  std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
       add_wr_out  : out std_logic_vector(NAddr_Physical-1 downto 0);
       add_rd1_out : out std_logic_vector(NAddr_Physical-1 downto 0);
       add_rd2_out : out std_logic_vector(NAddr_Physical-1 downto 0));
@@ -129,7 +129,7 @@ architecture struct of registerFile_TLE is
 -------------------------------------------------------------------------------
 -- Signals
 -------------------------------------------------------------------------------
-  signal cwp_s, swp_s                               : std_logic_vector(integer(log2(real(windowRounds * numF)))-1 downto 0);
+  signal cwp_s, swp_s                               : std_logic_vector(integer(ceil(log2(real(windowRounds * numF))))-1 downto 0);
   signal add_wr_out_s, add_rd1_out_s, add_rd2_out_s : std_logic_vector(NAddr_Physical-1 downto 0);
   signal add_wr_s, add_rd1_s, add_rd2_s             : std_logic_vector(NAddr_Windowed-1 downto 0);
   signal wr_s, reset_s                              : std_logic;

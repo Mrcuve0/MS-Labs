@@ -14,7 +14,7 @@ entity physical_RF is
     NData : integer := numBitData;                   -- Bit width of the regs
     NRegs : integer := numRegs_physical_RF;          -- Number of registers in
                                                      -- the physical Register File
-    NAddr : integer := integer(log2(real(numRegs_physical_RF))));  -- Number of address lines
+    NAddr : integer := integer(ceil(log2(real(numRegs_physical_RF)))));  -- Number of address lines
   port (CLK     : in  std_logic;
         RESET   : in  std_logic;
         ENABLE  : in  std_logic;
@@ -62,10 +62,10 @@ begin
         end if;
         if wr = '1' then                -- Write port #1
           registers(to_integer(unsigned(add_wr))) <= datain;
-          if rd1 = '1' then             -- Simultaneous write/read
+          if rd1 = '1' and add_rd1 = add_wr then             -- Simultaneous write/read
             out1 <= dataIn;
           end if;
-          if rd2 = '1' then             -- Simultaneous write/read
+          if rd2 = '1' and add_rd2 = add_wr then             -- Simultaneous write/read
             out2 <= dataIn;
           end if;
         end if;

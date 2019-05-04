@@ -13,14 +13,14 @@ entity controlUnit_RF is
     F              : integer := numF;
     windowBlocks   : integer := numWindowBlocks;
     NData          : integer := numBitData;
-    NAddr_Windowed : integer := integer(log2(real(numN*numwindowBlocks + numM))));
+    NAddr_Windowed : integer := integer(ceil(log2(real(numN*numwindowBlocks + numM)))));
   port (
     clk    : in std_logic;
     reset  : in std_logic;
     enable : in std_logic;
 
-    cwpOut : out std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
-    swpOut : out std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+    cwpOut : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
+    swpOut : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
 
     resetPhysicalRF : out std_logic;
 
@@ -39,20 +39,20 @@ architecture beh of controlUnit_RF is
   constant Fplus1 : integer := F+1;
 
   -- Stores the number of the last called subroutine
-  signal cwp : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+  signal cwp : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
   -- Stores the number of the last spilled subroutine
-  signal swp : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+  signal swp : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
 
   -- Stores the number of available (empty) windows.
   -- If the number is  equal to zero, then no space is available
   -- and a SPILL operation is needed
-  signal cansave        : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
-  signal cansaveNext    : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+  signal cansave        : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
+  signal cansaveNext    : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
   -- Stores the number of occupied (full) windows.
-  signal canrestore     : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
-  signal canrestoreNext : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+  signal canrestore     : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
+  signal canrestoreNext : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
 
-  signal call_cnt, call_cntNext : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
+  signal call_cnt, call_cntNext : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
 
   type state_t is (waitState, resetState, callState, retState, spillState, fillState);
   signal currentState, nextState : state_t := resetState;

@@ -10,8 +10,8 @@ end tb_registerFile;
 
 architecture arch of tb_registerFile is
 
-  constant NAddr_Physical : integer := integer(log2(real(numRegs_physical_RF)));
-  constant NAddr_Windowed : integer := integer(log2(real(numN * numwindowBlocks + numM)));
+  constant NAddr_Physical : integer := integer(ceil(log2(real(numRegs_physical_RF))));
+  constant NAddr_Windowed : integer := integer(ceil(log2(real(numN * numwindowBlocks + numM))));
 
   component registerFile_TLE is
     generic (
@@ -67,7 +67,7 @@ begin
     M              => numM,
     windowBlocks   => numWindowBlocks,
     Ndata          => numBitData,
-    NAddr_Windowed => integer(log2(real(numN*numWindowBlocks + numM))))
+    NAddr_Windowed => integer(ceil(log2(real(numN*numWindowBlocks + numM)))))
     port map (
       clk       => clk_s,
       reset     => reset_s,
@@ -113,11 +113,19 @@ begin
     reset_s     <= '1', '0' after 7.5 ns, '1' after 11.5 ns, '0' after 13.5 ns;
     ret_s       <= '0';
     call_s      <= '0', '1' after 2.5 ns, '0' after 5 ns, '1' after 9 ns, '0' after 9.5 ns,
-              '1' after 15.5 ns + 8 ns, '0' after 20.5 ns + 8 ns;
+              '1' after 15.5 ns + 8 ns, '0' after 27 ns;  --20.5 ns + 8 ns;
 
-    wr1_s    <= '1'         after 16.5 ns;
+    wr1_s    <= '1'         after 17 ns, '0' after 19 ns, '1' after 19.5 ns, '0' after 22.5 ns, '1' after 34 ns, '0' after 36.5 ns;
     add_wr_s <= "00000"     after 16 ns;
-    dataIn_s <= X"FFFF0000" after 16 ns;
+    dataIn_s <= X"DEADBEEF" after 16 ns, X"F00DBABE" after 30 ns;
+
+    rd1_s     <= '1'     after 16 ns, '0' after 22 ns, '1' after 39 ns;
+    add_rd1_s <= "01000" after 16 ns, "10000" after 39.5 ns;
+
+    rd2_s     <= '1'     after 16 ns, '0' after 22 ns;
+    add_rd2_s <= "00000" after 16 ns;
+
+
 
     wait for 30 ns;
     -- Here time = 22 ns
