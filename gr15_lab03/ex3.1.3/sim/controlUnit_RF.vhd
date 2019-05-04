@@ -8,12 +8,12 @@ use work.constants.all;
 
 entity controlUnit_RF is
   generic (
-    N            : integer := numN;
-    M            : integer := numM;
-    F            : integer := numF;
-    windowBlocks : integer := numWindowBlocks;
-    NData        : integer := numBitData;
-    NAddr        : integer := integer(log2(real(numN*numwindowBlocks + numM))));
+    N              : integer := numN;
+    M              : integer := numM;
+    F              : integer := numF;
+    windowBlocks   : integer := numWindowBlocks;
+    NData          : integer := numBitData;
+    NAddr_Windowed : integer := integer(log2(real(numN*numwindowBlocks + numM))));
   port (
     clk    : in std_logic;
     reset  : in std_logic;

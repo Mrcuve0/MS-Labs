@@ -39,6 +39,7 @@ architecture arch of tb_controlUnit_RF is
   signal cwpOut_s, swpOut_s                                     : std_logic_vector(integer(log2(real(windowRounds*numF)))-1 downto 0);
   constant period                                               : time      := 2 ns;
 
+  
   constant fill_spill_time : time := integer(numN*(numWindowBlocks-1)) * period;
 
 begin  -- architecture tb_arch
@@ -76,6 +77,7 @@ begin  -- architecture tb_arch
     enable_s    <= '1';
     reset_s     <= '1', '0' after 7.5 ns, '1' after 11.5 ns, '0' after 13.5 ns;
     MMUStrobe_s <= '0';
+    ret_s       <= '0';
 
     call_s <= '0', '1' after 2.5 ns, '0' after 5 ns, '1' after 9 ns, '0' after 9.5 ns,
               '1' after 15.5 ns, '0' after 20.5 ns;
@@ -86,6 +88,7 @@ begin  -- architecture tb_arch
     -- Here time = 22 ns + 32 ns = 54 ns;
     write(lb, now);
     writeline(output, lb);
+    ret_s <= '0';
     MMUStrobe_s <= '1', '0' after 2.5 ns;  -- This set @ time = 54 ns
     call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
 
@@ -162,7 +165,7 @@ begin  -- architecture tb_arch
     -- Here time = 396 ns;
     write(lb, now);
     writeline(output, lb);
-    MMUStrobe_s <= '1', '0' after 2.5 ns;
+    --MMUStrobe_s <= '1', '0' after 2.5 ns;
     call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
 
     wait for 6 ns;

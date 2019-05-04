@@ -3,7 +3,7 @@ use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 use ieee.math_real.all;
 
-use WORK.constants.all;
+use work.constants.all;
 
 -------------------------------------------------------------------------------
 -- Definition of the generic behavioral Register File
@@ -14,7 +14,7 @@ entity physical_RF is
     NData : integer := numBitData;                   -- Bit width of the regs
     NRegs : integer := numRegs_physical_RF;          -- Number of registers in
                                                      -- the physical Register File
-    NAddr : integer := integer(log2(real(NRegs))));  -- Number of address lines
+    NAddr : integer := integer(log2(real(numRegs_physical_RF))));  -- Number of address lines
   port (CLK     : in  std_logic;
         RESET   : in  std_logic;
         ENABLE  : in  std_logic;

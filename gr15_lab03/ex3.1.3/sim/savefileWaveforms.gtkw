@@ -1,0 +1,40 @@
+[*]
+[*] GTKWave Analyzer v3.3.94 (w)1999-2018 BSI
+[*] Sat May  4 17:39:46 2019
+[*]
+[dumpfile] "/home/sem/OneDrive/Politecnico di Torino/01 - Magistrale/Anno 1 -- 2018-2019/Secondo Semestre/Microelectronic System/2018-2019/Labs/gr15_lab03/ex3.1.3/sim/RFwaveforms.ghw"
+[dumpfile_mtime] "Sat May  4 17:38:00 2019"
+[dumpfile_size] 16852
+[savefile] "/home/sem/OneDrive/Politecnico di Torino/01 - Magistrale/Anno 1 -- 2018-2019/Secondo Semestre/Microelectronic System/2018-2019/Labs/gr15_lab03/ex3.1.3/sim/savefileWaveforms.gtkw"
+[timestart] 0
+[size] 1920 1027
+[pos] -1 -1
+*-26.140524 398500000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.tb_registerfile.
+[treeopen] top.tb_registerfile.dut.
+[sst_width] 229
+[signals_width] 235
+[sst_expanded] 1
+[sst_vpaned_height] 669
+@28
+top.tb_registerfile.dut.contru.clk
+top.tb_registerfile.dut.contru.enable
+top.tb_registerfile.dut.contru.reset
+top.tb_registerfile.dut.contru.call
+top.tb_registerfile.dut.contru.ret
+@22
+#{top.tb_registerfile.dut.contru.cwp[3:0]} top.tb_registerfile.dut.contru.cwp[3] top.tb_registerfile.dut.contru.cwp[2] top.tb_registerfile.dut.contru.cwp[1] top.tb_registerfile.dut.contru.cwp[0]
+#{top.tb_registerfile.dut.contru.swp[3:0]} top.tb_registerfile.dut.contru.swp[3] top.tb_registerfile.dut.contru.swp[2] top.tb_registerfile.dut.contru.swp[1] top.tb_registerfile.dut.contru.swp[0]
+@420
+top.tb_registerfile.dut.contru.currentstate
+top.tb_registerfile.dut.contru.nextstate
+@29
+top.tb_registerfile.dut.contru.resetphysicalrf
+@28
+top.tb_registerfile.dut.contru.spill
+top.tb_registerfile.dut.contru.fill
+top.tb_registerfile.dut.contru.dataack
+top.tb_registerfile.dut.contru.mmustrobe
+[pattern_trace] 1
+[pattern_trace] 0
