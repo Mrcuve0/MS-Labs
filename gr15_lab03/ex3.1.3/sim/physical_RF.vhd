@@ -45,7 +45,7 @@ architecture beh of physical_RF is
 
 begin
 
-  RFproc : process (clk, reset) is
+  RFproc : process (clk) is
   begin
     if rising_edge(clk) then
 

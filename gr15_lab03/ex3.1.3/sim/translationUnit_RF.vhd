@@ -43,122 +43,47 @@ begin  -- architecture beh
 
 
 
-  TranslProc : process (clk) is
+  TranslProc : process (add_rd1, add_rd2, add_wr, cwp, enable) is
 
   begin  -- process
-    if rising_edge(clk) then
 
-      if enable = '1' then
+    if enable = '1' then
 
-        if wr = '1' then
-          if to_integer(unsigned(add_wr)) > (numWindowBlocks * numN) - 1 then
-            add_wr_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_wr_outVar'length));
-
-          else
-            add_wr_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_wr_outVar'length));
-
-          end if;
-        end if;
-
-        if rd1 = '1' then
-          if to_integer(unsigned(add_rd1)) > (numWindowBlocks * numN) - 1 then
-            add_rd1_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_rd1_outVar'length));
-
-          else
-            add_rd1_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_rd1_outVAr'length));
-
-          end if;
-        end if;
-
-        if rd2 = '1' then
-          if to_integer(unsigned(add_rd2)) > (numWindowBlocks * numN) - 1 then
-            add_rd2_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd2)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_rd2_outVar'length));
-
-          else
-            add_rd2_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd2)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_rd2_outVar'length));
-
-          end if;
-        end if;
+      if to_integer(unsigned(add_wr)) > (numWindowBlocks * numN) - 1 then
+        add_wr_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_wr_outVar'length));
 
       else
-        add_wr_outVar  <= (others => '0');
-        add_rd1_outVar <= (others => '0');
-        add_rd2_outVar <= (others => '0');
+        add_wr_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_wr_outVar'length));
+
       end if;
 
+      if to_integer(unsigned(add_rd1)) > (numWindowBlocks * numN) - 1 then
+        add_rd1_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_rd1_outVar'length));
+
+      else
+        add_rd1_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_rd1_outVAr'length));
+
+      end if;
+
+      if to_integer(unsigned(add_rd2)) > (numWindowBlocks * numN) - 1 then
+        add_rd2_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd2)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_rd2_outVar'length));
+
+      else
+        add_rd2_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd2)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_rd2_outVar'length));
+
+      end if;
+
+    else
+      add_wr_outVar  <= (others => '0');
+      add_rd1_outVar <= (others => '0');
+      add_rd2_outVar <= (others => '0');
     end if;
+
 
   end process TranslProc;
 
   add_rd1_out <= add_rd1_outVar;
   add_rd2_out <= add_rd2_outVar;
   add_wr_out  <= add_wr_outVar;
-
-
-  -- process(clk)
-  -- begin
-  --   if rising_edge(clk) then
-  --     if reset = '1' then
-  --       add_rd1_out <= (others => '0');
-  --     end if;
-
-  --     if enable = '1' then
-  --       if rd1 = '1' then
-  --         if to_integer(unsigned(add_rd1)) > (numWindowBlocks * numN) - 1 then
-  --           add_rd1_out <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_rd1_out'length));
-  --         else
-  --           add_rd1_out <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1)) + to_integer(unsigned(cwp)) mod F * N * 2, add_rd1_out'length));
-  --         end if;
-  --       end if;
-  --     else
-  --       add_rd1_out <= (others => '0');
-  --     end if;
-  --   end if;
-
-  -- end process;
-
-  -- process(clk)
-  -- begin
-  --   if rising_edge(clk) then
-  --     if reset = '1' then
-  --       add_rd2_out <= (others => '0');
-  --     end if;
-
-  --     if enable = '1' then
-  --       if rd2 = '1' then
-  --         if to_integer(unsigned(add_rd2)) > (numWindowBlocks * numN) - 1 then
-  --           add_rd2_out <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd2)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_rd2_out'length));
-  --         else
-  --           add_rd2_out <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd2)) + to_integer(unsigned(cwp)) mod F * N * 2, add_rd2_out'length));
-  --         end if;
-  --       end if;
-  --     else
-  --       add_rd2_out <= (others => '0');
-  --     end if;
-  --   end if;
-  -- end process;
-
-  -- process(clk)
-  -- begin
-  --   if rising_edge(clk) then
-
-  --     if reset = '1' then
-  --       add_wr_out <= (others => '0');
-  --     end if;
-
-  --     if enable = '1' then
-  --       if wr = '1' then
-  --         if to_integer(unsigned(add_wr)) > (numWindowBlocks * numN) - 1 then
-  --           add_wr_out <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_wr_out'length));
-  --         else
-  --           add_wr_out <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) + to_integer(unsigned(cwp)) mod F * N * 2, add_wr_out'length));
-  --         end if;
-  --       end if;
-  --     else
-  --       add_wr_out <= (others => '0');
-  --     end if;
-  --   end if;
-  -- end process;
-
 
 end architecture beh;
