@@ -1,0 +1,80 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-957.5.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+vsim -t 10ps -novopt work.tb_registerfile(arch)
+# vsim -t 10ps -novopt work.tb_registerfile(arch) 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.math_real(body)
+# Loading std.textio(body)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/work.tb_registerfile(arch)
+# Loading work.tb_registerfile(arch)
+# Loading ieee.numeric_std(body)
+# Loading work.registerfile_tle(struct)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/work.controlunit_rf(beh)
+# Loading work.controlunit_rf(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/work.translationunit_rf(beh)
+# Loading work.translationunit_rf(beh)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/work.physical_rf(beh)
+# Loading work.physical_rf(beh)
+add waves *
+run 500 ns
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+# 62 ns
+# 100 ns
+# 138 ns
+# 176 ns
+# 214 ns
+# 252 ns
+# 290 ns
+# 328 ns
+# 366 ns
+# 404 ns
+# 442 ns
+# 480 ns
+kpdf meaningful_waves.ps &
+# invalid command name "kpdf"
