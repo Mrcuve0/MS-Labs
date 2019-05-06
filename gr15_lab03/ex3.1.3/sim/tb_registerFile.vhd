@@ -116,10 +116,10 @@ begin
               '1' after 15.5 ns + 8 ns, '0' after 27 ns;  --20.5 ns + 8 ns;
 
     wr1_s    <= '1'         after 17 ns, '0' after 19 ns, '1' after 19.5 ns, '0' after 22.5 ns,
-                '1' after 33.5 ns, '0' after 36.5 ns, '1' after 48.5 ns, '0' after 68 ns,
-                '1' after 102 ns, '0' after 104 ns;
-    add_wr_s <= "00000"     after 16 ns, "00010" after 48 ns;
-    dataIn_s <= X"DEADBEEF" after 16 ns, X"F00DBABE" after 30 ns, X"DABBAD00" after 48 ns;
+                '1' after 33.5 ns, '0' after 40  ns, '1' after 48.5 ns, '0' after 80 ns,
+                '1' after 102 ns, '0' after 104 ns, '1' after 120 ns, '0' after 150 ns;
+    add_wr_s <= "00000"     after 16 ns, "00010" after 48 ns, "10000" after 66 ns;
+    dataIn_s <= X"DEADBEEF" after 16 ns, X"F00DBABE" after 30 ns, X"DABBAD00" after 48 ns, X"DEADBEEF" after 100 ns;
 
     rd1_s     <= '1'     after 16 ns, '0' after 22 ns, '1' after 39.5 ns, '0' after 48 ns;
     add_rd1_s <= "01000" after 16 ns, "00000" after 39 ns;

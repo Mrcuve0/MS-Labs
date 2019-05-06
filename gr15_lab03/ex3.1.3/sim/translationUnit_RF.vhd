@@ -46,31 +46,57 @@ begin  -- architecture beh
   TranslProc : process (add_rd1, add_rd2, add_wr, cwp, enable) is
 
   begin  -- process
-
+    
     if enable = '1' then
-
+      
+ ------------------------------------------------------------------------------
+ -- Write
+ ------------------------------------------------------------------------------     
       if to_integer(unsigned(add_wr)) > (numWindowBlocks * numN) - 1 then
-        add_wr_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_wr_outVar'length));
-
+        add_wr_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_wr_outVar'length));--first control is for globals registers  
+      elsif (to_integer(unsigned(cwp)) mod F) = (F-1) then      --if it is the last physical window --circular RF
+          if to_integer(unsigned(add_wr)) > ((numWindowBlocks-1)* numN) - 1 then --if it is an OUT reg
+            add_wr_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr))- N * 2,add_wr_outVar'length)); --otherwise will write/read in W0 out
+          else
+            add_wr_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_wr_outVar'length));-- other registers : in local out
+          end if; 
       else
-        add_wr_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_wr_outVar'length));
-
+        add_wr_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_wr)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_wr_outVar'length));-- other registers : in local out  
       end if;
+-------------------------------------------------------------------------------
+-- Read 1
+-------------------------------------------------------------------------------
 
       if to_integer(unsigned(add_rd1)) > (numWindowBlocks * numN) - 1 then
+        
         add_rd1_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_rd1_outVar'length));
+        
+      elsif (to_integer(unsigned(cwp)) mod F) = (F-1) then
 
+        if to_integer(unsigned(add_rd1)) > ((numWindowBlocks-1)* numN) - 1 then          
+          add_rd1_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1))- N * 2,add_rd1_outVar'length));
+        else 
+          add_rd1_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_rd1_outVar'length));
+        end if;
       else
-        add_rd1_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_rd1_outVAr'length));
-
+        add_rd1_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd1)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_rd1_outVar'length));
       end if;
+
+
+-------------------------------------------------------------------------------
+-- Read 2
+-------------------------------------------------------------------------------
 
       if to_integer(unsigned(add_rd2)) > (numWindowBlocks * numN) - 1 then
         add_rd2_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd2)) - (numWindowBlocks * N) + numRegs_physical_RF - N, add_rd2_outVar'length));
-
+      elsif (to_integer(unsigned(cwp)) mod F) = (F-1) then
+        if to_integer(unsigned(add_rd2)) > ((numWindowBlocks-1)* numN) - 1 then
+          add_rd2_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd2))- N * 2,add_rd2_outVar'length));
+        else
+        add_rd2_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd2)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_rd2_outVar'length));
+        end if;
       else
         add_rd2_outVar <= std_logic_vector(to_unsigned(to_integer(unsigned(add_rd2)) + (to_integer(unsigned(cwp)) mod F) * N * 2, add_rd2_outVar'length));
-
       end if;
 
     else
