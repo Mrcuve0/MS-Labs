@@ -110,7 +110,7 @@ begin
   begin
     enable_s    <= '1';
     MMUStrobe_s <= '0';
-    reset_s     <= '1', '0' after 7.5 ns, '1' after 11.5 ns, '0' after 13.5 ns;
+    reset_s     <= '1' after 0.5 ns, '0' after 7.5 ns, '1' after 11.5 ns, '0' after 13.5 ns;
     ret_s       <= '0';
     call_s      <= '0', '1' after 2.5 ns, '0' after 5 ns, '1' after 9 ns, '0' after 9.5 ns,
               '1' after 15.5 ns + 8 ns, '0' after 27 ns;  --20.5 ns + 8 ns;
@@ -172,7 +172,7 @@ begin
     write(lb, now);
     writeline(output, lb);
     MMUStrobe_s <= '1', '0' after 2.5 ns;
-    ret_s       <= '1'      after 2.5 ns, '0' after 8.5 ns;
+    ret_s       <= '1'      after 3.5 ns, '0' after 8.5 ns;
 
     wait for 6 ns;
     wait for fill_spill_time;
@@ -226,7 +226,7 @@ begin
     -- Here time = 472 ns;
     write(lb, now);
     writeline(output, lb);
-    call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
+    ret_s      <= '1'      after 2.5 ns, '0' after 8.75 ns;
     MMUStrobe_s <= '1', '0' after 2.5 ns;
 
     wait for 6 ns;

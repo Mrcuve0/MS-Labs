@@ -22,8 +22,6 @@ entity controlUnit_RF is
     cwpOut : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
     swpOut : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
 
-    resetPhysicalRF : out std_logic;
-
     call  : in  std_logic;
     ret   : in  std_logic;
     fill  : out std_logic;
@@ -55,11 +53,11 @@ architecture beh of controlUnit_RF is
   signal call_cnt, call_cntNext : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
 
   type state_t is (waitState, resetState, callState, retState, spillState, fillState);
-  signal currentState, nextState : state_t := resetState;
+  signal currentState, nextState : state_t := waitState;
 
 begin  -- architecture beh
 
-  combLogic : process (reset, enable, call, ret, MMUStrobe, currentState, call_cnt, cansave, canrestore) is
+  combLogic : process (reset, enable, call, ret, MMUStrobe, currentState, cansave, canrestore) is
     variable need_to_spill : integer := 0;
     variable need_to_fill  : integer := 0;
     variable call_cntVar   : integer := 0;
@@ -69,7 +67,6 @@ begin  -- architecture beh
     case currentState is
       when waitState =>
 
-        resetPhysicalRF <= '0';
         need_to_fill    := 0;
         need_to_spill   := 0;
 
@@ -77,11 +74,12 @@ begin  -- architecture beh
         fill    <= '0';
         dataACK <= '0';
 
+
         if call = '1' then
           nextState <= callState;
         elsif ret = '1' and unsigned(swp) /= 0 then
           nextState <= retState;
-        elsif ret = '1' and unsigned(swp) = 0 and unsigned(cwp) = 1 then
+        elsif ret = '1' and to_integer(unsigned(swp)) = 0 and to_integer(unsigned(cwp)) < F then
           nextState <= retState;
         else
           nextState <= waitState;
@@ -91,7 +89,6 @@ begin  -- architecture beh
 
       when resetState =>
 
-        resetPhysicalRF <= '1';         -- Informs the RF to resets its outputs
         call_cntNext    <= (others => '0');
 
         cansaveNext    <= std_logic_vector(to_unsigned(F-1, cansave'length));
@@ -113,25 +110,24 @@ begin  -- architecture beh
 
       when callState =>
 
-        resetPhysicalRF <= '0';
         spill           <= '0';
         fill            <= '0';
         dataACK         <= '0';
 
         call_cntNext <= std_logic_vector(unsigned(call_cnt) + 1);
-        cwp          <= call_cnt;
+        -- canrestoreNext <= std_logic_vector(unsigned(canrestore) + 1);
 
         if to_integer(unsigned(cansave)) = 0 then  -- If the previous call
                                                    -- emptied the buffer ...
           need_to_spill := 1;           -- We must SPILL
         else                            -- There's no need to SPILL now
 
-          need_to_spill := 0;
-          --call_cntNext <= std_logic_vector(unsigned(call_cnt) + 1);
+          need_to_spill  := 0;
           -- So let's update the statistics with this recordered CALL action
-
+          cwp            <= call_cnt;
           cansaveNext    <= std_logic_vector(unsigned(cansave) - 1);
           canrestoreNext <= std_logic_vector(unsigned(canrestore) + 1);
+
 
         end if;
 
@@ -156,21 +152,23 @@ begin  -- architecture beh
         fill          <= '0';
 
         call_cntVar := to_integer(unsigned(call_cnt));
-        call_cntVar := call_cntVar mod (F);
-        if call_cntVar = 0 then
-          actual_round := to_integer(unsigned(call_cnt) / F);
-        end if;
+        call_cntVar := call_cntVar mod (F);  -- 0 1 2
+
 
 
         if MMUStrobe = '0' then
           dataACK   <= '0';
           nextState <= spillState;
         else
+          if call_cntVar = 0 then
+            actual_round := actual_round + 1;
+          end if;
           dataACK <= '1' after 0.2 ns;  -- IRL asserted afer a certain delay
                                         -- (equal to the time needed to retrieve
                                         -- data from the bus)
-          cwp     <= call_cnt;
-          swp     <= std_logic_vector(to_unsigned(call_cntVar + (actual_round-1)*F, swp'length));
+          cwp     <= std_logic_vector(unsigned(call_cnt) - 1);
+          swp     <= std_logic_vector(to_unsigned((call_cntVar + ((actual_round - 1) * F)), swp'length));
+
 
           nextState <= waitState;
         end if;
@@ -179,7 +177,6 @@ begin  -- architecture beh
 
       when retState =>
 
-        resetPhysicalRF <= '0';
         spill           <= '0';
         fill            <= '0';
         dataACK         <= '0';
@@ -192,26 +189,40 @@ begin  -- architecture beh
           cansaveNext <= std_logic_vector(unsigned(cansave) + 1);
         end if;
 
-        if to_integer(unsigned(canrestore)) = 0 and (to_integer(unsigned(swp)) /= 0) then
-          need_to_fill := 1;
+
+
+
+        if to_integer(unsigned(canrestore)) = 1 then
+          if (to_integer(unsigned(swp)) /= 0) then  -- devo fillare
+            need_to_fill := 1;
+          else                                      -- SWP = 0
+            need_to_fill   := 0;
+            cwp            <= std_logic_vector(unsigned(cwp) - 1);
+            canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
+          end if;
         else
-          need_to_fill   := 0;
-          canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
+          -- Canrestore != 1
+          need_to_fill := 0;
+          if to_integer(unsigned(canrestore)) /= 0 then
+            canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
+            cwp            <= std_logic_vector(unsigned(cwp) - 1);
+          end if;
+
         end if;
 
+
+
+
         -- Added lastly
-        cwp <= std_logic_vector(unsigned(call_cnt));
+        --cwp <= std_logic_vector(unsigned(cwp) - 1);
 
         if need_to_fill = 1 then
           nextState <= fillState;
         elsif need_to_fill = 0 and ret = '1' and unsigned(call_cnt) /= 0 then
-          cwp       <= call_cnt;
           nextState <= retState;
-        elsif call = '1'and ret = '0' then
-          cwp       <= call_cnt;
+        elsif call = '1' and ret = '0' then
           nextState <= callState;
         else
-          cwp       <= call_cnt;
           nextState <= waitState;
         end if;
 
@@ -226,11 +237,17 @@ begin  -- architecture beh
         fill         <= '1';
         dataACK      <= '0';
 
+        call_cntVar := to_integer(unsigned(call_cnt));
+        call_cntVar := call_cntVar mod (F);  -- 0 1 2
+
 
         if MMUStrobe = '0' then
           dataACK   <= '0';
           nextState <= fillState;
         else
+          if call_cntVar = 0 then
+            actual_round := actual_round - 1;
+          end if;
           dataACK   <= '1' after 0.2 ns;
           cwp       <= std_logic_vector(unsigned(cwp) - 1);
           swp       <= std_logic_vector(unsigned(swp) - 1);
@@ -243,23 +260,28 @@ begin  -- architecture beh
   end process combLogic;
 
 
-  stateReg : process(clk, reset, enable)
+  stateReg : process(clk)
   begin
-    if reset = '1' and enable = '1' then
-      currentState <= resetState;
-      cansave      <= std_logic_vector(to_unsigned(F-1, cansave'length));
-      canrestore   <= (others => '0');
-      call_cnt     <= (others => '0');  --std_logic_vector(to_unsigned(1, call_cnt'length));
-    elsif rising_edge(clk) and enable = '1' and reset = '0' then
-      cansave      <= cansaveNext;
-      canrestore   <= canrestoreNext;
-      call_cnt     <= call_cntNext;
-      currentState <= nextState;
+    if rising_edge(clk) then
+      if reset = '1' then
+        currentState <= resetState;
+        cansave      <= std_logic_vector(to_unsigned(F-1, cansave'length));
+        canrestore   <= (others => '0');
+        call_cnt     <= (others => '0');
+      end if;
+
+      if enable = '1' and reset = '0' then
+        cansave      <= cansaveNext;
+        canrestore   <= canrestoreNext;
+        call_cnt     <= call_cntNext;
+        currentState <= nextState;
+      end if;
+      
     end if;
-  end process;
+end process;
 
 
-  cwpOut <= cwp;
-  swpOut <= swp;
+cwpOut <= cwp;
+swpOut <= swp;
 
 end architecture beh;

@@ -68,18 +68,18 @@ architecture struct of registerFile_TLE is
       NData          : integer;
       NAddr_Windowed : integer);
     port (
-      clk             : in  std_logic;
-      reset           : in  std_logic;
-      enable          : in  std_logic;
-      cwpOut          : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
-      swpOut          : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
-      resetPhysicalRF : out std_logic;
-      call            : in  std_logic;
-      ret             : in  std_logic;
-      fill            : out std_logic;
-      spill           : out std_logic;
-      MMUStrobe       : in  std_logic;
-      dataACK         : out std_logic);
+      clk       : in  std_logic;
+      reset     : in  std_logic;
+      enable    : in  std_logic;
+      cwpOut    : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
+      swpOut    : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
+      -- resetPhysicalRF : out std_logic;
+      call      : in  std_logic;
+      ret       : in  std_logic;
+      fill      : out std_logic;
+      spill     : out std_logic;
+      MMUStrobe : in  std_logic;
+      dataACK   : out std_logic);
   end component controlUnit_RF;
 
   component translationUnit_RF is
@@ -132,7 +132,7 @@ architecture struct of registerFile_TLE is
   signal cwp_s, swp_s                               : std_logic_vector(integer(ceil(log2(real(windowRounds * numF))))-1 downto 0);
   signal add_wr_out_s, add_rd1_out_s, add_rd2_out_s : std_logic_vector(NAddr_Physical-1 downto 0);
   signal add_wr_s, add_rd1_s, add_rd2_s             : std_logic_vector(NAddr_Windowed-1 downto 0);
-  signal wr_s, reset_s                              : std_logic;
+  signal wr_s                                       : std_logic;
 
 
 begin  -- architecture struct
@@ -145,18 +145,18 @@ begin  -- architecture struct
     NData          => NData,
     NAddr_Windowed => NAddr_Windowed)
     port map (
-      clk             => clk,
-      reset           => reset,
-      enable          => enable,
-      cwpOut          => cwp_s,         -- To the Translation Unit
-      swpOut          => swp_s,
-      resetPhysicalRF => reset_s,       -- To the Physical Register File
-      call            => call,
-      ret             => ret,
-      fill            => fill,
-      spill           => spill,
-      MMUStrobe       => MMUStrobe,
-      dataACK         => dataACK);
+      clk       => clk,
+      reset     => reset,
+      enable    => enable,
+      cwpOut    => cwp_s,               -- To the Translation Unit
+      swpOut    => swp_s,
+      --resetPhysicalRF => reset,       -- To the Physical Register File
+      call      => call,
+      ret       => ret,
+      fill      => fill,
+      spill     => spill,
+      MMUStrobe => MMUStrobe,
+      dataACK   => dataACK);
 
 
   translU : translationUnit_RF generic map (
@@ -186,7 +186,7 @@ begin  -- architecture struct
     NAddr => NAddr_Physical)
     port map (
       clk     => clk,
-      reset   => reset_s,               -- Coming from the Control Unit
+      reset   => reset,                 -- Coming from the Control Unit
       enable  => enable,
       rd1     => rd1,
       rd2     => rd2,
