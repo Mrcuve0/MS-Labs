@@ -50,7 +50,7 @@ architecture beh of controlUnit_RF is
   signal canrestore     : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
   signal canrestoreNext : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
 
-  signal call_cnt, call_cntNext : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
+  --signal call_cnt, call_cntNext : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
 
   type state_t is (waitState, resetState, callState, retState, spillState, fillState);
   signal currentState, nextState : state_t := waitState;
@@ -74,7 +74,7 @@ begin  -- architecture beh
 
 
         -- REGS
-        call_cntNext   <= (others => '0');
+        --call_cntNext   <= (others => '0');
         cansaveNext    <= std_logic_vector(to_unsigned(F-1, cansave'length));
         canrestoreNext <= (others => '0');
 
@@ -102,40 +102,66 @@ begin  -- architecture beh
         dataACK <= '0';
 
         -- REGS
-        if to_integer(unsigned(cansave)) = 0 then  -- Ho una
-                                                   -- call e Devo spillà...
+        if to_integer(unsigned(cansave)) = 0 then
+
           if call = '1' and ret = '0' then
-            call_cntNext <= std_logic_vector(unsigned(call_cnt) + 1);
-            nextState    <= spillState;
-            
-          elsif call = '0' and ret = '1' and to_integer(unsigned(cwp)) /= 0 then
-            call_cntNext <= std_logic_vector(unsigned(call_cnt) - 1);
-            nextState <= retState;
-            
+            nextState <= spillState;
+
+            -- elsif call = '0' and ret = '1' and to_integer(unsigned(cwp)) /= 0 then
+            --   cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
+            --   canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
+
+            --   nextState <= retState;
+
           elsif call = '0' and ret = '0' then
             nextState <= waitState;
-            
+
           end if;
 
-        elsif to_integer(unsigned(cansave)) /= 0 then  -- Non devo spillà
+        elsif to_integer(unsigned(cansave)) /= 0 then
 
-          if call = '1' and ret = '0' then  -- Ma se arriva una chiamata ce vado
-            call_cntNext   <= std_logic_vector(unsigned(call_cnt) + 1);
+          if call = '1' and ret = '0' then
             cansaveNext    <= std_logic_vector(unsigned(cansave) - 1);
             canrestoreNext <= std_logic_vector(unsigned(canrestore) + 1);
 
             nextState <= callState;
 
-          elsif call = '0' and ret = '1' and to_integer(unsigned(cwp)) /= 0 then
-            call_cntNext <= std_logic_vector(unsigned(call_cnt) - 1);
-            nextState <= retState;
+            -- elsif call = '0' and ret = '1' and to_integer(unsigned(cwp)) /= 0 then
+            --   cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
+            --   canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
+
+            --   nextState <= retState;
 
           elsif call = '0' and ret = '0' then
             nextState <= waitState;
 
           end if;
-
         end if;
+
+        if to_integer(unsigned(canrestore)) = 0 then
+
+          if ret = '1' and call = '0' then
+            nextState <= fillState;
+
+          elsif ret = '0' and call = '0' then
+            nextState <= waitState;
+
+          end if;
+
+        elsif to_integer(unsigned(canrestore)) /= 0 then
+
+          if ret = '1' and call = '0' then
+            cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
+            canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
+
+            nextState <= retState;
+
+          elsif ret = '0' and ret = '1' then
+            nextState <= waitState;
+
+          end if;
+        end if;
+
 
 -------------------------------------------------------------------------------          
 
@@ -148,9 +174,10 @@ begin  -- architecture beh
         if to_integer(unsigned(cansave)) = 0 then
           need_to_spill := 1;
         -- CWP will be upgraded only after SPILL
-        else
+        elsif to_integer(unsigned(cansave)) /= 0 and call = '1' then
           need_to_spill := 0;
-          cwp           <= call_cnt;
+          --cwp           <= call_cnt;
+          cwp           <= std_logic_vector(unsigned(cwp) + 1);
         end if;
 
 
@@ -159,13 +186,13 @@ begin  -- architecture beh
           nextState <= spillState;
 
         elsif need_to_spill = 0 and call = '1' then
-          call_cntNext   <= std_logic_vector(unsigned(call_cnt) + 1);
+--          call_cntNext   <= std_logic_vector(unsigned(call_cnt) + 1);
           cansaveNext    <= std_logic_vector(unsigned(cansave) - 1);
           canrestoreNext <= std_logic_vector(unsigned(canrestore) + 1);
           nextState      <= callState;
 
         elsif call = '0' and ret = '1' then
-          call_cntNext   <= std_logic_vector(unsigned(call_cnt) - 1);
+--          call_cntNext   <= std_logic_vector(unsigned(call_cnt) - 1);
           cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
           canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
           nextState      <= retState;
@@ -226,47 +253,21 @@ begin  -- architecture beh
         fill    <= '0';
         dataACK <= '0';
 
-        -- if unsigned(call_cnt) /= 0 then
-        --   call_cntNext <= std_logic_vector(unsigned(call_cnt) - 1);
-        -- end if;
-
-        -- if unsigned(cansave) /= (F-1) then
-        --   cansaveNext <= std_logic_vector(unsigned(cansave) + 1);
-        -- end if;
-
-
-        if to_integer(unsigned(canrestore)) = 1 then
-          if (to_integer(unsigned(swp)) /= 0) then  -- devo fillare
-            need_to_fill := 1;
-
-          else                          -- SWP = 0
-            need_to_fill := 0;
-            cwp          <= std_logic_vector(unsigned(cwp) - 1);
-
-          end if;
-        else                            -- Canrestore != 1
+        if to_integer(unsigned(canrestore)) = 0 then
+          need_to_fill := 1;
+        elsif to_integer(unsigned(cansave)) /= 0 and ret = '1' then
           need_to_fill := 0;
-          
-          if to_integer(unsigned(canrestore)) /= 0 then
-            cwp <= std_logic_vector(unsigned(cwp) - 1);
-            
-          elsif to_integer(unsigned(canrestore)) = 0 then
-            nextState <= waitState;
-          end if;
-
+          cwp          <= std_logic_vector(unsigned(cwp) - 1);
         end if;
 
 
-
-
-        -- Added lastly
-        --cwp <= std_logic_vector(unsigned(cwp) - 1);
-
+        -- STATE TRANSITIONS
         if need_to_fill = 1 then
           nextState <= fillState;
 
-        elsif need_to_fill = 0 and ret = '1' and unsigned(call_cnt) /= 0 then
+        elsif need_to_fill = 0 and ret = '1' then
           canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
+          cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
           nextState      <= retState;
 
         elsif call = '1' and ret = '0' then
@@ -276,8 +277,6 @@ begin  -- architecture beh
           nextState <= waitState;
 
         end if;
-
-
 
 -------------------------------------------------------------------------------        
 
@@ -322,13 +321,13 @@ begin  -- architecture beh
         currentState <= resetState;
         cansave      <= std_logic_vector(to_unsigned(F-1, cansave'length));
         canrestore   <= (others => '0');
-        call_cnt     <= (others => '0');
+      --call_cnt     <= (others => '0');
       end if;
 
       if enable = '1' and reset = '0' then
         cansave      <= cansaveNext;
         canrestore   <= canrestoreNext;
-        call_cnt     <= call_cntNext;
+        --call_cnt     <= call_cntNext;
         currentState <= nextState;
       end if;
 

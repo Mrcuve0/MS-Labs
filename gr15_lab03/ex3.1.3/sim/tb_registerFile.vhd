@@ -113,7 +113,7 @@ begin
     reset_s     <= '1' after 0.5 ns, '0' after 7.5 ns, '1' after 11.5 ns, '0' after 13.5 ns;
     ret_s       <= '0';
     call_s      <= '0', '1' after 2.5 ns, '0' after 5 ns, '1' after 9 ns, '0' after 9.5 ns,
-              '1' after 15.5 ns + 8 ns, '0' after 27 ns;  --20.5 ns + 8 ns;
+              '1' after 15.5 ns + 8 ns, '0' after 28.5 ns;  --20.5 ns + 8 ns;
 
     wr1_s    <= '1'         after 17 ns, '0' after 19 ns, '1' after 19.5 ns, '0' after 22.5 ns,
                 '1' after 33.5 ns, '0' after 40  ns, '1' after 48.5 ns, '0' after 80 ns,
