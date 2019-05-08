@@ -5,15 +5,42 @@ use ieee.math_real.all;
 
 use work.constants.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the Control Unit of the Windowed Register File.
+--
+-- The main purpose is to handle the CWP and SWP correctly, while asserting the 
+-- FILL and SPILL signals if needed. 
+-- Both these signals, together with the MMUStrobe and DataACK signals, are used to
+-- communicate with the external world, especially with the Memory Management Unit.
+--
+-- The FILL and SPILL signals are also used to inform the environment that
+-- the entire register file is busy while handling the registers and the communication
+-- with the memory. Thus, the environment must know that every READ or WRITE 
+-- operation performed during SPILL and FILL operations is meaningless since the data
+-- is not valid as it can be replaced/overwritten at any moment.
+--
+-- MMUStrobe is used by the MMU to inform the Control Unit that the FILL/SPILL operation
+-- can be considered complete (i.e. all the registers have been moved).
+-- DataACK is used by the Control Unit to inform the MMU that the MMUStrobe signal
+-- has been correctly received.
+
+-- The FILL/SPILL operations are handled by external components (MMU), which will 
+-- assert the correct signals in order to insert/remove the register.
+-- This Control Unit just waits for a MMUStrobe signal to "wave up" from FILL/SPILL
+-- operations.
+--------------------------------------------------------------------------------
+
 
 entity controlUnit_RF is
   generic (
-    N              : integer := numN;
-    M              : integer := numM;
-    F              : integer := numF;
-    windowBlocks   : integer := numWindowBlocks;
-    NData          : integer := numBitData;
-    NAddr_Windowed : integer := integer(ceil(log2(real(numN*numwindowBlocks + numM)))));
+    N              : integer := numN;   -- Number of registers in each window block (8)
+    M              : integer := numM;   -- Number of global registers (8)
+    F              : integer := numF;   -- Number of windows (4)
+    windowBlocks   : integer := numWindowBlocks;  -- IN - LOCAL - OUT
+    NData          : integer := numBitData;   -- Wifth of the registers (32bit)
+    NAddr_Windowed : integer := integer(ceil(log2(real(numN*numwindowBlocks + numM)))));  
+    -- number of addresses of the single window
+    
   port (
     clk    : in std_logic;
     reset  : in std_logic;
@@ -27,10 +54,13 @@ entity controlUnit_RF is
     fill  : out std_logic;
     spill : out std_logic;
 
-    MMUStrobe : in  std_logic;
-    dataACK   : out std_logic);
+    MMUStrobe : in  std_logic;    -- coming from the MMU
+    dataACK   : out std_logic);   -- to the MMU
 end entity controlUnit_RF;
 
+--------------------------------------------------------------------------------
+-- Behavioral Architecture
+--------------------------------------------------------------------------------
 
 architecture beh of controlUnit_RF is
 
@@ -46,22 +76,23 @@ architecture beh of controlUnit_RF is
   -- and a SPILL operation is needed
   signal cansave        : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
   signal cansaveNext    : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
-  -- Stores the number of occupied (full) windows.
+  
+  -- Stores the number of consecutive subroutine RETs that can be performed without a FILL
+  -- If canrestore = 0 we need to FILL to get the previous subroutine data back
   signal canrestore     : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
   signal canrestoreNext : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
 
-  --signal call_cnt, call_cntNext : std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
-
+  -- States of the Control Unit
   type state_t is (waitState, resetState, callState, retState, spillState, fillState);
   signal currentState, nextState : state_t := waitState;
 
 begin  -- architecture beh
 
   combLogic : process (reset, enable, call, ret, MMUStrobe, currentState, cansave, canrestore) is
-    variable need_to_spill : integer := 0;
-    variable need_to_fill  : integer := 0;
-    variable swpVar        : integer := 0;
-    variable actual_round  : integer := 0;
+    variable need_to_spill          : integer := 0;    -- Indicates that we must SPILL at next clock
+    variable need_to_fill           : integer := 0;    -- Indicates that we must FILL at next clock
+    variable spillfill_first_cycle  : integer := 0;
+                                              
   begin
 
     case currentState is
@@ -70,12 +101,13 @@ begin  -- architecture beh
 
         -- OUTS
         cwp <= (others => '0');
-        swp <= std_logic_vector(to_signed(-1, swp'length));
+        swp <= std_logic_vector(to_signed(-1, swp'length));   -- The SWP is initialized to "-1" initially
 
 
         -- REGS
-        --call_cntNext   <= (others => '0');
-        cansaveNext    <= std_logic_vector(to_unsigned(F-1, cansave'length));
+        -- Initially, there's place for F-1 subroutines
+        cansaveNext    <= std_logic_vector(to_unsigned(F-1, cansave'length)); 
+         
         canrestoreNext <= (others => '0');
 
 
@@ -102,23 +134,19 @@ begin  -- architecture beh
         dataACK <= '0';
 
         -- REGS
-        if to_integer(unsigned(cansave)) = 0 then
+        
+        -- BEGIN CALL-related section
+        if to_integer(unsigned(cansave)) = 0 then    -- If there are no places left to accomodate a new SUB
 
           if call = '1' and ret = '0' then
             nextState <= spillState;
-
-            -- elsif call = '0' and ret = '1' and to_integer(unsigned(cwp)) /= 0 then
-            --   cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
-            --   canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
-
-            --   nextState <= retState;
 
           elsif call = '0' and ret = '0' then
             nextState <= waitState;
 
           end if;
 
-        elsif to_integer(unsigned(cansave)) /= 0 then
+        elsif to_integer(unsigned(cansave)) /= 0 then   -- If there are still places left to accomodate a new SUB
 
           if call = '1' and ret = '0' then
             cansaveNext    <= std_logic_vector(unsigned(cansave) - 1);
@@ -126,19 +154,15 @@ begin  -- architecture beh
 
             nextState <= callState;
 
-            -- elsif call = '0' and ret = '1' and to_integer(unsigned(cwp)) /= 0 then
-            --   cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
-            --   canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
-
-            --   nextState <= retState;
-
           elsif call = '0' and ret = '0' then
             nextState <= waitState;
 
           end if;
         end if;
+        -- END CALL-related section
 
-        if to_integer(unsigned(canrestore)) = 0 then
+        -- BEGIN RET-related section
+        if to_integer(unsigned(canrestore)) = 0 then    -- If a RET operation will require a FILL phase
 
           if ret = '1' and call = '0' then
             nextState <= fillState;
@@ -148,7 +172,7 @@ begin  -- architecture beh
 
           end if;
 
-        elsif to_integer(unsigned(canrestore)) /= 0 then
+        elsif to_integer(unsigned(canrestore)) /= 0 then  -- If a RET operation can be performed effortlessly
 
           if ret = '1' and call = '0' then
             cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
@@ -161,6 +185,7 @@ begin  -- architecture beh
 
           end if;
         end if;
+        -- END RET-related section
 
 
 -------------------------------------------------------------------------------          
@@ -171,28 +196,25 @@ begin  -- architecture beh
         fill    <= '0';
         dataACK <= '0';
 
-        if to_integer(unsigned(cansave)) = 0 then
+        if to_integer(unsigned(cansave)) = 0 then         -- If there are no places left to accomodate a new SUB
           need_to_spill := 1;
         -- CWP will be upgraded only after SPILL
-        elsif to_integer(unsigned(cansave)) /= 0 and call = '1' then
+        elsif to_integer(unsigned(cansave)) /= 0 and call = '1' then  -- else we can procede with a CALL effortlessly
           need_to_spill := 0;
-          --cwp           <= call_cnt;
           cwp           <= std_logic_vector(unsigned(cwp) + 1);
         end if;
 
 
         -- STATE TRANSITIONS
-        if need_to_spill = 1 then
+        if need_to_spill = 1 then                           -- we enter the SPILL operation
           nextState <= spillState;
 
-        elsif need_to_spill = 0 and call = '1' then
---          call_cntNext   <= std_logic_vector(unsigned(call_cnt) + 1);
+        elsif need_to_spill = 0 and call = '1' then         -- we procede with the effortless CALL
           cansaveNext    <= std_logic_vector(unsigned(cansave) - 1);
           canrestoreNext <= std_logic_vector(unsigned(canrestore) + 1);
           nextState      <= callState;
 
-        elsif call = '0' and ret = '1' then
---          call_cntNext   <= std_logic_vector(unsigned(call_cnt) - 1);
+        elsif call = '0' and ret = '1' then                 -- A RET signal is received, we enter RET phase
           cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
           canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
           nextState      <= retState;
@@ -207,12 +229,8 @@ begin  -- architecture beh
       when spillState =>
 
         need_to_spill := 0;
-        spill         <= '1';
+        spill         <= '1';   -- the SPILL signal is raised to inform the environment that the RF is busy
         fill          <= '0';
-
-        swpVar := to_integer(unsigned(swp));
-        swpVar := swpVar mod (F);       -- 0 1 2
-
 
         if MMUStrobe = '0' then  -- Response from the MMU not received...
           dataACK   <= '0';
@@ -220,29 +238,13 @@ begin  -- architecture beh
 
         else                            -- Response from the MMU received...
 
-
-
           dataACK <= '1' after 0.2 ns;  -- OK, MMUStrobe received!
           cwp     <= std_logic_vector(unsigned(cwp) + 1);
+          swp <= std_logic_vector(unsigned(swp) + 1);
 
-          if swp = std_logic_vector(to_signed(-1, swp'length)) then
-            swpVar := to_integer(signed(swp) + 1);
-          else
-            swpVar := to_integer(unsigned(swp) + 1);
-          end if;
-
-          swpVar := swpVar mod F;
-          if swpVar = 0 then
-            actual_round := actual_round + 1;
-          end if;
-
-          swp <= std_logic_vector(to_unsigned(swpVar + ((actual_round - 1) * F), swp'length));
-
-          --call_cntNext <= std_logic_vector(unsigned(call_cnt) - 1);
-          --cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
-          --canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
-
+          spillfill_first_cycle := 0;
           nextState <= waitState;
+
         end if;
 
 -------------------------------------------------------------------------------        
@@ -253,24 +255,24 @@ begin  -- architecture beh
         fill    <= '0';
         dataACK <= '0';
 
-        if to_integer(unsigned(canrestore)) = 0 then
+        if to_integer(unsigned(canrestore)) = 0 then    -- A FILL must be performed if we want to perform a new RET
           need_to_fill := 1;
-        elsif to_integer(unsigned(cansave)) /= 0 and ret = '1' then
+        elsif to_integer(unsigned(cansave)) /= 0 and ret = '1' then -- no FILL to perform if a new RET is received
           need_to_fill := 0;
           cwp          <= std_logic_vector(unsigned(cwp) - 1);
         end if;
 
 
         -- STATE TRANSITIONS
-        if need_to_fill = 1 then
+        if need_to_fill = 1 then    -- Must enter the FILL phase
           nextState <= fillState;
 
-        elsif need_to_fill = 0 and ret = '1' then
+        elsif need_to_fill = 0 and ret = '1' then   -- Can perform the RET without FILL
           canrestoreNext <= std_logic_vector(unsigned(canrestore) - 1);
           cansaveNext    <= std_logic_vector(unsigned(cansave) + 1);
           nextState      <= retState;
 
-        elsif call = '1' and ret = '0' then
+        elsif call = '1' and ret = '0' then   -- A CALL signal is received
           nextState <= callState;
 
         else
@@ -284,12 +286,8 @@ begin  -- architecture beh
 
         need_to_fill := 0;
         spill        <= '0';
-        fill         <= '1';
+        fill         <= '1';  -- The FILL signal is raised to inform the environment that the the RF is busy
         dataACK      <= '0';
-
-        swpVar := to_integer(unsigned(swp));
-        swpVar := swpVar mod (F);       -- 0 1 2 3
-
 
         if MMUStrobe = '0' then         -- Response form MMU not received...
           dataACK   <= '0';
@@ -297,13 +295,11 @@ begin  -- architecture beh
 
         else                            -- Response from the MMU received...
 
-          if swpVar = 0 then
-            actual_round := actual_round - 1;
-          end if;
-
           dataACK   <= '1' after 0.2 ns;
           cwp       <= std_logic_vector(unsigned(cwp) - 1);
           swp       <= std_logic_vector(unsigned(swp) - 1);
+
+          spillfill_first_cycle := 0;
           nextState <= waitState;
 
         end if;
@@ -316,18 +312,16 @@ begin  -- architecture beh
 
   stateReg : process(clk)
   begin
-    if rising_edge(clk) then
+    if rising_edge(clk) then    -- Synchronous reset
       if reset = '1' then
         currentState <= resetState;
         cansave      <= std_logic_vector(to_unsigned(F-1, cansave'length));
         canrestore   <= (others => '0');
-      --call_cnt     <= (others => '0');
       end if;
 
       if enable = '1' and reset = '0' then
         cansave      <= cansaveNext;
         canrestore   <= canrestoreNext;
-        --call_cnt     <= call_cntNext;
         currentState <= nextState;
       end if;
 

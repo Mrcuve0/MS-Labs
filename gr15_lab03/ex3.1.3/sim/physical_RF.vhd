@@ -6,7 +6,9 @@ use ieee.math_real.all;
 use work.constants.all;
 
 -------------------------------------------------------------------------------
--- Definition of the generic behavioral Register File
+-- Definition of the generic behavioral Physical Register File
+-- Synchronous reset, enable/read/write signals active high
+-- If enable = 0 outputs are High Impedance
 -------------------------------------------------------------------------------
 
 entity physical_RF is
@@ -42,25 +44,24 @@ architecture beh of physical_RF is
 
   signal REGISTERS : REG_ARRAY;         -- Definition of the Array of registers
 
-
 begin
 
   RFproc : process (clk) is
   begin
-    if rising_edge(clk) then
+    if rising_edge(clk) then    -- Sinchronous reset  
 
       if reset = '1' then
         registers <= (others => (others => '0'));
       end if;
 
       if enable = '1' then
-        if rd1 = '1' then
+        if rd1 = '1' then       -- Read (port1) signal is asserted, read data @ add_rd1 address
           out1 <= registers(to_integer(unsigned(add_rd1)));
         end if;
-        if rd2 = '1' then
+        if rd2 = '1' then       -- Read (port2) signal is asserted, read data @ add_rd2 address
           out2 <= registers(to_integer(unsigned(add_rd2)));
         end if;
-        if wr = '1' then                -- Write port #1
+        if wr = '1' then        -- Write (port1) signal is asserted, write data @ add_wr address
           registers(to_integer(unsigned(add_wr))) <= datain;
           if rd1 = '1' and add_rd1 = add_wr then             -- Simultaneous write/read
             out1 <= dataIn;

@@ -5,6 +5,12 @@ use ieee.math_real.all;
 
 use work.constants.all;
 
+--------------------------------------------------------------------------------
+-- Definition of the Top-Level Entity Windowed Register File
+--
+-- Instantiated components: Control Unit, Translation Unit, Physical RF
+--------------------------------------------------------------------------------
+
 entity registerFile_TLE is
   generic (
     N            : integer := numN;     -- Number of registers in each window
@@ -13,6 +19,7 @@ entity registerFile_TLE is
     NData        : integer := numBitData;       -- Register width
 
     -- Interface with the external world
+    -- Number of addresses contained in a single window
     NAddr_Windowed : integer := integer(ceil(log2(real(numN*numwindowBlocks + numM)))));
   port (
     clk    : in std_logic;
@@ -44,11 +51,14 @@ entity registerFile_TLE is
     spill     : out std_logic;          -- RF is full, need to spill in memory 
     call      : in  std_logic;          -- SUBroutine call
     ret       : in  std_logic;          -- SUBroutine ret
-    dataACK   : out std_logic;          -- Informs the MMU that the spill/fill
-    -- operation is completed
-    MMUStrobe : in  std_logic);         -- Informs the RF that the fill/spill
--- operation can be considered
--- completed from the memory side
+    
+    -- Informs the MMU that the MMUStrobe signal has been received
+    dataACK   : out std_logic;          
+
+    -- Informs the RF that the fill/spill operation can be considered completed from the memory side
+    MMUStrobe : in  std_logic);         
+
+
 end entity registerFile_TLE;
 
 
@@ -59,7 +69,7 @@ architecture struct of registerFile_TLE is
 
   constant NAddr_Physical : integer := integer(ceil(log2(real(numRegs_physical_RF))));
 
-  component controlUnit_RF is
+  component controlUnit_RF is       -- Control Unit
     generic (
       N              : integer;
       M              : integer;
@@ -81,7 +91,7 @@ architecture struct of registerFile_TLE is
       dataACK   : out std_logic);
   end component controlUnit_RF;
 
-  component translationUnit_RF is
+  component translationUnit_RF is     -- Translation Unit
     generic (
       N              : integer;
       M              : integer;
@@ -93,19 +103,16 @@ architecture struct of registerFile_TLE is
       clk         : in  std_logic;
       reset       : in  std_logic;
       enable      : in  std_logic;
-      rd1         : in  std_logic;
-      rd2         : in  std_logic;
-      wr          : in  std_logic;
-      add_wr      : in  std_logic_vector(NAddr_Windowed-1 downto 0);
-      add_rd1     : in  std_logic_vector(NAddr_Windowed-1 downto 0);
-      add_rd2     : in  std_logic_vector(NAddr_Windowed-1 downto 0);
+      add_wr      : in  std_logic_vector(NAddr_Windowed-1 downto 0);    -- Input address (to be translated)
+      add_rd1     : in  std_logic_vector(NAddr_Windowed-1 downto 0);    -- Input address (to be trnaslated)
+      add_rd2     : in  std_logic_vector(NAddr_Windowed-1 downto 0);    -- Input address (to be translated)
       cwp         : in  std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
-      add_wr_out  : out std_logic_vector(NAddr_Physical-1 downto 0);
-      add_rd1_out : out std_logic_vector(NAddr_Physical-1 downto 0);
-      add_rd2_out : out std_logic_vector(NAddr_Physical-1 downto 0));
+      add_wr_out  : out std_logic_vector(NAddr_Physical-1 downto 0);    -- Output address (translated)
+      add_rd1_out : out std_logic_vector(NAddr_Physical-1 downto 0);    -- Output address (translated)
+      add_rd2_out : out std_logic_vector(NAddr_Physical-1 downto 0));   -- Output address (translated)
   end component translationUnit_RF;
 
-  component physical_RF is
+  component physical_RF is            -- Physical Register File
     generic (
       NData : integer;
       NRegs : integer;
@@ -117,22 +124,21 @@ architecture struct of registerFile_TLE is
       RD1     : in  std_logic;
       RD2     : in  std_logic;
       WR      : in  std_logic;
-      ADD_WR  : in  std_logic_vector(NAddr_Physical-1 downto 0);
-      ADD_RD1 : in  std_logic_vector(NAddr_Physical-1 downto 0);
-      ADD_RD2 : in  std_logic_vector(NAddr_Physical-1 downto 0);
-      DATAIN  : in  std_logic_vector(NData-1 downto 0);
-      OUT1    : out std_logic_vector(NData-1 downto 0);
-      OUT2    : out std_logic_vector(NData-1 downto 0));
+      ADD_WR  : in  std_logic_vector(NAddr_Physical-1 downto 0);    -- Input address (transalted)
+      ADD_RD1 : in  std_logic_vector(NAddr_Physical-1 downto 0);    -- Input address (translated)
+      ADD_RD2 : in  std_logic_vector(NAddr_Physical-1 downto 0);    -- Input address (translated)
+      DATAIN  : in  std_logic_vector(NData-1 downto 0);             -- Data for write port
+      OUT1    : out std_logic_vector(NData-1 downto 0);             -- Data from read port 1
+      OUT2    : out std_logic_vector(NData-1 downto 0));            -- Data from read port 2
   end component physical_RF;
 
 -------------------------------------------------------------------------------
 -- Signals
 -------------------------------------------------------------------------------
+
   signal cwp_s, swp_s                               : std_logic_vector(integer(ceil(log2(real(windowRounds * numF))))-1 downto 0);
   signal add_wr_out_s, add_rd1_out_s, add_rd2_out_s : std_logic_vector(NAddr_Physical-1 downto 0);
   signal add_wr_s, add_rd1_s, add_rd2_s             : std_logic_vector(NAddr_Windowed-1 downto 0);
-  signal wr_s                                       : std_logic;
-
 
 begin  -- architecture struct
 
@@ -156,7 +162,6 @@ begin  -- architecture struct
       MMUStrobe => MMUStrobe,
       dataACK   => dataACK);
 
-
   translU : translationUnit_RF generic map (
     N              => N,
     M              => M,
@@ -167,9 +172,6 @@ begin  -- architecture struct
       clk         => clk,
       reset       => reset,
       enable      => enable,
-      rd1         => rd1,
-      rd2         => rd2,
-      wr          => wr1,
       add_wr      => add_wr,            -- INPUT, SIZE: NAddr_Windowed
       add_rd1     => add_rd1,           -- INPUT, SIZE: NAddr_Windowed
       add_rd2     => add_rd2,           -- INPUT, SIZE: NAddr_Windowed

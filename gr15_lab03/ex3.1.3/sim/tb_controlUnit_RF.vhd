@@ -8,6 +8,9 @@ use work.constants.all;
 entity tb_controlUnit_RF is
 end entity tb_controlUnit_RF;
 
+--------------------------------------------------------------------------------
+-- Control Unit Testbench
+--------------------------------------------------------------------------------
 
 architecture arch of tb_controlUnit_RF is
 
