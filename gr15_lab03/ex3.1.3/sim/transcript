@@ -18,7 +18,71 @@ vsim -t 10ps -novopt work.tb_registerfile(arch)
 # Loading work.constants
 # Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/work.tb_registerfile(arch)
 # Loading work.tb_registerfile(arch)
+# ** Error: (vsim-13) Recompile work.registerfile_tle because work.constants has changed.
+# ** Error: (vsim-13) Recompile work.registerfile_tle(struct) because work.constants has changed.
+# Load interrupted
+# Error loading design
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/constants.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Compiling package constants
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/controlUnit_RF.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package math_real
+# -- Loading package constants
+# -- Compiling entity controlunit_rf
+# -- Compiling architecture beh of controlunit_rf
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/physical_RF.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package math_real
+# -- Loading package constants
+# -- Compiling entity physical_rf
+# -- Compiling architecture beh of physical_rf
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/translationUnit_RF.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package math_real
+# -- Loading package constants
+# -- Compiling entity translationunit_rf
+# -- Compiling architecture beh of translationunit_rf
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/registerFile_TLE.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package math_real
+# -- Loading package constants
+# -- Compiling entity registerfile_tle
+# -- Compiling architecture struct of registerfile_tle
+vcom -reportprogress 300 -work work /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/tb_registerFile.vhd
+# Model Technology ModelSim SE-64 vcom 6.5c Compiler 2009.08 Aug 27 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package math_real
+# -- Loading package textio
+# -- Loading package constants
+# -- Compiling entity tb_registerfile
+# -- Compiling architecture arch of tb_registerfile
+vsim -t 10ps -novopt work.tb_registerfile(arch)
+# vsim -t 10ps -novopt work.tb_registerfile(arch) 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.math_real(body)
+# Loading std.textio(body)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/work.constants
+# Loading work.constants
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/work.tb_registerfile(arch)
+# Loading work.tb_registerfile(arch)
 # Loading ieee.numeric_std(body)
+# Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/work.registerfile_tle(struct)
 # Loading work.registerfile_tle(struct)
 # Refreshing /home/ms19.15/MS/gr15_lab03/ex3.1.3/sim/work.controlunit_rf(beh)
 # Loading work.controlunit_rf(beh)
@@ -29,7 +93,13 @@ vsim -t 10ps -novopt work.tb_registerfile(arch)
 add waves *
 run 500 ns
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
+#    Time: 0 ps  Iteration: 0  Instance: /tb_registerfile/dut/contru
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /tb_registerfile/dut/contru
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/contru
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/contru
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -53,17 +123,23 @@ run 500 ns
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 #    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+#    Time: 0 ps  Iteration: 1  Instance: /tb_registerfile/dut/translu
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+#    Time: 500 ps  Iteration: 0  Instance: /tb_registerfile/dut/contru
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+#    Time: 500 ps  Iteration: 0  Instance: /tb_registerfile/dut/contru
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+#    Time: 2 ns  Iteration: 4  Instance: /tb_registerfile/dut/translu
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+#    Time: 2 ns  Iteration: 4  Instance: /tb_registerfile/dut/translu
 # ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
-#    Time: 0 ps  Iteration: 2  Instance: /tb_registerfile/dut/translu
+#    Time: 2 ns  Iteration: 4  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2 ns  Iteration: 4  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2 ns  Iteration: 4  Instance: /tb_registerfile/dut/translu
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 2 ns  Iteration: 4  Instance: /tb_registerfile/dut/translu
 # 62 ns
 # 100 ns
 # 138 ns
@@ -76,5 +152,3 @@ run 500 ns
 # 404 ns
 # 442 ns
 # 480 ns
-kpdf meaningful_waves.ps &
-# invalid command name "kpdf"

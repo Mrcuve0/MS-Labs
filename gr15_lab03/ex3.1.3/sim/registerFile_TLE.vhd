@@ -73,7 +73,6 @@ architecture struct of registerFile_TLE is
       enable    : in  std_logic;
       cwpOut    : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
       swpOut    : out std_logic_vector(integer(ceil(log2(real(windowRounds*numF))))-1 downto 0);
-      -- resetPhysicalRF : out std_logic;
       call      : in  std_logic;
       ret       : in  std_logic;
       fill      : out std_logic;
@@ -150,7 +149,6 @@ begin  -- architecture struct
       enable    => enable,
       cwpOut    => cwp_s,               -- To the Translation Unit
       swpOut    => swp_s,
-      --resetPhysicalRF => reset,       -- To the Physical Register File
       call      => call,
       ret       => ret,
       fill      => fill,
@@ -186,7 +184,7 @@ begin  -- architecture struct
     NAddr => NAddr_Physical)
     port map (
       clk     => clk,
-      reset   => reset,                 -- Coming from the Control Unit
+      reset   => reset,                 
       enable  => enable,
       rd1     => rd1,
       rd2     => rd2,
