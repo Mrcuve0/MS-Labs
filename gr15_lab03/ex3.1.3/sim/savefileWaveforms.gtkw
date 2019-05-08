@@ -1,12 +1,12 @@
 [*]
 [*] GTKWave Analyzer v3.3.94 (w)1999-2018 BSI
-[*] Tue May  7 08:44:29 2019
+[*] Wed May  8 08:08:57 2019
 [*]
 [dumpfile] "/home/sem/OneDrive/Politecnico di Torino/01 - Magistrale/Anno 1 -- 2018-2019/Secondo Semestre/Microelectronic System/2018-2019/Labs/gr15_lab03/ex3.1.3/sim/RFwaveforms.ghw"
 [dumpfile_mtime] "Tue May  7 08:11:22 2019"
 [dumpfile_size] 19404
 [savefile] "/home/sem/OneDrive/Politecnico di Torino/01 - Magistrale/Anno 1 -- 2018-2019/Secondo Semestre/Microelectronic System/2018-2019/Labs/gr15_lab03/ex3.1.3/sim/savefileWaveforms.gtkw"
-[timestart] 0
+[timestart] 127000000
 [size] 1920 1027
 [pos] -1 -1
 *-24.299334 62000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
