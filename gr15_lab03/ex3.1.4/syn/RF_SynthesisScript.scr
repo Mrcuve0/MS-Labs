@@ -1,0 +1,39 @@
+# Analyzing and checking vhdl files
+analyze -library WORK -format vhdl {constants.vhd}
+analyze -library WORK -format vhdl {translationUnit_RF.vhd}
+analyze -library WORK -format vhdl {controlUnit_RF.vhd}
+analyze -library WORK -format vhdl {physical_RF.vhd}
+analyze -library WORK -format vhdl {registerFile_TLE.vhd}
+
+# elaborating the top entity
+elaborate registerFile_TLE -architecture struct
+
+# first compilation, without constraints #
+compile 
+# reporting riming and power after the first synthesis without constraints #
+report_timing > RF_timeopt_1t.rpt
+
+# Constraint the synthesis (sequential part), 2ns period
+create_clock -name "clk" -period 2 clk
+report_clock
+
+# optimize
+compile
+
+# reporting riming and power after the second synthesis with constraints #
+report_timing > RF_timeopt_2t.rpt
+
+# Constraint the synthesis (combinational part), 2ns max delay
+set_max_delay 2 -from [all_inputs] -to [all_outputs]
+
+# optimize
+compile
+
+# reporting riming after the third synthesis with constraints #
+report_timing > RF_timeopt_3t.rpt
+
+
+# saving files
+write -hierarchy -format ddc -output RF-behavioral-topt.ddc
+write -hierarchy -format vhdl -output RF-behavioral-topt.vhdl
+write -hierarchy -format verilog -output RF-behavioral-topt.v
