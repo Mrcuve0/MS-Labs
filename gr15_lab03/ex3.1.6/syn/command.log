@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version F-2011.09-SP3 for amd64 -- Jan 26, 2012
-#@ # Date:   Sat May  4 15:17:33 2019
+#@ # Date:   Thu May  9 12:31:47 2019
 #@ # Run by: ms19.15@localhost.localdomain
 #@ 
 
@@ -4771,53 +4771,718 @@ source /home/ms19.15/MS/gr15_lab03/ex3.1.6/syn/.synopsys_dc.setup
 #@ 
 #@ # -- End source /home/ms19.15/MS/gr15_lab03/ex3.1.6/syn/.synopsys_dc.setup
 
-source sipisoalu_pw.scr
+source sipisoalu_synthesisScript.scr
 #@ # Include all the analyze, elaborate and compile steps here
-#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd sipisoalu.vhd}
-#@ elaborate SIPISOALU -architecture A -library WORK -parameters "N = 32"
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_notimeopt_pw.rpt
+#@ report_timing > sipiso_notimeopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
 #@ 
-#@ # Compile
-#@ compile -exact_map
-#@ 
-#@ # Unconstrained Timing Analysis
-#@ report_timing > REPORT_TIMING_32bit_noOPT.txt
-#@ 
-#@ # Unconstrained Power Analysis
-#@ report_power > REPORT_POWER_32bit_noOPT.txt
-#@ report_power -cell > REPORT_POWER_32bit_CELL_noOPT.txt
-#@ report_power -net > REPORT_POWER_32bit_NET_noOPT.txt
-#@ 
-#@ # Setting Up CLK constraints
-#@ set Period 0.38
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.33 
+#@ #Forces a clock of period Period connected to the input port CLK #
 #@ create_clock -name "CLK" -period $Period {"CLK"}
-#@ 
-#@ # Constrained Power Analysis
-#@ report_power > REPORT_POWER_32bit_OPT.txt
-#@ 
-#@ # forces a combinational max delay of Period ns from each of the inputs
-#@ # to each of th output in case combinational paths are present 
-#@ 
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
 #@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
-#@ 
-#@ # Compile again
 #@ compile -map_effort high
-#@ 
 #@ report_power > sipiso_timeopt_1pw.rpt
 #@ report_timing > sipiso_timeopt_1t.rpt
-#@ 
+#@ #
 #@ # forcing the maximum power 
 #@ # suppose you had as initial power 130uW, no force to 100uW
-#@ # change numbers accordigly to yours (2.033 uW --> 1.5 uW)
-#@ set_max_dynamic_power 1.5 uW
-#@ 
-#@ # Compile again
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 100 uW
 #@ compile -map_effort high 
-#@ 
 #@ report_power > rca_pwopt_2pw.rpt
 #@ report_timing > rca_pwopt_2t.rpt
 #@ report_power -cell > rca_constraint_power_cell.rpt
 #@ report_power -net > rca_constraint_power_net.rpt
 #@ 
 #@ 
-#@ # -- End source sipisoalu_pw.scr
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+ls
+pwd
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_notimeopt_pw.rpt
+#@ report_timing > sipiso_notimeopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.33 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ #
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 3 uW
+#@ compile -map_effort high 
+#@ report_power > rca_pwopt_2pw.rpt
+#@ report_timing > rca_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_notimeopt_pw.rpt
+#@ report_timing > sipiso_notimeopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.33 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ #
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 3.25 uW
+#@ compile -map_effort high 
+#@ report_power > rca_pwopt_2pw.rpt
+#@ report_timing > rca_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_nopwopt_pw.rpt
+#@ report_timing > sipiso_notimeopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.33 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ #
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 3.25 uW
+#@ compile -map_effort high 
+#@ report_power > rca_pwopt_2pw.rpt
+#@ report_timing > rca_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_nopwopt_pw.rpt
+#@ report_timing > sipiso_notimeopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.33 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ #
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 22 uW
+#@ compile -map_effort high 
+#@ report_power > rca_pwopt_2pw.rpt
+#@ report_timing > rca_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.33 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ #
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 22 uW
+#@ compile -map_effort high 
+#@ report_power > rca_pwopt_2pw.rpt
+#@ report_timing > rca_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.35 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ #
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 22 uW
+#@ compile -map_effort high 
+#@ report_power > rca_pwopt_2pw.rpt
+#@ report_timing > rca_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.35 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 430 uW
+#@ compile -map_effort high 
+#@ report_power > rca_pwopt_2pw.rpt
+#@ report_timing > rca_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.35 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 430 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.38 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 430 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.38 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 400 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.38 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 403 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.38 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 399 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.38 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 400 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.40 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 400 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.40 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 380 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.38 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ #set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 380 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.40 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ #set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 380 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.41 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ #set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 380 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
+
+source sipisoalu_synthesisScript.scr
+#@ # Include all the analyze, elaborate and compile steps here
+#@ analyze -library WORK -format vhdl {sipisoalu.vhd}
+#@ analyze -library WORK -format vhdl {sipisoAluControl.vhd}
+#@ elaborate SIPISOALU -architecture A
+#@ compile
+#@ report_power > sipiso_noopt_pw.rpt
+#@ report_timing > sipiso_noopt_t.rpt
+#@ report_power -cell > rca_noconstraint_power_cell.rpt
+#@ report_power -net > rca_noconstraint_power_net.rpt
+#@ 
+#@ # Define a new variable Period force the value you want
+#@ set Period 0.41 
+#@ #Forces a clock of period Period connected to the input port CLK #
+#@ create_clock -name "CLK" -period $Period {"CLK"}
+#@ #forces a combinational max delay of Period ns from each of the inputs
+#@ #to each of th output in case combinational paths are present 
+#@ #set_max_delay $Period -from [all_inputs] -to [all_outputs]
+#@ compile -map_effort high
+#@ report_power > sipiso_timeopt_1pw.rpt
+#@ report_timing > sipiso_timeopt_1t.rpt
+#@ 
+#@ 
+#@ # forcing the maximum power 
+#@ # suppose you had as initial power 130uW, no force to 100uW
+#@ # change numbers accordigly to yours
+#@ set_max_dynamic_power 360 uW
+#@ compile -map_effort high 
+#@ report_power > sipiso_pwopt_2pw.rpt
+#@ report_timing > sipiso_pwopt_2t.rpt
+#@ report_power -cell > rca_constraint_power_cell.rpt
+#@ report_power -net > rca_constraint_power_net.rpt
+#@ 
+#@ 
+#@ # -- End source sipisoalu_synthesisScript.scr
 
