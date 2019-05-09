@@ -1,0 +1,86 @@
+ 
+****************************************
+Report : power
+        -cell
+        -analysis_effort low
+        -sort_mode cell_internal_power
+Design : SIPISOALU
+Version: F-2011.09-SP3
+Date   : Thu May  9 14:40:54 2019
+****************************************
+
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /home/mariagrazia.graziano/do/libnangate/NangateOpenCellLibrary_typical_ecsm.db)
+
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+Design        Wire Load Model            Library
+------------------------------------------------
+SIPISOALU              5K_hvratio_1_1    NangateOpenCellLibrary
+
+
+Global Operating Voltage = 1.1  
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1nW
+
+
+
+  Attributes
+  ----------
+      h  -  Hierarchical cell
+
+                        Cell      Driven Net  Tot Dynamic      Cell
+                        Internal  Switching   Power            Leakage
+Cell                    Power     Power       (% Cell/Tot)     Power      Attrs
+--------------------------------------------------------------------------------
+control                    8.2980       N/A        N/A (N/A)   1633.6771  h
+PIPO_reg[1]                0.4030 8.546e-03      0.412 (98%)     79.8665   
+PIPO_reg[2]                0.4028 7.557e-03      0.410 (98%)     79.9171   
+PIPO_reg[3]                0.4015 3.437e-03      0.405 (99%)     79.8412   
+PIPO_reg[0]                0.3996 7.455e-03      0.407 (98%)     79.8322   
+SIPO_reg[0]                0.3948 6.623e-03      0.401 (98%)     79.7352   
+SIPO_reg[1]                0.3659 1.904e-03      0.368 (99%)     79.4699   
+PISO_reg[2]                0.3646 1.156e-03      0.366 (100%)    79.5060   
+PISO_reg[1]                0.3646 1.144e-03      0.366 (100%)    79.5060   
+PISO_reg[3]                0.3646 1.178e-03      0.366 (100%)    79.5060   
+PISO_reg[0]                0.3646 6.088e-04      0.365 (100%)    79.5060   
+SIPO_reg[2]                0.3621 1.558e-04      0.362 (100%)    79.4164   
+U57                        0.1611    0.1187      0.280 (58%)     37.9386   
+U62                        0.0992    1.4737      1.573 (6%)      14.3532   
+U66                        0.0339 9.293e-03   4.31e-02 (78%)     32.6975   
+U65                        0.0338 9.266e-03   4.31e-02 (78%)     32.6877   
+U67                        0.0330 9.054e-03   4.20e-02 (78%)     32.6908   
+U68                        0.0309 8.470e-03   3.94e-02 (78%)     32.6877   
+U61                        0.0302 8.045e-03   3.83e-02 (79%)     32.6776   
+U43                        0.0122 4.723e-03   1.69e-02 (72%)     26.5053   
+U47                     9.991e-03 4.259e-03   1.42e-02 (70%)     23.4781   
+U46                     9.730e-03 2.813e-03   1.25e-02 (78%)     22.9699   
+U42                     7.429e-03 3.413e-03   1.08e-02 (69%)     23.7578   
+U49                     6.689e-03 2.417e-03   9.11e-03 (73%)     42.9168   
+U63                     3.550e-03 1.009e-03   4.56e-03 (78%)     27.5875   
+U52                     3.030e-03 1.459e-03   4.49e-03 (68%)     28.4725   
+U50                     2.305e-03 2.512e-03   4.82e-03 (48%)     36.6302   
+U51                     2.178e-03 1.408e-03   3.59e-03 (61%)     58.8063   
+U56                     1.694e-03 4.248e-04   2.12e-03 (80%)     70.7229   
+U41                     1.584e-03 4.248e-04   2.01e-03 (79%)     77.0903   
+U45                     1.580e-03 4.248e-04   2.00e-03 (79%)     77.0930   
+U53                     1.357e-03 2.002e-03   3.36e-03 (40%)     13.7495   
+U44                     1.354e-03 1.502e-03   2.86e-03 (47%)     14.1825   
+U55                     1.303e-03 6.680e-04   1.97e-03 (66%)      6.8511   
+U48                     6.662e-04 4.248e-04   1.09e-03 (61%)     48.1437   
+U64                     5.503e-04 1.593e-04   7.10e-04 (78%)     27.5458   
+U54                     5.352e-04 6.434e-04   1.18e-03 (45%)     18.5945   
+U58                        0.0000    0.0000      0.000 (N/A)     24.7995   
+U59                        0.0000    0.0000      0.000 (N/A)     10.1022   
+U60                        0.0000    0.0000      0.000 (N/A)     28.5787   
+--------------------------------------------------------------------------------
+Totals (40 cells)         12.976uW     N/A         N/A (N/A)      3.434uW
+1

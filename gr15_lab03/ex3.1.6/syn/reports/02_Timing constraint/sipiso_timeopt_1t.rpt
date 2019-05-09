@@ -1,0 +1,53 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : SIPISOALU
+Version: F-2011.09-SP3
+Date   : Thu May  9 14:41:05 2019
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: PIPO_reg[1]
+              (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: PISO_reg[3]
+            (rising edge-triggered flip-flop clocked by CLK)
+  Path Group: CLK
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  SIPISOALU          5K_hvratio_1_1        NangateOpenCellLibrary
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock CLK (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  PIPO_reg[1]/CK (DFFR_X1)                 0.00       0.00 r
+  PIPO_reg[1]/QN (DFFR_X1)                 0.08       0.08 r
+  U96/ZN (AND2_X1)                         0.05       0.13 r
+  U106/ZN (OAI22_X1)                       0.03       0.16 f
+  U103/ZN (OR2_X1)                         0.05       0.21 f
+  U104/ZN (AOI22_X1)                       0.05       0.27 r
+  U94/ZN (XNOR2_X1)                        0.06       0.33 r
+  U120/ZN (OAI22_X1)                       0.03       0.36 f
+  PISO_reg[3]/D (DFFR_X1)                  0.01       0.37 f
+  data arrival time                                   0.37
+
+  clock CLK (rise edge)                    0.41       0.41
+  clock network delay (ideal)              0.00       0.41
+  PISO_reg[3]/CK (DFFR_X1)                 0.00       0.41 r
+  library setup time                      -0.04       0.37
+  data required time                                  0.37
+  -----------------------------------------------------------
+  data required time                                  0.37
+  data arrival time                                  -0.37
+  -----------------------------------------------------------
+  slack (MET)                                         0.00
+
+
+1
