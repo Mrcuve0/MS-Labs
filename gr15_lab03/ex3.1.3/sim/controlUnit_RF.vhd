@@ -156,8 +156,6 @@ begin  -- architecture beh
             need_to_spill := 1;
             need_to_fill  := 0;
 
-            --oldCWP := to_integer(unsigned(cwp));
-
             nextState <= pre_spillFillState;  -- spillState;
 
           elsif call = '0' and ret = '0' then
@@ -186,7 +184,6 @@ begin  -- architecture beh
             need_to_spill := 0;
             need_to_fill  := 1;
 
-            --oldWP := to_integer(unsigned(cwp));
             nextState <= pre_spillFillState;  --fillState;
 
           elsif ret = '0' and call = '0' then
@@ -230,7 +227,6 @@ begin  -- architecture beh
         -- STATE TRANSITIONS
         if need_to_spill = 1 then       -- we enter the SPILL operation
 
-          --oldCWP := to_integer(unsigned(cwp));
           nextState <= pre_spillFillState;  -- spillState;
 
         elsif need_to_spill = 0 and call = '1' then  -- we procede with the effortless CALL
@@ -251,6 +247,12 @@ begin  -- architecture beh
 -------------------------------------------------------------------------------
 
       when pre_spillFillState =>
+      -- This state prepares the system for a FILL or a SPILL operation
+      -- The "fill" or "spill" signals are asserted depending on what the next operation will be
+      -- We are supposing these signals inform the MMU that a FILL/SPILL operation is needed.
+      -- The MMU will reply as soon as possible by asserting the "MMUStrobe" signal: 
+      -- once this signal is read by the RF, the CU will move to the fill or spill state, where it 
+      -- will move the proper registers to MEMory.
 
         spill <= '0';
         fill  <= '0';
@@ -283,6 +285,16 @@ begin  -- architecture beh
 -------------------------------------------------------------------------------        
 
       when spillState =>
+      -- This state moves data from the registers to the memory:
+      -- the SPILL signal is kept high for the entire duration of the operation
+      -- the CWP is no more used to indicate the current SUBroutine but it's used 
+      -- to point to the correct physical registers to spill in memory.
+      -- The WR_Mem signal is kept high for the entire duration of the operation, 
+      -- to indicate to the Physical register file to place the registers on the 
+      -- communication bus between RF and MEMory.
+      -- At each clock cycle one register is moved, the address points then to 
+      -- the next register to be moved and so on, until we have moved 16 registers
+      -- (IN and LOCAL).
 
         need_to_spill := 0;
         spill         <= '1';  -- the SPILL signal is raised to inform the environment that the RF is busy
@@ -291,16 +303,16 @@ begin  -- architecture beh
         WR_Mem <= '1';                  -- Write to MEMory
 
         cwp <= std_logic_vector(unsigned(swp) + 1);
-        add_SF <= regCnt;
+        add_SF <= regCnt;     -- Address of the current register to be moved
 
         if regCnt = std_logic_vector(to_unsigned(16, regCnt'length)) and call = '0' and ret = '0' then
-          cwp       <= std_logic_vector(to_unsigned(oldCWP, cwp'length) + 1);
+          cwp       <= std_logic_vector(to_unsigned(oldCWP, cwp'length) + 1);   -- Revert the original value of the CWP
           swp       <= std_logic_vector(unsigned(swp) + 1);
           spill <= '0';
           nextState <= waitState;
 
         else
-          regCntNext <= std_logic_vector(unsigned(regCnt) + 1);
+          regCntNext <= std_logic_vector(unsigned(regCnt) + 1); -- At the next clock cycle, point to the next register
           nextState  <= spillState;
 
         end if;
@@ -343,6 +355,17 @@ begin  -- architecture beh
 
       when fillState =>
 
+      -- This state moves data from the memory to the registers:
+      -- the FILL signal is kept high for the entire duration of the operation
+      -- the CWP is no more used to indicate the current SUBroutine but it's used 
+      -- to point to the correct physical registers to be FILLed.
+      -- The RD_Mem signal is kept high for the entire duration of the operation, 
+      -- to indicate to the Physical register file to place the incoming values 
+      -- in its registers on the, using the bus between RF and MEMory.
+      -- At each clock cycle one register is moved, the address points then to 
+      -- the next register to be moved and so on, until we have moved 16 registers
+      -- (IN and LOCAL).
+
         need_to_fill := 0;
         spill        <= '0';
         fill         <= '1';  -- The FILL signal is raised to inform the environment that the the RF is busy
@@ -350,16 +373,16 @@ begin  -- architecture beh
         RD_Mem <= '1';                  -- Read form MEMory
 
         cwp     <= std_logic_vector(unsigned(swp) + 1);
-        add_SF <= regCnt;
+        add_SF <= regCnt;     -- Address of the current register to be moved
 
         if regCnt = std_logic_vector(to_unsigned(16, regCnt'length)) and call = '0' and ret = '0' then
-          cwp       <= std_logic_vector(to_unsigned(oldCWP, cwp'length) - 1);
+          cwp       <= std_logic_vector(to_unsigned(oldCWP, cwp'length) - 1);  -- Revert the original value of the CWP
           swp       <= std_logic_vector(unsigned(swp) - 1);
           fill <= '0';
           nextState <= waitState;
 
         else
-          regCntNext <= std_logic_vector(unsigned(regCnt) + 1);
+          regCntNext <= std_logic_vector(unsigned(regCnt) + 1);   -- Point to the next register
           nextState <= fillState;
 
         end if;
