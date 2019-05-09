@@ -57,7 +57,7 @@ architecture beh of translationUnit_RF is
 
 begin  -- architecture beh
 
-  TranslProc : process (add_rd1, add_rd2, add_wr, add_SF, fill, spill, cwp, enable) is
+  TranslProc : process (add_rd1, add_rd2, add_wr, add_SF, fill, spill, rd1, rd2, wr, cwp, enable) is
   begin  -- process
 
     if enable = '1' then

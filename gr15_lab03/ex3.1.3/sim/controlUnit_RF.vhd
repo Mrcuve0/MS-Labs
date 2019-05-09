@@ -346,24 +346,26 @@ begin  -- architecture beh
         need_to_fill := 0;
         spill        <= '0';
         fill         <= '1';  -- The FILL signal is raised to inform the environment that the the RF is busy
-        dataACK      <= '0';
 
         RD_Mem <= '1';                  -- Read form MEMory
 
-        add_cnt := add_cnt + 1;
-        add_SF  <= std_logic_vector(to_unsigned(add_cnt, add_SF'length));
         cwp     <= std_logic_vector(unsigned(swp) + 1);
+        add_SF <= regCnt;
 
-        if add_cnt = 15 then
-          nextState <= waitState;
+        if regCnt = std_logic_vector(to_unsigned(16, regCnt'length)) and call = '0' and ret = '0' then
           cwp       <= std_logic_vector(to_unsigned(oldCWP, cwp'length) - 1);
           swp       <= std_logic_vector(unsigned(swp) - 1);
+          fill <= '0';
+          nextState <= waitState;
 
         else
+          regCntNext <= std_logic_vector(unsigned(regCnt) + 1);
           nextState <= fillState;
 
         end if;
-
+        
+-------------------------------------------------------------------------------
+        
       when others => nextState <= waitState;
     end case;
 

@@ -109,123 +109,125 @@ begin
               '1' after 15.5 ns + 8 ns, '0' after 28.5 ns;  --20.5 ns + 8 ns;
 
     wr1_s <= '1' after 17 ns, '0' after 19 ns, '1' after 19.5 ns, '0' after 22.5 ns,
-             '1' after 33.5 ns, '0' after 40 ns, '1' after 48.5 ns, '0' after 80 ns,
-             '1' after 102 ns, '0' after 104 ns, '1' after 120 ns, '0' after 150 ns;
-    add_wr_s <= "00000"     after 16 ns, "00010" after 48 ns, "10000" after 66 ns;
-    dataIn_s <= X"DEADBEEF" after 16 ns, X"F00DBABE" after 30 ns, X"DABBAD00" after 48 ns, X"DEADBEEF" after 100 ns;
+             '1' after 67.5 ns, '0' after 73.5 ns, '1' after 241.5 ns, '0' after 244 ns,
+             '1' after 250 ns, '0' after 256 ns;
+    add_wr_s <= "00000"     after 16 ns, "00010" after 48 ns,
+                "10000" after 66 ns, "00000" after 239 ns,
+                "10010" after 249 ns;
+    dataIn_s <= X"DEADBEEF" after 16 ns, X"F00DBABE" after 30 ns,
+                X"DABBAD00" after 48 ns, X"DEADBEEF" after 100 ns,
+                X"B0B0B0B0" after 239 ns, X"F00DBABE" after 249 ns;
 
-    rd1_s     <= '1'     after 16 ns, '0' after 22 ns, '1' after 39.5 ns, '0' after 48 ns;
+    rd1_s     <= '1'     after 16 ns, '0' after 22 ns,
+                 '1' after 67.5 ns, '0' after 73.5 ns,
+                 '1' after 245.5 ns, '0' after 250.5 ns;
     add_rd1_s <= "01000" after 16 ns, "00000" after 39 ns;
 
-    rd2_s     <= '1'     after 16 ns, '0' after 22 ns;
-    add_rd2_s <= "00000" after 16 ns;
+    rd2_s     <= '1'     after 16 ns, '0' after 22 ns,
+                 '1' after 257 ns, '0' after 260 ns;
+    add_rd2_s <= "00000" after 16 ns,
+                 "10010" after 257 ns;
 
 
 
     wait for 30 ns;
     wait for fill_spill_time;
-    -- Here time = 62 ns
-    wait for 20 ns;
-    -- Here time = 82 ns
+    wait for 10 ns;
+    -- Here time = 72 ns
     write(lb, now);
     writeline(output, lb);
     MMUStrobe_s <= '1' after 6 ns, '0' after 8.5 ns;  -- This set @ time = 54 ns
-    call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
+    call_s      <= '1' after 2.5 ns, '0' after 8.5 ns;
 
     wait for 6 ns;
-    -- Here time = 60 ns;
     wait for fill_spill_time;
-    -- Here time = 92 ns;
+    -- Here time = 110 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1' after 4 ns, '0' after 6.5 ns;
+    call_s      <= '1' after 2.5 ns, '0' after 8.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 148 ns
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1' after 8 ns, '0' after 10.5 ns;
+    call_s      <= '1' after 2.5 ns, '0' after 8.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 186 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1' after 9 ns, '0' after 11.5 ns;
+    call_s      <= '1' after 4.5 ns, '0' after 10.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 224 ns;
+    write(lb, now);
+    writeline(output, lb);
+    ret_s <= '1' after 8.5 ns, '0' after 13.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 262 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1' after 7.5 ns, '0' after 10 ns;
+    ret_s       <= '1' after 2.5 ns, '0' after 7.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 300 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1' after 7.5 ns, '0' after 10 ns;
+    ret_s       <= '1' after 4.5 ns, '0' after 10.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 338 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1' after 7.5 ns, '0' after 10 ns;
+    ret_s       <= '1' after 4.5 ns, '0' after 10.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 376 ns;
+    write(lb, now);
+    writeline(output, lb);
+    MMUStrobe_s <= '1' after 7.5 ns, '0' after 10 ns;
+    ret_s       <= '1' after 4.5 ns, '0' after 10.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 414 ns;
+    write(lb, now);
+    writeline(output, lb);
+    call_s <= '1' after 4.5 ns, '0' after 10.5 ns;
+
+    wait for 6 ns;
+    wait for fill_spill_time;
+    -- Here time = 452 ns;
     write(lb, now);
     writeline(output, lb);
     MMUStrobe_s <= '1', '0' after 2.5 ns;
     call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
 
     wait for 6 ns;
-    -- Here time = 98 ns;
     wait for fill_spill_time;
-    -- Here time = 130 ns
+    -- Here time = 490 ns;
     write(lb, now);
     writeline(output, lb);
-    MMUStrobe_s <= '1', '0' after 2.5 ns;
-    call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
-
-    wait for 6 ns;
-    -- Here time = 98 ns;
-    wait for fill_spill_time;
-    -- Here time = 168 ns;
-    write(lb, now);
-    writeline(output, lb);
-    MMUStrobe_s <= '1', '0' after 2.5 ns;
-    call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
-
-    wait for 6 ns;
-    -- Here time = 174 ns;
-    wait for fill_spill_time;
-    -- Here time = 206 ns;
-    write(lb, now);
-    writeline(output, lb);
-    MMUStrobe_s <= '1', '0' after 2.5 ns;
-    ret_s       <= '1'      after 3.5 ns, '0' after 8.5 ns;
+    ret_s       <= '1' after 2.5 ns, '0' after 8.75 ns;
+    MMUStrobe_s <= '1' after 14 ns, '0' after 17.5 ns;
 
     wait for 6 ns;
     wait for fill_spill_time;
-    -- Here time = 244 ns;
-    write(lb, now);
-    writeline(output, lb);
-    MMUStrobe_s <= '1', '0' after 2.5 ns;
-    ret_s       <= '1'      after 2.5 ns, '0' after 8.5 ns;
-
-    wait for 6 ns;
-    wait for fill_spill_time;
-    -- Here time = 282 ns;
-    write(lb, now);
-    writeline(output, lb);
-    MMUStrobe_s <= '1', '0' after 2.5 ns;
-    ret_s       <= '1'      after 2.5 ns, '0' after 8.5 ns;
-
-    wait for 6 ns;
-    wait for fill_spill_time;
-    -- Here time = 320 ns;
-    write(lb, now);
-    writeline(output, lb);
-    MMUStrobe_s <= '1', '0' after 2.5 ns;
-    ret_s       <= '1'      after 2.5 ns, '0' after 8.5 ns;
-
-    wait for 6 ns;
-    wait for fill_spill_time;
-    -- Here time = 358 ns;
-    write(lb, now);
-    writeline(output, lb);
-    MMUStrobe_s <= '1', '0' after 2.5 ns;
-    ret_s       <= '1'      after 2.5 ns, '0' after 8.5 ns;
-
-    wait for 6 ns;
-    wait for fill_spill_time;
-    -- Here time = 396 ns;
-    write(lb, now);
-    writeline(output, lb);
-    call_s <= '1' after 2.5 ns, '0' after 8.5 ns;
-
-    wait for 6 ns;
-    wait for fill_spill_time;
-    -- Here time = 434 ns;
-    write(lb, now);
-    writeline(output, lb);
-    MMUStrobe_s <= '1', '0' after 2.5 ns;
-    call_s      <= '1'      after 2.5 ns, '0' after 8.5 ns;
-
-    wait for 6 ns;
-    wait for fill_spill_time;
-    -- Here time = 472 ns;
-    write(lb, now);
-    writeline(output, lb);
-    ret_s       <= '1'      after 2.5 ns, '0' after 8.75 ns;
-    MMUStrobe_s <= '1', '0' after 2.5 ns;
-
-    wait for 6 ns;
-    wait for fill_spill_time;
-    -- Here time = 472 ns;
+    -- Here time = 528 ns;
     write(lb, now);
     writeline(output, lb);
     reset_s <= '1' after 2.5 ns, '0' after 8.5 ns;
