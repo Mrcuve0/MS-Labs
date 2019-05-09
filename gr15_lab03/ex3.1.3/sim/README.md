@@ -6,7 +6,7 @@ In our design we have supposed these generic constants:
 
 * 8 registers per each window block (IN - LOCAL _ OUT)
 * 8 registers for the GLOBAL window block
-* 4 windows
+* 4 windows 
 * 72 registers in the physical registerFile
 
 All the signals are active high, the reset is synchronous.
@@ -57,4 +57,4 @@ Following the same path of the previous part, we continue with a sequence of RET
 At time 426 ns we can suppose the MMU is kept busy by some other hardware in the network: the RF stays in the "pre_spillFillState" up until the MMUStrobe signal is finally sent, meaning the MMU is ready to serve the RF (time 452ns)
 
 ### PART5
-At time 530.5 ns the rest signal is raised, the RF is reset.
+At time 530.5 ns the reset signal is raised, the RF is reset.
