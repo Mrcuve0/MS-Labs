@@ -2,9 +2,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+use work.constants.all;
+
 
 entity cu is
-
   port (
     EN1    : out std_logic;
     RF1    : out std_logic;
@@ -19,11 +20,10 @@ entity cu is
     RM     : out std_logic;
     WM     : out std_logic;
     S3     : out std_logic;
-    OPCODE : in  std_logic_vector(OP_CODE_SIZE - 1 downto 0);
-    FUNC   : in  std_logic_vector(FUNC_SIZE - 1 downto 0);
+    OPCODE : in  std_logic_vector(OP_CODE_SIZE-1 downto 0);
+    FUNC   : in  std_logic_vector(FUNC_SIZE-1 downto 0);
     Clk    : in  std_logic;
     Rst    : in  std_logic);
-
 end entity cu;
 
 -------------------------------------------------------------------------------
@@ -50,31 +50,37 @@ begin  -- architecture beh
           when RTYPE_OR =>
             cw1 <= "1010011110111";
           when NOP =>
-            cw1 <= ""
+            cw1 <= "1010011110111";
           when others => null;
         end case;
       when ITYPE_ADDI1 =>
-        cw1 <= "1010010011111";
+        cw1 <= "1010010011110";
       when ITYPE_SUBI1 =>
-        cw1 <= "1010010111111";
+        cw1 <= "1010010111110";
       when ITYPE_ANDI1 =>
-        cw1 <= "1010011011111";
+    	  cw1 <= "1010011011110";
       when ITYPE_ORI1 =>
-        cw1 <= "1010011111111";
+        cw1 <= "1010011111110";
       when ITYPE_ADDI2 =>
-        cw1 <= "1010010000111";       
+        cw1 <= "1010010000101";
       when ITYPE_SUBI2 =>
-        cw1 <= "1010010100111";
+        cw1 <= "1010010100101";
       when ITYPE_ANDI2 =>
-        cw1 <= "1010011000111";         
+        cw1 <= "1010011000101";
       when ITYPE_ORI2 =>
-       cw1 <= " 1010011100111";
+        cw1 <= "1010011100101";
       when ITYPE_MOV =>
+        cw1 <= "1010010011110";
       when ITYPE_SREG1 =>
+        cw1 <= "1010010011100";
       when ITYPE_SREG2 =>
+        cw1 <= "1010010000100";
       when ITYPE_SMEM2 =>
+        cw1 <= "1011010001111";
       when ITYPE_LMEM1 =>
+        cw1 <= "1110110011110";
       when ITYPE_LMEM2 =>
+        cw1 <= "1110110000101";
       when others => null;
     end case;
   end process;
