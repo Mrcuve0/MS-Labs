@@ -1,0 +1,43 @@
+[*]
+[*] GTKWave Analyzer v3.3.94 (w)1999-2018 BSI
+[*] Thu May 23 09:19:14 2019
+[*]
+[dumpfile] "/home/sem/OneDrive/Politecnico di Torino/01 - Magistrale/Anno 1 -- 2018-2019/Secondo Semestre/Microelectronic System/2018-2019/Labs/gr15_lab04/ex4.2/sim/CU_HW.ghw"
+[dumpfile_mtime] "Thu May 23 09:14:28 2019"
+[dumpfile_size] 1597
+[savefile] "/home/sem/OneDrive/Politecnico di Torino/01 - Magistrale/Anno 1 -- 2018-2019/Secondo Semestre/Microelectronic System/2018-2019/Labs/gr15_lab04/ex4.2/sim/GTK_CU_HW_Waveforms.gtkw"
+[timestart] 0
+[size] 1920 1027
+[pos] -1 -1
+*-23.701612 1000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.cu_test.
+[sst_width] 197
+[signals_width] 271
+[sst_expanded] 1
+[sst_vpaned_height] 307
+@28
+top.cu_test.clock
+top.cu_test.dut.rst
+@29
+#{top.cu_test.cu_opcode_i[5:0]} top.cu_test.cu_opcode_i[5] top.cu_test.cu_opcode_i[4] top.cu_test.cu_opcode_i[3] top.cu_test.cu_opcode_i[2] top.cu_test.cu_opcode_i[1] top.cu_test.cu_opcode_i[0]
+#{top.cu_test.cu_func_i[10:0]} top.cu_test.cu_func_i[10] top.cu_test.cu_func_i[9] top.cu_test.cu_func_i[8] top.cu_test.cu_func_i[7] top.cu_test.cu_func_i[6] top.cu_test.cu_func_i[5] top.cu_test.cu_func_i[4] top.cu_test.cu_func_i[3] top.cu_test.cu_func_i[2] top.cu_test.cu_func_i[1] top.cu_test.cu_func_i[0]
+@28
+#{top.cu_test.dut.cw1[12:0]} top.cu_test.dut.cw1[12] top.cu_test.dut.cw1[11] top.cu_test.dut.cw1[10] top.cu_test.dut.cw1[9] top.cu_test.dut.cw1[8] top.cu_test.dut.cw1[7] top.cu_test.dut.cw1[6] top.cu_test.dut.cw1[5] top.cu_test.dut.cw1[4] top.cu_test.dut.cw1[3] top.cu_test.dut.cw1[2] top.cu_test.dut.cw1[1] top.cu_test.dut.cw1[0]
+#{top.cu_test.dut.cw2[12:3]} top.cu_test.dut.cw2[12] top.cu_test.dut.cw2[11] top.cu_test.dut.cw2[10] top.cu_test.dut.cw2[9] top.cu_test.dut.cw2[8] top.cu_test.dut.cw2[7] top.cu_test.dut.cw2[6] top.cu_test.dut.cw2[5] top.cu_test.dut.cw2[4] top.cu_test.dut.cw2[3]
+#{top.cu_test.dut.cw3[12:8]} top.cu_test.dut.cw3[12] top.cu_test.dut.cw3[11] top.cu_test.dut.cw3[10] top.cu_test.dut.cw3[9] top.cu_test.dut.cw3[8]
+top.cu_test.dut.rf1
+top.cu_test.dut.rf2
+top.cu_test.dut.s1
+top.cu_test.dut.s2
+top.cu_test.dut.en1
+top.cu_test.dut.alu1
+top.cu_test.dut.alu2
+top.cu_test.dut.en2
+top.cu_test.dut.rm
+top.cu_test.dut.wm
+top.cu_test.dut.en3
+top.cu_test.dut.s3
+top.cu_test.dut.wf1
+[pattern_trace] 1
+[pattern_trace] 0

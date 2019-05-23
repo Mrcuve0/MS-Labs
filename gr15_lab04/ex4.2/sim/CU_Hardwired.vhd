@@ -1,11 +1,10 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use work.myTypes.all;
 
-use work.constants.all;
 
-
-entity cu is
+entity CU_HW is
   port (
     EN1    : out std_logic;
     RF1    : out std_logic;
@@ -24,17 +23,33 @@ entity cu is
     FUNC   : in  std_logic_vector(FUNC_SIZE-1 downto 0);
     Clk    : in  std_logic;
     Rst    : in  std_logic);
-end entity cu;
+end entity CU_HW;
 
 -------------------------------------------------------------------------------
 -- Behavioral Architecture
 -------------------------------------------------------------------------------
 
-architecture beh of cu is
+architecture beh of CU_HW is
 
-  signal cw1, cw2, cw3 : std_logic_vector(CW_SIZE-1 downto 0);
+  signal cw1 : std_logic_vector(CW_SIZE-1 downto 0);
+  signal cw2 : std_logic_vector(CW_SIZE-1 downto 3);
+  signal cw3 : std_logic_vector(CW_SIZE-1 downto 8);
 
 begin  -- architecture beh
+
+  rf1   <= cw1(0);
+  rf2   <= cw1(1);
+  en1   <= cw1(2);
+  s1    <= cw2(3);
+  s2    <= cw2(4);
+  alu1  <= cw2(5);
+  alu2  <= cw2(6);
+  en2   <= cw2(7);
+  rm    <= cw3(8);
+  wm    <= cw3(9);
+  en3   <= cw3(10);
+  s3    <= cw3(11);
+  wf1   <= cw3(12);
 
   process(OPCODE, FUNC)
   begin
@@ -88,11 +103,13 @@ begin  -- architecture beh
   process(clk, rst)
   begin
     if rising_edge(clk) then
-      if rst = 0 then
-        cw1 <= (others => '0');
+      if rst = '0' then
+        cw2 <= (others => '0');
+        cw3 <= (others => '0');
+      else
+        cw2 <= cw1(CW_SIZE-1 downto 3);
+        cw3 <= cw2(CW_SIZE-1 downto 8);
       end if;
-      cw2 <= cw1(CW_SIZE-1 downto 3);
-      cw3 <= cw2(CW_SIZE-1 downto 8);
     end if;
 
   end process;

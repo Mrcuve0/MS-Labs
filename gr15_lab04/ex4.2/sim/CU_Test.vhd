@@ -1,7 +1,6 @@
 library ieee;
 use ieee.std_logic_1164.all;
-use ieee.std_logic_unsigned.all;
-use ieee.std_logic_arith.all;
+use ieee.numeric_std.all;
 use work.myTypes.all;
 
 entity cu_test is
@@ -9,7 +8,7 @@ end cu_test;
 
 architecture TEST of cu_test is
 
-    component cu
+    component CU_HW
        port (
               -- FIRST PIPE STAGE OUTPUTS
               EN1    : out std_logic;               -- enables the register file and the pipeline registers
@@ -44,7 +43,7 @@ architecture TEST of cu_test is
 begin
 
         -- instance of DLX
-       dut: cu
+       dut: CU_HW
        port map (
                  -- OUTPUTS
                  EN1    => EN1_i,
@@ -74,24 +73,85 @@ begin
         CONTROL: process
         begin
 
-        wait for 5 ns;  ----- be careful! the wait statement is ok in test
-                        ----- benches, but do not use it in normal processes!
+        wait for 5 ns;
 
         -- ADD RS1,RS2,RD -> Rtype
         cu_opcode_i <= RTYPE;
         cu_func_i <= RTYPE_ADD;
         wait for 2 ns;
 
-        -- ADDI1 RS1,RD,INP1 -> Itype
-        cu_opcode_i <= ITYPE_ADDI1;
-        cu_func_i <= NOP;
+        -- SUB R1, R2, R3
+        cu_opcode_i <= RTYPE;
+        cu_func_i <= RTYPE_SUB;
         wait for 2 ns;
 
-        -- .............
-        -- add all the others instructions
-        -- .............
+        -- AND R1, R2, R3
+        cu_opcode_i <= RTYPE;
+        cu_func_i <= RTYPE_AND;
+        wait for 2 ns;
+
+        -- OR R1, R2, R3
+        cu_opcode_i <= RTYPE;
+        cu_func_i <= RTYPE_OR;
+        wait for 2 ns;
+        
+        -- ADDI1 R1, R2, INP1
+        cu_opcode_i <= ITYPE_ADDI1;
+        wait for 2 ns;
+
+        -- SUBI1 R1, R2, INP1
+        cu_opcode_i <= ITYPE_SUBI1;
+        wait for 2 ns;
+
+        -- ANDI1 R1, R2, INP1
+        cu_opcode_i <= ITYPE_ANDI1;
+        wait for 2 ns;
+
+        -- ORI1 R1, R2, INP1
+        cu_opcode_i <= ITYPE_ORI1;
+        wait for 2 ns;
+
+        -- ADDI2 R1, R2, INP2
+        cu_opcode_i <= ITYPE_ADDI2;
+        wait for 2 ns;
+
+        -- SUBI2 R1, R2, INP2
+        cu_opcode_i <= ITYPE_SUBI2;
+        wait for 2 ns;
+
+        -- ANDI2 R1, R2, INP2
+        cu_opcode_i <= ITYPE_ANDI2;
+        wait for 2 ns;
+
+        -- ORI2 R1, R2, INP2
+        cu_opcode_i <= ITYPE_ORI2;
+        wait for 2 ns;
+
+        -- MOV R1, R2
+        cu_opcode_i <= ITYPE_MOV;
+        wait for 2 ns;
+
+        -- SREG1 R2, INP1
+        cu_opcode_i <= ITYPE_SREG1;
+        wait for 2 ns;
+
+        -- SREG2 R2, INP2
+        cu_opcode_i <= ITYPE_SREG2;
+        wait for 2 ns;
+
+        -- SMEM2 R1, R2, INP2
+        cu_opcode_i <= ITYPE_SMEM2;
+        wait for 2 ns;
+
+        -- LMEM1 R1, R2, INP1
+        cu_opcode_i <= ITYPE_LMEM1;
+        wait for 2 ns;
+
+        -- LMEM2 R1, R2, INP2
+        cu_opcode_i <= ITYPE_LMEM2;
+        wait for 2 ns;
 
         wait;
         end process;
 
-end cu_test;
+end TEST;
