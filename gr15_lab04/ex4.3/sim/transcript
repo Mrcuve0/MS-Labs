@@ -1,0 +1,23 @@
+# //  ModelSim SE-64 6.5c Aug 27 2009 Linux 3.10.0-957.5.1.el7.x86_64
+# //
+# //  Copyright 1991-2009 Mentor Graphics Corporation
+# //              All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND 
+# //  PROPRIETARY INFORMATION WHICH IS THE PROPERTY
+# //  OF MENTOR GRAPHICS CORPORATION OR ITS LICENSORS
+# //  AND IS SUBJECT TO LICENSE TERMS.
+# //
+vsim -t 10ps -novopt work.cu_test(test)
+# vsim -t 10ps -novopt work.cu_test(test) 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Refreshing /home/ms19.15/MS/gr15_lab04/ex4.3/sim/work.mytypes
+# Loading work.mytypes
+# Refreshing /home/ms19.15/MS/gr15_lab04/ex4.3/sim/work.cu_test(test)
+# Loading work.cu_test(test)
+# Refreshing /home/ms19.15/MS/gr15_lab04/ex4.3/sim/work.cu_fsm(cu_fsm_beh)
+# Loading work.cu_fsm(cu_fsm_beh)
+add waves *
+run 500 ns
