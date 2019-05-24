@@ -38,142 +38,139 @@ architecture TEST of cu_test is
 
     signal cu_opcode_i: std_logic_vector(OP_CODE_SIZE - 1 downto 0) := (others => '0');
     signal cu_func_i: std_logic_vector(FUNC_SIZE - 1 downto 0) := (others => '0');
+
+    -- Signal used to easily determine, while reading the waveforms, what part of the testbench is being executed
     type stateType is (ADD, SUB, ANDx, ORx, NOP, ADDI1, SUBI1, ANDI1, ORI1, ADDI2, SUBI2, ANDI2, ORI2, MOV, SREG1, SREG2, SMEM2, LMEM1, LMEM2);
-    
     signal currentState : stateType;
 
     signal EN1_i, RF1_i, RF2_i, WF1_i, EN2_i, S1_i, S2_i, ALU1_i, ALU2_i, EN3_i, RM_i, WM_i, S3_i: std_logic := '0';
 
 begin
-
-        -- instance of DLX
-       dut: CU_HW
-       port map (
-                 -- OUTPUTS
-                 EN1    => EN1_i,
-                 RF1    => RF1_i,
-                 RF2    => RF2_i,
-                 WF1    => WF1_i,
-                 EN2    => EN2_i,
-                 S1     => S1_i,
-                 S2     => S2_i,
-                 ALU1   => ALU1_i,
-                 ALU2   => ALU2_i,
-                 EN3    => EN3_i,
-                 RM     => RM_i,
-                 WM     => WM_i,
-                 S3     => S3_i,
-                 -- INPUTS
-                 OPCODE => cu_opcode_i,
-                 FUNC   => cu_func_i,            
-                 Clk    => Clock,
-                 Rst    => Reset
-               );
+        -- Instance of the Control Unit
+        dut: CU_HW port map (
+                -- OUTPUTS
+                EN1    => EN1_i,
+                RF1    => RF1_i,
+                RF2    => RF2_i,
+                WF1    => WF1_i,
+                EN2    => EN2_i,
+                S1     => S1_i,
+                S2     => S2_i,
+                ALU1   => ALU1_i,
+                ALU2   => ALU2_i,
+                EN3    => EN3_i,
+                RM     => RM_i,
+                WM     => WM_i,
+                S3     => S3_i,
+                -- INPUTS
+                OPCODE => cu_opcode_i,
+                FUNC   => cu_func_i,            
+                Clk    => Clock,
+                Rst    => Reset
+        );
 
         Clock <= not Clock after 1 ns;
-	Reset <= '0', '1' after 6 ns;
-
+        Reset <= '0', '1' after 6 ns;
 
         CONTROL: process
         begin
+                wait for 5 ns;
 
-        wait for 5 ns;
+                -- ADD RS1,RS2,RD -> Rtype
+                currentState <= ADD;
+                cu_opcode_i <= RTYPE;
+                cu_func_i <= RTYPE_ADD;
+                wait for 2 ns;
 
-        -- ADD RS1,RS2,RD -> Rtype
-        currentState <= ADD;
-        cu_opcode_i <= RTYPE;
-        cu_func_i <= RTYPE_ADD;
-        wait for 2 ns;
+                -- SUB R1, R2, R3
+                currentState <= SUB;
+                cu_opcode_i <= RTYPE;
+                cu_func_i <= RTYPE_SUB;
+                wait for 2 ns;
 
-        -- SUB R1, R2, R3
-        currentState <= SUB;
-        cu_opcode_i <= RTYPE;
-        cu_func_i <= RTYPE_SUB;
-        wait for 2 ns;
+                -- AND R1, R2, R3
+                currentState <= ANDx;
+                cu_opcode_i <= RTYPE;
+                cu_func_i <= RTYPE_AND;
+                wait for 2 ns;
 
-        -- AND R1, R2, R3
-        currentState <= ANDx;
-        cu_opcode_i <= RTYPE;
-        cu_func_i <= RTYPE_AND;
-        wait for 2 ns;
+                -- OR R1, R2, R3
+                currentState <= ORx;
+                cu_opcode_i <= RTYPE;
+                cu_func_i <= RTYPE_OR;
+                wait for 2 ns;
 
-        -- OR R1, R2, R3
-        currentState <= ORx;
-        cu_opcode_i <= RTYPE;
-        cu_func_i <= RTYPE_OR;
-        wait for 2 ns;
-        
-        -- ADDI1 R1, R2, INP1
-        currentState <= ADDI1;
-        cu_opcode_i <= ITYPE_ADDI1;
-        wait for 2 ns;
+                -- ADDI1 R1, R2, INP1
+                currentState <= ADDI1;
+                cu_opcode_i <= ITYPE_ADDI1;
+                wait for 2 ns;
 
-        -- SUBI1 R1, R2, INP1
-        currentState <= SUBI1;
-        cu_opcode_i <= ITYPE_SUBI1;
-        wait for 2 ns;
+                -- SUBI1 R1, R2, INP1
+                currentState <= SUBI1;
+                cu_opcode_i <= ITYPE_SUBI1;
+                wait for 2 ns;
 
-        -- ANDI1 R1, R2, INP1
-        currentState <= ANDI1;
-        cu_opcode_i <= ITYPE_ANDI1;
-        wait for 2 ns;
+                -- ANDI1 R1, R2, INP1
+                currentState <= ANDI1;
+                cu_opcode_i <= ITYPE_ANDI1;
+                wait for 2 ns;
 
-        -- ORI1 R1, R2, INP1
-        currentState <= ORI1;
-        cu_opcode_i <= ITYPE_ORI1;
-        wait for 2 ns;
+                -- ORI1 R1, R2, INP1
+                currentState <= ORI1;
+                cu_opcode_i <= ITYPE_ORI1;
+                wait for 2 ns;
 
-        -- ADDI2 R1, R2, INP2
-        currentState <= ADDI2;
-        cu_opcode_i <= ITYPE_ADDI2;
-        wait for 2 ns;
+                -- ADDI2 R1, R2, INP2
+                currentState <= ADDI2;
+                cu_opcode_i <= ITYPE_ADDI2;
+                wait for 2 ns;
 
-        -- SUBI2 R1, R2, INP2
-        currentState <= SUBI1;
-        cu_opcode_i <= ITYPE_SUBI2;
-        wait for 2 ns;
+                -- SUBI2 R1, R2, INP2
+                currentState <= SUBI1;
+                cu_opcode_i <= ITYPE_SUBI2;
+                wait for 2 ns;
 
-        -- ANDI2 R1, R2, INP2
-        currentState <= ANDI2;
-        cu_opcode_i <= ITYPE_ANDI2;
-        wait for 2 ns;
+                -- ANDI2 R1, R2, INP2
+                currentState <= ANDI2;
+                cu_opcode_i <= ITYPE_ANDI2;
+                wait for 2 ns;
 
-        -- ORI2 R1, R2, INP2
-        currentState <= ORI2;
-        cu_opcode_i <= ITYPE_ORI2;
-        wait for 2 ns;
+                -- ORI2 R1, R2, INP2
+                currentState <= ORI2;
+                cu_opcode_i <= ITYPE_ORI2;
+                wait for 2 ns;
 
-        -- MOV R1, R2
-        currentState <= MOV;
-        cu_opcode_i <= ITYPE_MOV;
-        wait for 2 ns;
+                -- MOV R1, R2
+                currentState <= MOV;
+                cu_opcode_i <= ITYPE_MOV;
+                wait for 2 ns;
 
-        -- SREG1 R2, INP1
-        currentState <= SREG1;
-        cu_opcode_i <= ITYPE_SREG1;
-        wait for 2 ns;
+                -- SREG1 R2, INP1
+                currentState <= SREG1;
+                cu_opcode_i <= ITYPE_SREG1;
+                wait for 2 ns;
 
-        -- SREG2 R2, INP2
-        currentState <= SREG2;
-        cu_opcode_i <= ITYPE_SREG2;
-        wait for 2 ns;
+                -- SREG2 R2, INP2
+                currentState <= SREG2;
+                cu_opcode_i <= ITYPE_SREG2;
+                wait for 2 ns;
 
-        -- SMEM2 R1, R2, INP2
-        currentState <= SMEM2;
-        cu_opcode_i <= ITYPE_SMEM2;
-        wait for 2 ns;
+                -- SMEM2 R1, R2, INP2
+                currentState <= SMEM2;
+                cu_opcode_i <= ITYPE_SMEM2;
+                wait for 2 ns;
 
-        -- LMEM1 R1, R2, INP1
-        currentState <= LMEM1;
-        cu_opcode_i <= ITYPE_LMEM1;
-        wait for 2 ns;
+                -- LMEM1 R1, R2, INP1
+                currentState <= LMEM1;
+                cu_opcode_i <= ITYPE_LMEM1;
+                wait for 2 ns;
 
-        -- LMEM2 R1, R2, INP2
-        currentState <= LMEM2;
-        cu_opcode_i <= ITYPE_LMEM2;
-        wait for 2 ns;
+                -- LMEM2 R1, R2, INP2
+                currentState <= LMEM2;
+                cu_opcode_i <= ITYPE_LMEM2;
+                wait for 2 ns;
 
-        wait;
+                wait;
         end process;
 
 end TEST;
