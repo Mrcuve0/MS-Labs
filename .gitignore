@@ -12,4 +12,10 @@
 *.cf
 *.ghw
 *.vcd
+*.~*
+
+
 work/
+GIT_HERE
+Zipped LABS/
+Files from Portal/
