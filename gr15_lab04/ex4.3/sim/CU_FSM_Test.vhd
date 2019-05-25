@@ -35,6 +35,11 @@ architecture TEST of cu_test is
 
     signal cu_opcode_i: std_logic_vector(OP_CODE_SIZE - 1 downto 0) := (others => '0');
     signal cu_func_i: std_logic_vector(FUNC_SIZE - 1 downto 0) := (others => '0');
+
+    -- Signal used to easily determine, while reading the waveforms, what part of the testbench is being executed
+    type instructionType is (ADD, SUB, ANDx, ORx, NOP, ADDI1, SUBI1, ANDI1, ORI1, ADDI2, SUBI2, ANDI2, ORI2, MOV, SREG1,SREG2, SMEM2, LMEM1, LMEM2);
+    signal currentInstruction : instructionType;
+
     signal EN1_i, RF1_i, RF2_i, WF1_i, EN2_i, S1_i, S2_i, ALU1_i, ALU2_i, EN3_i, RM_i, WM_i, S3_i: std_logic := '0';
 
 begin
@@ -64,87 +69,105 @@ begin
                );
 
         Clock <= not Clock after 1 ns;
-	Reset <= '0', '1' after 6 ns;
+	      Reset <= '0', '1' after 6 ns;
 
 
         CONTROL: process
         begin
 
-        wait for 5 ns;
+        wait for 6.5 ns;
 
         -- ADD RS1,RS2,RD -> Rtype
+        currentInstruction <= ADD;
         cu_opcode_i <= RTYPE;
         cu_func_i <= RTYPE_ADD;
         wait for 6 ns;
 
         -- SUB R1, R2, R3
+        currentInstruction <= SUB;
         cu_opcode_i <= RTYPE;
         cu_func_i <= RTYPE_SUB;
         wait for 6 ns;
 
         -- AND R1, R2, R3
+        currentInstruction <= ANDx;
         cu_opcode_i <= RTYPE;
         cu_func_i <= RTYPE_AND;
         wait for 6 ns;
 
         -- OR R1, R2, R3
+        currentInstruction <= ORx;
         cu_opcode_i <= RTYPE;
         cu_func_i <= RTYPE_OR;
         wait for 6 ns;
         
         -- ADDI1 R1, R2, INP1
+        currentInstruction <= ADDI1;
         cu_opcode_i <= ITYPE_ADDI1;
         wait for 6 ns;
 
         -- SUBI1 R1, R2, INP1
+        currentInstruction <= SUBI1;
         cu_opcode_i <= ITYPE_SUBI1;
         wait for 6 ns;
 
         -- ANDI1 R1, R2, INP1
+        currentInstruction <= ANDI1;
         cu_opcode_i <= ITYPE_ANDI1;
         wait for 6 ns;
 
         -- ORI1 R1, R2, INP1
+        currentInstruction <= ORI1;
         cu_opcode_i <= ITYPE_ORI1;
         wait for 6 ns;
 
         -- ADDI2 R1, R2, INP2
+        currentInstruction <= ADDI2;
         cu_opcode_i <= ITYPE_ADDI2;
         wait for 6 ns;
 
         -- SUBI2 R1, R2, INP2
+        currentInstruction <= SUBI2;
         cu_opcode_i <= ITYPE_SUBI2;
         wait for 6 ns;
 
         -- ANDI2 R1, R2, INP2
+        currentInstruction <= ANDI2;
         cu_opcode_i <= ITYPE_ANDI2;
         wait for 6 ns;
 
         -- ORI2 R1, R2, INP2
+        currentInstruction <= ORI2;
         cu_opcode_i <= ITYPE_ORI2;
         wait for 6 ns;
 
         -- MOV R1, R2
+        currentInstruction <= MOV;
         cu_opcode_i <= ITYPE_MOV;
         wait for 6 ns;
 
         -- SREG1 R2, INP1
+        currentInstruction <= SREG1;
         cu_opcode_i <= ITYPE_SREG1;
         wait for 6 ns;
 
         -- SREG2 R2, INP2
+        currentInstruction <= SREG2;
         cu_opcode_i <= ITYPE_SREG2;
         wait for 6 ns;
 
         -- SMEM2 R1, R2, INP2
+        currentInstruction <= SMEM2;
         cu_opcode_i <= ITYPE_SMEM2;
         wait for 6 ns;
 
         -- LMEM1 R1, R2, INP1
+        currentInstruction <= LMEM1;
         cu_opcode_i <= ITYPE_LMEM1;
         wait for 6 ns;
 
         -- LMEM2 R1, R2, INP2
+        currentInstruction <= LMEM2;
         cu_opcode_i <= ITYPE_LMEM2;
         wait for 6 ns;
 

@@ -77,7 +77,7 @@ begin
       when ITYPE_SREG2 =>
         cw <= "1010010000100";
       when ITYPE_SMEM2 =>
-        cw <= "1011010001111";
+        cw <= "0011010001111";
       when ITYPE_LMEM1 =>
         cw <= "1110110011110";
       when ITYPE_LMEM2 =>
@@ -88,10 +88,12 @@ begin
 
   P_OPC : process(Clk, Rst)
   begin
-    if Rst = '0' then
-      CURRENT_STATE <= reset;
-    elsif (Clk = '1' and Clk'event) then
-      CURRENT_STATE <= NEXT_STATE;
+    if (rising_edge(clk)) then
+      if Rst = '0' then
+        CURRENT_STATE <= reset;
+      else
+        CURRENT_STATE <= NEXT_STATE;
+      end if;
     end if;
   end process P_OPC;
 
@@ -99,27 +101,39 @@ begin
   begin
     case CURRENT_STATE is
       when reset =>
+        EN1 <= '0';
+        EN2 <= '0';
+        EN3 <= '0';
+
         NEXT_STATE <= stage1;
       when stage1 =>
         RF1  <= cw(0);
         RF2  <= cw(1);
         EN1  <= cw(2);
+        WF1  <= cw(12);
+
         EN2 <= '0';
         EN3 <= '0';
+
         NEXT_STATE <= stage2;
       when stage2 =>
+        EN1 <= '0';
+
         S1   <= cw(3);
         S2   <= cw(4);
         ALU1 <= cw(5);
         ALU2 <= cw(6);
         EN2  <= cw(7);
+
         NEXT_STATE <= stage3;
       when stage3 =>
+        EN2 <=  '0';
+
         RM   <= cw(8);
         WM   <= cw(9);
         EN3  <= cw(10);
         S3   <= cw(11);
-        WF1  <= cw(12);
+      
         NEXT_STATE <= stage1;
       when others => null;
     end case;
