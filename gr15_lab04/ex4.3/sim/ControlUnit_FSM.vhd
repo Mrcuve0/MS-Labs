@@ -27,7 +27,7 @@ end entity cu_fsm;
 
 architecture cu_fsm_beh of cu_fsm is
 
-  signal cw : std_logic_vector(CW_SIZE - 1 downto 0);
+  signal cw : std_logic_vector(CW_SIZE-1 downto 0);
   
   type TYPE_STATE is (
     reset, stage1, stage2, stage3
@@ -86,16 +86,6 @@ begin
     end case;
   end process P_CW;
 
-  P_OPC : process(Clk, Rst)
-  begin
-    if (rising_edge(clk)) then
-      if Rst = '0' then
-        CURRENT_STATE <= reset;
-      else
-        CURRENT_STATE <= NEXT_STATE;
-      end if;
-    end if;
-  end process P_OPC;
 
   P_OUTPUTS : process(CURRENT_STATE)
   begin
@@ -138,5 +128,16 @@ begin
       when others => null;
     end case;
   end process P_OUTPUTS;
+
+    P_OPC : process(Clk, Rst)
+  begin
+    if (rising_edge(clk)) then
+      if Rst = '0' then
+        CURRENT_STATE <= reset;
+      else
+        CURRENT_STATE <= NEXT_STATE;
+      end if;
+    end if;
+  end process P_OPC;
   
 end cu_fsm_beh;

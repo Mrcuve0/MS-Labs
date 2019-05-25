@@ -75,7 +75,7 @@ begin
         CONTROL: process
         begin
 
-        wait for 6.5 ns;
+        wait for 7 ns;
 
         -- ADD RS1,RS2,RD -> Rtype
         currentInstruction <= ADD;
