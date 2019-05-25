@@ -22,7 +22,7 @@ entity cu_fsm is
     WM      : out std_logic;
     S3      : out std_logic;
     FUNC    : in  std_logic_vector(FUNC_SIZE-1 downto 0);
-    OPCODE : in  std_logic_vector(OP_CODE_SIZE-1 downto 0));
+    OPCODE  : in  std_logic_vector(OP_CODE_SIZE-1 downto 0));
 end entity cu_fsm;
 
 architecture cu_fsm_beh of cu_fsm is
@@ -52,7 +52,7 @@ begin
             cw <= "1010011110111";
           when NOP =>
             cw <= "1010011110111";
-          when others => null;
+          when others => cw <= (others => 'Z');
         end case;
       when ITYPE_ADDI1 =>
         cw <= "1010010011110";
@@ -82,12 +82,12 @@ begin
         cw <= "1110110011110";
       when ITYPE_LMEM2 =>
         cw <= "1110110000101";
-      when others => null;
+      when others => cw <= (others => 'Z');
     end case;
   end process P_CW;
 
 
-  P_OUTPUTS : process(CURRENT_STATE)
+  P_OUTPUTS : process(CURRENT_STATE, cw)
   begin
     case CURRENT_STATE is
       when reset =>
@@ -125,7 +125,7 @@ begin
         S3   <= cw(11);
       
         NEXT_STATE <= stage1;
-      when others => null;
+      when others => NEXT_STATE <= reset;
     end case;
   end process P_OUTPUTS;
 
