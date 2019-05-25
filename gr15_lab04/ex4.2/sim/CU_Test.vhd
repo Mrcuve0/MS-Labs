@@ -126,7 +126,7 @@ begin
                 wait for 2 ns;
 
                 -- SUBI2 R1, R2, INP2
-                currentInstruction <= SUBI1;
+                currentInstruction <= SUBI2;
                 cu_opcode_i <= ITYPE_SUBI2;
                 wait for 2 ns;
 
