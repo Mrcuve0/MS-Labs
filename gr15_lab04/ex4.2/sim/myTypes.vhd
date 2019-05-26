@@ -14,10 +14,10 @@ package myTypes is
   constant RTYPE_AND : std_logic_vector(FUNC_SIZE - 1 downto 0) := "00000000010";  -- AND RS1, RS2, RD
   constant RTYPE_OR  : std_logic_vector(FUNC_SIZE - 1 downto 0) := "00000000011";  -- OR RS1, RS2, RD
 
-  constant NOP : std_logic_vector(FUNC_SIZE - 1 downto 0) := "11111111111";
+  constant NOP       : std_logic_vector(FUNC_SIZE - 1 downto 0) := "11111111111";
 
 -- R-Type instruction -> OPCODE field
-  constant RTYPE : std_logic_vector(OP_CODE_SIZE - 1 downto 0) := "000000";  -- for ADD, SUB, AND, OR register-to-register operation
+  constant RTYPE     : std_logic_vector(OP_CODE_SIZE - 1 downto 0) := "000000";  -- for ADD, SUB, AND, OR register-to-register operation
 
 -- I-Type instruction -> OPCODE field
   constant ITYPE_ADDI1 : std_logic_vector(OP_CODE_SIZE-1 downto 0) := "000001";  --ADDI1 RS1,RD,INP1

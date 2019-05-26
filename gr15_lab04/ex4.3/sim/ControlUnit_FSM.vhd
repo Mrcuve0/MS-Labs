@@ -51,7 +51,7 @@ begin
           when RTYPE_OR =>
             cw <= "1010011110111";
           when NOP =>
-            cw <= "1010011110111";
+            cw <= "0010011110111";
           when others => cw <= (others => 'Z');
         end case;
       when ITYPE_ADDI1 =>

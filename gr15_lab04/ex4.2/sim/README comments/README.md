@@ -1,3 +1,19 @@
+# Designer's assumptions
+
+* Following the given diagram:
+   ![alt text](Diagram.png)
+    we assumed that, in all the MUXes of the datapath, the top signal will be selected if the select signal is "1". On the other hand, the bottom input signal of the MUXes will be selected if the select signal is "0".
+
+* We also assumed that the "EN3" signal should always be kept at '1' in order to let flow the data from the stage 3 of the datapath to the external environment (even if the memory block present in stage 3 is not accessed). 
+A better datapath would have probably two distinct enable signals: one used to enable the memory in all of those operations that make access to it, while setting the second enable signal of the last register in all of those operations that require to output the data from stage 3.
+Thus, two distinct enable signals will permit to reduce the energy consumption by keeping the memory "idle" when not used. Also, this could permit us to never worry about the data received by the memory while enabled but intentionally not used.
+
+* We encoded the `NOP` operation mapping it to a "special" `OR R1, R1, R1` operation. In fact, a bitwise `OR` between the content of the same register will result in a useless operation, since the result will be `R1` itself. Why we called it "special"? Because, as suggested by the lab assistants, the writeback operation is discarded. This permits to keep free the only write port available in the register file, thus avoiding possible structural stalls that may occur during the program execution. Also, avoiding to use the register file for a useless operation reduces the power consumption.
+
+
+
+
+
 # How to read waveforms and testbench
 
 ### **Waveforms**

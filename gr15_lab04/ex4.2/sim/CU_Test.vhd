@@ -40,7 +40,7 @@ architecture TEST of cu_test is
     signal cu_func_i: std_logic_vector(FUNC_SIZE - 1 downto 0) := (others => '0');
 
     -- Signal used to easily determine, while reading the waveforms, what part of the testbench is being executed
-    type instructionType is (ADD, SUB, ANDx, ORx, NOP, ADDI1, SUBI1, ANDI1, ORI1, ADDI2, SUBI2, ANDI2, ORI2, MOV, SREG1, SREG2, SMEM2, LMEM1, LMEM2);
+    type instructionType is (ADDx, SUBx, ANDx, ORx, NOPx, ADDI1, SUBI1, ANDI1, ORI1, ADDI2, SUBI2, ANDI2, ORI2, MOV, SREG1, SREG2, SMEM2, LMEM1, LMEM2);
     signal currentInstruction : instructionType;
 
     signal EN1_i, RF1_i, RF2_i, WF1_i, EN2_i, S1_i, S2_i, ALU1_i, ALU2_i, EN3_i, RM_i, WM_i, S3_i: std_logic := '0';
@@ -77,13 +77,13 @@ begin
                 wait for 5 ns;
 
                 -- ADD RS1,RS2,RD -> Rtype
-                currentInstruction <= ADD;
+                currentInstruction <= ADDx;
                 cu_opcode_i <= RTYPE;
                 cu_func_i <= RTYPE_ADD;
                 wait for 2 ns;
 
                 -- SUB R1, R2, R3
-                currentInstruction <= SUB;
+                currentInstruction <= SUBx;
                 cu_opcode_i <= RTYPE;
                 cu_func_i <= RTYPE_SUB;
                 wait for 2 ns;
@@ -98,6 +98,12 @@ begin
                 currentInstruction <= ORx;
                 cu_opcode_i <= RTYPE;
                 cu_func_i <= RTYPE_OR;
+                wait for 2 ns;
+
+                -- NOP R1, R2, R3
+                currentInstruction <= NOPx;
+                cu_opcode_i <= RTYPE;
+                cu_func_i <= NOP;
                 wait for 2 ns;
 
                 -- ADDI1 R1, R2, INP1

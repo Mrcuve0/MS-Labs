@@ -135,7 +135,7 @@ begin  -- architecture beh
           when RTYPE_OR =>
             cw1 <= "1010011110111";
           when NOP =>
-            cw1 <= "1010011110111";
+            cw1 <= "0010011110111";
           when others => null;
         end case;
       when ITYPE_ADDI1 =>   -- Else if the OPCODE corresponds to a ITYPE instruction...
@@ -161,7 +161,7 @@ begin  -- architecture beh
       when ITYPE_SREG2 =>
         cw1 <= "1010010000100";
       when ITYPE_SMEM2 =>
-        cw1 <= "1011010001111";
+        cw1 <= "0011010001111";
       when ITYPE_LMEM1 =>
         cw1 <= "1110110011110";
       when ITYPE_LMEM2 =>
