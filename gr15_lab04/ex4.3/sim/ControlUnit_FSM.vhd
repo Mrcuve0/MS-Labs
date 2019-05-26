@@ -100,7 +100,7 @@ begin
         RF1  <= cw(0);
         RF2  <= cw(1);
         EN1  <= cw(2);
-        WF1  <= cw(12);
+        WF1  <= '0';
 
         EN2 <= '0';
         EN3 <= '0';
@@ -123,6 +123,10 @@ begin
         WM   <= cw(9);
         EN3  <= cw(10);
         S3   <= cw(11);
+        WF1  <=  cw(12);
+        if (cw(12) = '1') then  -- We must activate again the stage1 for the WB operation
+          EN1 <= '1';
+        end if;
       
         NEXT_STATE <= stage1;
       when others => NEXT_STATE <= reset;
