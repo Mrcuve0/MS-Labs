@@ -1,6 +1,6 @@
 ghdl -a myTypes.vhd
-ghdl -a CU_Hardwired.vhd
-ghdl -a CU_Test.vhd
+ghdl -a ControlUnit_Hardwired.vhd
+ghdl -a CU_HW_Test.vhd
 
 ghdl -e CU_HW
 ghdl -e CU_Test

@@ -8,26 +8,40 @@ use work.myTypes.all;
 
 entity cu_up is
   port (
-    --OUTPUT SIGNALS
-    EN1    : out std_logic;
-    RF1    : out std_logic;
-    RF2    : out std_logic;
-    WF1    : out std_logic;
-    EN2    : out std_logic;
-    S1     : out std_logic;
-    S2     : out std_logic;
-    ALU1   : out std_logic;
-    ALU2   : out std_logic;
-    EN3    : out std_logic;
-    RM     : out std_logic;
-    WM     : out std_logic;
-    S3     : out std_logic;
-    --INPUT SIGNALS
+    -- Control Signals going to the datapath
+    
+    -- FIRST PIPE STAGE OUTPUTS
+    EN1    : out std_logic;               -- enables the register file and the pipeline registers
+    RF1    : out std_logic;               -- enables the read port 1 of the register file
+    RF2    : out std_logic;               -- enables the read port 2 of the register file
+    WF1    : out std_logic;               -- enables the write port of the register file
+    -- SECOND PIPE STAGE OUTPUTS
+    EN2    : out std_logic;               -- enables the pipe registers
+    S1     : out std_logic;               -- input selection of the first multiplexer
+    S2     : out std_logic;               -- input selection of the second multiplexer
+    ALU1   : out std_logic;               -- alu control bit
+    ALU2   : out std_logic;               -- alu control bit
+    -- THIRD PIPE STAGE OUTPUTS
+    EN3    : out std_logic;               -- enables the memory and the pipeline registers
+    RM     : out std_logic;               -- enables the read-out of the memory
+    WM     : out std_logic;               -- enables the write-in of the memory
+    S3     : out std_logic;               -- input selection of the multiplexer
+
+    -- Input patterns
+    -- OPCODE determines if RTYPE or ITYPE
     OPCODE : in  std_logic_vector(OP_CODE_SIZE-1 downto 0);
+    
+    -- FUNC determines which mathematical operation 
+    -- must be executed in case of RTYPE
     FUNC   : in  std_logic_vector(FUNC_SIZE-1 downto 0);
-    Clk    : in  std_logic;
-    Rst    : in  std_logic
-    );
+    
+    -- The clock is connected to the registers that will 
+    -- delay the selected control signals
+    Clk    : in  std_logic;     
+
+    -- The reset signal will reset the registers used 
+    -- to delay the selected control signals
+    Rst    : in  std_logic);
 end entity cu_up;
 
 
@@ -35,13 +49,13 @@ architecture cu_up_beh of cu_up is
 
   signal cw : std_logic_vector(CW_SIZE - 1 downto 0);  --control word with the output signals
 
-  signal uPC    : integer range 0 to 78;               --number of raws of the memory
+  signal uPC    : integer range 0 to 78;               --number of rows of the memory
   signal ICount : integer range 0 to INSTRUCTIONS_EXECUTION_CYCLES;  --stages
 
   type mem_array is array (integer range 0 to MICROCODE_MEM_SIZE - 1) of std_logic_vector(CW_SIZE - 1 downto 0);
-  signal microcode : mem_array := ("0000000000110",  --Itype --0 ADDI1
-                                   "0000010011000",
-                                   "1010000000100",
+  signal microcode : mem_array := ("0000000000110",  --Itype --0 ADDI1 (Stage1)
+                                   "0000010011000",  --Stage2
+                                   "1010000000100",  --Stage3
                                    "0000000000110",  --3 SUBI1
                                    "0000010111000",
                                    "1010000000100",
@@ -122,8 +136,10 @@ architecture cu_up_beh of cu_up is
 
 begin  -- architecture cu_up_beh
 
+  -- The Control Word is read from the memory (row pointed by the microProgramCounter)
   cw <= microcode(uPC);
 
+  -- The control signals are assigned accordingly to the actual Control Word
   rf1  <= cw(0);
   rf2  <= cw(1);
   en1  <= cw(2);
@@ -138,6 +154,11 @@ begin  -- architecture cu_up_beh
   s3   <= cw(11);
   wf1  <= cw(12);
 
+  -- This process assigns the correct value to the microProgramCounter (uPC) accordingly
+  -- to the instruction fetched (FUNC and OPCODE) and the current stage we are in (ICount)
+  -- If ICount = 1 => stage1  (uPC)
+  -- If ICount = 2 => stage2  (uPC + 1)
+  -- If ICount = 3 => stage3  (UPC + 2)
   uPC_Proc : process (Clk, Rst)
   begin  -- process uPC_Proc
     if Rst = '0' then                   -- asynchronous reset (active low)
@@ -153,31 +174,27 @@ begin  -- architecture cu_up_beh
         
         uPC    <= conv_integer(FUNC & OPCODE);  -- the addresses are composed
         ICount <= ICount + 1;                   -- by FUNC & OPCODE to reduce
-                                                -- the microcode memory so for
-                                                -- Itype instructions are used
-                                                -- the first 42 raws of the
+                                                -- the microcode memory.
+                                                -- Itype instructions require
+                                                -- the first 42 r0ws of the
                                                 -- memory with FUNC equal to 0
-                                                -- and OPCODE 0-39. For
-                                                -- RTYPE instructions are used
-                                                -- the memory raws from 64 to
-                                                -- 78. For RTYPE FUNC is
+                                                -- and OPCODE 0-39.
+                                                -- RTYPE instructions require
+                                                -- the memory rows going from 64 to
+                                                -- 78. For RTYPE instructions, FUNC is
                                                 -- equal to 1 and OPCODE 0-12.
         
-      elsif (ICount < INSTRUCTIONS_EXECUTION_CYCLES) then  -- for the other
-         uPC <= uPC + 1;                                   -- stages uPC is
-         ICount <= ICount + 1;                             -- incremented of 1
-                                                           -- and also the ICount
-       
-       
-      else                                      -- if ICount is bigger than the total
-      ICount <= 1;                              -- number of stages it means that there
-      uPC    <= conv_integer(FUNC & OPCODE);    -- is another inbstruction and iCount
-                                                -- returns to 1 at the
-                                                -- first stage and so
+      elsif (ICount < INSTRUCTIONS_EXECUTION_CYCLES) then  -- For the other
+         uPC <= uPC + 1;                                   -- stages (stage2 and stage3), uPC is
+         ICount <= ICount + 1;                             -- incremented by 1
+                                                           -- same for ICount 
+      else                                      
+      ICount <= 1;                              
+      uPC    <= conv_integer(FUNC & OPCODE);    -- If we reached the max number of stages, Icount
+                                                -- returns to 1 (stage1)
+                                                -- and so
                                                 -- the uPC is setted with the address
                                                 -- of the following instruction
-         
-        
       end if;
     end if;
   end process uPC_Proc;
