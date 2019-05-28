@@ -1,0 +1,67 @@
+[*]
+[*] GTKWave Analyzer v3.3.94 (w)1999-2018 BSI
+[*] Mon May 27 09:09:25 2019
+[*]
+[dumpfile] "/home/sem/OneDrive/Politecnico di Torino/01 - Magistrale/Anno 1 -- 2018-2019/Secondo Semestre/Microelectronic System/2018-2019/Labs/gr15_lab04/ex4.4/sim/CU_UP.ghw"
+[dumpfile_mtime] "Mon May 27 09:06:34 2019"
+[dumpfile_size] 6724
+[savefile] "/home/sem/OneDrive/Politecnico di Torino/01 - Magistrale/Anno 1 -- 2018-2019/Secondo Semestre/Microelectronic System/2018-2019/Labs/gr15_lab04/ex4.4/sim/GTKWSavefile.gtkw"
+[timestart] 0
+[size] 1920 1027
+[pos] -1 -1
+*-23.251436 11440000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.cu_test.
+[sst_width] 197
+[signals_width] 327
+[sst_expanded] 1
+[sst_vpaned_height] 307
+@28
+top.cu_test.dut.clk
+top.cu_test.dut.rst
+[color] 6
+#{top.cu_test.dut.opcode[5:0]} top.cu_test.dut.opcode[5] top.cu_test.dut.opcode[4] top.cu_test.dut.opcode[3] top.cu_test.dut.opcode[2] top.cu_test.dut.opcode[1] top.cu_test.dut.opcode[0]
+[color] 6
+#{top.cu_test.dut.func[10:0]} top.cu_test.dut.func[10] top.cu_test.dut.func[9] top.cu_test.dut.func[8] top.cu_test.dut.func[7] top.cu_test.dut.func[6] top.cu_test.dut.func[5] top.cu_test.dut.func[4] top.cu_test.dut.func[3] top.cu_test.dut.func[2] top.cu_test.dut.func[1] top.cu_test.dut.func[0]
+@420
+[color] 2
+top.cu_test.currentinstruction
+@200
+-
+@420
+top.cu_test.dut.upc
+top.cu_test.dut.icount
+@200
+-
+@28
+[color] 3
+#{top.cu_test.dut.cw[12:0]} top.cu_test.dut.cw[12] top.cu_test.dut.cw[11] top.cu_test.dut.cw[10] top.cu_test.dut.cw[9] top.cu_test.dut.cw[8] top.cu_test.dut.cw[7] top.cu_test.dut.cw[6] top.cu_test.dut.cw[5] top.cu_test.dut.cw[4] top.cu_test.dut.cw[3] top.cu_test.dut.cw[2] top.cu_test.dut.cw[1] top.cu_test.dut.cw[0]
+@200
+-
+@28
+top.cu_test.dut.rf1
+top.cu_test.dut.rf2
+[color] 2
+top.cu_test.dut.en1
+@200
+-
+@28
+top.cu_test.dut.s1
+top.cu_test.dut.s2
+top.cu_test.dut.alu1
+top.cu_test.dut.alu2
+[color] 2
+top.cu_test.dut.en2
+@200
+-
+@28
+top.cu_test.dut.rm
+top.cu_test.dut.wm
+[color] 2
+top.cu_test.dut.en3
+top.cu_test.dut.s3
+top.cu_test.dut.wf1
+@200
+-
+[pattern_trace] 1
+[pattern_trace] 0

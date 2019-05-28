@@ -38,9 +38,9 @@ architecture TEST of cu_test is
 
     signal cu_opcode_i: std_logic_vector(OP_CODE_SIZE - 1 downto 0) := (others => '0');
     signal cu_func_i: std_logic_vector(FUNC_SIZE - 1 downto 0) := (others => '0');
-    type stateType is (ADD, SUB, ANDx, ORx, NOP, ADDI1, SUBI1, ANDI1, ORI1, ADDI2, SUBI2, ANDI2, ORI2, MOV, SREG1, SREG2, SMEM2, LMEM1, LMEM2);
-    
-    signal currentState : stateType;
+
+    type stateType is (XXX, ADDx, SUBx, ANDx, ORx, NOPx, ADDI1, SUBI1, ANDI1, ORI1, ADDI2, SUBI2, ANDI2, ORI2, MOV, SREG1, SREG2, SMEM2, LMEM1, LMEM2);
+    signal currentInstruction : stateType := XXX;
 
     signal EN1_i, RF1_i, RF2_i, WF1_i, EN2_i, S1_i, S2_i, ALU1_i, ALU2_i, EN3_i, RM_i, WM_i, S3_i: std_logic := '0';
 
@@ -84,24 +84,30 @@ begin
         cu_func_i <= RTYPE; 
         
         -- ADD RS1,RS2,RD -> Rtype
-        currentState <= ADD;
+        currentInstruction <= ADDx;
         cu_opcode_i <= RTYPE_ADD_addr;
         wait for 6 ns;
 
         -- SUB R1, R2, R3
-        currentState <= SUB;
+        currentInstruction <= SUBx;
         cu_opcode_i <= RTYPE_SUB_addr;
         wait for 6 ns;
 
         -- AND R1, R2, R3
-        currentState <= ANDx;
+        currentInstruction <= ANDx;
         cu_opcode_i <= RTYPE_AND_addr;
         wait for 6 ns;
 
         -- OR R1, R2, R3
-        currentState <= ORx;
+        currentInstruction <= ORx;
         cu_opcode_i <= RTYPE_OR_addr;
         wait for 6 ns;
+
+        -- OR R1, R2, R3
+        currentInstruction <= NOPx;
+        cu_opcode_i <= NOP_addr;
+        wait for 6 ns;
+
         -----------------------------------------------------------------------
         -- ITYPE instructions 
         -----------------------------------------------------------------------
@@ -109,72 +115,72 @@ begin
         cu_func_i <= ITYPE;
         
         -- ADDI1 R1, R2, INP1
-        currentState <= ADDI1;
+        currentInstruction <= ADDI1;
         cu_opcode_i <= ITYPE_ADDI1_addr;
         wait for 6 ns;
 
         -- SUBI1 R1, R2, INP1
-        currentState <= SUBI1;
+        currentInstruction <= SUBI1;
         cu_opcode_i <= ITYPE_SUBI1_addr;
         wait for 6 ns;
 
         -- ANDI1 R1, R2, INP1
-        currentState <= ANDI1;
+        currentInstruction <= ANDI1;
         cu_opcode_i <= ITYPE_ANDI1_addr;
         wait for 6 ns;
 
         -- ORI1 R1, R2, INP1
-        currentState <= ORI1;
+        currentInstruction <= ORI1;
         cu_opcode_i <= ITYPE_ORI1_addr;
         wait for 6 ns;
 
         -- ADDI2 R1, R2, INP2
-        currentState <= ADDI2;
+        currentInstruction <= ADDI2;
         cu_opcode_i <= ITYPE_ADDI2_addr;
         wait for 6 ns;
 
         -- SUBI2 R1, R2, INP2
-        currentState <= SUBI1;
+        currentInstruction <= SUBI1;
         cu_opcode_i <= ITYPE_SUBI2_addr;
         wait for 6 ns;
 
         -- ANDI2 R1, R2, INP2
-        currentState <= ANDI2;
+        currentInstruction <= ANDI2;
         cu_opcode_i <= ITYPE_ANDI2_addr;
         wait for 6 ns;
 
         -- ORI2 R1, R2, INP2
-        currentState <= ORI2;
+        currentInstruction <= ORI2;
         cu_opcode_i <= ITYPE_ORI2_addr;
         wait for 6 ns;
 
         -- MOV R1, R2
-        currentState <= MOV;
+        currentInstruction <= MOV;
         cu_opcode_i <= ITYPE_MOV_addr;
         wait for 6 ns;
 
         -- SREG1 R2, INP1
-        currentState <= SREG1;
+        currentInstruction <= SREG1;
         cu_opcode_i <= ITYPE_SREG1_addr;
         wait for 6 ns;
 
         -- SREG2 R2, INP2
-        currentState <= SREG2;
+        currentInstruction <= SREG2;
         cu_opcode_i <= ITYPE_SREG2_addr;
         wait for 6 ns;
 
         -- SMEM2 R1, R2, INP2
-        currentState <= SMEM2;
+        currentInstruction <= SMEM2;
         cu_opcode_i <= ITYPE_SMEM2_addr;
         wait for 6 ns;
 
         -- LMEM1 R1, R2, INP1
-        currentState <= LMEM1;
+        currentInstruction <= LMEM1;
         cu_opcode_i <= ITYPE_LMEM1_addr;
         wait for 6 ns;
 
         -- LMEM2 R1, R2, INP2
-        currentState <= LMEM2;
+        currentInstruction <= LMEM2;
         cu_opcode_i <= ITYPE_LMEM2_addr;
         wait for 6 ns;
 

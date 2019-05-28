@@ -87,7 +87,7 @@ begin
   end process P_CW;
 
 
-  P_OUTPUTS : process(CURRENT_STATE, cw)
+  P_OUTPUTS : process(CURRENT_STATE)
   begin
     case CURRENT_STATE is
       when reset =>

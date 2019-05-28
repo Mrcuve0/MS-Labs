@@ -36,8 +36,8 @@ architecture TEST of cu_test is
     signal Clock: std_logic := '0';
     signal Reset: std_logic := '1';
 
-    signal cu_opcode_i: std_logic_vector(OP_CODE_SIZE - 1 downto 0) := (others => '0');
-    signal cu_func_i: std_logic_vector(FUNC_SIZE - 1 downto 0) := (others => '0');
+    signal cu_opcode_i: std_logic_vector(OP_CODE_SIZE - 1 downto 0) := RTYPE;
+    signal cu_func_i: std_logic_vector(FUNC_SIZE - 1 downto 0) := RTYPE_ADD;
 
     -- Signal used to easily determine, while reading the waveforms, what part of the testbench is being executed
     type instructionType is (ADDx, SUBx, ANDx, ORx, NOPx, ADDI1, SUBI1, ANDI1, ORI1, ADDI2, SUBI2, ANDI2, ORI2, MOV, SREG1, SREG2, SMEM2, LMEM1, LMEM2);
