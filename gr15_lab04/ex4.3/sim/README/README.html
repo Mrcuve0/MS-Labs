@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>How to read waveforms and testbench</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="how-to-read-waveforms-and-testbench">How to read waveforms and testbench</h1>
+<h3 id="waveforms"><strong>Waveforms</strong></h3>
+<p>In this folder we provide 3 different waveforms files:</p>
+<ul>
+<li>The &quot;OVERALL&quot; one contains the entire time of simulation (going from 0 ns to 140 ns)</li>
+<li>The &quot;PART1&quot; file contains the first 70 ns of simulation</li>
+<li>The &quot;PART2&quot; file contains the last 70 ns of simulation</li>
+</ul>
+<p>For the entire simulation time we test all the different instructions in a sequential manner. Since the entire structure is NOT pipelined, every 3 clock cycles a new instruction is sent to the inputs of the CU.</p>
+<h4 id="comments">Comments</h4>
+<p>We, as designers, suppose that the environment around our Control Unit and Datapath will not send any meaningful data to the inputs of the datapath if the Reset signal is active.</p>
+<p><img src="file:////home/sem/Desktop/MS/2018-2019/Labs/gr15_lab04/ex4.3/sim/README/CW_to_signal_mapping.png" alt="alt text"></p>
+<p>The designed FSM is a Mealy one (since the outputs depend on the value of both the state and the input values). However, since the proces <code>P_OUTPUTS</code> is only sensitive to the <code>currentState</code> signal (and not on the <code>CW</code> signal), the obtained behavior does not present the typical glitches we could have on a pure Mealy machine (achieved by adding the <code>CW</code> signal to the <code>P_OUTPUTS</code> process sensitivity list).
+This is like putting a register after a combinational component (the <code>P_CW</code> process in this case) in order to synchronize its outputs to the system clock.</p>
+<p>More info on the FSM can be found in the comments embedded in the code and in the <code>FSM Diagram.pdf</code> file.</p>
+<h3 id="testbench"><strong>Testbench</strong></h3>
+<p>The testbench is pretty basic: we test all the possible instructions one after the other.
+We firstly test RTYPE instructions (and so we provide both fUNC and OPCODE signals to the input of the DUT)
+and finally we test all the ITYPE instructions (By providing only the OPCODE input signal).</p>
+<p>At each instruction tested we also set the <em>currentInstruction</em> signal, in order to easily understand, while reading the waveforms, which instruction's <code>OPCODE</code> and <code>FUNC</code> we are sending as input to the Hardwired CU.</p>
+
+    </body>
+    </html>
