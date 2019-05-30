@@ -1,0 +1,14 @@
+ Performed by eldo 
+
+  RNAND        =  8.9303E-11   
+  FNAND        =  7.4319E-11   
+  NANDDELAYHL  =  4.8993E-11   
+  NANDDELAYLH  =  5.6490E-11   
+
+ Performed by us
+  
+  RNAND		   = 89e-12
+  FNAND		   = 75e-12
+  NANDDELAYHL  = 50e-12
+  NANDDELAYLH  = 56e-12
+
