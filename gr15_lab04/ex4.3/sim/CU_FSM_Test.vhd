@@ -10,31 +10,35 @@ architecture TEST of cu_test is
   
   component cu_fsm is
     port (
-      Clk     : in  std_logic;
-      Rst     : in  std_logic;
-      EN1     : out std_logic;
-      RF1     : out std_logic;
-      RF2     : out std_logic;
-      WF1     : out std_logic;
-      EN2     : out std_logic;
-      S1      : out std_logic;
-      S2      : out std_logic;
-      ALU1    : out std_logic;
-      ALU2    : out std_logic;
-      EN3     : out std_logic;
-      RM      : out std_logic;
-      WM      : out std_logic;
-      S3      : out std_logic;
-      FUNC    : in  std_logic_vector(FUNC_SIZE-1 downto 0);
-      OPCODE : in  std_logic_vector(OP_CODE_SIZE-1 downto 0));
+      -- FIRST PIPE STAGE OUTPUTS
+      EN1    : out std_logic;               -- enables the register file and the pipeline registers
+      RF1    : out std_logic;               -- enables the read port 1 of the register file
+      RF2    : out std_logic;               -- enables the read port 2 of the register file
+      WF1    : out std_logic;               -- enables the write port of the register file
+      -- SECOND PIPE STAGE OUTPUTS
+      EN2    : out std_logic;               -- enables the pipe registers
+      S1     : out std_logic;               -- input selection of the first multiplexer
+      S2     : out std_logic;               -- input selection of the second multiplexer
+      ALU1   : out std_logic;               -- alu control bit
+      ALU2   : out std_logic;               -- alu control bit
+      -- THIRD PIPE STAGE OUTPUTS
+      EN3    : out std_logic;               -- enables the memory and the pipeline registers
+      RM     : out std_logic;               -- enables the read-out of the memory
+      WM     : out std_logic;               -- enables the write-in of the memory
+      S3     : out std_logic;               -- input selection of the multiplexer
+      -- INPUTS
+      OPCODE : in  std_logic_vector(OP_CODE_SIZE - 1 downto 0);
+      FUNC   : in  std_logic_vector(FUNC_SIZE - 1 downto 0);              
+      Clk : in std_logic;
+      Rst : in std_logic);                  -- Active Low
   end component cu_fsm;
 
   
     signal Clock: std_logic := '0';
     signal Reset: std_logic := '1';
 
-    signal cu_opcode_i: std_logic_vector(OP_CODE_SIZE - 1 downto 0) := (others => '0');
-    signal cu_func_i: std_logic_vector(FUNC_SIZE - 1 downto 0) := (others => '0');
+    signal cu_opcode_i: std_logic_vector(OP_CODE_SIZE - 1 downto 0) := RTYPE;
+    signal cu_func_i: std_logic_vector(FUNC_SIZE - 1 downto 0) := RTYPE_ADD;
 
     -- Signal used to easily determine, while reading the waveforms, what part of the testbench is being executed
     type instructionType is (ADDx, SUBx, ANDx, ORx, NOPx, ADDI1, SUBI1, ANDI1, ORI1, ADDI2, SUBI2, ANDI2, ORI2, MOV, SREG1,SREG2, SMEM2, LMEM1, LMEM2);
@@ -43,8 +47,8 @@ architecture TEST of cu_test is
     signal EN1_i, RF1_i, RF2_i, WF1_i, EN2_i, S1_i, S2_i, ALU1_i, ALU2_i, EN3_i, RM_i, WM_i, S3_i: std_logic := '0';
 
 begin
-
-        -- instance of DLX
+      
+       -- Instance of the FSM based Control Unit
        dut: cu_fsm
        port map (
                  -- OUTPUTS
@@ -72,10 +76,17 @@ begin
 	      Reset <= '0', '1' after 6 ns;
 
 
+      -- In this process we iterate on all the possible isntructions
+      -- We provide to the Control Unit the OPCODE and FUNC corresponding 
+      -- to the instruction indicated in the  "currentInstruction" signal.
+      -- Every 3 clock cycles a new instruction is given at the inputs 
+      -- of the Control Unit (NOT pipelined).
+      -- Thus, after 3 clock cycles only a single instruction will have been executed.
+
         CONTROL: process
         begin
 
-        wait for 7 ns;
+        wait for 6.5 ns;
 
         -- ADD RS1,RS2,RD -> Rtype
         currentInstruction <= ADDx;

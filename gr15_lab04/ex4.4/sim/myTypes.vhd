@@ -8,13 +8,15 @@ package myTypes is
   constant FUNC_SIZE    : integer := 11;  -- FUNC field size
   constant CW_SIZE      : integer := 13;      -- CW size
   constant INSTRUCTIONS_EXECUTION_CYCLES : integer := 3;  --Instructions Execution
-  constant MICROCODE_MEM_SIZE : integer := 79;  --raws in memory
+  constant MICROCODE_MEM_SIZE : integer := 79;  --rows in memory
 
 -- I-Type addresses instruction -> FUNC field
   constant ITYPE : std_logic_vector(FUNC_SIZE - 1 downto 0) := "00000000000";
+
 -- R-Type addresses instruction -> FUNC field
-  constant RTYPE : std_logic_vector(FUNC_SIZE - 1 downto 0)  := "00000000001"; -- for ADD, SUB, AND, OR register-to-register operation
+  constant RTYPE : std_logic_vector(FUNC_SIZE - 1 downto 0)  := "00000000001"; -- ADD,SUB,AND,OR,NOP
   
+
 -- R-Type addresses instruction -> OPCODE field
   constant RTYPE_ADD_addr : std_logic_vector(OP_CODE_SIZE-1 downto 0) := "000000";  -- ADD RS1,RS2,RD
   constant RTYPE_SUB_addr : std_logic_vector(OP_CODE_SIZE-1 downto 0) := "000011";  -- SUB RS1,RS2,RD
@@ -22,7 +24,6 @@ package myTypes is
   constant RTYPE_OR_addr  : std_logic_vector(OP_CODE_SIZE-1 downto 0) := "001001";  -- OR RS1, RS2, RD
 
   constant NOP_addr : std_logic_vector(OP_CODE_SIZE-1 downto 0) := "001100"; 
-
 
 
 -- I-Type addresses instruction -> OPCODE field
@@ -41,10 +42,7 @@ package myTypes is
   constant ITYPE_SREG2_addr : std_logic_vector(OP_CODE_SIZE-1 downto 0) := "011110";  --SREG2
   constant ITYPE_SMEM2_addr : std_logic_vector(OP_CODE_SIZE-1 downto 0) := "100001";  --SMEM2
   constant ITYPE_LMEM1_addr : std_logic_vector(OP_CODE_SIZE-1 downto 0) := "100100";  --LMEM1
-  constant ITYPE_LMEM2_addr : std_logic_vector(OP_CODE_SIZE-1 downto 0) := "100111";  --LMEM2
-
-
-  
+  constant ITYPE_LMEM2_addr : std_logic_vector(OP_CODE_SIZE-1 downto 0) := "100111";  --LMEM2  
   
 end myTypes;
 

@@ -120,6 +120,7 @@ begin  -- architecture beh
 
   --------------------------------------------------------------------------------
   -- Process that determines the behavior of the Look-Up-table
+  -- The CW values are assigned following the CW.pdf table
   ---------------------------------------------------------------------------------
   process(OPCODE, FUNC)
   begin
@@ -171,7 +172,7 @@ begin  -- architecture beh
   end process;
 
   --------------------------------------------------------------------------------
-  -- Process that defines the 2 registers used for the control signals propagation
+  -- Process that resets the 2 registers used for the control signals propagation
   ---------------------------------------------------------------------------------
   process(clk, rst)
   begin

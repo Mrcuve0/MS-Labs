@@ -36,8 +36,8 @@ architecture TEST of cu_test is
     signal Clock: std_logic := '0';
     signal Reset: std_logic := '1';
 
-    signal cu_opcode_i: std_logic_vector(OP_CODE_SIZE - 1 downto 0) := (others => '0');
-    signal cu_func_i: std_logic_vector(FUNC_SIZE - 1 downto 0) := (others => '0');
+    signal cu_opcode_i: std_logic_vector(OP_CODE_SIZE - 1 downto 0) := RTYPE;
+    signal cu_func_i: std_logic_vector(FUNC_SIZE - 1 downto 0) := RTYPE_ADD;
 
     -- Signal used to easily determine, while reading the waveforms, what part of the testbench is being executed
     type instructionType is (ADDx, SUBx, ANDx, ORx, NOPx, ADDI1, SUBI1, ANDI1, ORI1, ADDI2, SUBI2, ANDI2, ORI2, MOV, SREG1, SREG2, SMEM2, LMEM1, LMEM2);
@@ -72,6 +72,13 @@ begin
         Clock <= not Clock after 1 ns;
         Reset <= '0', '1' after 6 ns;
 
+
+        -- In this process we iterate on all the possible isntructions
+        -- We provide to the Control Unit the OPCODE and FUNC corresponding 
+        -- to the instruction indicated in the  "currentInstruction" signal.
+        -- Every new clock cycle a new instruction is given at the inputs 
+        -- of the Control Unit (pipelined).
+        -- Thus, after 3 clock cycles 3 different instruction will have been executed.
         CONTROL: process
         begin
                 wait for 5 ns;
