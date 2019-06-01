@@ -2,7 +2,7 @@
 
 /software/mentor/ams_2008.1_64/aol/bin/eldo_64.exe -i nandHScharTran.sp 
 
-1*******30-May-19 *******  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  *******13:20:09******
+1******* 1-Jun-19 *******  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  *******13:42:52******
 
 0* Characterizing a simple nand with load variation
 
@@ -6090,7 +6090,7 @@ run number 1 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE: 30-May-2019 13:20:10
+*** DATE:  1-Jun-2019 13:42:52
 
 *** TITLE: * Characterizing a simple nand with load variation
 
@@ -6099,7 +6099,7 @@ TEMPERATURE : 27.000000 degrees C
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:10*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:52*****************
 
 0* Characterizing a simple nand with load variation
 0****                 OPTION SUMMARY                                        TEMPERATURE =   27.000 DEG C
@@ -6171,14 +6171,14 @@ ULOGIC         = 0
 
 
 
-***> DC CPU TIME 0s 000ms <***
+***> DC CPU TIME 0s 010ms <***
 
 DC:5 iterations FOR DC analysis
 
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:10*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:52*****************
 
 0* Characterizing a simple nand with load variation
 0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
@@ -6224,7 +6224,7 @@ Simulation progress           : 100%
 Elapsed CPU time              : 0h 0mn 0s 40
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:10*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:52*****************
 
 0* Characterizing a simple nand with load variation
 0****                 EXTRACT INFORMATION                                   
@@ -6261,7 +6261,7 @@ run number 2 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE: 30-May-2019 13:20:13
+*** DATE:  1-Jun-2019 13:42:54
 
 *** TITLE: * Characterizing a simple nand with load variation
 
@@ -6275,7 +6275,7 @@ DC:1 iterations FOR DC analysis
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:13*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:54*****************
 
 0* Characterizing a simple nand with load variation
 0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
@@ -6309,19 +6309,19 @@ Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
 
 ................................................
 Simulation progress           : 25%
-Elapsed CPU time              : 0h 0mn 0s 40
+Elapsed CPU time              : 0h 0mn 0s 30
 ................................................
 Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 40
+Elapsed CPU time              : 0h 0mn 0s 30
 ................................................
 Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 80
+Elapsed CPU time              : 0h 0mn 0s 70
 ................................................
 Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 80
+Elapsed CPU time              : 0h 0mn 0s 70
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:13*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:54*****************
 
 0* Characterizing a simple nand with load variation
 0****                 EXTRACT INFORMATION                                   
@@ -6344,7 +6344,7 @@ Elapsed CPU time              : 0h 0mn 0s 80
   MAXILOADR    =  1.0233E-06     at=  3.0968E-09  from=  3.0000E-09     to=  5.0000E-09
 
 
-***>CPU TIME 0s 080ms <***
+***>CPU TIME 0s 070ms <***
 
 
 
@@ -6358,21 +6358,21 @@ run number 3 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE: 30-May-2019 13:20:13
+*** DATE:  1-Jun-2019 13:42:55
 
 *** TITLE: * Characterizing a simple nand with load variation
 
 TEMPERATURE : 27.000000 degrees C
 
 
-***> DC CPU TIME 0s 010ms <***
+***> DC CPU TIME 0s 000ms <***
 
 DC:1 iterations FOR DC analysis
 
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:13*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:55*****************
 
 0* Characterizing a simple nand with load variation
 0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
@@ -6409,7 +6409,7 @@ Simulation progress           : 25%
 Elapsed CPU time              : 0h 0mn 0s 50
 ................................................
 Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 60
+Elapsed CPU time              : 0h 0mn 0s 50
 ................................................
 Simulation progress           : 75%
 Elapsed CPU time              : 0h 0mn 0s 110
@@ -6418,7 +6418,7 @@ Simulation progress           : 100%
 Elapsed CPU time              : 0h 0mn 0s 110
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:13*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:55*****************
 
 0* Characterizing a simple nand with load variation
 0****                 EXTRACT INFORMATION                                   
@@ -6455,7 +6455,7 @@ run number 4 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE: 30-May-2019 13:20:13
+*** DATE:  1-Jun-2019 13:42:55
 
 *** TITLE: * Characterizing a simple nand with load variation
 
@@ -6469,7 +6469,7 @@ DC:1 iterations FOR DC analysis
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:13*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:55*****************
 
 0* Characterizing a simple nand with load variation
 0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
@@ -6515,7 +6515,7 @@ Simulation progress           : 100%
 Elapsed CPU time              : 0h 0mn 0s 130
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:13*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:55*****************
 
 0* Characterizing a simple nand with load variation
 0****                 EXTRACT INFORMATION                                   
@@ -6552,21 +6552,21 @@ run number 5 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE: 30-May-2019 13:20:13
+*** DATE:  1-Jun-2019 13:42:55
 
 *** TITLE: * Characterizing a simple nand with load variation
 
 TEMPERATURE : 27.000000 degrees C
 
 
-***> DC CPU TIME 0s 010ms <***
+***> DC CPU TIME 0s 000ms <***
 
 DC:1 iterations FOR DC analysis
 
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:13*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:55*****************
 
 0* Characterizing a simple nand with load variation
 0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
@@ -6612,7 +6612,7 @@ Simulation progress           : 100%
 Elapsed CPU time              : 0h 0mn 0s 120
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:13*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:55*****************
 
 0* Characterizing a simple nand with load variation
 0****                 EXTRACT INFORMATION                                   
@@ -6634,7 +6634,7 @@ Elapsed CPU time              : 0h 0mn 0s 120
   MAXILOADF    = -2.9292E-07     at=  1.1638E-09  from=  5.0000E-10     to=  3.0000E-09
   MAXILOADR    =  2.7416E-07     at=  3.7163E-09  from=  3.0000E-09     to=  5.0000E-09
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:13*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:42:55*****************
 
 0* Characterizing a simple nand with load variation
 0****                 ACCOUNTING INFORMATION                                TEMPERATURE =   27.000 DEG C
@@ -6679,14 +6679,14 @@ Elapsed CPU time              : 0h 0mn 0s 120
 ***>CPU TIME 0s 120ms <***
 
 
-***>GLOBAL CPU TIME 0s 720ms <***
+***>GLOBAL CPU TIME 0s 680ms <***
 
 
-***>GLOBAL ELAPSED TIME 4s <***
+***>GLOBAL ELAPSED TIME 3s <***
 
 
-  Job started at 30-May-2019 13:20:09
-  Job end at     30-May-2019 13:20:13
+  Job started at  1-Jun-2019 13:42:52
+  Job end at      1-Jun-2019 13:42:55
 
   Run on localhost.localdomain (Linux 3.10.0-957.5.1.el7.x86_64)
 
