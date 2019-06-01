@@ -29,7 +29,7 @@ vdummy_vdd vdd_int vdd dc 0
 *****************************************************
 * defining inputs
 vina inA 0 dc 1.2
-vinb inB 0 pwl 0 0 1n 0 '1n+t_tran/0.8' 1.2 2n 1.2 '2n+t_tran/0.8' 0 
+vinb inB 0 pwl 0 0 0.5n 0 '0.5n+t_tran/0.8' 1.2 3n 1.2 '3n+t_tran/0.8' 0 
 v_vdd vdd 0 DC alim
 .param alim=1.2
 
@@ -42,11 +42,11 @@ v_vdd vdd 0 DC alim
 * defining t_tran variations
 .data input_net_transition
 t_tran
-0.005f
-0.05f
-0.5f
-5.0f
-50.0f
+0.0048n
+0.1088n
+0.2608n
+0.5248n
+1n
 .enddata
 
 **********************************************************
@@ -57,24 +57,25 @@ t_tran
 +TARG v(out) VAL='alim*0.1' FALL=1
 
 *    Measuring delay
-.measure tran nanddelay TRIG V(inB) VAL='alim*0.5' RISE=1 
+.measure tran nanddelayHL TRIG V(inB) VAL='alim*0.5' RISE=1 
 + TARG V(out) VAL='alim*0.5' FALL=1
 
 ** ADD THE instruction for the fall delay!!!
-
+.measure tran nanddelayLH TRIG V(inB) VAL='alim*0.5' FALL=1
++ TARG V(out) VAL='alim*0.5' RISE=1
 
 * Measuring peak current
-.measure tran maxIgndF MAX I(vdummy_gnd) FROM=1n TO 2ns 
-.measure tran maxIvddR MIN I(vdummy_vdd) FROM=2n TO 3ns 
-.measure tran maxIgndR MAX I(vdummy_gnd) FROM=2n TO 3ns 
-.measure tran maxIvddF MIN I(vdummy_vdd) FROM=1n TO 2ns 
-.measure tran maxIloadF MIN I(vdummy_c) FROM=1n TO 2ns 
-.measure tran maxIloadR MAX I(vdummy_c) FROM=2n TO 3ns 
+.measure tran maxIgndF MAX I(vdummy_gnd) FROM=0.5n TO 3ns 
+.measure tran maxIvddR MIN I(vdummy_vdd) FROM=3n TO 5ns 
+.measure tran maxIgndR MAX I(vdummy_gnd) FROM=3n TO 5ns 
+.measure tran maxIvddF MIN I(vdummy_vdd) FROM=0.5n TO 3ns 
+.measure tran maxIloadF MIN I(vdummy_c) FROM=0.5n TO 3ns 
+.measure tran maxIloadR MAX I(vdummy_c) FROM=3n TO 5ns 
 
 
 **********************************************************
 * defining the simulation step and duration  
-.tran 1p 3n sweep data=vectorload
+.tran 1p 5n sweep data=input_net_transition
 
 * instruction necessary for creating output data
 * to be processed by a waveform viewer 

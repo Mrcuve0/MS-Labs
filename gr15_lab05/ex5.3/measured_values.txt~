@@ -1,0 +1,72 @@
+*************************************************
+value of parameter T_TRAN is 4.800000E-12
+*************************************************
+  RNAND        =  1.6917E-11   targ=  3.0261E-09     trig=  3.0091E-09
+  FNAND        =  1.4226E-11   targ=  5.2293E-10     trig=  5.0870E-10
+  NANDDELAYHL  =  1.0486E-11   targ=  5.1349E-10     trig=  5.0300E-10
+  NANDDELAYLH  =  1.1520E-11   targ=  3.0145E-09     trig=  3.0030E-09
+  MAXIGNDF     =  8.2883E-09     at=  1.1508E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXIVDDR     = -8.2876E-09     at=  2.9447E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIGNDR     =  8.2876E-09     at=  2.9447E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIVDDF     = -8.2878E-09     at=  1.1508E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADF    = -7.1703E-15     at=  1.1508E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADR    = -1.6430E-18     at=  2.9447E-09  from=  2.0000E-09     to=  3.0000E-09
+
+
+*************************************************
+value of parameter T_TRAN is 1.088000E-10
+*************************************************
+  RNAND        =  3.8548E-11   targ=  3.1116E-09     trig=  3.0731E-09
+  FNAND        =  3.6956E-11   targ=  6.0141E-10     trig=  5.6445E-10
+  NANDDELAYHL  =  1.8417E-11   targ=  5.8642E-10     trig=  5.6800E-10
+  NANDDELAYLH  =  2.5686E-11   targ=  3.0937E-09     trig=  3.0680E-09
+  MAXIGNDF     =  8.2902E-09     at=  1.1126E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXIVDDR     = -8.2876E-09     at=  2.4825E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIGNDR     =  8.2876E-09     at=  2.4825E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIVDDF     = -8.2883E-09     at=  1.1126E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADF    = -2.9198E-14     at=  1.1126E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADR    = -5.8507E-20     at=  3.0000E-09  from=  2.0000E-09     to=  3.0000E-09
+
+*************************************************
+value of parameter T_TRAN is 2.608000E-10
+*************************************************
+  RNAND        =  6.7428E-11   targ=  3.2285E-09     trig=  3.1611E-09
+  FNAND        =  6.8692E-11   targ=  7.0717E-10     trig=  6.3848E-10
+  NANDDELAYHL  =  2.0691E-11   targ=  6.8369E-10     trig=  6.6300E-10
+  NANDDELAYLH  =  3.8121E-11   targ=  3.2011E-09     trig=  3.1630E-09
+  MAXIGNDF     =  8.3670E-09     at=  1.0126E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXIVDDR     = -8.2876E-09     at=  2.2229E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIGNDR     =  8.2876E-09     at=  2.2229E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIVDDF     = -8.3073E-09     at=  1.0126E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADF    = -8.9765E-13     at=  1.0126E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADR    = -5.5384E-19     at=  3.0000E-09  from=  2.0000E-09     to=  3.0000E-09
+
+
+*************************************************
+value of parameter T_TRAN is 5.248000E-10
+*************************************************
+  RNAND        =  1.1468E-10   targ=  3.4276E-09     trig=  3.3129E-09
+  FNAND        =  1.1909E-10   targ=  8.8475E-10     trig=  7.6567E-10
+  NANDDELAYHL  =  1.9663E-11   targ=  8.4766E-10     trig=  8.2800E-10
+  NANDDELAYLH  =  5.4303E-11   targ=  3.3823E-09     trig=  3.3280E-09
+  MAXIGNDF     =  7.3882E-06     at=  1.0078E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXIVDDR     = -8.2877E-09     at=  2.3358E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIGNDR     =  8.2877E-09     at=  2.3358E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIVDDF     = -2.7073E-06     at=  1.0078E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADF    = -1.4791E-08     at=  1.1572E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADR    = -2.0771E-18     at=  3.0000E-09  from=  2.0000E-09     to=  3.0000E-09
+
+
+*************************************************
+value of parameter T_TRAN is 1.000000E-09
+*************************************************
+  RNAND        =  2.0209E-10   targ=  3.7877E-09     trig=  3.5856E-09
+  FNAND        =  2.0557E-10   targ=  1.1995E-09     trig=  9.9396E-10
+  NANDDELAYHL  =  1.2719E-11   targ=  1.1377E-09     trig=  1.1250E-09
+  NANDDELAYLH  =  7.7530E-11   targ=  3.7025E-09     trig=  3.6250E-09
+  MAXIGNDF     =  6.3788E-05     at=  1.1526E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXIVDDR     = -8.2911E-09     at=  2.0859E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIGNDR     =  8.3016E-09     at=  2.0859E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIVDDF     = -5.2861E-05     at=  1.1211E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADF    = -2.9292E-07     at=  1.1638E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADR    = -8.7676E-19     at=  3.0000E-09  from=  2.0000E-09     to=  3.0000E-09
