@@ -113,7 +113,7 @@ run number 1 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE:  1-Jun-2019 13:20:35
+*** DATE:  1-Jun-2019 13:28:15
 
 *** TITLE: * Characterizing a simple nand with load variation
 
@@ -124,7 +124,7 @@ Performing DC analysis...
 
 --> Partitioning circuit...
 
-***> DC CPU TIME 0s 000ms <***
+***> DC CPU TIME 0s 010ms <***
 
 DC:5 iterations FOR DC analysis
 GND_INT      0.0       
@@ -142,7 +142,76 @@ XNAND.NET15  4.0840E-06
 Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
 
 Connecting to JWDB server, please wait...
-connected to wdb server : -jwdbhost localhost.localdomain -jwdbport 46729
+connected to wdb server : -jwdbhost localhost.localdomain -jwdbport 41024
+
+Compute from 0.000000 Nano to 3.000000 Nano
+................................................
+Simulation progress           : 25%
+Elapsed CPU time              : 0h 0mn 0s 0
+................................................
+Simulation progress           : 50%
+Elapsed CPU time              : 0h 0mn 0s 60
+................................................
+Simulation progress           : 75%
+Elapsed CPU time              : 0h 0mn 0s 100
+................................................
+Simulation progress           : 100%
+Elapsed CPU time              : 0h 0mn 0s 110
+
+
+***>Current simulation completed
+
+
+ RNAND        =  6.7226E-11   
+ FNAND        =  6.8511E-11   
+ NANDDELAYHL  =  2.0524E-11   
+ NANDDELAYLH  =  3.7948E-11   
+ MAXIGNDF     =  7.6530E-05   
+ MAXIVDDR     = -7.0006E-05   
+ MAXIGNDR     =  4.5879E-05   
+ MAXIVDDF     = -4.7912E-05   
+ MAXILOADF    = -1.2603E-07   
+ MAXILOADR    =  1.1510E-07   
+
+
+
+***>CPU TIME 0s 110ms <***
+
+
+
+run number 2 out of 5
+   value of parameter LOAD is 5.000000E-17
+
+
+Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
+
+*** DATE:  1-Jun-2019 13:28:16
+
+*** TITLE: * Characterizing a simple nand with load variation
+
+TEMPERATURE : 27.000000 degrees C
+
+
+Performing DC analysis...
+
+--> Partitioning circuit...
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+GND_INT      0.0       
+INA          1.2000E+00
+INB          0.0       
+OUT          1.2000E+00
+OUTBIS       1.2000E+00
+VDD          1.2000E+00
+VDD_INT      1.2000E+00
+XNAND.NET15  4.0840E-06
+
+   TOTAL POWER DISSIPATION:  6.7908E-09 WATTS
+
+
+Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
 
 Compute from 0.000000 Nano to 3.000000 Nano
 ................................................
@@ -162,78 +231,9 @@ Elapsed CPU time              : 0h 0mn 0s 100
 ***>Current simulation completed
 
 
- RNAND        =  6.7226E-11   
- FNAND        =  6.8511E-11   
- NANDDELAY    =  2.0524E-11   
- NANDDELAYLH  =  3.7948E-11   
- MAXIGNDF     =  7.6530E-05   
- MAXIVDDR     = -7.0006E-05   
- MAXIGNDR     =  4.5879E-05   
- MAXIVDDF     = -4.7912E-05   
- MAXILOADF    = -1.2603E-07   
- MAXILOADR    =  1.1510E-07   
-
-
-
-***>CPU TIME 0s 100ms <***
-
-
-
-run number 2 out of 5
-   value of parameter LOAD is 5.000000E-17
-
-
-Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
-
-*** DATE:  1-Jun-2019 13:20:39
-
-*** TITLE: * Characterizing a simple nand with load variation
-
-TEMPERATURE : 27.000000 degrees C
-
-
-Performing DC analysis...
-
---> Partitioning circuit...
-
-***> DC CPU TIME 0s 000ms <***
-
-DC:1 iterations FOR DC analysis
-GND_INT      0.0       
-INA          1.2000E+00
-INB          0.0       
-OUT          1.2000E+00
-OUTBIS       1.2000E+00
-VDD          1.2000E+00
-VDD_INT      1.2000E+00
-XNAND.NET15  4.0840E-06
-
-   TOTAL POWER DISSIPATION:  6.7908E-09 WATTS
-
-
-Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
-
-Compute from 0.000000 Nano to 3.000000 Nano
-................................................
-Simulation progress           : 25%
-Elapsed CPU time              : 0h 0mn 0s 0
-................................................
-Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 60
-................................................
-Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 110
-................................................
-Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 120
-
-
-***>Current simulation completed
-
-
  RNAND        =  6.7604E-11   
  FNAND        =  6.8830E-11   
- NANDDELAY    =  2.0851E-11   
+ NANDDELAYHL  =  2.0851E-11   
  NANDDELAYLH  =  3.8286E-11   
  MAXIGNDF     =  7.7056E-05   
  MAXIVDDR     = -7.0423E-05   
@@ -244,7 +244,7 @@ Elapsed CPU time              : 0h 0mn 0s 120
 
 
 
-***>CPU TIME 0s 120ms <***
+***>CPU TIME 0s 100ms <***
 
 
 
@@ -254,7 +254,7 @@ run number 3 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE:  1-Jun-2019 13:20:39
+*** DATE:  1-Jun-2019 13:28:17
 
 *** TITLE: * Characterizing a simple nand with load variation
 
@@ -288,7 +288,7 @@ Simulation progress           : 25%
 Elapsed CPU time              : 0h 0mn 0s 0
 ................................................
 Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 60
+Elapsed CPU time              : 0h 0mn 0s 50
 ................................................
 Simulation progress           : 75%
 Elapsed CPU time              : 0h 0mn 0s 100
@@ -302,7 +302,7 @@ Elapsed CPU time              : 0h 0mn 0s 110
 
  RNAND        =  7.1228E-11   
  FNAND        =  7.2112E-11   
- NANDDELAY    =  2.3980E-11   
+ NANDDELAYHL  =  2.3980E-11   
  NANDDELAYLH  =  4.1521E-11   
  MAXIGNDF     =  8.1964E-05   
  MAXIVDDR     = -7.4383E-05   
@@ -323,7 +323,7 @@ run number 4 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE:  1-Jun-2019 13:20:39
+*** DATE:  1-Jun-2019 13:28:17
 
 *** TITLE: * Characterizing a simple nand with load variation
 
@@ -357,13 +357,13 @@ Simulation progress           : 25%
 Elapsed CPU time              : 0h 0mn 0s 0
 ................................................
 Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 60
+Elapsed CPU time              : 0h 0mn 0s 50
 ................................................
 Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 90
+Elapsed CPU time              : 0h 0mn 0s 80
 ................................................
 Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 120
+Elapsed CPU time              : 0h 0mn 0s 90
 
 
 ***>Current simulation completed
@@ -371,7 +371,7 @@ Elapsed CPU time              : 0h 0mn 0s 120
 
  RNAND        =  1.0281E-10   
  FNAND        =  9.8194E-11   
- NANDDELAY    =  4.8550E-11   
+ NANDDELAYHL  =  4.8550E-11   
  NANDDELAYLH  =  6.6657E-11   
  MAXIGNDF     =  1.1664E-04   
  MAXIVDDR     = -1.0277E-04   
@@ -382,7 +382,7 @@ Elapsed CPU time              : 0h 0mn 0s 120
 
 
 
-***>CPU TIME 0s 120ms <***
+***>CPU TIME 0s 100ms <***
 
 
 
@@ -392,7 +392,7 @@ run number 5 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE:  1-Jun-2019 13:20:39
+*** DATE:  1-Jun-2019 13:28:17
 
 *** TITLE: * Characterizing a simple nand with load variation
 
@@ -426,13 +426,13 @@ Simulation progress           : 25%
 Elapsed CPU time              : 0h 0mn 0s 0
 ................................................
 Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 40
+Elapsed CPU time              : 0h 0mn 0s 30
 ................................................
 Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 60
+Elapsed CPU time              : 0h 0mn 0s 50
 ................................................
 Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 100
+Elapsed CPU time              : 0h 0mn 0s 90
 
 
 ***>Current simulation completed
@@ -440,7 +440,7 @@ Elapsed CPU time              : 0h 0mn 0s 100
 
  RNAND        =  3.6391E-10   
  FNAND        =  2.9652E-10   
- NANDDELAY    =  1.8016E-10   
+ NANDDELAYHL  =  1.8016E-10   
  NANDDELAYLH  =  2.0900E-10   
  MAXIGNDF     =  2.4077E-04   
  MAXIVDDR     = -2.0919E-04   
@@ -459,12 +459,12 @@ nb of nodes: 8
 nb of MOS or BIP calls: 3900
 Number of steps computed: 313
 
-***>CPU TIME 0s 100ms <***
+***>CPU TIME 0s 090ms <***
 
 
-***>GLOBAL CPU TIME 0s 830ms <***
+***>GLOBAL CPU TIME 0s 700ms <***
 
 
-***>GLOBAL ELAPSED TIME 5s <***
+***>GLOBAL ELAPSED TIME 3s <***
 
 

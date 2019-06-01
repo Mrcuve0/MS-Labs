@@ -57,7 +57,7 @@ load
 +TARG v(out) VAL='alim*0.1' FALL=1
 
 *    Measuring delay
-.measure tran nanddelay TRIG V(inB) VAL='alim*0.5' RISE=1 
+.measure tran nanddelayHL TRIG V(inB) VAL='alim*0.5' RISE=1 
 + TARG V(out) VAL='alim*0.5' FALL=1
 
 ** ADD THE instruction for the fall delay!!!
