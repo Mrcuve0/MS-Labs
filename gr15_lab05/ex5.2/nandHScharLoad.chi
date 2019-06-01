@@ -2,7 +2,7 @@
 
 /software/mentor/ams_2008.1_64/aol/bin/eldo_64.exe -i nandHScharLoad.sp 
 
-1*******30-May-19 *******  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  *******10:43:26******
+1******* 1-Jun-19 *******  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  *******13:20:35******
 
 0* Characterizing a simple nand with load variation
 
@@ -6090,7 +6090,7 @@ run number 1 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE: 30-May-2019 10:43:26
+*** DATE:  1-Jun-2019 13:20:35
 
 *** TITLE: * Characterizing a simple nand with load variation
 
@@ -6099,7 +6099,7 @@ TEMPERATURE : 27.000000 degrees C
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:26*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:35*****************
 
 0* Characterizing a simple nand with load variation
 0****                 OPTION SUMMARY                                        TEMPERATURE =   27.000 DEG C
@@ -6178,7 +6178,7 @@ DC:5 iterations FOR DC analysis
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:26*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:35*****************
 
 0* Characterizing a simple nand with load variation
 0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
@@ -6212,19 +6212,19 @@ Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
 
 ................................................
 Simulation progress           : 25%
-Elapsed CPU time              : 0h 0mn 0s 10
+Elapsed CPU time              : 0h 0mn 0s 0
 ................................................
 Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 60
+Elapsed CPU time              : 0h 0mn 0s 50
 ................................................
 Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 110
+Elapsed CPU time              : 0h 0mn 0s 100
 ................................................
 Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 120
+Elapsed CPU time              : 0h 0mn 0s 100
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:26*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:35*****************
 
 0* Characterizing a simple nand with load variation
 0****                 EXTRACT INFORMATION                                   
@@ -6247,7 +6247,7 @@ Elapsed CPU time              : 0h 0mn 0s 120
   MAXILOADR    =  1.1510E-07     at=  2.2076E-09  from=  2.0000E-09     to=  3.0000E-09
 
 
-***>CPU TIME 0s 120ms <***
+***>CPU TIME 0s 100ms <***
 
 
 
@@ -6261,7 +6261,7 @@ run number 2 out of 5
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE: 30-May-2019 10:43:31
+*** DATE:  1-Jun-2019 13:20:39
 
 *** TITLE: * Characterizing a simple nand with load variation
 
@@ -6275,7 +6275,298 @@ DC:1 iterations FOR DC analysis
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:31*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:39*****************
+
+0* Characterizing a simple nand with load variation
+0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE      NODE         VOLTAGE    
+GND_INT      0.0         INA          1.2000E+00  INB          0.0         
+OUT          1.2000E+00  OUTBIS       1.2000E+00  VDD          1.2000E+00  
+VDD_INT      1.2000E+00  XNAND.NET15  4.0840E-06  
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+VDUMMY_C   0.0          0.0          0.0         
+VDUMMY_GND   5.6590E-09   0.0          0.0         
+VDUMMY_VDD  -5.6590E-09   0.0          0.0         
+VINA       0.0          1.2000E+00   0.0         
+VINB       0.0          0.0          0.0         
+V_VDD     -5.6590E-09   1.2000E+00  -6.7908E-09  
+
+   TOTAL POWER DISSIPATION:  6.7908E-09 WATTS
+
+
+
+
+
+Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
+
+................................................
+Simulation progress           : 25%
+Elapsed CPU time              : 0h 0mn 0s 0
+................................................
+Simulation progress           : 50%
+Elapsed CPU time              : 0h 0mn 0s 60
+................................................
+Simulation progress           : 75%
+Elapsed CPU time              : 0h 0mn 0s 110
+................................................
+Simulation progress           : 100%
+Elapsed CPU time              : 0h 0mn 0s 120
+
+
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:39*****************
+
+0* Characterizing a simple nand with load variation
+0****                 EXTRACT INFORMATION                                   
+0****   PARAM LOAD =  5.0000E-17
+0****   TEMPERATURE =  2.7000E+01 Celsius
+
+0*************************************************************************************************************************
+
+
+
+  RNAND        =  6.7604E-11   targ=  2.2288E-09     trig=  2.1612E-09
+  FNAND        =  6.8830E-11   targ=  1.2074E-09     trig=  1.1385E-09
+  NANDDELAY    =  2.0851E-11   targ=  1.1839E-09     trig=  1.1630E-09
+  NANDDELAYLH  =  3.8286E-11   targ=  2.2013E-09     trig=  2.1630E-09
+  MAXIGNDF     =  7.7056E-05     at=  1.1909E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXIVDDR     = -7.0423E-05     at=  2.2003E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIGNDR     =  4.5692E-05     at=  2.1783E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIVDDF     = -4.7680E-05     at=  1.1709E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADF    = -1.2504E-06     at=  1.1939E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADR    =  1.1429E-06     at=  2.2076E-09  from=  2.0000E-09     to=  3.0000E-09
+
+
+***>CPU TIME 0s 120ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 3 out of 5
+   value of parameter LOAD is 5.000000E-16
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
+
+*** DATE:  1-Jun-2019 13:20:39
+
+*** TITLE: * Characterizing a simple nand with load variation
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:39*****************
+
+0* Characterizing a simple nand with load variation
+0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE      NODE         VOLTAGE    
+GND_INT      0.0         INA          1.2000E+00  INB          0.0         
+OUT          1.2000E+00  OUTBIS       1.2000E+00  VDD          1.2000E+00  
+VDD_INT      1.2000E+00  XNAND.NET15  4.0840E-06  
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+VDUMMY_C   0.0          0.0          0.0         
+VDUMMY_GND   5.6590E-09   0.0          0.0         
+VDUMMY_VDD  -5.6590E-09   0.0          0.0         
+VINA       0.0          1.2000E+00   0.0         
+VINB       0.0          0.0          0.0         
+V_VDD     -5.6590E-09   1.2000E+00  -6.7908E-09  
+
+   TOTAL POWER DISSIPATION:  6.7908E-09 WATTS
+
+
+
+
+
+Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
+
+................................................
+Simulation progress           : 25%
+Elapsed CPU time              : 0h 0mn 0s 0
+................................................
+Simulation progress           : 50%
+Elapsed CPU time              : 0h 0mn 0s 60
+................................................
+Simulation progress           : 75%
+Elapsed CPU time              : 0h 0mn 0s 100
+................................................
+Simulation progress           : 100%
+Elapsed CPU time              : 0h 0mn 0s 110
+
+
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:39*****************
+
+0* Characterizing a simple nand with load variation
+0****                 EXTRACT INFORMATION                                   
+0****   PARAM LOAD =  5.0000E-16
+0****   TEMPERATURE =  2.7000E+01 Celsius
+
+0*************************************************************************************************************************
+
+
+
+  RNAND        =  7.1228E-11   targ=  2.2336E-09     trig=  2.1623E-09
+  FNAND        =  7.2112E-11   targ=  1.2120E-09     trig=  1.1399E-09
+  NANDDELAY    =  2.3980E-11   targ=  1.1870E-09     trig=  1.1630E-09
+  NANDDELAYLH  =  4.1521E-11   targ=  2.2045E-09     trig=  2.1630E-09
+  MAXIGNDF     =  8.1964E-05     at=  1.1946E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXIVDDR     = -7.4383E-05     at=  2.2047E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIGNDR     =  4.4055E-05     at=  2.1787E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIVDDF     = -4.5637E-05     at=  1.1706E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADF    = -1.1637E-05     at=  1.1976E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADR    =  1.0641E-05     at=  2.2112E-09  from=  2.0000E-09     to=  3.0000E-09
+
+
+***>CPU TIME 0s 110ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 4 out of 5
+   value of parameter LOAD is 5.000000E-15
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
+
+*** DATE:  1-Jun-2019 13:20:39
+
+*** TITLE: * Characterizing a simple nand with load variation
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:39*****************
+
+0* Characterizing a simple nand with load variation
+0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE      NODE         VOLTAGE      NODE         VOLTAGE    
+GND_INT      0.0         INA          1.2000E+00  INB          0.0         
+OUT          1.2000E+00  OUTBIS       1.2000E+00  VDD          1.2000E+00  
+VDD_INT      1.2000E+00  XNAND.NET15  4.0840E-06  
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+VDUMMY_C   0.0          0.0          0.0         
+VDUMMY_GND   5.6590E-09   0.0          0.0         
+VDUMMY_VDD  -5.6590E-09   0.0          0.0         
+VINA       0.0          1.2000E+00   0.0         
+VINB       0.0          0.0          0.0         
+V_VDD     -5.6590E-09   1.2000E+00  -6.7908E-09  
+
+   TOTAL POWER DISSIPATION:  6.7908E-09 WATTS
+
+
+
+
+
+Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
+
+................................................
+Simulation progress           : 25%
+Elapsed CPU time              : 0h 0mn 0s 0
+................................................
+Simulation progress           : 50%
+Elapsed CPU time              : 0h 0mn 0s 60
+................................................
+Simulation progress           : 75%
+Elapsed CPU time              : 0h 0mn 0s 90
+................................................
+Simulation progress           : 100%
+Elapsed CPU time              : 0h 0mn 0s 120
+
+
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:39*****************
+
+0* Characterizing a simple nand with load variation
+0****                 EXTRACT INFORMATION                                   
+0****   PARAM LOAD =  5.0000E-15
+0****   TEMPERATURE =  2.7000E+01 Celsius
+
+0*************************************************************************************************************************
+
+
+
+  RNAND        =  1.0281E-10   targ=  2.2753E-09     trig=  2.1725E-09
+  FNAND        =  9.8194E-11   targ=  1.2497E-09     trig=  1.1515E-09
+  NANDDELAY    =  4.8550E-11   targ=  1.2116E-09     trig=  1.1630E-09
+  NANDDELAYLH  =  6.6657E-11   targ=  2.2297E-09     trig=  2.1630E-09
+  MAXIGNDF     =  1.1664E-04     at=  1.2227E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXIVDDR     = -1.0277E-04     at=  2.2330E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIGNDR     =  3.4693E-05     at=  2.1809E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIVDDF     = -3.4365E-05     at=  1.1754E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADF    = -7.5275E-05     at=  1.2244E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADR    =  6.7574E-05     at=  2.2370E-09  from=  2.0000E-09     to=  3.0000E-09
+
+
+***>CPU TIME 0s 120ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 5 out of 5
+   value of parameter LOAD is 5.000000E-14
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
+
+*** DATE:  1-Jun-2019 13:20:39
+
+*** TITLE: * Characterizing a simple nand with load variation
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:39*****************
 
 0* Characterizing a simple nand with load variation
 0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
@@ -6315,304 +6606,13 @@ Simulation progress           : 50%
 Elapsed CPU time              : 0h 0mn 0s 40
 ................................................
 Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 80
-................................................
-Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 90
-
-
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:31*****************
-
-0* Characterizing a simple nand with load variation
-0****                 EXTRACT INFORMATION                                   
-0****   PARAM LOAD =  5.0000E-17
-0****   TEMPERATURE =  2.7000E+01 Celsius
-
-0*************************************************************************************************************************
-
-
-
-  RNAND        =  6.7604E-11   targ=  2.2288E-09     trig=  2.1612E-09
-  FNAND        =  6.8830E-11   targ=  1.2074E-09     trig=  1.1385E-09
-  NANDDELAY    =  2.0851E-11   targ=  1.1839E-09     trig=  1.1630E-09
-  NANDDELAYLH  =  3.8286E-11   targ=  2.2013E-09     trig=  2.1630E-09
-  MAXIGNDF     =  7.7056E-05     at=  1.1909E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXIVDDR     = -7.0423E-05     at=  2.2003E-09  from=  2.0000E-09     to=  3.0000E-09
-  MAXIGNDR     =  4.5692E-05     at=  2.1783E-09  from=  2.0000E-09     to=  3.0000E-09
-  MAXIVDDF     = -4.7680E-05     at=  1.1709E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXILOADF    = -1.2504E-06     at=  1.1939E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXILOADR    =  1.1429E-06     at=  2.2076E-09  from=  2.0000E-09     to=  3.0000E-09
-
-
-***>CPU TIME 0s 090ms <***
-
-
-
-0************************************************************************************************************************
-
-
-run number 3 out of 5
-   value of parameter LOAD is 5.000000E-16
-1************************************************************************************************************************
-
-
-Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
-
-*** DATE: 30-May-2019 10:43:31
-
-*** TITLE: * Characterizing a simple nand with load variation
-
-TEMPERATURE : 27.000000 degrees C
-
-
-***> DC CPU TIME 0s 000ms <***
-
-DC:1 iterations FOR DC analysis
-
-
-
-
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:31*****************
-
-0* Characterizing a simple nand with load variation
-0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
-
-0*************************************************************************************************************************
-
-
-  NODE         VOLTAGE      NODE         VOLTAGE      NODE         VOLTAGE    
-GND_INT      0.0         INA          1.2000E+00  INB          0.0         
-OUT          1.2000E+00  OUTBIS       1.2000E+00  VDD          1.2000E+00  
-VDD_INT      1.2000E+00  XNAND.NET15  4.0840E-06  
-
-
-   VOLTAGE SOURCE CURRENT
-
-NAME      CURRENT      VOLTAGE      POWER        
-VDUMMY_C   0.0          0.0          0.0         
-VDUMMY_GND   5.6590E-09   0.0          0.0         
-VDUMMY_VDD  -5.6590E-09   0.0          0.0         
-VINA       0.0          1.2000E+00   0.0         
-VINB       0.0          0.0          0.0         
-V_VDD     -5.6590E-09   1.2000E+00  -6.7908E-09  
-
-   TOTAL POWER DISSIPATION:  6.7908E-09 WATTS
-
-
-
-
-
-Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
-
-................................................
-Simulation progress           : 25%
-Elapsed CPU time              : 0h 0mn 0s 0
-................................................
-Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 50
-................................................
-Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 90
-................................................
-Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 90
-
-
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:31*****************
-
-0* Characterizing a simple nand with load variation
-0****                 EXTRACT INFORMATION                                   
-0****   PARAM LOAD =  5.0000E-16
-0****   TEMPERATURE =  2.7000E+01 Celsius
-
-0*************************************************************************************************************************
-
-
-
-  RNAND        =  7.1228E-11   targ=  2.2336E-09     trig=  2.1623E-09
-  FNAND        =  7.2112E-11   targ=  1.2120E-09     trig=  1.1399E-09
-  NANDDELAY    =  2.3980E-11   targ=  1.1870E-09     trig=  1.1630E-09
-  NANDDELAYLH  =  4.1521E-11   targ=  2.2045E-09     trig=  2.1630E-09
-  MAXIGNDF     =  8.1964E-05     at=  1.1946E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXIVDDR     = -7.4383E-05     at=  2.2047E-09  from=  2.0000E-09     to=  3.0000E-09
-  MAXIGNDR     =  4.4055E-05     at=  2.1787E-09  from=  2.0000E-09     to=  3.0000E-09
-  MAXIVDDF     = -4.5637E-05     at=  1.1706E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXILOADF    = -1.1637E-05     at=  1.1976E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXILOADR    =  1.0641E-05     at=  2.2112E-09  from=  2.0000E-09     to=  3.0000E-09
-
-
-***>CPU TIME 0s 100ms <***
-
-
-
-0************************************************************************************************************************
-
-
-run number 4 out of 5
-   value of parameter LOAD is 5.000000E-15
-1************************************************************************************************************************
-
-
-Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
-
-*** DATE: 30-May-2019 10:43:31
-
-*** TITLE: * Characterizing a simple nand with load variation
-
-TEMPERATURE : 27.000000 degrees C
-
-
-***> DC CPU TIME 0s 000ms <***
-
-DC:1 iterations FOR DC analysis
-
-
-
-
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:31*****************
-
-0* Characterizing a simple nand with load variation
-0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
-
-0*************************************************************************************************************************
-
-
-  NODE         VOLTAGE      NODE         VOLTAGE      NODE         VOLTAGE    
-GND_INT      0.0         INA          1.2000E+00  INB          0.0         
-OUT          1.2000E+00  OUTBIS       1.2000E+00  VDD          1.2000E+00  
-VDD_INT      1.2000E+00  XNAND.NET15  4.0840E-06  
-
-
-   VOLTAGE SOURCE CURRENT
-
-NAME      CURRENT      VOLTAGE      POWER        
-VDUMMY_C   0.0          0.0          0.0         
-VDUMMY_GND   5.6590E-09   0.0          0.0         
-VDUMMY_VDD  -5.6590E-09   0.0          0.0         
-VINA       0.0          1.2000E+00   0.0         
-VINB       0.0          0.0          0.0         
-V_VDD     -5.6590E-09   1.2000E+00  -6.7908E-09  
-
-   TOTAL POWER DISSIPATION:  6.7908E-09 WATTS
-
-
-
-
-
-Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
-
-................................................
-Simulation progress           : 25%
-Elapsed CPU time              : 0h 0mn 0s 0
-................................................
-Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 50
-................................................
-Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 80
+Elapsed CPU time              : 0h 0mn 0s 60
 ................................................
 Simulation progress           : 100%
 Elapsed CPU time              : 0h 0mn 0s 100
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:31*****************
-
-0* Characterizing a simple nand with load variation
-0****                 EXTRACT INFORMATION                                   
-0****   PARAM LOAD =  5.0000E-15
-0****   TEMPERATURE =  2.7000E+01 Celsius
-
-0*************************************************************************************************************************
-
-
-
-  RNAND        =  1.0281E-10   targ=  2.2753E-09     trig=  2.1725E-09
-  FNAND        =  9.8194E-11   targ=  1.2497E-09     trig=  1.1515E-09
-  NANDDELAY    =  4.8550E-11   targ=  1.2116E-09     trig=  1.1630E-09
-  NANDDELAYLH  =  6.6657E-11   targ=  2.2297E-09     trig=  2.1630E-09
-  MAXIGNDF     =  1.1664E-04     at=  1.2227E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXIVDDR     = -1.0277E-04     at=  2.2330E-09  from=  2.0000E-09     to=  3.0000E-09
-  MAXIGNDR     =  3.4693E-05     at=  2.1809E-09  from=  2.0000E-09     to=  3.0000E-09
-  MAXIVDDF     = -3.4365E-05     at=  1.1754E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXILOADF    = -7.5275E-05     at=  1.2244E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXILOADR    =  6.7574E-05     at=  2.2370E-09  from=  2.0000E-09     to=  3.0000E-09
-
-
-***>CPU TIME 0s 100ms <***
-
-
-
-0************************************************************************************************************************
-
-
-run number 5 out of 5
-   value of parameter LOAD is 5.000000E-14
-1************************************************************************************************************************
-
-
-Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
-
-*** DATE: 30-May-2019 10:43:31
-
-*** TITLE: * Characterizing a simple nand with load variation
-
-TEMPERATURE : 27.000000 degrees C
-
-
-***> DC CPU TIME 0s 000ms <***
-
-DC:1 iterations FOR DC analysis
-
-
-
-
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:31*****************
-
-0* Characterizing a simple nand with load variation
-0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
-
-0*************************************************************************************************************************
-
-
-  NODE         VOLTAGE      NODE         VOLTAGE      NODE         VOLTAGE    
-GND_INT      0.0         INA          1.2000E+00  INB          0.0         
-OUT          1.2000E+00  OUTBIS       1.2000E+00  VDD          1.2000E+00  
-VDD_INT      1.2000E+00  XNAND.NET15  4.0840E-06  
-
-
-   VOLTAGE SOURCE CURRENT
-
-NAME      CURRENT      VOLTAGE      POWER        
-VDUMMY_C   0.0          0.0          0.0         
-VDUMMY_GND   5.6590E-09   0.0          0.0         
-VDUMMY_VDD  -5.6590E-09   0.0          0.0         
-VINA       0.0          1.2000E+00   0.0         
-VINB       0.0          0.0          0.0         
-V_VDD     -5.6590E-09   1.2000E+00  -6.7908E-09  
-
-   TOTAL POWER DISSIPATION:  6.7908E-09 WATTS
-
-
-
-
-
-Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
-
-................................................
-Simulation progress           : 25%
-Elapsed CPU time              : 0h 0mn 0s 0
-................................................
-Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 30
-................................................
-Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 60
-................................................
-Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 90
-
-
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:31*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:39*****************
 
 0* Characterizing a simple nand with load variation
 0****                 EXTRACT INFORMATION                                   
@@ -6634,7 +6634,7 @@ Elapsed CPU time              : 0h 0mn 0s 90
   MAXILOADF    = -2.3042E-04     at=  1.3271E-09  from=  1.0000E-09     to=  2.0000E-09
   MAXILOADR    =  1.9972E-04     at=  2.3271E-09  from=  2.0000E-09     to=  3.0000E-09
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************10:43:31*****************
+1*************** 1-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:20:39*****************
 
 0* Characterizing a simple nand with load variation
 0****                 ACCOUNTING INFORMATION                                TEMPERATURE =   27.000 DEG C
@@ -6676,17 +6676,17 @@ Elapsed CPU time              : 0h 0mn 0s 90
 
 
 
-***>CPU TIME 0s 090ms <***
+***>CPU TIME 0s 100ms <***
 
 
-***>GLOBAL CPU TIME 0s 780ms <***
+***>GLOBAL CPU TIME 0s 830ms <***
 
 
-***>GLOBAL ELAPSED TIME 6s <***
+***>GLOBAL ELAPSED TIME 5s <***
 
 
-  Job started at 30-May-2019 10:43:25
-  Job end at     30-May-2019 10:43:31
+  Job started at  1-Jun-2019 13:20:35
+  Job end at      1-Jun-2019 13:20:40
 
   Run on localhost.localdomain (Linux 3.10.0-957.5.1.el7.x86_64)
 
