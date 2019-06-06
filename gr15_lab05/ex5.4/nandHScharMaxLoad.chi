@@ -2,7 +2,7 @@
 
 /software/mentor/ams_2008.1_64/aol/bin/eldo_64.exe -i nandHScharMaxLoad.sp 
 
-1*******30-May-19 *******  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  *******13:25:50******
+1******* 2-Jun-19 *******  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  *******17:08:32******
 
 0* Characterizing a nand with maximum load
 
@@ -6088,7 +6088,7 @@ run number 1 out of 2
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE: 30-May-2019 13:25:51
+*** DATE:  2-Jun-2019 17:08:33
 
 *** TITLE: * Characterizing a nand with maximum load
 
@@ -6097,7 +6097,7 @@ TEMPERATURE : 27.000000 degrees C
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:25:51*****************
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:08:33*****************
 
 0* Characterizing a nand with maximum load
 0****                 OPTION SUMMARY                                        TEMPERATURE =   27.000 DEG C
@@ -6176,7 +6176,7 @@ DC:5 iterations FOR DC analysis
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:25:51*****************
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:08:33*****************
 
 0* Characterizing a nand with maximum load
 0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
@@ -6213,16 +6213,16 @@ Simulation progress           : 25%
 Elapsed CPU time              : 0h 0mn 0s 0
 ................................................
 Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 50
+Elapsed CPU time              : 0h 0mn 0s 60
 ................................................
 Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 90
+Elapsed CPU time              : 0h 0mn 0s 100
 ................................................
 Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 90
+Elapsed CPU time              : 0h 0mn 0s 110
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:25:51*****************
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:08:33*****************
 
 0* Characterizing a nand with maximum load
 0****                 EXTRACT INFORMATION                                   
@@ -6245,7 +6245,7 @@ Elapsed CPU time              : 0h 0mn 0s 90
   MAXILOADR    =  1.1429E-06     at=  2.2076E-09  from=  2.0000E-09     to=  3.0000E-09
 
 
-***>CPU TIME 0s 100ms <***
+***>CPU TIME 0s 110ms <***
 
 
 
@@ -6259,7 +6259,7 @@ run number 2 out of 2
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE: 30-May-2019 13:25:53
+*** DATE:  2-Jun-2019 17:08:36
 
 *** TITLE: * Characterizing a nand with maximum load
 
@@ -6273,7 +6273,7 @@ DC:1 iterations FOR DC analysis
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:25:53*****************
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:08:36*****************
 
 0* Characterizing a nand with maximum load
 0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
@@ -6313,13 +6313,13 @@ Simulation progress           : 50%
 Elapsed CPU time              : 0h 0mn 0s 40
 ................................................
 Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 60
+Elapsed CPU time              : 0h 0mn 0s 70
 ................................................
 Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 90
+Elapsed CPU time              : 0h 0mn 0s 100
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:25:53*****************
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:08:36*****************
 
 0* Characterizing a nand with maximum load
 0****                 EXTRACT INFORMATION                                   
@@ -6341,7 +6341,7 @@ Elapsed CPU time              : 0h 0mn 0s 90
   MAXILOADF    = -2.3042E-04     at=  1.3271E-09  from=  1.0000E-09     to=  2.0000E-09
   MAXILOADR    =  1.9972E-04     at=  2.3271E-09  from=  2.0000E-09     to=  3.0000E-09
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:25:53*****************
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:08:36*****************
 
 0* Characterizing a nand with maximum load
 0****                 ACCOUNTING INFORMATION                                TEMPERATURE =   27.000 DEG C
@@ -6383,17 +6383,17 @@ Elapsed CPU time              : 0h 0mn 0s 90
 
 
 
-***>CPU TIME 0s 090ms <***
+***>CPU TIME 0s 110ms <***
 
 
-***>GLOBAL CPU TIME 0s 470ms <***
+***>GLOBAL CPU TIME 0s 460ms <***
 
 
-***>GLOBAL ELAPSED TIME 3s <***
+***>GLOBAL ELAPSED TIME 4s <***
 
 
-  Job started at 30-May-2019 13:25:50
-  Job end at     30-May-2019 13:25:53
+  Job started at  2-Jun-2019 17:08:32
+  Job end at      2-Jun-2019 17:08:36
 
   Run on localhost.localdomain (Linux 3.10.0-957.5.1.el7.x86_64)
 

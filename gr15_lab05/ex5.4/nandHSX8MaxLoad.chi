@@ -2,7 +2,7 @@
 
 /software/mentor/ams_2008.1_64/aol/bin/eldo_64.exe -i nandHSX8MaxLoad.sp 
 
-1*******30-May-19 *******  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  *******13:39:23******
+1******* 2-Jun-19 *******  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  *******17:09:05******
 
 0* Characterizing a simple nand X8 with maximum load
 
@@ -6088,7 +6088,7 @@ run number 1 out of 2
 
 Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
 
-*** DATE: 30-May-2019 13:39:24
+*** DATE:  2-Jun-2019 17:09:06
 
 *** TITLE: * Characterizing a simple nand X8 with maximum load
 
@@ -6097,7 +6097,7 @@ TEMPERATURE : 27.000000 degrees C
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:39:24*****************
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:09:06*****************
 
 0* Characterizing a simple nand X8 with maximum load
 0****                 OPTION SUMMARY                                        TEMPERATURE =   27.000 DEG C
@@ -6169,120 +6169,14 @@ ULOGIC         = 0
 
 
 
-***> DC CPU TIME 0s 010ms <***
+***> DC CPU TIME 0s 000ms <***
 
 DC:5 iterations FOR DC analysis
 
 
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:39:24*****************
-
-0* Characterizing a simple nand X8 with maximum load
-0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
-
-0*************************************************************************************************************************
-
-
-  NODE         VOLTAGE    
- GND_INT       0.0       
- INA8       1.2000E+00
- INB8       0.0       
- OUT8       1.2000E+00
- OUTBIS       1.2000E+00
- VDD       1.2000E+00
- VDD_INT       1.2000E+00
- XNAND.NET132       3.6196E-06
- XNAND.NET140       3.6196E-06
- XNAND.NET148       3.6196E-06
- XNAND.NET156       3.6196E-06
-
-
-
-   VOLTAGE SOURCE CURRENT
-
-NAME      CURRENT      VOLTAGE      POWER        
-VDUMMY_C8   0.0          0.0          0.0         
-VDUMMY_GND8   4.1224E-08   0.0          0.0         
-VDUMMY_VDD8  -4.1224E-08   0.0          0.0         
-VINA       0.0          1.2000E+00   0.0         
-VINB       0.0          0.0          0.0         
-V_VDD     -4.1224E-08   1.2000E+00  -4.9469E-08  
-
-   TOTAL POWER DISSIPATION:  4.9469E-08 WATTS
-
-
-
-
-
-Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
-
-................................................
-Simulation progress           : 25%
-Elapsed CPU time              : 0h 0mn 0s 10
-................................................
-Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 100
-................................................
-Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 180
-................................................
-Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 190
-
-
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:39:24*****************
-
-0* Characterizing a simple nand X8 with maximum load
-0****                 EXTRACT INFORMATION                                   
-0****   PARAM LOAD =  5.0000E-17
-0****   TEMPERATURE =  2.7000E+01 Celsius
-
-0*************************************************************************************************************************
-
-
-
-  RNAND        =  6.2179E-11   targ=  2.2197E-09     trig=  2.1575E-09
-  FNAND        =  6.3836E-11   targ=  1.2016E-09     trig=  1.1377E-09
-  NANDDELAYHL  =  1.7455E-11   targ=  1.1805E-09     trig=  1.1630E-09
-  NANDDELAYLH  =  3.1347E-11   targ=  2.1943E-09     trig=  2.1630E-09
-  MAXIGNDF     =  6.3732E-04     at=  1.1876E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXIVDDR     = -5.5277E-04     at=  2.1926E-09  from=  2.0000E-09     to=  3.0000E-09
-  MAXIGNDR     =  3.7896E-04     at=  2.1736E-09  from=  2.0000E-09     to=  3.0000E-09
-  MAXIVDDF     = -4.1041E-04     at=  1.1716E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXILOADF    = -1.4246E-06     at=  1.1896E-09  from=  1.0000E-09     to=  2.0000E-09
-  MAXILOADR    =  1.2887E-06     at=  2.1997E-09  from=  2.0000E-09     to=  3.0000E-09
-
-
-***>CPU TIME 0s 200ms <***
-
-
-
-0************************************************************************************************************************
-
-
-run number 2 out of 2
-   value of parameter LOAD is 5.000000E-14
-1************************************************************************************************************************
-
-
-Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
-
-*** DATE: 30-May-2019 13:39:26
-
-*** TITLE: * Characterizing a simple nand X8 with maximum load
-
-TEMPERATURE : 27.000000 degrees C
-
-
-***> DC CPU TIME 0s 000ms <***
-
-DC:1 iterations FOR DC analysis
-
-
-
-
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:39:26*****************
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:09:06*****************
 
 0* Characterizing a simple nand X8 with maximum load
 0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
@@ -6328,16 +6222,122 @@ Simulation progress           : 25%
 Elapsed CPU time              : 0h 0mn 0s 0
 ................................................
 Simulation progress           : 50%
-Elapsed CPU time              : 0h 0mn 0s 90
+Elapsed CPU time              : 0h 0mn 0s 110
 ................................................
 Simulation progress           : 75%
-Elapsed CPU time              : 0h 0mn 0s 140
+Elapsed CPU time              : 0h 0mn 0s 200
 ................................................
 Simulation progress           : 100%
-Elapsed CPU time              : 0h 0mn 0s 180
+Elapsed CPU time              : 0h 0mn 0s 210
 
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:39:26*****************
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:09:06*****************
+
+0* Characterizing a simple nand X8 with maximum load
+0****                 EXTRACT INFORMATION                                   
+0****   PARAM LOAD =  5.0000E-17
+0****   TEMPERATURE =  2.7000E+01 Celsius
+
+0*************************************************************************************************************************
+
+
+
+  RNAND        =  6.2179E-11   targ=  2.2197E-09     trig=  2.1575E-09
+  FNAND        =  6.3836E-11   targ=  1.2016E-09     trig=  1.1377E-09
+  NANDDELAYHL  =  1.7455E-11   targ=  1.1805E-09     trig=  1.1630E-09
+  NANDDELAYLH  =  3.1347E-11   targ=  2.1943E-09     trig=  2.1630E-09
+  MAXIGNDF     =  6.3732E-04     at=  1.1876E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXIVDDR     = -5.5277E-04     at=  2.1926E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIGNDR     =  3.7896E-04     at=  2.1736E-09  from=  2.0000E-09     to=  3.0000E-09
+  MAXIVDDF     = -4.1041E-04     at=  1.1716E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADF    = -1.4246E-06     at=  1.1896E-09  from=  1.0000E-09     to=  2.0000E-09
+  MAXILOADR    =  1.2887E-06     at=  2.1997E-09  from=  2.0000E-09     to=  3.0000E-09
+
+
+***>CPU TIME 0s 210ms <***
+
+
+
+0************************************************************************************************************************
+
+
+run number 2 out of 2
+   value of parameter LOAD is 5.000000E-14
+1************************************************************************************************************************
+
+
+Eldo VERSION : ELDO 2008.1 Production(64 bits) Mon Jun 30 08:52:46 GMT 2008
+
+*** DATE:  2-Jun-2019 17:09:08
+
+*** TITLE: * Characterizing a simple nand X8 with maximum load
+
+TEMPERATURE : 27.000000 degrees C
+
+
+***> DC CPU TIME 0s 000ms <***
+
+DC:1 iterations FOR DC analysis
+
+
+
+
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:09:08*****************
+
+0* Characterizing a simple nand X8 with maximum load
+0****                 INITIAL TRANSIENT SOLUTION                           TEMPERATURE =   27.000 DEG C
+
+0*************************************************************************************************************************
+
+
+  NODE         VOLTAGE    
+ GND_INT       0.0       
+ INA8       1.2000E+00
+ INB8       0.0       
+ OUT8       1.2000E+00
+ OUTBIS       1.2000E+00
+ VDD       1.2000E+00
+ VDD_INT       1.2000E+00
+ XNAND.NET132       3.6196E-06
+ XNAND.NET140       3.6196E-06
+ XNAND.NET148       3.6196E-06
+ XNAND.NET156       3.6196E-06
+
+
+
+   VOLTAGE SOURCE CURRENT
+
+NAME      CURRENT      VOLTAGE      POWER        
+VDUMMY_C8   0.0          0.0          0.0         
+VDUMMY_GND8   4.1224E-08   0.0          0.0         
+VDUMMY_VDD8  -4.1224E-08   0.0          0.0         
+VINA       0.0          1.2000E+00   0.0         
+VINB       0.0          0.0          0.0         
+V_VDD     -4.1224E-08   1.2000E+00  -4.9469E-08  
+
+   TOTAL POWER DISSIPATION:  4.9469E-08 WATTS
+
+
+
+
+
+Eldo NEWTON: VNTOL=1.000000e-09 RELTOL=1.000000e-06
+
+................................................
+Simulation progress           : 25%
+Elapsed CPU time              : 0h 0mn 0s 0
+................................................
+Simulation progress           : 50%
+Elapsed CPU time              : 0h 0mn 0s 110
+................................................
+Simulation progress           : 75%
+Elapsed CPU time              : 0h 0mn 0s 170
+................................................
+Simulation progress           : 100%
+Elapsed CPU time              : 0h 0mn 0s 220
+
+
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:09:08*****************
 
 0* Characterizing a simple nand X8 with maximum load
 0****                 EXTRACT INFORMATION                                   
@@ -6359,7 +6359,7 @@ Elapsed CPU time              : 0h 0mn 0s 180
   MAXILOADF    = -7.2917E-04     at=  1.2295E-09  from=  1.0000E-09     to=  2.0000E-09
   MAXILOADR    =  6.5614E-04     at=  2.2363E-09  from=  2.0000E-09     to=  3.0000E-09
 
-1***************30-May-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************13:39:26*****************
+1*************** 2-Jun-2019 ***********************  ELDO 2008.1 Production(64 bits)  (v6.11_1.1)  ***********************17:09:08*****************
 
 0* Characterizing a simple nand X8 with maximum load
 0****                 ACCOUNTING INFORMATION                                TEMPERATURE =   27.000 DEG C
@@ -6401,17 +6401,17 @@ Elapsed CPU time              : 0h 0mn 0s 180
 
 
 
-***>CPU TIME 0s 180ms <***
+***>CPU TIME 0s 220ms <***
 
 
-***>GLOBAL CPU TIME 0s 660ms <***
+***>GLOBAL CPU TIME 0s 700ms <***
 
 
-***>GLOBAL ELAPSED TIME 4s <***
+***>GLOBAL ELAPSED TIME 3s <***
 
 
-  Job started at 30-May-2019 13:39:23
-  Job end at     30-May-2019 13:39:27
+  Job started at  2-Jun-2019 17:09:05
+  Job end at      2-Jun-2019 17:09:08
 
   Run on localhost.localdomain (Linux 3.10.0-957.5.1.el7.x86_64)
 

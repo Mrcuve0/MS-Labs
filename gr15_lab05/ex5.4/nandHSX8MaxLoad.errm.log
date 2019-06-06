@@ -1,4 +1,4 @@
-START report: Thu May 30 13:39:23 2019 
+START report: Sun Jun  2 17:09:05 2019 
 Warning: (eldo - 902)  In file "/home/mariagrazia.graziano/ms/cap5/lib/diode.lib" line 25:
 +   In model: "DNPPSD". Parameter: "ISRH" ignored.
 Warning: (eldo - 902)  In file "/home/mariagrazia.graziano/ms/cap5/lib/diode.lib" line 25:
