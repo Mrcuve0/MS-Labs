@@ -1,0 +1,62 @@
+//###########################################################
+//# EZwave - Saved Window File
+//# Thursday, June 6, 2019 at 1:29:40 PM CEST
+//#
+//# Note: This is an auto-generated file.
+//#
+//# Any edits that you make may cause the restore of
+//# this window to fail - EDIT AT YOUR OWN RISK
+//###########################################################
+
+SET DOFILE VERSION 2.1
+
+// ===== Open required Database =====
+open wdb /home/ms19.15/MS/gr15_lab05/ex5.6/ffdH/ffdH.wdb ffdH
+
+// ===== Open the window =====
+open window -maximized -divider 0.89
+
+// ===== Create row #1 =====
+add waveform -color_index 0 <ffdH/TRAN>V(CK) -transform "< none >"
+set axis properties -axis X -scale linear
+set axis properties -row 1 -axis Y1 -autorange
+set user scale Voltage 1.0 V -row 1 -axis Y1
+set row height -row 1 -exact 194
+
+// ===== Create row #2 =====
+add waveform -color_index 1 <ffdH/TRAN>V(DATA_IN)_1 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 2 <ffdH/TRAN>V(DATA_IN)_34 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 3 <ffdH/TRAN>V(DATA_IN)_20 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 4 <ffdH/TRAN>V(DATA_IN)_36 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 5 <ffdH/TRAN>V(DATA_IN)_37 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 7 <ffdH/TRAN>V(DATA_IN)_30 -transform "< none >"
+set axis properties -row 2 -axis Y1 -autorange
+set user scale Voltage 1.0 V -row 2 -axis Y1
+set row height -row 2 -exact 194
+
+// ===== Create row #3 =====
+add waveform -color_index 1 <ffdH/TRAN>V(DATA_1OUT)_1 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 2 <ffdH/TRAN>V(DATA_1OUT)_34 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 3 <ffdH/TRAN>V(DATA_1OUT)_20 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 4 <ffdH/TRAN>V(DATA_1OUT)_37 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 5 <ffdH/TRAN>V(DATA_1OUT)_36 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 7 <ffdH/TRAN>V(DATA_1OUT)_30 -transform "< none >"
+set axis properties -row 3 -axis Y1 -autorange
+set user scale Voltage 1.0 V -row 3 -axis Y1
+set row height -row 3 -exact 194
+
+// ===== Create row #4 =====
+add waveform -color_index 1 <ffdH/TRAN>V(XFFD1.MN)_1 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 2 <ffdH/TRAN>V(XFFD1.MN)_34 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 3 <ffdH/TRAN>V(XFFD1.MN)_20 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 4 <ffdH/TRAN>V(XFFD1.MN)_36 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 5 <ffdH/TRAN>V(XFFD1.MN)_37 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 7 <ffdH/TRAN>V(XFFD1.MN)_30 -transform "< none >"
+set axis properties -row 4 -axis Y1 -autorange
+set user scale Voltage 1.0 V -row 4 -axis Y1
+set row height -row 4 -exact 197
+
+// ===== Set X-axis data units =====
+set user scale Time 1.0 s -axis X
+
+// ====== Create the cursors, markers and measurements =====
