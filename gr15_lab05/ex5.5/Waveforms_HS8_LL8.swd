@@ -1,0 +1,59 @@
+//###########################################################
+//# EZwave - Saved Window File
+//# Thursday, June 6, 2019 at 12:38:12 PM CEST
+//#
+//# Note: This is an auto-generated file.
+//#
+//# Any edits that you make may cause the restore of
+//# this window to fail - EDIT AT YOUR OWN RISK
+//###########################################################
+
+SET DOFILE VERSION 2.1
+
+// ===== Open required Database =====
+open wdb /home/ms19.15/MS/gr15_lab05/ex5.5/FilesFrom5.4/nandHSX8MaxLoad.wdb nandHSX8MaxLoad
+open wdb /home/ms19.15/MS/gr15_lab05/ex5.5/nandLLX8MaxLoad/nandLLX8MaxLoad.wdb nandLLX8MaxLoad
+
+// ===== Open the window =====
+open window -maximized -divider 0.90
+
+// ===== Create row #1 =====
+add waveform -color_index 3 <nandHSX8MaxLoad/TRAN>V(INB8)_HS -transform "< none >"
+set axis properties -axis X -scale linear
+add waveform -row 1 -axis Y1 -color_index 2 <nandLLX8MaxLoad/TRAN>V(INB8)_LL -transform "< none >"
+set axis properties -row 1 -axis Y1 -autorange
+set user scale Voltage 1.0 V -row 1 -axis Y1
+set row height -row 1 -exact 151
+
+// ===== Create row #2 =====
+add waveform -color_index 3 <nandHSX8MaxLoad/TRAN>V(OUT8)_HS -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 2 <nandLLX8MaxLoad/TRAN>V(OUT8)_LL -transform "< none >"
+set axis properties -row 2 -axis Y1 -autorange
+set user scale Voltage 1.0 V -row 2 -axis Y1
+set row height -row 2 -exact 151
+
+// ===== Create row #3 =====
+add waveform -color_index 3 <nandHSX8MaxLoad/TRAN>I(V_VDD)_HS -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 2 <nandLLX8MaxLoad/TRAN>I(V_VDD)_LL -transform "< none >"
+set axis properties -row 3 -axis Y1 -autorange
+set user scale Current 1.0 A -row 3 -axis Y1
+set row height -row 3 -exact 151
+
+// ===== Create row #4 =====
+add waveform -color_index 3 <nandHSX8MaxLoad/TRAN>I(VDUMMY_GND8)_HS -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 2 <nandLLX8MaxLoad/TRAN>I(VDUMMY_GND8)_LL -transform "< none >"
+set axis properties -row 4 -axis Y1 -autorange
+set user scale Current 1.0 A -row 4 -axis Y1
+set row height -row 4 -exact 151
+
+// ===== Create row #5 =====
+add waveform -color_index 3 <nandHSX8MaxLoad/TRAN>I(VDUMMY_C8)_HS -transform "< none >"
+add waveform -row 5 -axis Y1 -color_index 2 <nandLLX8MaxLoad/TRAN>I(VDUMMY_C8)_LL -transform "< none >"
+set axis properties -row 5 -axis Y1 -autorange
+set user scale Current 1.0 A -row 5 -axis Y1
+set row height -row 5 -exact 154
+
+// ===== Set X-axis data units =====
+set user scale Time 1.0 s -axis X
+
+// ====== Create the cursors, markers and measurements =====

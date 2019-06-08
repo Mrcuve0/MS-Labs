@@ -1,0 +1,59 @@
+//###########################################################
+//# EZwave - Saved Window File
+//# Thursday, June 6, 2019 at 11:17:38 AM CEST
+//#
+//# Note: This is an auto-generated file.
+//#
+//# Any edits that you make may cause the restore of
+//# this window to fail - EDIT AT YOUR OWN RISK
+//###########################################################
+
+SET DOFILE VERSION 2.1
+
+// ===== Open required Database =====
+open wdb /home/ms19.15/MS/gr15_lab05/ex5.5/FilesFrom5.4/nandHScharMaxLoad.wdb nandHScharMaxLoad
+open wdb /home/ms19.15/MS/gr15_lab05/ex5.5/nandLLcharMaxLoad/nandLLcharMaxLoad.wdb nandLLcharMaxLoad
+
+// ===== Open the window =====
+open window -maximized -divider 0.91
+
+// ===== Create row #1 =====
+add waveform -color_index 3 <nandHScharMaxLoad/TRAN>V(INB)_HS -transform "< none >"
+set axis properties -axis X -scale linear
+add waveform -row 1 -axis Y1 -color_index 2 <nandLLcharMaxLoad/TRAN>V(INB)_LL -transform "< none >"
+set axis properties -row 1 -axis Y1 -autorange
+set user scale Voltage 1.0 V -row 1 -axis Y1
+set row height -row 1 -exact 155
+
+// ===== Create row #2 =====
+add waveform -color_index 3 <nandHScharMaxLoad/TRAN>V(OUT)_HS -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 2 <nandLLcharMaxLoad/TRAN>V(OUT)_LL -transform "< none >"
+set axis properties -row 2 -axis Y1 -autorange
+set user scale Voltage 1.0 V -row 2 -axis Y1
+set row height -row 2 -exact 155
+
+// ===== Create row #3 =====
+add waveform -color_index 3 <nandHScharMaxLoad/TRAN>I(V_VDD)_HS -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 2 <nandLLcharMaxLoad/TRAN>I(V_VDD)_LL -transform "< none >"
+set axis properties -row 3 -axis Y1 -autorange
+set user scale Current 1.0 A -row 3 -axis Y1
+set row height -row 3 -exact 155
+
+// ===== Create row #4 =====
+add waveform -color_index 3 <nandHScharMaxLoad/TRAN>I(VDUMMY_GND)_HS -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 2 <nandLLcharMaxLoad/TRAN>I(VDUMMY_GND)_LL -transform "< none >"
+set axis properties -row 4 -axis Y1 -autorange
+set user scale Current 1.0 A -row 4 -axis Y1
+set row height -row 4 -exact 155
+
+// ===== Create row #5 =====
+add waveform -color_index 3 <nandHScharMaxLoad/TRAN>I(VDUMMY_C)_HS -transform "< none >"
+add waveform -row 5 -axis Y1 -color_index 2 <nandLLcharMaxLoad/TRAN>I(VDUMMY_C)_LL -transform "< none >"
+set axis properties -row 5 -axis Y1 -autorange
+set user scale Current 1.0 A -row 5 -axis Y1
+set row height -row 5 -exact 159
+
+// ===== Set X-axis data units =====
+set user scale Time 1.0 s -axis X
+
+// ====== Create the cursors, markers and measurements =====
