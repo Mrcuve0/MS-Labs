@@ -1,0 +1,33 @@
+* What we provide:
+In this same folder you can find the Excel file "ex5.5 - Percentage comparison.xlsx" containing the percentage computed on both the types of gate (HS and LL)
+with the 2 different CLoad values.
+The percentage values have been computed using the formula:
+
+(lower_value / higher_value) * 100
+
+where lower_value and higher_value are picked by comparing the values obtained by the two gates.
+
+We also provide the waveforms file but, instead of superposing both the gates (bot X1 and X8) with both the CLoad values (which resulted in a unreadable graph), 
+we decided to include 2 different waveforms files: 
+
+1) The first waveform file "Waveforms_HS_LL.png" we decided to superpose the results of the two gates (LL and HS) in the "X1" implementation, with both the Cload values.
+2) The second waveform file "Waveforms_HS8_LL8.png" we decided to superpose the results of the two gates (LL and HS) in the "X8" implementation, with both the CLoad values.
+
+Since we already demonstrate the different driving capabilites between the "X1" and "X8" type of gates, we preferred keeping the waforms more clear to see the difference 
+between the HS and LL gates, that we describe below in this document.
+We decided to also include the two files "Waveforms_HS_LL.swd" and "Waveforms_HS8_LL8.swd" if you want to open the waveform window using "ezwave".
+
+In the "FilesFrom5.4" folder you can find the two waveform files we used (related to the HS gates, both X1 and X8) in order to compare them with the LL type of gates.
+These files can be opened with "ezwave".
+
+
+* Differences between HS and LL gates, considering both values of Load Capacitance:
+Both fall time and rise time are slower in HS gate with respect to LL gate for both values of CLoad.
+This is due to the current values, that are way lower for the LL NAND gate: lower peaks and lower graph area.
+
+We can conclude that LL gates, since they provide less leakage currents (because of the higher Vth) they also provide slower transitions
+since that the switch come later with respect to HS gates.
+
+So, we can consider that the lower leakage currents (and so the lower power disspipation) are an advantage provided by the LL gates with respect to HS gates.
+On the other hand, as a disadvantage, we have slower transitions in the outputs.
+When designing our circuit, we must consider both the choices to optimize both power consumption and timing results: when strict timing requirements are to be met we will use a HS gate (X1 or X8 depending on Cload). At the same time, if no timing criticality has to be met, it's better to use the LL gate (X1 or X8 depending on Cload) in order to reduce the overall power consumption despite slower transitions.
