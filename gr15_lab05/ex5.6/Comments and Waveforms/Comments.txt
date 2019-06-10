@@ -1,0 +1,15 @@
+* Waveforms comments:
+
+    * ffdH:
+    For the first part of the exercise we analyzed the ffdH simulation in order to find a Hold Time simulation. the waveforms related to this section can be found in the screenshot "ffdH Hold-Time Violation.png".
+    As we can see from this file, we started from the sweep #20 of the input (VDATA_IN)_20 (yellow waveform) which is far away from a Hold Time violation. We then staterd to pick nearer and nearer sweep until we noticed some metastability on the MN output of the Flip-Flop.
+    In fact, the first noticeable metastability on the MN output can be seen with the sweep #30, the purple waveform.
+    We measured the time between the clok edge and this input transition which is reported also in the screenshot: 20.39ps.
+    Of course all the successive sweeps (#31, #32) have bigger metastability issues.
+    However, none of these 3 sweep affect the output in a noticeable manner.
+
+    As we can see from the next waveform screenshot (file "ffdH Negative-Hold-Time Violation.png"), all the successive sweeps (from #33 up to #40) present transitions that occur before the rising edge of the clock, so that this behavior can be considered as a "Negative Hold Time violation". 
+    We can see that, on the output of the FF, the most significative transition are those related to sweep #35 up to #37. We can clearly see that the output is becoming considered at a low logic value: this is because the input transition from High to Low is to far from the rising edge of the clock, thus the clock will sample it while the transition is completed and so the input is at a low logic level.
+    On the MN pin of the FlipFlop we can appreciate all the sweeps, especially the evident metastability on sweeps #35 and #36.  
+
+    
