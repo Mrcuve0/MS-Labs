@@ -1,0 +1,122 @@
+//###########################################################
+//# EZwave - Saved Window File
+//# Tuesday, June 11, 2019 at 2:29:25 AM CEST
+//#
+//# Note: This is an auto-generated file.
+//#
+//# Any edits that you make may cause the restore of
+//# this window to fail - EDIT AT YOUR OWN RISK
+//###########################################################
+
+SET DOFILE VERSION 2.1
+
+// ===== Open required Database =====
+open wdb /home/ms19.15/MS/gr15_lab05/ex5.6/ffdSU/ffdSU.wdb ffdSU
+
+// ===== Open the window =====
+add workspace -name Workspace1 -active
+open window -maximized -divider 0.90
+
+// ===== Create row #1 =====
+add waveform -color_index 0 <ffdSU/TRAN>V(CK) -transform "< none >"
+set axis properties -axis X -scale linear
+set axis properties -row 1 -axis Y1 -autorange -zerolevel vt
+set user scale Voltage 1.0 V -row 1 -axis Y1
+
+// ===== Create row #2 =====
+add waveform -color_index 7 <ffdSU/TRAN>V(DATA_IN)_42 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 2 <ffdSU/TRAN>V(DATA_IN)_48 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 3 <ffdSU/TRAN>V(DATA_IN)_50 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 4 <ffdSU/TRAN>V(DATA_IN)_52 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 5 <ffdSU/TRAN>V(DATA_IN)_54 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 6 <ffdSU/TRAN>V(DATA_IN)_56 -transform "< none >"
+add waveform -row 2 -axis Y1 -color_index 0 <ffdSU/TRAN>V(DATA_IN)_55 -transform "< none >"
+set axis properties -row 2 -axis Y1 -autorange -zerolevel vt
+set user scale Voltage 1.0 V -row 2 -axis Y1
+
+// ===== Create row #3 =====
+add waveform -color_index 7 <ffdSU/TRAN>V(DATA_1OUT)_42 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 2 <ffdSU/TRAN>V(DATA_1OUT)_48 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 3 <ffdSU/TRAN>V(DATA_1OUT)_50 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 4 <ffdSU/TRAN>V(DATA_1OUT)_52 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 5 <ffdSU/TRAN>V(DATA_1OUT)_54 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 0 <ffdSU/TRAN>V(DATA_1OUT)_55 -transform "< none >"
+add waveform -row 3 -axis Y1 -color_index 6 <ffdSU/TRAN>V(DATA_1OUT)_56 -transform "< none >"
+set axis properties -row 3 -axis Y1 -autorange -zerolevel vt
+set user scale Voltage 1.0 V -row 3 -axis Y1
+
+// ===== Create row #4 =====
+add waveform -color_index 7 <ffdSU/TRAN>V(XFFD1.CPI)_42 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 2 <ffdSU/TRAN>V(XFFD1.CPI)_48 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 3 <ffdSU/TRAN>V(XFFD1.CPI)_50 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 4 <ffdSU/TRAN>V(XFFD1.CPI)_52 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 5 <ffdSU/TRAN>V(XFFD1.CPI)_54 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 0 <ffdSU/TRAN>V(XFFD1.CPI)_55 -transform "< none >"
+add waveform -row 4 -axis Y1 -color_index 6 <ffdSU/TRAN>V(XFFD1.CPI)_56 -transform "< none >"
+set axis properties -row 4 -axis Y1 -autorange -zerolevel vt
+set user scale Voltage 1.0 V -row 4 -axis Y1
+
+// ===== Create row #5 =====
+add waveform -color_index 7 <ffdSU/TRAN>V(XFFD1.MN)_42 -transform "< none >"
+add waveform -row 5 -axis Y1 -color_index 2 <ffdSU/TRAN>V(XFFD1.MN)_48 -transform "< none >"
+add waveform -row 5 -axis Y1 -color_index 3 <ffdSU/TRAN>V(XFFD1.MN)_50 -transform "< none >"
+add waveform -row 5 -axis Y1 -color_index 4 <ffdSU/TRAN>V(XFFD1.MN)_52 -transform "< none >"
+add waveform -row 5 -axis Y1 -color_index 5 <ffdSU/TRAN>V(XFFD1.MN)_54 -transform "< none >"
+add waveform -row 5 -axis Y1 -color_index 0 <ffdSU/TRAN>V(XFFD1.MN)_55 -transform "< none >"
+add waveform -row 5 -axis Y1 -color_index 6 <ffdSU/TRAN>V(XFFD1.MN)_56 -transform "< none >"
+set axis properties -row 5 -axis Y1 -autorange -zerolevel vt
+set user scale Voltage 1.0 V -row 5 -axis Y1
+
+// ===== Create row #6 =====
+add waveform -color_index 7 <ffdSU/TRAN>V(XFFD1.M)_42 -transform "< none >"
+add waveform -row 6 -axis Y1 -color_index 2 <ffdSU/TRAN>V(XFFD1.M)_48 -transform "< none >"
+add waveform -row 6 -axis Y1 -color_index 3 <ffdSU/TRAN>V(XFFD1.M)_50 -transform "< none >"
+add waveform -row 6 -axis Y1 -color_index 4 <ffdSU/TRAN>V(XFFD1.M)_52 -transform "< none >"
+add waveform -row 6 -axis Y1 -color_index 5 <ffdSU/TRAN>V(XFFD1.M)_54 -transform "< none >"
+add waveform -row 6 -axis Y1 -color_index 0 <ffdSU/TRAN>V(XFFD1.M)_55 -transform "< none >"
+add waveform -row 6 -axis Y1 -color_index 6 <ffdSU/TRAN>V(XFFD1.M)_56 -transform "< none >"
+set axis properties -row 6 -axis Y1 -autorange -zerolevel vt
+set user scale Voltage 1.0 V -row 6 -axis Y1
+
+// ===== Create row #7 =====
+add waveform -color_index 7 <ffdSU/TRAN>V(XFFD1.CPN)_42 -transform "< none >"
+add waveform -row 7 -axis Y1 -color_index 2 <ffdSU/TRAN>V(XFFD1.CPN)_48 -transform "< none >"
+add waveform -row 7 -axis Y1 -color_index 3 <ffdSU/TRAN>V(XFFD1.CPN)_50 -transform "< none >"
+add waveform -row 7 -axis Y1 -color_index 4 <ffdSU/TRAN>V(XFFD1.CPN)_52 -transform "< none >"
+add waveform -row 7 -axis Y1 -color_index 5 <ffdSU/TRAN>V(XFFD1.CPN)_54 -transform "< none >"
+add waveform -row 7 -axis Y1 -color_index 0 <ffdSU/TRAN>V(XFFD1.CPN)_55 -transform "< none >"
+add waveform -row 7 -axis Y1 -color_index 6 <ffdSU/TRAN>V(XFFD1.CPN)_56 -transform "< none >"
+set axis properties -row 7 -axis Y1 -autorange -zerolevel vt
+set user scale Voltage 1.0 V -row 7 -axis Y1
+
+// ===== Create row #8 =====
+add waveform -color_index 7 <ffdSU/TRAN>V(XFFD1.S)_42 -transform "< none >"
+add waveform -row 8 -axis Y1 -color_index 2 <ffdSU/TRAN>V(XFFD1.S)_48 -transform "< none >"
+add waveform -row 8 -axis Y1 -color_index 3 <ffdSU/TRAN>V(XFFD1.S)_50 -transform "< none >"
+add waveform -row 8 -axis Y1 -color_index 4 <ffdSU/TRAN>V(XFFD1.S)_52 -transform "< none >"
+add waveform -row 8 -axis Y1 -color_index 5 <ffdSU/TRAN>V(XFFD1.S)_54 -transform "< none >"
+add waveform -row 8 -axis Y1 -color_index 0 <ffdSU/TRAN>V(XFFD1.S)_55 -transform "< none >"
+add waveform -row 8 -axis Y1 -color_index 6 <ffdSU/TRAN>V(XFFD1.S)_56 -transform "< none >"
+set axis properties -row 8 -axis Y1 -autorange -zerolevel vt
+set user scale Voltage 1.0 V -row 8 -axis Y1
+
+// ===== Create row #9 =====
+add waveform -color_index 7 <ffdSU/TRAN>V(XFFD1.SN)_42 -transform "< none >"
+add waveform -row 9 -axis Y1 -color_index 2 <ffdSU/TRAN>V(XFFD1.SN)_48 -transform "< none >"
+add waveform -row 9 -axis Y1 -color_index 3 <ffdSU/TRAN>V(XFFD1.SN)_50 -transform "< none >"
+add waveform -row 9 -axis Y1 -color_index 4 <ffdSU/TRAN>V(XFFD1.SN)_52 -transform "< none >"
+add waveform -row 9 -axis Y1 -color_index 5 <ffdSU/TRAN>V(XFFD1.SN)_54 -transform "< none >"
+add waveform -row 9 -axis Y1 -color_index 0 <ffdSU/TRAN>V(XFFD1.SN)_55 -transform "< none >"
+add waveform -row 9 -axis Y1 -color_index 6 <ffdSU/TRAN>V(XFFD1.SN)_56 -transform "< none >"
+set axis properties -row 9 -axis Y1 -autorange -zerolevel vt
+set user scale Voltage 1.0 V -row 9 -axis Y1
+
+// ===== Set X-axis data units =====
+set user scale Time 1.0 s -axis X
+
+// ===== Set X-axis min/max extents =====
+set axis properties -axis X -min 1.4623552123552126E-9 -max 2.2123552123552127E-9
+
+// ====== Create the cursors, markers and measurements =====
+
+set active workspace Workspace1
