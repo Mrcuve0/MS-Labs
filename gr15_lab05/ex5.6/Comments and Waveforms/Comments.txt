@@ -9,7 +9,42 @@
     However, none of these 3 sweep affect the output in a noticeable manner.
 
     As we can see from the next waveform screenshot (file "ffdH Negative-Hold-Time Violation.png"), all the successive sweeps (from #33 up to #40) present transitions that occur before the rising edge of the clock, so that this behavior can be considered as a "Negative Hold Time violation". 
-    We can see that, on the output of the FF, the most significative transition are those related to sweep #35 up to #37. We can clearly see that the output is becoming considered at a low logic value: this is because the input transition from High to Low is to far from the rising edge of the clock, thus the clock will sample it while the transition is completed and so the input is at a low logic level.
+    We can see that, on the output of the FF, the most significative transition are those related to sweep #35 up to #37. We can clearly see that the output is becoming considered at a low logic value: this is because the input transition from High to Low is too far from the rising edge of the clock, thus the clock will sample it while the transition is completed and so the input is at a low logic level.
     On the MN pin of the FlipFlop we can appreciate all the sweeps, especially the evident metastability on sweeps #35 and #36.  
+
+    We decided to include the other waveforms files in order to be compliant with the request of the lab text: thwy may be unclear due to the number of waveforms included: we were aware of that but we didn't manage to get a better waveform description considered all the waveforms that were required to show at the same time.
+        * HL transition:
+            * In the "Hold_time_all waveforms_HL_part1.png" file we report the first part of the overall waveforms we were asked to took into consideration. From this file, we can particularly appreciate the effect of the first inverter gate, along with its propagation delay (The wavefrom is V(XFFD1.M)).
+            * In the "Hold_time_all_waveforms_HL_part2.png" file we can appreciate again the "MN" and "M" pins. At the same time we can appreciate the waveforms related to pins "SN" and "S".
+        * LH transition:
+            * In the "Hold_time_all_waveforms_LH_part1_.png" file we reported the Hold time violation from "both sides" of the clock rising edge: in fact, the waveform #42 represents the "normal Hold time violation" we expect on a theoretical FF while, with waveforms from #77 to #82 we can appreciate the "negative hold time violation".
+            * In the "Hold_time_all_waveforms_LH_part2.png" file we reported the second part of the internal signals of the FF implementation, once again including both "groups" of waveforms: waveform #42 and waveforms #77 to #82.
+        * Zoomed-Out waveforms
+            In the remaining 2 files "Less_zoom_Htime_all_wave_LH_part1.png" and "Less_zoom_Htime_all_wave_LH_part2.png" we reported a zoomed-out version of the previous files, in order to get a more clear overall waveform behavior.
+
+########################################################################################################################
+
+    * ffdSU:
+    For this second part of the exercise we analyzed the ffdSU simulation in order to find a Setup Time simulation. The waveforms related to this section can be found in the screenshot "ffdSU SU-Time Violation_HL.png".
+    As we can see from this file, we started analyzing the sweeps starting from #6 upt to #17.
+    Its while analyzing this last sweep that we capturesd the Setup Time violation: as we can clearly see, this particular waveform is not sampled on the rising edge of the clock: you can tell this by looking at the output waveform that has no transition from a High to Low state. We measured the time span between the sweep @17 to the rising edge of the clock and we obtain a value of 41.375ps.
+    The previous sweeps (from #6 to #16) does not affect the FF integrity in terms of functionality: the transition is correctly propagated. however we can see an increasing propagation delay as we increase the "neareness" of the sweep to the clock rising edge (in other words: when we try to violate more and more the Setup Time).
+
+    As we can see from the next waveform screenshot (file "ffdSU SU-Time Violation_LH.png"), we tried to explore the Setup Time violation this time using a Low to High transition.
+    Following a very similar approach to the previous one, we traced waveforms more and more near to a position that allows a Setup Time violation. We in fact started from sweep #42 up to sweep #56. It is exactly that last sweep that violates the Setup Time as we can see from the Output waveform: this time no transition from Low to high is present. This time the time span is of 59.42 ps.
+    If we consider all the previous sweeps (from #42 to #55) we can appreciate a lack of Setup time violation.
+    As senn before, in the other hand, a nearer waveform leads to an increasing delay on the output waveform.
+
+    Even for this case, we also included the waveforms of all the internal signals fo the FF, as requested by the lab text:
+        * HL transition:
+            * In the "SUtime_all_wave_HL_part1.png" and "SUtime_all_wave_HL_part2.png" files we report the waveforms in a similar manner we did for the Hold Time case. Even in this case we can see the metastability acting on the "MN" and "M" pins of the Flip Flop.
+        * LH transition:
+            * In the "SUtime_all_wave_LH_part1.png" and "SUtime_all_wave_LH_part2.png" files we report the waveforms in a similar manner we did for the Hold Time case. Even in this case we can see the metastability acting on the "MN" and "M" pins of the Flip Flop. 
+        * Zoomed-Out waveforms
+            In the remaining 2 files "Less_zoom_SUtime_all_waveHL_part1.png" and "Less_zoom_SUtime_all_waveHL_part2.png" we reported a zoomed-out version of the previous files, in order to get a more clear overall waveform behavior.
+
+
+
+
 
     
