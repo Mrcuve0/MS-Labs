@@ -29,11 +29,12 @@
     As we can see from this file, we started analyzing the sweeps starting from #6 upt to #17.
     Its while analyzing this last sweep that we capturesd the Setup Time violation: as we can clearly see, this particular waveform is not sampled on the rising edge of the clock: you can tell this by looking at the output waveform that has no transition from a High to Low state. We measured the time span between the sweep @17 to the rising edge of the clock and we obtain a value of 41.375ps.
     The previous sweeps (from #6 to #16) does not affect the FF integrity in terms of functionality: the transition is correctly propagated. however we can see an increasing propagation delay as we increase the "neareness" of the sweep to the clock rising edge (in other words: when we try to violate more and more the Setup Time).
+    So if the setup time is not respected the 'latching circuit' kicks into action latching the value present at node M and producing the wrong value in the output. As we can see w.r.t. the sweep #17 MN and M barely changing (the switching is not complete), instead SN and S are not changing at all.
 
     As we can see from the next waveform screenshot (file "ffdSU SU-Time Violation_LH.png"), we tried to explore the Setup Time violation this time using a Low to High transition.
     Following a very similar approach to the previous one, we traced waveforms more and more near to a position that allows a Setup Time violation. We in fact started from sweep #42 up to sweep #56. It is exactly that last sweep that violates the Setup Time as we can see from the Output waveform: this time no transition from Low to high is present. This time the time span is of 59.42 ps.
     If we consider all the previous sweeps (from #42 to #55) we can appreciate a lack of Setup time violation.
-    As senn before, in the other hand, a nearer waveform leads to an increasing delay on the output waveform.
+    As seen before, in the other hand, a nearer waveform leads to an increasing delay on the output waveform.
 
     Even for this case, we also included the waveforms of all the internal signals fo the FF, as requested by the lab text:
         * HL transition:
