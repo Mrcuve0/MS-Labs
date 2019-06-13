@@ -1,0 +1,459 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2017 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v17.11-s080_1, built Fri Aug 4 11:13:11 PDT 2017
+Options:	
+Date:		Thu Jun 13 13:02:11 2019
+Host:		localhost.localdomain (x86_64 w/Linux 3.10.0-957.5.1.el7.x86_64) (1core*8cpus*Westmere E56xx/L56xx/X56xx (Nehalem-C) 4096KB)
+OS:		CentOS Linux release 7.6.1810 (Core) 
+
+License:
+		invs	Innovus Implementation System	17.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (96 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getDrawView
+<CMD> loadWorkspace -name Physical
+<CMD> win
+<CMD> restoreDesign /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat completeAdder
+#% Begin load design ... (date=06/13 13:02:56, mem=429.9M)
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+% Begin Load MMMC data ... (date=06/13 13:02:56, mem=427.9M)
+% End Load MMMC data ... (date=06/13 13:02:56, total cpu=0:00:00.0, real=0:00:00.0, peak res=428.0M, current mem=428.0M)
+high standard low
+
+Loading LEF file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/lef/NangateOpenCellLibrary.lef ...
+Set DBUPerIGU to M2 pitch 380.
+
+viaInitial starts at Thu Jun 13 13:02:56 2019
+viaInitial ends at Thu Jun 13 13:02:56 2019
+Loading view definition file from /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/viewDefinition.tcl
+Reading libsTYP timing library '/software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib' ...
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND2_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND2_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND2_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND3_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND3_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND3_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND4_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND4_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND4_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI21_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI21_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI21_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI22_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI22_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI22_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI211_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI211_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI211_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI221_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI221_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+Message <TECHLIB-436> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+Read 134 cells in library 'NangateOpenCellLibrary' 
+*** End library_loading (cpu=0.04min, real=0.05min, mem=17.8M, fe_cpu=0.47min, fe_real=0.80min, fe_mem=536.7M) ***
+% Begin Load netlist data ... (date=06/13 13:02:59, mem=522.5M)
+*** Begin netlist parsing (mem=536.7M) ***
+Created 134 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.v.bin'
+Reading binary database version 1
+
+*** Memory Usage v#1 (Current mem = 544.676M, initial mem = 187.688M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=544.7M) ***
+% End Load netlist data ... (date=06/13 13:02:59, total cpu=0:00:00.1, real=0:00:00.0, peak res=522.5M, current mem=450.8M)
+Top level cell is completeAdder.
+Hooked 134 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell completeAdder ...
+*** Netlist is unique.
+** info: there are 313 modules.
+** info: there are 518 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 568.434M, initial mem = 187.688M) ***
+*info: set bottom ioPad orient R0
+Generated pitch 1.68 in metal10 is different from 1.6 defined in technology file in preferred direction.
+Generated pitch 0.84 in metal8 is different from 0.8 defined in technology file in preferred direction.
+Generated pitch 0.84 in metal7 is different from 0.8 defined in technology file in preferred direction.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+Loading preference file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/gui.pref.tcl ...
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+addRing command will ignore shorts while creating rings.
+addRing command will disallow rings to go over rows.
+addRing command will consider rows while creating rings.
+The ring targets are set to core/block ring wires.
+addStripe will allow jog to connect padcore ring and block ring.
+Stripes will not extend to closest target.
+When breaking rings, the power planner will consider the existence of blocks.
+addStripe will break automatically at non-default domains when generating global stripes over the core area or default domain.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+Stripes will not be created over regions without power planning wires.
+Offset for stripe breaking is set to 0.
+Stripes will stop at the boundary of the specified area.
+AddStripe segment minimum length set to 1
+The power planner will set stripe antenna targets to none (no trimming allowed).
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+Reading Capacitance Table File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/NCSU_FreePDK_45nm.capTbl ...
+Cap table was created using Encounter 08.10-p004_1.
+Process name: master_techFreePDK45.
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: default
+    RC-Corner Name        : standard
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 300 Celsius
+    RC-Corner Cap Table   : '/home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/NCSU_FreePDK_45nm.capTbl'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '/home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc' ...
+Current (total cpu=0:00:29.6, real=0:00:49.0, peak res=579.4M, current mem=579.4M)
+INFO (CTE): Constraints read successfully.
+WARNING (CTE-25): Line: 8 of File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc : Skipped unsupported command: set_units
+
+
+Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=587.4M, current mem=587.4M)
+Current (total cpu=0:00:29.7, real=0:00:49.0, peak res=587.4M, current mem=587.4M)
+Total number of combinational cells: 99
+Total number of sequential cells: 29
+Total number of tristate cells: 6
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: BUF_X1 BUF_X2 BUF_X4 BUF_X8 BUF_X16 BUF_X32 CLKBUF_X1 CLKBUF_X2 CLKBUF_X3
+Total number of usable buffers: 9
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: INV_X1 INV_X2 INV_X4 INV_X8 INV_X16 INV_X32
+Total number of usable inverters: 6
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells:
+Total number of identified usable delay cells: 0
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+No delay cells were detected in the set of buffers. Buffers will be used to fix hold violations.
+% Begin Load floorplan data ... (date=06/13 13:03:01, mem=589.5M)
+Reading floorplan file - /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.fp.gz (mem = 699.5M).
+% Begin Load floorplan data ... (date=06/13 13:03:01, mem=589.5M)
+*info: reset 668 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 88160 84560)
+Generated pitch 1.68 in metal10 is different from 1.6 defined in technology file in preferred direction.
+Generated pitch 0.84 in metal8 is different from 0.8 defined in technology file in preferred direction.
+Generated pitch 0.84 in metal7 is different from 0.8 defined in technology file in preferred direction.
+ ... processed partition successfully.
+Reading binary special route file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.fp.spr.gz (Created by Innovus v17.11-s080_1 on Thu Jun 13 12:18:49 2019, version: 1)
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+% End Load floorplan data ... (date=06/13 13:03:01, total cpu=0:00:00.0, real=0:00:00.0, peak res=590.4M, current mem=590.4M)
+% End Load floorplan data ... (date=06/13 13:03:01, total cpu=0:00:00.1, real=0:00:00.0, peak res=590.4M, current mem=590.4M)
+% Begin Load SymbolTable ... (date=06/13 13:03:01, mem=590.4M)
+% End Load SymbolTable ... (date=06/13 13:03:01, total cpu=0:00:00.0, real=0:00:00.0, peak res=590.5M, current mem=590.5M)
+% Begin Load placement data ... (date=06/13 13:03:01, mem=590.5M)
+Reading placement file - /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v17.11-s080_1 on Thu Jun 13 12:18:49 2019, version# 1) ...
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=699.5M) ***
+Total net length = 5.077e+03 (2.605e+03 2.472e+03) (ext = 3.517e+03)
+% End Load placement data ... (date=06/13 13:03:01, total cpu=0:00:00.1, real=0:00:00.0, peak res=591.6M, current mem=591.6M)
+% Begin Load routing data ... (date=06/13 13:03:01, mem=591.6M)
+Reading routing file - /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.route.gz.
+Reading Innovus routing data (Created by Innovus v17.11-s080_1 on Thu Jun 13 12:18:50 2019 Format: 16.2) ...
+Suppress "**WARN ..." messages.
+Un-suppress "**WARN ..." messages.
+*** Total 601 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=699.5M) ***
+% End Load routing data ... (date=06/13 13:03:01, total cpu=0:00:00.0, real=0:00:00.0, peak res=593.3M, current mem=593.3M)
+Reading property file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=699.5M) ***
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+% Begin Load power constraints ... (date=06/13 13:03:01, mem=594.0M)
+'set_default_switching_activity' finished successfully.
+% End Load power constraints ... (date=06/13 13:03:01, total cpu=0:00:00.0, real=0:00:00.0, peak res=594.0M, current mem=593.8M)
+Start generating vias ...
+#Skip building auto via since it is not turned on.
+Via generation completed.
+% Begin load AAE data ... (date=06/13 13:03:01, mem=599.2M)
+AAE DB initialization (MEM=724.152 CPU=0:00:00.2 REAL=0:00:01.0) 
+% End load AAE data ... (date=06/13 13:03:02, total cpu=0:00:00.2, real=0:00:01.0, peak res=599.2M, current mem=598.3M)
+Total number of combinational cells: 99
+Total number of sequential cells: 29
+Total number of tristate cells: 6
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: BUF_X1 BUF_X2 BUF_X4 BUF_X8 BUF_X16 BUF_X32 CLKBUF_X1 CLKBUF_X2 CLKBUF_X3
+Total number of usable buffers: 9
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: INV_X1 INV_X2 INV_X4 INV_X8 INV_X16 INV_X32
+Total number of usable inverters: 6
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells:
+Total number of identified usable delay cells: 0
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+No delay cells were detected in the set of buffers. Buffers will be used to fix hold violations.
+#% End load design ... (date=06/13 13:03:02, total cpu=0:00:05.2, real=0:00:06.0, peak res=599.2M, current mem=598.3M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+WARNING   GLOBAL-100           2  Global '%s' has become obsolete. It will...
+WARNING   TECHLIB-436         20  Attribute '%s' on '%s' pin '%s' of cell ...
+*** Message Summary: 23 warning(s), 0 error(s)
+
+<CMD> init_design
+**WARN: (IMPSYT-7329):	Cannot load design with init_design, after design is already in memory.  This command is skipped.
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPSYT-7329          1  Cannot load design with init_design, aft...
+*** Message Summary: 1 warning(s), 0 error(s)
+
+<CMD> redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
+<CMD> timeDesign -postRoute -pathReports -drvReports -slackReports -numPaths 50 -prefix completeAdder_postRoute -outDir timingReports
+ Reset EOS DB
+Ignoring AAE DB Resetting ...
+Extraction called for design 'completeAdder' of instances=1465 and nets=668 using extraction engine 'postRoute' at effort level 'low' .
+**WARN: (IMPEXT-3530):	The process node is not set. Use the command setDesignMode -process <process node> prior to extraction for maximum accuracy and optimal automatic threshold setting.
+Type 'man IMPEXT-3530' for more detail.
+PostRoute (effortLevel low) RC Extraction called for design completeAdder.
+RC Extraction called in multi-corner(1) mode.
+Process corner(s) are loaded.
+ Corner: standard
+extractDetailRC Option : -outfile /tmp/innovus_temp_11981_localhost.localdomain_ms19.15_G1dHDh/completeAdder_11981_oQldPt.rcdb.d  -extended
+RC Mode: PostRoute -effortLevel low [Extended CapTable, RC Table Resistances]
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Coupling Cap. Scaling Factor : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+Checking LVS Completed (CPU Time= 0:00:00.0  MEM= 726.6M)
+Extracted 10.0291% (CPU Time= 0:00:00.0  MEM= 748.6M)
+Extracted 20.0358% (CPU Time= 0:00:00.0  MEM= 775.6M)
+Extracted 30.0425% (CPU Time= 0:00:00.0  MEM= 775.6M)
+Extracted 40.0269% (CPU Time= 0:00:00.1  MEM= 775.6M)
+Extracted 50.0336% (CPU Time= 0:00:00.1  MEM= 775.6M)
+Extracted 60.0403% (CPU Time= 0:00:00.1  MEM= 775.6M)
+Extracted 70.0246% (CPU Time= 0:00:00.1  MEM= 775.6M)
+Extracted 80.0313% (CPU Time= 0:00:00.1  MEM= 775.6M)
+Extracted 90.0381% (CPU Time= 0:00:00.1  MEM= 775.6M)
+Extracted 100% (CPU Time= 0:00:00.1  MEM= 775.6M)
+Number of Extracted Resistors     : 6988
+Number of Extracted Ground Cap.   : 7549
+Number of Extracted Coupling Cap. : 9308
+Filtering XCap in 'relativeOnly' mode using values relative_c_threshold=0.03 and total_c_threshold=5fF.
+ Corner: standard
+Checking LVS Completed (CPU Time= 0:00:00.0  MEM= 760.6M)
+PostRoute (effortLevel low) RC Extraction DONE (CPU Time: 0:00:00.2  Real Time: 0:00:00.0  MEM: 768.609M)
+Starting SI iteration 1 using Infinite Timing Windows
+#################################################################################
+# Design Stage: PostRoute
+# Design Name: completeAdder
+# Design Mode: 90nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: SPEF/RCDB
+# Signoff Settings: SI On 
+#################################################################################
+AAE_INFO: 1 threads acquired from CTE.
+Calculate early delays in OCV mode...
+Calculate late delays in OCV mode...
+Start delay calculation (fullDC) (1 T). (MEM=771.32)
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+AAE_INFO: 1 threads acquired from CTE.
+Total number of fetched objects 583
+AAE_INFO-618: Total number of nets in the design is 668,  84.6 percent of the nets selected for SI analysis
+End delay calculation. (MEM=1018.38 CPU=0:00:00.4 REAL=0:00:01.0)
+End delay calculation (fullDC). (MEM=921.012 CPU=0:00:00.9 REAL=0:00:01.0)
+Loading CTE timing window with TwFlowType 0...(CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 921.0M)
+Add other clocks and setupCteToAAEClockMapping during iter 1
+Loading CTE timing window is completed (CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 921.0M)
+Starting SI iteration 2
+Calculate early delays in OCV mode...
+Calculate late delays in OCV mode...
+Start delay calculation (fullDC) (1 T). (MEM=920.988)
+Glitch Analysis: View default -- Total Number of Nets Skipped = 0. 
+Glitch Analysis: View default -- Total Number of Nets Analyzed = 583. 
+Total number of fetched objects 583
+AAE_INFO-618: Total number of nets in the design is 668,  0.0 percent of the nets selected for SI analysis
+End delay calculation. (MEM=888.984 CPU=0:00:00.0 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=888.984 CPU=0:00:00.1 REAL=0:00:00.0)
+
+------------------------------------------------------------
+          timeDesign Summary                             
+------------------------------------------------------------
+
+Setup views included:
+ default 
+
++--------------------+---------+---------+
+|     Setup mode     |   all   | default |
++--------------------+---------+---------+
+|           WNS (ns):|  0.142  |  0.142  |
+|           TNS (ns):|  0.000  |  0.000  |
+|    Violating Paths:|    0    |    0    |
+|          All Paths:|   33    |   33    |
++--------------------+---------+---------+
+
++----------------+-------------------------------+------------------+
+|                |              Real             |       Total      |
+|    DRVs        +------------------+------------+------------------|
+|                |  Nr nets(terms)  | Worst Vio  |  Nr nets(terms)  |
++----------------+------------------+------------+------------------+
+|   max_cap      |      0 (0)       |   0.000    |      0 (0)       |
+|   max_tran     |      0 (0)       |   0.000    |      0 (0)       |
+|   max_fanout   |      0 (0)       |     0      |      0 (0)       |
+|   max_length   |      0 (0)       |     0      |      0 (0)       |
++----------------+------------------+------------+------------------+
+
+Density: 56.864%
+       (100.000% with Fillers)
+Total number of glitch violations: 0
+------------------------------------------------------------
+Reported timing to dir timingReports
+Total CPU time: 2.03 sec
+Total Real time: 2.0 sec
+Total Memory Usage: 826.210938 Mbytes
+Reset AAE Options
+<CMD> redirect -quiet {set honorDomain [getAnalysisMode -honorClockDomains]} > /dev/null
+<CMD> timeDesign -postRoute -hold -pathReports -slackReports -numPaths 50 -prefix completeAdder_postRoute -outDir timingReports
+ Reset EOS DB
+Ignoring AAE DB Resetting ...
+Extraction called for design 'completeAdder' of instances=1465 and nets=668 using extraction engine 'postRoute' at effort level 'low' .
+**WARN: (IMPEXT-3530):	The process node is not set. Use the command setDesignMode -process <process node> prior to extraction for maximum accuracy and optimal automatic threshold setting.
+Type 'man IMPEXT-3530' for more detail.
+PostRoute (effortLevel low) RC Extraction called for design completeAdder.
+RC Extraction called in multi-corner(1) mode.
+Process corner(s) are loaded.
+ Corner: standard
+extractDetailRC Option : -outfile /tmp/innovus_temp_11981_localhost.localdomain_ms19.15_G1dHDh/completeAdder_11981_oQldPt.rcdb.d -maxResLength 200  -extended
+RC Mode: PostRoute -effortLevel low [Extended CapTable, RC Table Resistances]
+      RC Corner Indexes            0   
+Capacitance Scaling Factor   : 1.00000 
+Coupling Cap. Scaling Factor : 1.00000 
+Resistance Scaling Factor    : 1.00000 
+Clock Cap. Scaling Factor    : 1.00000 
+Clock Res. Scaling Factor    : 1.00000 
+Shrink Factor                : 1.00000
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+Checking LVS Completed (CPU Time= 0:00:00.0  MEM= 832.2M)
+Extracted 10.0291% (CPU Time= 0:00:00.1  MEM= 870.2M)
+Extracted 20.0358% (CPU Time= 0:00:00.1  MEM= 896.3M)
+Extracted 30.0425% (CPU Time= 0:00:00.1  MEM= 896.3M)
+Extracted 40.0269% (CPU Time= 0:00:00.1  MEM= 896.3M)
+Extracted 50.0336% (CPU Time= 0:00:00.1  MEM= 896.3M)
+Extracted 60.0403% (CPU Time= 0:00:00.1  MEM= 896.3M)
+Extracted 70.0246% (CPU Time= 0:00:00.1  MEM= 896.3M)
+Extracted 80.0313% (CPU Time= 0:00:00.1  MEM= 896.3M)
+Extracted 90.0381% (CPU Time= 0:00:00.1  MEM= 896.3M)
+Extracted 100% (CPU Time= 0:00:00.1  MEM= 896.3M)
+Number of Extracted Resistors     : 6988
+Number of Extracted Ground Cap.   : 7549
+Number of Extracted Coupling Cap. : 9308
+Filtering XCap in 'relativeOnly' mode using values relative_c_threshold=0.03 and total_c_threshold=5fF.
+ Corner: standard
+Checking LVS Completed (CPU Time= 0:00:00.0  MEM= 881.2M)
+PostRoute (effortLevel low) RC Extraction DONE (CPU Time: 0:00:00.3  Real Time: 0:00:00.0  MEM: 893.250M)
+Starting SI iteration 1 using Infinite Timing Windows
+#################################################################################
+# Design Stage: PostRoute
+# Design Name: completeAdder
+# Design Mode: 90nm
+# Analysis Mode: MMMC OCV 
+# Parasitics Mode: SPEF/RCDB
+# Signoff Settings: SI On 
+#################################################################################
+AAE_INFO: 1 threads acquired from CTE.
+Calculate late delays in OCV mode...
+Calculate early delays in OCV mode...
+Start delay calculation (fullDC) (1 T). (MEM=842.34)
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+AAE_INFO: 1 threads acquired from CTE.
+Total number of fetched objects 583
+AAE_INFO-618: Total number of nets in the design is 668,  84.6 percent of the nets selected for SI analysis
+End delay calculation. (MEM=927.258 CPU=0:00:00.4 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=927.258 CPU=0:00:00.6 REAL=0:00:00.0)
+Loading CTE timing window with TwFlowType 0...(CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 927.3M)
+Add other clocks and setupCteToAAEClockMapping during iter 1
+Loading CTE timing window is completed (CPU = 0:00:00.0, REAL = 0:00:00.0, MEM = 927.3M)
+Starting SI iteration 2
+AAE_INFO: 1 threads acquired from CTE.
+Calculate late delays in OCV mode...
+Calculate early delays in OCV mode...
+Start delay calculation (fullDC) (1 T). (MEM=927.234)
+Glitch Analysis: View default -- Total Number of Nets Skipped = 0. 
+Glitch Analysis: View default -- Total Number of Nets Analyzed = 0. 
+Total number of fetched objects 583
+AAE_INFO-618: Total number of nets in the design is 668,  0.0 percent of the nets selected for SI analysis
+End delay calculation. (MEM=895.23 CPU=0:00:00.0 REAL=0:00:00.0)
+End delay calculation (fullDC). (MEM=895.23 CPU=0:00:00.1 REAL=0:00:00.0)
+*** Done Building Timing Graph (cpu=0:00:01.1 real=0:00:01.0 totSessionCpu=0:00:36.4 mem=895.2M)
+
+------------------------------------------------------------
+          timeDesign Summary                             
+------------------------------------------------------------
+
+Hold  views included:
+ default 
+
++--------------------+---------+---------+
+|     Hold mode      |   all   | default |
++--------------------+---------+---------+
+|           WNS (ns):|  0.000  |  0.000  |
+|           TNS (ns):|  0.000  |  0.000  |
+|    Violating Paths:|    0    |    0    |
+|          All Paths:|    0    |    0    |
++--------------------+---------+---------+
+
+Density: 56.864%
+       (100.000% with Fillers)
+------------------------------------------------------------
+Reported timing to dir timingReports
+Total CPU time: 1.52 sec
+Total Real time: 1.0 sec
+Total Memory Usage: 810.796875 Mbytes
+Reset AAE Options
+
+*** Memory Usage v#1 (Current mem = 810.797M, initial mem = 187.688M) ***
+*** Message Summary: 26 warning(s), 0 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:38.4, real=0:01:30, mem=810.8M) ---

@@ -1,0 +1,83 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : completeAdder
+Version: F-2011.09-SP3
+Date   : Thu Jun 13 11:44:02 2019
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: Cin (input port)
+  Endpoint: Sum[31] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  completeAdder      5K_hvratio_1_4        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  input external delay                                    0.00       0.00 r
+  Cin (in)                                                0.00       0.00 r
+  U64/Z (XOR2_X1)                                         0.16       0.16 r
+  ST/B[0] (SparseTree_N32_RADIX4)                         0.00       0.16 r
+  ST/PGNetwork_1/B[0] (PGNetwork_N32)                     0.00       0.16 r
+  ST/PGNetwork_1/SpecBlock_0/b (SpecialPGBlock)           0.00       0.16 r
+  ST/PGNetwork_1/SpecBlock_0/PGBlock/b (PGNetBlock_1)     0.00       0.16 r
+  ST/PGNetwork_1/SpecBlock_0/PGBlock/U2/Z (XOR2_X1)       0.09       0.24 r
+  ST/PGNetwork_1/SpecBlock_0/PGBlock/gp[0] (PGNetBlock_1)
+                                                          0.00       0.24 r
+  ST/PGNetwork_1/SpecBlock_0/GGBlock/GikPik[0] (GeneralGenerate_3)
+                                                          0.00       0.24 r
+  ST/PGNetwork_1/SpecBlock_0/GGBlock/U2/ZN (AOI21_X1)     0.03       0.28 f
+  ST/PGNetwork_1/SpecBlock_0/GGBlock/U1/ZN (INV_X1)       0.03       0.31 r
+  ST/PGNetwork_1/SpecBlock_0/GGBlock/Gij (GeneralGenerate_3)
+                                                          0.00       0.31 r
+  ST/PGNetwork_1/SpecBlock_0/G1_0 (SpecialPGBlock)        0.00       0.31 r
+  ST/PGNetwork_1/gpSignals[0] (PGNetwork_N32)             0.00       0.31 r
+  ST/ST_row1And2_1/input[0] (ST_row1And2_N32)             0.00       0.31 r
+  ST/ST_row1And2_1/TBS_0/Gk_1_right (triBlockSpecial)     0.00       0.31 r
+  ST/ST_row1And2_1/TBS_0/G_1/Gk_1 (GeneralGenerate_2)     0.00       0.31 r
+  ST/ST_row1And2_1/TBS_0/G_1/U2/ZN (AOI21_X1)             0.03       0.33 f
+  ST/ST_row1And2_1/TBS_0/G_1/U1/ZN (INV_X1)               0.03       0.36 r
+  ST/ST_row1And2_1/TBS_0/G_1/Gij (GeneralGenerate_2)      0.00       0.36 r
+  ST/ST_row1And2_1/TBS_0/G_2/Gk_1 (GeneralGenerate_1)     0.00       0.36 r
+  ST/ST_row1And2_1/TBS_0/G_2/U2/ZN (AOI21_X1)             0.03       0.39 f
+  ST/ST_row1And2_1/TBS_0/G_2/U1/ZN (INV_X1)               0.05       0.44 r
+  ST/ST_row1And2_1/TBS_0/G_2/Gij (GeneralGenerate_1)      0.00       0.44 r
+  ST/ST_row1And2_1/TBS_0/Gij (triBlockSpecial)            0.00       0.44 r
+  ST/ST_row1And2_1/output[7] (ST_row1And2_N32)            0.00       0.44 r
+  ST/G_1_0_0_0/Gk_1 (GeneralGenerate_0)                   0.00       0.44 r
+  ST/G_1_0_0_0/U2/ZN (AOI21_X1)                           0.04       0.48 f
+  ST/G_1_0_0_0/U1/ZN (INV_X1)                             0.06       0.54 r
+  ST/G_1_0_0_0/Gij (GeneralGenerate_0)                    0.00       0.54 r
+  ST/G_1_1_0_1/Gk_1 (GeneralGenerate_8)                   0.00       0.54 r
+  ST/G_1_1_0_1/U2/ZN (AOI21_X1)                           0.04       0.59 f
+  ST/G_1_1_0_1/U1/ZN (INV_X1)                             0.07       0.66 r
+  ST/G_1_1_0_1/Gij (GeneralGenerate_8)                    0.00       0.66 r
+  ST/G_1_2_0_2/Gk_1 (GeneralGenerate_5)                   0.00       0.66 r
+  ST/G_1_2_0_2/U2/ZN (AOI21_X1)                           0.05       0.71 f
+  ST/G_1_2_0_2/U1/ZN (INV_X1)                             0.05       0.77 r
+  ST/G_1_2_0_2/Gij (GeneralGenerate_5)                    0.00       0.77 r
+  ST/carryVector[6] (SparseTree_N32_RADIX4)               0.00       0.77 r
+  CSSG/carry_vector[6] (CSSG_generic_N32_RADIX4)          0.00       0.77 r
+  CSSG/CSB_7/Cin (CSB_generic_N4_1)                       0.00       0.77 r
+  CSSG/CSB_7/MUX21_1/SEL (MUX21_GENERIC_N4_1)             0.00       0.77 r
+  CSSG/CSB_7/MUX21_1/U1/Z (MUX2_X1)                       0.08       0.84 f
+  CSSG/CSB_7/MUX21_1/Y[3] (MUX21_GENERIC_N4_1)            0.00       0.84 f
+  CSSG/CSB_7/S[3] (CSB_generic_N4_1)                      0.00       0.84 f
+  CSSG/S[31] (CSSG_generic_N32_RADIX4)                    0.00       0.84 f
+  Sum[31] (out)                                           0.00       0.85 f
+  data arrival time                                                  0.85
+  --------------------------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

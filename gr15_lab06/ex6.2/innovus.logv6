@@ -1,0 +1,229 @@
+[06/13 12:53:19      0s] 
+[06/13 12:53:19      0s] Cadence Innovus(TM) Implementation System.
+[06/13 12:53:19      0s] Copyright 2017 Cadence Design Systems, Inc. All rights reserved worldwide.
+[06/13 12:53:19      0s] 
+[06/13 12:53:19      0s] Version:	v17.11-s080_1, built Fri Aug 4 11:13:11 PDT 2017
+[06/13 12:53:19      0s] Options:	
+[06/13 12:53:19      0s] Date:		Thu Jun 13 12:53:19 2019
+[06/13 12:53:19      0s] Host:		localhost.localdomain (x86_64 w/Linux 3.10.0-957.5.1.el7.x86_64) (1core*8cpus*Westmere E56xx/L56xx/X56xx (Nehalem-C) 4096KB)
+[06/13 12:53:19      0s] OS:		CentOS Linux release 7.6.1810 (Core) 
+[06/13 12:53:19      0s] 
+[06/13 12:53:19      0s] License:
+[06/13 12:53:19      0s] 		invs	Innovus Implementation System	17.1	checkout succeeded
+[06/13 12:53:19      0s] 		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+[06/13 12:53:45     21s] @(#)CDS: Innovus v17.11-s080_1 (64bit) 08/04/2017 11:13 (Linux 2.6.18-194.el5)
+[06/13 12:53:45     21s] @(#)CDS: NanoRoute 17.11-s080_1 NR170721-2155/17_11-UB (database version 2.30, 390.7.1) {superthreading v1.44}
+[06/13 12:53:45     21s] @(#)CDS: AAE 17.11-s034 (64bit) 08/04/2017 (Linux 2.6.18-194.el5)
+[06/13 12:53:45     21s] @(#)CDS: CTE 17.11-s053_1 () Aug  1 2017 23:31:41 ( )
+[06/13 12:53:45     21s] @(#)CDS: SYNTECH 17.11-s012_1 () Jul 21 2017 02:29:12 ( )
+[06/13 12:53:45     21s] @(#)CDS: CPE v17.11-s095
+[06/13 12:53:45     21s] @(#)CDS: IQRC/TQRC 16.1.1-s215 (64bit) Thu Jul  6 20:18:10 PDT 2017 (Linux 2.6.18-194.el5)
+[06/13 12:53:45     21s] @(#)CDS: OA 22.50-p063 Fri Feb  3 19:45:13 2017
+[06/13 12:53:45     21s] @(#)CDS: SGN 10.10-p124 (19-Aug-2014) (64 bit executable)
+[06/13 12:53:45     21s] @(#)CDS: RCDB 11.10
+[06/13 12:53:45     21s] --- Running on localhost.localdomain (x86_64 w/Linux 3.10.0-957.5.1.el7.x86_64) (1core*8cpus*Westmere E56xx/L56xx/X56xx (Nehalem-C) 4096KB) ---
+[06/13 12:53:45     21s] Create and set the environment variable TMPDIR to /tmp/innovus_temp_8301_localhost.localdomain_ms19.15_wyKztj.
+
+[06/13 12:53:45     21s] Change the soft stacksize limit to 0.2%RAM (96 mbytes). Set global soft_stack_size_limit to change the value.
+[06/13 12:53:47     22s] 
+[06/13 12:53:47     22s] **INFO:  MMMC transition support version v31-84 
+[06/13 12:53:47     22s] 
+[06/13 12:53:47     22s] <CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+[06/13 12:53:47     22s] <CMD> suppressMessage ENCEXT-2799
+[06/13 12:53:47     23s] <CMD> getDrawView
+[06/13 12:53:47     23s] <CMD> loadWorkspace -name Physical
+[06/13 12:53:47     23s] <CMD> win
+[06/13 12:53:57     24s] <CMD> set defHierChar /
+[06/13 12:53:57     24s] Set Default Input Pin Transition as 0.1 ps.
+[06/13 12:53:57     24s] <CMD> set delaycal_input_transition_delay 0.1ps
+[06/13 12:53:57     24s] <CMD> set fpIsMaxIoHeight 0
+[06/13 12:53:57     24s] <CMD> set init_gnd_net gnd
+[06/13 12:53:57     24s] <CMD> set init_mmmc_file Default.view
+[06/13 12:53:57     24s] <CMD> set init_oa_search_lib {}
+[06/13 12:53:57     24s] <CMD> set init_pwr_net vdd
+[06/13 12:53:57     24s] <CMD> set init_verilog ADD-structural-topt.v
+[06/13 12:53:57     24s] <CMD> set init_lef_file /software/dk/nangate45/lef/NangateOpenCellLibrary.lef
+[06/13 12:54:26     28s] <CMD> set init_verilog completeAdder.v
+[06/13 12:54:26     28s] <CMD> init_design
+[06/13 12:54:26     28s] #% Begin Load MMMC data ... (date=06/13 12:54:26, mem=412.6M)
+[06/13 12:54:26     28s] #% End Load MMMC data ... (date=06/13 12:54:26, total cpu=0:00:00.0, real=0:00:00.0, peak res=412.7M, current mem=412.7M)
+[06/13 12:54:26     28s] 
+[06/13 12:54:26     28s] Loading LEF file /software/dk/nangate45/lef/NangateOpenCellLibrary.lef ...
+[06/13 12:54:26     28s] Set DBUPerIGU to M2 pitch 380.
+[06/13 12:54:26     28s] 
+[06/13 12:54:26     28s] viaInitial starts at Thu Jun 13 12:54:26 2019
+viaInitial ends at Thu Jun 13 12:54:26 2019
+Loading view definition file from Default.view
+[06/13 12:54:26     28s] Reading libsTYP timing library '/software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib' ...
+[06/13 12:54:26     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND2_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:26     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND2_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:26     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND2_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:26     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND3_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:26     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND3_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:26     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND3_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND4_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND4_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND4_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI21_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI21_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI21_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI22_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI22_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI22_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI211_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI211_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI211_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI221_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] **WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI221_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+[06/13 12:54:27     28s] Message <TECHLIB-436> has exceeded the message display limit of '20'. Use 'set_message -no_limit -id list_of_msgIDs' to reset the message limit.
+[06/13 12:54:29     30s] Read 134 cells in library 'NangateOpenCellLibrary' 
+[06/13 12:54:29     30s] *** End library_loading (cpu=0.04min, real=0.05min, mem=17.6M, fe_cpu=0.51min, fe_real=1.17min, fe_mem=518.6M) ***
+[06/13 12:54:29     30s] #% Begin Load netlist data ... (date=06/13 12:54:29, mem=507.9M)
+[06/13 12:54:29     30s] *** Begin netlist parsing (mem=518.6M) ***
+[06/13 12:54:29     30s] Created 134 new cells from 1 timing libraries.
+[06/13 12:54:29     30s] Reading netlist ...
+[06/13 12:54:29     30s] Backslashed names will retain backslash and a trailing blank character.
+[06/13 12:54:29     30s] Reading verilog netlist 'completeAdder.v'
+[06/13 12:54:29     30s] 
+[06/13 12:54:29     30s] *** Memory Usage v#1 (Current mem = 518.574M, initial mem = 179.684M) ***
+[06/13 12:54:29     30s] *** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=518.6M) ***
+[06/13 12:54:29     30s] #% End Load netlist data ... (date=06/13 12:54:29, total cpu=0:00:00.1, real=0:00:00.0, peak res=507.9M, current mem=437.0M)
+[06/13 12:54:29     30s] Top level cell is completeAdder.
+[06/13 12:54:30     30s] Hooked 134 DB cells to tlib cells.
+[06/13 12:54:30     30s] Starting recursive module instantiation check.
+[06/13 12:54:30     30s] No recursion found.
+[06/13 12:54:30     30s] Building hierarchical netlist for Cell completeAdder ...
+[06/13 12:54:30     30s] *** Netlist is unique.
+[06/13 12:54:30     30s] ** info: there are 313 modules.
+[06/13 12:54:30     30s] ** info: there are 518 stdCell insts.
+[06/13 12:54:30     30s] 
+[06/13 12:54:30     30s] *** Memory Usage v#1 (Current mem = 551.246M, initial mem = 179.684M) ***
+[06/13 12:54:30     30s] Generated pitch 1.68 in metal10 is different from 1.6 defined in technology file in preferred direction.
+[06/13 12:54:30     30s] Generated pitch 0.84 in metal8 is different from 0.8 defined in technology file in preferred direction.
+[06/13 12:54:30     30s] Generated pitch 0.84 in metal7 is different from 0.8 defined in technology file in preferred direction.
+[06/13 12:54:30     30s] Set Default Net Delay as 1000 ps.
+[06/13 12:54:30     30s] Set Default Net Load as 0.5 pF. 
+[06/13 12:54:30     30s] Set Default Input Pin Transition as 0.1 ps.
+[06/13 12:54:30     31s] Extraction setup Delayed 
+[06/13 12:54:30     31s] *Info: initialize multi-corner CTS.
+[06/13 12:54:30     31s] Reading timing constraints file 'ADDER.sdc' ...
+[06/13 12:54:31     31s] Current (total cpu=0:00:31.5, real=0:01:12, peak res=564.6M, current mem=564.6M)
+[06/13 12:54:31     31s] **WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'CLK' (File ADDER.sdc, Line 10).
+[06/13 12:54:31     31s] 
+[06/13 12:54:31     31s] **ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'CLK' (File ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-1109):	Could not find source for create_clock command (File ADDER.sdc, Line 10).
+
+INFO (CTE): Reading of timing constraints file ADDER.sdc completed, with 1 Warnings and 2 Errors.
+[06/13 12:54:31     31s] WARNING (CTE-25): Line: 8 of File ADDER.sdc : Skipped unsupported command: set_units
+[06/13 12:54:31     31s] 
+[06/13 12:54:31     31s] 
+[06/13 12:54:31     31s] Ending "Constraint file reading stats" (total cpu=0:00:00.1, real=0:00:00.0, peak res=571.9M, current mem=571.9M)
+[06/13 12:54:31     31s] Current (total cpu=0:00:31.6, real=0:01:12, peak res=571.9M, current mem=571.9M)
+[06/13 12:54:31     31s] Creating Cell Server ...(0, 1, 1, 1)
+[06/13 12:54:31     31s] Summary for sequential cells identification: 
+[06/13 12:54:31     31s]   Identified SBFF number: 16
+[06/13 12:54:31     31s]   Identified MBFF number: 0
+[06/13 12:54:31     31s]   Identified SB Latch number: 0
+[06/13 12:54:31     31s]   Identified MB Latch number: 0
+[06/13 12:54:31     31s]   Not identified SBFF number: 0
+[06/13 12:54:31     31s]   Not identified MBFF number: 0
+[06/13 12:54:31     31s]   Not identified SB Latch number: 0
+[06/13 12:54:31     31s]   Not identified MB Latch number: 0
+[06/13 12:54:31     31s]   Number of sequential cells which are not FFs: 13
+[06/13 12:54:31     31s] Total number of combinational cells: 99
+[06/13 12:54:31     31s] Total number of sequential cells: 29
+[06/13 12:54:31     31s] Total number of tristate cells: 6
+[06/13 12:54:31     31s] Total number of level shifter cells: 0
+[06/13 12:54:31     31s] Total number of power gating cells: 0
+[06/13 12:54:31     31s] Total number of isolation cells: 0
+[06/13 12:54:31     31s] Total number of power switch cells: 0
+[06/13 12:54:31     31s] Total number of pulse generator cells: 0
+[06/13 12:54:31     31s] Total number of always on buffers: 0
+[06/13 12:54:31     31s] Total number of retention cells: 0
+[06/13 12:54:31     31s] List of usable buffers: BUF_X1 BUF_X2 BUF_X4 BUF_X8 BUF_X16 BUF_X32 CLKBUF_X1 CLKBUF_X2 CLKBUF_X3
+[06/13 12:54:31     31s] Total number of usable buffers: 9
+[06/13 12:54:31     31s] List of unusable buffers:
+[06/13 12:54:31     31s] Total number of unusable buffers: 0
+[06/13 12:54:31     31s] List of usable inverters: INV_X1 INV_X2 INV_X4 INV_X8 INV_X16 INV_X32
+[06/13 12:54:31     31s] Total number of usable inverters: 6
+[06/13 12:54:31     31s] List of unusable inverters:
+[06/13 12:54:31     31s] Total number of unusable inverters: 0
+[06/13 12:54:31     31s] List of identified usable delay cells:
+[06/13 12:54:31     31s] Total number of identified usable delay cells: 0
+[06/13 12:54:31     31s] List of identified unusable delay cells:
+[06/13 12:54:31     31s] Total number of identified unusable delay cells: 0
+[06/13 12:54:31     31s] Creating Cell Server, finished. 
+[06/13 12:54:31     31s] 
+[06/13 12:54:31     31s] No delay cells were detected in the set of buffers. Buffers will be used to fix hold violations.
+[06/13 12:54:31     31s] Deleting Cell Server ...
+[06/13 12:54:31     31s] Patterns Extraction called explicitly through PreRoutePatternsIfNeeded call 
+[06/13 12:54:31     31s] Extraction setup Started 
+[06/13 12:54:31     31s] Initializing multi-corner RC extraction with 1 active RC Corners ...
+[06/13 12:54:31     31s] Reading Capacitance Table File /software/dk/nangate45/lef/captables/NCSU_FreePDK_45nm.capTbl ...
+[06/13 12:54:31     31s] Cap table was created using Encounter 08.10-p004_1.
+[06/13 12:54:31     31s] Process name: master_techFreePDK45.
+[06/13 12:54:31     31s] Importing multi-corner RC tables ... 
+[06/13 12:54:31     31s] Summary of Active RC-Corners : 
+[06/13 12:54:31     31s]  
+[06/13 12:54:31     31s]  Analysis View: default
+[06/13 12:54:31     31s]     RC-Corner Name        : standard
+[06/13 12:54:31     31s]     RC-Corner Index       : 0
+[06/13 12:54:31     31s]     RC-Corner Temperature : 300 Celsius
+[06/13 12:54:31     31s]     RC-Corner Cap Table   : '/software/dk/nangate45/lef/captables/NCSU_FreePDK_45nm.capTbl'
+[06/13 12:54:31     31s]     RC-Corner PreRoute Res Factor         : 1
+[06/13 12:54:31     31s]     RC-Corner PreRoute Cap Factor         : 1
+[06/13 12:54:31     31s]     RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+[06/13 12:54:31     31s]     RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+[06/13 12:54:31     31s]     RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+[06/13 12:54:31     31s]     RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+[06/13 12:54:31     31s]     RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+[06/13 12:54:31     31s]     RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+[06/13 12:54:31     31s]     RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+[06/13 12:54:31     31s] 
+[06/13 12:54:31     31s] *** Summary of all messages that are not suppressed in this session:
+[06/13 12:54:31     31s] Severity  ID               Count  Summary                                  
+[06/13 12:54:31     31s] WARNING   TCLCMD-513           1  The software could not find a matching o...
+[06/13 12:54:31     31s] ERROR     TCLCMD-917           1  Cannot find '%s' that match '%s'         
+[06/13 12:54:31     31s] ERROR     TCLCMD-1109          1  Could not find source for %s command     
+[06/13 12:54:31     31s] WARNING   TECHLIB-436         20  Attribute '%s' on '%s' pin '%s' of cell ...
+[06/13 12:54:31     31s] *** Message Summary: 21 warning(s), 2 error(s)
+[06/13 12:54:31     31s] 
+[06/13 12:54:46     33s] <CMD> init_design
+[06/13 12:54:46     33s] **WARN: (IMPSYT-7329):	Cannot load design with init_design, after design is already in memory.  This command is skipped.
+[06/13 12:54:46     33s] 
+[06/13 12:54:46     33s] *** Summary of all messages that are not suppressed in this session:
+[06/13 12:54:46     33s] Severity  ID               Count  Summary                                  
+[06/13 12:54:46     33s] WARNING   IMPSYT-7329          1  Cannot load design with init_design, aft...
+[06/13 12:54:46     33s] *** Message Summary: 1 warning(s), 0 error(s)
+[06/13 12:54:46     33s] 
+[06/13 12:55:03     35s] <CMD> set init_verilog ADD-structural-topt.v
+[06/13 12:55:03     35s] <CMD> init_design
+[06/13 12:55:03     35s] **WARN: (IMPSYT-7329):	Cannot load design with init_design, after design is already in memory.  This command is skipped.
+[06/13 12:55:03     35s] 
+[06/13 12:55:03     35s] *** Summary of all messages that are not suppressed in this session:
+[06/13 12:55:03     35s] Severity  ID               Count  Summary                                  
+[06/13 12:55:03     35s] WARNING   IMPSYT-7329          1  Cannot load design with init_design, aft...
+[06/13 12:55:03     35s] *** Message Summary: 1 warning(s), 0 error(s)
+[06/13 12:55:03     35s] 
+[06/13 12:55:19     37s] <CMD> init_design
+[06/13 12:55:19     37s] **WARN: (IMPSYT-7329):	Cannot load design with init_design, after design is already in memory.  This command is skipped.
+[06/13 12:55:19     37s] 
+[06/13 12:55:19     37s] *** Summary of all messages that are not suppressed in this session:
+[06/13 12:55:19     37s] Severity  ID               Count  Summary                                  
+[06/13 12:55:19     37s] WARNING   IMPSYT-7329          1  Cannot load design with init_design, aft...
+[06/13 12:55:19     37s] *** Message Summary: 1 warning(s), 0 error(s)
+[06/13 12:55:19     37s] 
+[06/13 12:55:37     39s] 
+[06/13 12:55:37     39s] *** Memory Usage v#1 (Current mem = 808.785M, initial mem = 179.684M) ***
+[06/13 12:55:37     39s] 
+[06/13 12:55:37     39s] *** Summary of all messages that are not suppressed in this session:
+[06/13 12:55:37     39s] Severity  ID               Count  Summary                                  
+[06/13 12:55:37     39s] WARNING   IMPSYT-7329          3  Cannot load design with init_design, aft...
+[06/13 12:55:37     39s] WARNING   TCLCMD-513           1  The software could not find a matching o...
+[06/13 12:55:37     39s] ERROR     TCLCMD-917           1  Cannot find '%s' that match '%s'         
+[06/13 12:55:37     39s] ERROR     TCLCMD-1109          1  Could not find source for %s command     
+[06/13 12:55:37     39s] WARNING   TECHLIB-436         20  Attribute '%s' on '%s' pin '%s' of cell ...
+[06/13 12:55:37     39s] *** Message Summary: 24 warning(s), 2 error(s)
+[06/13 12:55:37     39s] 
+[06/13 12:55:37     39s] --- Ending "Innovus" (totcpu=0:00:39.8, real=0:02:18, mem=808.8M) ---

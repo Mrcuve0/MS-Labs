@@ -1,0 +1,469 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2017 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v17.11-s080_1, built Fri Aug 4 11:13:11 PDT 2017
+Options:	
+Date:		Thu Jun 13 12:36:51 2019
+Host:		localhost.localdomain (x86_64 w/Linux 3.10.0-957.5.1.el7.x86_64) (1core*8cpus*Westmere E56xx/L56xx/X56xx (Nehalem-C) 4096KB)
+OS:		CentOS Linux release 7.6.1810 (Core) 
+
+License:
+		invs	Innovus Implementation System	17.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (96 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getDrawView
+<CMD> loadWorkspace -name Physical
+<CMD> win
+<CMD> encMessage warning 0
+Suppress "**WARN ..." messages.
+<CMD> encMessage debug 0
+<CMD> encMessage info 0
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+high standard low
+Loading view definition file from /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/viewDefinition.tcl
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND2_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND2_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND2_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND3_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND3_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND3_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND4_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND4_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AND4_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI21_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI21_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI21_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI22_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI22_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI22_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI211_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI211_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI211_X4' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI221_X1' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+**WARN: (TECHLIB-436):	Attribute 'max_fanout' on 'output/inout' pin 'ZN' of cell 'AOI221_X2' is not defined in the library. (File /software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib)
+*** End library_loading (cpu=0.04min, real=0.03min, mem=17.2M, fe_cpu=0.69min, fe_real=2.98min, fe_mem=537.0M) ***
+*** Netlist is unique.
+Loading preference file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/gui.pref.tcl ...
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'CLK' (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'CLK' (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-1109):	Could not find source for create_clock command (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+'set_default_switching_activity' finished successfully.
+<CMD> encMessage warning 0
+Suppress "**WARN ..." messages.
+<CMD> encMessage debug 0
+<CMD> encMessage info 0
+Reset to color id 0 for ST (SparseTree_N32_RADIX4) and all their descendants.
+Reset to color id 0 for CSSG (CSSG_generic_N32_RADIX4) and all their descendants.
+Free PSO.
+**WARN: (IMPCK-8086):	The command setCTSMode is obsolete and will be removed in the next release. This command still works in this release, but by the next release you must transition to the CCOpt-based CTS flow.
+
+
+Info (SM2C): Status of key globals:
+	 MMMC-by-default flow     : 1
+	 Default MMMC objs envvar : 0
+	 Data portability         : 0
+	 MMMC PV Emulation        : 0
+	 MMMC debug               : 0
+	 Init_Design flow         : 1
+
+
+	 CTE SM2C global          : false
+	 Reporting view filter    : false
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+high standard low
+Loading view definition file from /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/viewDefinition.tcl
+*** End library_loading (cpu=0.04min, real=0.03min, mem=8.0M, fe_cpu=0.80min, fe_real=3.13min, fe_mem=589.3M) ***
+*** Netlist is unique.
+Loading preference file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/gui.pref.tcl ...
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: analysis view default not found, use default_view_setup
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'CLK' (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'CLK' (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-1109):	Could not find source for create_clock command (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+'set_default_switching_activity' finished successfully.
+<CMD> gui_select -rect {-7.642 10.148 12.723 17.548}
+<CMD> deselectAll
+<CMD> selectWire 5.1300 14.7550 38.9500 14.9250 1 gnd
+<CMD> gui_select -rect {-10.613 10.580 30.980 25.651}
+<CMD> deselectAll
+<CMD> gui_select -rect {57.556 42.666 -26.332 -4.869}
+<CMD> deselectAll
+<CMD> restoreDesign /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat completeAdder
+#% Begin load design ... (date=06/13 12:40:52, mem=634.1M)
+Resetting process node dependent CCOpt properties.
+Reset to color id 0 for ST (SparseTree_N32_RADIX4) and all their descendants.
+Reset to color id 0 for CSSG (CSSG_generic_N32_RADIX4) and all their descendants.
+Free PSO.
+Reset cap table.
+Cleaning up the current multi-corner RC extraction setup.
+Resetting process node dependent CCOpt properties.
+**WARN: (IMPCK-8086):	The command setCTSMode is obsolete and will be removed in the next release. This command still works in this release, but by the next release you must transition to the CCOpt-based CTS flow.
+Set DBUPerIGU to 1000.
+Set net toggle Scale Factor to 1.00
+Set Shrink Factor to 1.00000
+Set net toggle Scale Factor to 1.00
+Set Shrink Factor to 1.00000
+Set net toggle Scale Factor to 1.00
+Set Shrink Factor to 1.00000
+
+*** Memory Usage v#1 (Current mem = 592.727M, initial mem = 187.684M) ***
+
+
+Info (SM2C): Status of key globals:
+	 MMMC-by-default flow     : 1
+	 Default MMMC objs envvar : 0
+	 Data portability         : 0
+	 MMMC PV Emulation        : 0
+	 MMMC debug               : 0
+	 Init_Design flow         : 1
+
+
+	 CTE SM2C global          : false
+	 Reporting view filter    : false
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+% Begin Load MMMC data ... (date=06/13 12:40:54, mem=654.4M)
+% End Load MMMC data ... (date=06/13 12:40:54, total cpu=0:00:00.0, real=0:00:00.0, peak res=654.4M, current mem=529.6M)
+high standard low
+
+Loading LEF file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/lef/NangateOpenCellLibrary.lef ...
+Set DBUPerIGU to M2 pitch 380.
+
+viaInitial starts at Thu Jun 13 12:40:54 2019
+viaInitial ends at Thu Jun 13 12:40:54 2019
+Loading view definition file from /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/viewDefinition.tcl
+Reading libsTYP timing library '/software/dk/nangate45/liberty/NangateOpenCellLibrary_typical_ecsm_nowlm.lib' ...
+Read 134 cells in library 'NangateOpenCellLibrary' 
+*** End library_loading (cpu=0.04min, real=0.03min, mem=9.0M, fe_cpu=1.02min, fe_real=4.08min, fe_mem=604.8M) ***
+% Begin Load netlist data ... (date=06/13 12:40:56, mem=511.3M)
+*** Begin netlist parsing (mem=604.8M) ***
+Created 134 new cells from 1 timing libraries.
+Reading netlist ...
+Backslashed names will retain backslash and a trailing blank character.
+Reading verilogBinary netlist '/home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.v.bin'
+Reading binary database version 1
+
+*** Memory Usage v#1 (Current mem = 610.828M, initial mem = 187.684M) ***
+*** End netlist parsing (cpu=0:00:00.0, real=0:00:00.0, mem=610.8M) ***
+% End Load netlist data ... (date=06/13 12:40:56, total cpu=0:00:00.0, real=0:00:00.0, peak res=514.0M, current mem=514.0M)
+Top level cell is completeAdder.
+Hooked 134 DB cells to tlib cells.
+Starting recursive module instantiation check.
+No recursion found.
+Building hierarchical netlist for Cell completeAdder ...
+*** Netlist is unique.
+** info: there are 313 modules.
+** info: there are 518 stdCell insts.
+
+*** Memory Usage v#1 (Current mem = 618.832M, initial mem = 187.684M) ***
+*info: set bottom ioPad orient R0
+Generated pitch 1.68 in metal10 is different from 1.6 defined in technology file in preferred direction.
+Generated pitch 0.84 in metal8 is different from 0.8 defined in technology file in preferred direction.
+Generated pitch 0.84 in metal7 is different from 0.8 defined in technology file in preferred direction.
+Set Default Net Delay as 1000 ps.
+Set Default Net Load as 0.5 pF. 
+Set Default Input Pin Transition as 0.1 ps.
+Loading preference file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/gui.pref.tcl ...
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+addRing command will ignore shorts while creating rings.
+addRing command will disallow rings to go over rows.
+addRing command will consider rows while creating rings.
+The ring targets are set to core/block ring wires.
+addStripe will allow jog to connect padcore ring and block ring.
+Stripes will not extend to closest target.
+When breaking rings, the power planner will consider the existence of blocks.
+addStripe will break automatically at non-default domains when generating global stripes over the core area or default domain.
+The entire stripe set will break at the domain if one of the nets is not in the domain.
+Stripes will not be created over regions without power planning wires.
+Offset for stripe breaking is set to 0.
+Stripes will stop at the boundary of the specified area.
+AddStripe segment minimum length set to 1
+The power planner will set stripe antenna targets to none (no trimming allowed).
+**WARN: analysis view default not found, use default_view_setup
+**WARN: analysis view default not found, use default_view_setup
+Extraction setup Started 
+Initializing multi-corner RC extraction with 1 active RC Corners ...
+Reading Capacitance Table File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/NCSU_FreePDK_45nm.capTbl ...
+Cap table was created using Encounter 08.10-p004_1.
+Process name: master_techFreePDK45.
+Importing multi-corner RC tables ... 
+Summary of Active RC-Corners : 
+ 
+ Analysis View: default
+    RC-Corner Name        : standard
+    RC-Corner Index       : 0
+    RC-Corner Temperature : 300 Celsius
+    RC-Corner Cap Table   : '/home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/NCSU_FreePDK_45nm.capTbl'
+    RC-Corner PreRoute Res Factor         : 1
+    RC-Corner PreRoute Cap Factor         : 1
+    RC-Corner PostRoute Res Factor        : 1 {1 1 1}
+    RC-Corner PostRoute Cap Factor        : 1 {1 1 1}
+    RC-Corner PostRoute XCap Factor       : 1 {1 1 1}
+    RC-Corner PreRoute Clock Res Factor   : 1	[Derived from postRoute_res (effortLevel low)]
+    RC-Corner PreRoute Clock Cap Factor   : 1	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Cap Factor  : 1 {1 1 1} 	[Derived from postRoute_cap (effortLevel low)]
+    RC-Corner PostRoute Clock Res Factor  : 1 {1 1 1} 	[Derived from postRoute_res (effortLevel low)]
+*Info: initialize multi-corner CTS.
+Reading timing constraints file '/home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc' ...
+Current (total cpu=0:01:02, real=0:04:06, peak res=654.4M, current mem=632.1M)
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'CLK' (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'CLK' (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-1109):	Could not find source for create_clock command (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+INFO (CTE): Reading of timing constraints file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc completed, with 1 Warnings and 2 Errors.
+WARNING (CTE-25): Line: 8 of File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc : Skipped unsupported command: set_units
+
+
+Ending "Constraint file reading stats" (total cpu=0:00:00.0, real=0:00:00.0, peak res=632.9M, current mem=632.9M)
+Current (total cpu=0:01:03, real=0:04:06, peak res=654.4M, current mem=632.9M)
+Total number of combinational cells: 99
+Total number of sequential cells: 29
+Total number of tristate cells: 6
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: BUF_X1 BUF_X2 BUF_X4 BUF_X8 BUF_X16 BUF_X32 CLKBUF_X1 CLKBUF_X2 CLKBUF_X3
+Total number of usable buffers: 9
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: INV_X1 INV_X2 INV_X4 INV_X8 INV_X16 INV_X32
+Total number of usable inverters: 6
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells:
+Total number of identified usable delay cells: 0
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+No delay cells were detected in the set of buffers. Buffers will be used to fix hold violations.
+% Begin Load floorplan data ... (date=06/13 12:40:57, mem=633.7M)
+Reading floorplan file - /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.fp.gz (mem = 733.6M).
+% Begin Load floorplan data ... (date=06/13 12:40:58, mem=633.7M)
+*info: reset 668 existing net BottomPreferredLayer and AvoidDetour
+Deleting old partition specification.
+Set FPlanBox to (0 0 88160 84560)
+Generated pitch 1.68 in metal10 is different from 1.6 defined in technology file in preferred direction.
+Generated pitch 0.84 in metal8 is different from 0.8 defined in technology file in preferred direction.
+Generated pitch 0.84 in metal7 is different from 0.8 defined in technology file in preferred direction.
+ ... processed partition successfully.
+Reading binary special route file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.fp.spr.gz (Created by Innovus v17.11-s080_1 on Thu Jun 13 12:18:49 2019, version: 1)
+Extracting standard cell pins and blockage ...... 
+Pin and blockage extraction finished
+% End Load floorplan data ... (date=06/13 12:40:58, total cpu=0:00:00.0, real=0:00:00.0, peak res=633.9M, current mem=633.9M)
+% End Load floorplan data ... (date=06/13 12:40:58, total cpu=0:00:00.1, real=0:00:00.0, peak res=633.9M, current mem=633.9M)
+% Begin Load SymbolTable ... (date=06/13 12:40:58, mem=633.9M)
+% End Load SymbolTable ... (date=06/13 12:40:58, total cpu=0:00:00.0, real=0:00:00.0, peak res=634.0M, current mem=634.0M)
+% Begin Load placement data ... (date=06/13 12:40:58, mem=634.0M)
+Reading placement file - /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.place.gz.
+** Reading stdCellPlacement_binary (Created by Innovus v17.11-s080_1 on Thu Jun 13 12:18:49 2019, version# 1) ...
+*** Completed restorePlace (cpu=0:00:00.0 real=0:00:00.0 mem=733.6M) ***
+Total net length = 5.077e+03 (2.605e+03 2.472e+03) (ext = 3.517e+03)
+% End Load placement data ... (date=06/13 12:40:58, total cpu=0:00:00.0, real=0:00:00.0, peak res=634.5M, current mem=634.5M)
+% Begin Load routing data ... (date=06/13 12:40:58, mem=634.5M)
+Reading routing file - /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.route.gz.
+Reading Innovus routing data (Created by Innovus v17.11-s080_1 on Thu Jun 13 12:18:50 2019 Format: 16.2) ...
+Suppress "**WARN ..." messages.
+Un-suppress "**WARN ..." messages.
+*** Total 601 nets are successfully restored.
+*** Completed restoreRoute (cpu=0:00:00.0 real=0:00:00.0 mem=733.6M) ***
+% End Load routing data ... (date=06/13 12:40:58, total cpu=0:00:00.1, real=0:00:00.0, peak res=636.0M, current mem=636.0M)
+Reading property file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/completeAdder.prop
+*** Completed restoreProperty (cpu=0:00:00.0 real=0:00:00.0 mem=733.6M) ***
+Set Default Input Pin Transition as 0.1 ps.
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+Initializing multi-corner capacitance tables ... 
+Initializing multi-corner resistance tables ...
+% Begin Load power constraints ... (date=06/13 12:40:58, mem=635.3M)
+'set_default_switching_activity' finished successfully.
+% End Load power constraints ... (date=06/13 12:40:58, total cpu=0:00:00.0, real=0:00:00.0, peak res=635.3M, current mem=635.3M)
+Start generating vias ...
+#Skip building auto via since it is not turned on.
+Via generation completed.
+% Begin load AAE data ... (date=06/13 12:40:58, mem=636.3M)
+AAE DB initialization (MEM=752.785 CPU=0:00:00.2 REAL=0:00:01.0) 
+% End load AAE data ... (date=06/13 12:40:59, total cpu=0:00:00.2, real=0:00:01.0, peak res=636.9M, current mem=636.9M)
+Total number of combinational cells: 99
+Total number of sequential cells: 29
+Total number of tristate cells: 6
+Total number of level shifter cells: 0
+Total number of power gating cells: 0
+Total number of isolation cells: 0
+Total number of power switch cells: 0
+Total number of pulse generator cells: 0
+Total number of always on buffers: 0
+Total number of retention cells: 0
+List of usable buffers: BUF_X1 BUF_X2 BUF_X4 BUF_X8 BUF_X16 BUF_X32 CLKBUF_X1 CLKBUF_X2 CLKBUF_X3
+Total number of usable buffers: 9
+List of unusable buffers:
+Total number of unusable buffers: 0
+List of usable inverters: INV_X1 INV_X2 INV_X4 INV_X8 INV_X16 INV_X32
+Total number of usable inverters: 6
+List of unusable inverters:
+Total number of unusable inverters: 0
+List of identified usable delay cells:
+Total number of identified usable delay cells: 0
+List of identified unusable delay cells:
+Total number of identified unusable delay cells: 0
+No delay cells were detected in the set of buffers. Buffers will be used to fix hold violations.
+#% End load design ... (date=06/13 12:40:59, total cpu=0:00:05.7, real=0:00:07.0, peak res=654.4M, current mem=636.9M)
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPCK-8086           1  The command %s is obsolete and will be r...
+WARNING   IMPTCM-77            1  Option "%s" for command %s is obsolete a...
+WARNING   GLOBAL-100           2  Global '%s' has become obsolete. It will...
+WARNING   TCLCMD-513           1  The software could not find a matching o...
+ERROR     TCLCMD-917           1  Cannot find '%s' that match '%s'         
+ERROR     TCLCMD-1109          1  Could not find source for %s command     
+*** Message Summary: 5 warning(s), 2 error(s)
+
+<CMD> init_design
+**WARN: (IMPSYT-7329):	Cannot load design with init_design, after design is already in memory.  This command is skipped.
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPSYT-7329          1  Cannot load design with init_design, aft...
+*** Message Summary: 1 warning(s), 0 error(s)
+
+<CMD> selectObject Module CSSG
+<CMD> deselectAll
+<CMD> selectObject Module CSSG
+<CMD> deselectAll
+<CMD> selectObject Module ST
+<CMD> deselectAll
+<CMD> selectObject Module CSSG
+<CMD> deselectAll
+<CMD> selectObject Module CSSG
+<CMD> deselectAll
+<CMD> selectObject Module CSSG
+<CMD> deselectAll
+<CMD> selectObject Module CSSG
+<CMD> deselectAll
+<CMD> selectObject Module CSSG
+<CMD> gui_select -rect {-29.469 30.483 19.800 -14.918}
+<CMD> deselectAll
+<CMD> gui_select -rect {-47.514 49.818 53.171 -8.473}
+<CMD> deselectAll
+**ERROR: (IMPSYT-16325):	Floorplan has no partitions.
+<CMD> encMessage warning 0
+Suppress "**WARN ..." messages.
+<CMD> encMessage debug 0
+<CMD> encMessage info 0
+Reset to color id 0 for ST (SparseTree_N32_RADIX4) and all their descendants.
+Reset to color id 0 for CSSG (CSSG_generic_N32_RADIX4) and all their descendants.
+Free PSO.
+**WARN: (IMPCK-8086):	The command setCTSMode is obsolete and will be removed in the next release. This command still works in this release, but by the next release you must transition to the CCOpt-based CTS flow.
+
+
+Info (SM2C): Status of key globals:
+	 MMMC-by-default flow     : 1
+	 Default MMMC objs envvar : 0
+	 Data portability         : 0
+	 MMMC PV Emulation        : 0
+	 MMMC debug               : 0
+	 Init_Design flow         : 1
+
+
+	 CTE SM2C global          : false
+	 Reporting view filter    : false
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+high standard low
+Loading view definition file from /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/viewDefinition.tcl
+*** End library_loading (cpu=0.04min, real=0.03min, mem=10.0M, fe_cpu=1.35min, fe_real=5.60min, fe_mem=835.9M) ***
+*** Netlist is unique.
+Loading preference file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/gui.pref.tcl ...
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: analysis view default not found, use default_view_setup
+**WARN: analysis view default not found, use default_view_setup
+**WARN: analysis view default not found, use default_view_setup
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'CLK' (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'CLK' (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-1109):	Could not find source for create_clock command (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+'set_default_switching_activity' finished successfully.
+<CMD> encMessage warning 0
+Suppress "**WARN ..." messages.
+<CMD> encMessage debug 0
+<CMD> encMessage info 0
+Reset to color id 0 for ST (SparseTree_N32_RADIX4) and all their descendants.
+Reset to color id 0 for CSSG (CSSG_generic_N32_RADIX4) and all their descendants.
+Free PSO.
+**WARN: (IMPCK-8086):	The command setCTSMode is obsolete and will be removed in the next release. This command still works in this release, but by the next release you must transition to the CCOpt-based CTS flow.
+
+
+Info (SM2C): Status of key globals:
+	 MMMC-by-default flow     : 1
+	 Default MMMC objs envvar : 0
+	 Data portability         : 0
+	 MMMC PV Emulation        : 0
+	 MMMC debug               : 0
+	 Init_Design flow         : 1
+
+
+	 CTE SM2C global          : false
+	 Reporting view filter    : false
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+high standard low
+Loading view definition file from /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/viewDefinition.tcl
+*** End library_loading (cpu=0.04min, real=0.05min, mem=9.0M, fe_cpu=1.45min, fe_real=5.75min, fe_mem=849.6M) ***
+*** Netlist is unique.
+Loading preference file /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/gui.pref.tcl ...
+**WARN: (IMPTCM-77):	Option "-drouteStartIteration" for command setNanoRouteMode is obsolete and will be removed in a future release. The obsolete option still works in this release but to avoid this warning and to ensure compatibility with future releases, remove the obsolete option from your script.
+**WARN: analysis view default not found, use default_view_setup
+**WARN: analysis view default not found, use default_view_setup
+**WARN: analysis view default not found, use default_view_setup
+**WARN: analysis view default not found, use default_view_setup
+**WARN: (TCLCMD-513):	The software could not find a matching object of the specified type for the pattern 'CLK' (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-917):	Cannot find 'ports' that match 'CLK' (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**ERROR: (TCLCMD-1109):	Could not find source for create_clock command (File /home/ms19.15/MS/gr15_lab06/ex6.2/completeAdder.dat/libs/mmmc/ADDER.sdc, Line 10).
+
+**WARN: (GLOBAL-100):	Global 'timing_enable_default_delay_arc' has become obsolete. It will be removed in the next release.
+'set_default_switching_activity' finished successfully.
+<CMD> set defHierChar /
+Set Default Input Pin Transition as 0.1 ps.
+<CMD> set delaycal_input_transition_delay 0.1ps
+<CMD> set fpIsMaxIoHeight 0
+<CMD> set init_gnd_net gnd
+<CMD> set init_mmmc_file Default.view
+<CMD> set init_oa_search_lib {}
+<CMD> set init_pwr_net vdd
+<CMD> set init_verilog ADD-structural-topt.v
+<CMD> set init_lef_file /software/dk/nangate45/lef/NangateOpenCellLibrary.lef
+<CMD> init_design
+**WARN: (IMPSYT-7329):	Cannot load design with init_design, after design is already in memory.  This command is skipped.
+
+*** Summary of all messages that are not suppressed in this session:
+Severity  ID               Count  Summary                                  
+WARNING   IMPSYT-7329          1  Cannot load design with init_design, aft...
+*** Message Summary: 1 warning(s), 0 error(s)
+
+
+*** Memory Usage v#1 (Current mem = 1005.238M, initial mem = 187.684M) ***
+*** Message Summary: 46 warning(s), 12 error(s)
+
+--- Ending "Innovus" (totcpu=0:01:38, real=0:06:36, mem=1005.2M) ---

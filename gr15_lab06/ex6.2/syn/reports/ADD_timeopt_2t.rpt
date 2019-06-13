@@ -1,0 +1,90 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : completeAdder
+Version: F-2011.09-SP3
+Date   : Thu Jun 13 11:44:21 2019
+****************************************
+
+Operating Conditions: typical   Library: NangateOpenCellLibrary
+Wire Load Model Mode: top
+
+  Startpoint: Cin (input port)
+  Endpoint: Sum[28] (output port)
+  Path Group: default
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  completeAdder      5K_hvratio_1_4        NangateOpenCellLibrary
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  input external delay                                    0.00       0.00 f
+  Cin (in)                                                0.00       0.00 f
+  U92/Z (BUF_X2)                                          0.07       0.07 f
+  U56/Z (XOR2_X1)                                         0.08       0.16 f
+  ST/B[17] (SparseTree_N32_RADIX4)                        0.00       0.16 f
+  ST/PGNetwork_1/B[17] (PGNetwork_N32)                    0.00       0.16 f
+  ST/PGNetwork_1/PGBlock_17/b (PGNetBlock_16)             0.00       0.16 f
+  ST/PGNetwork_1/PGBlock_17/U2/Z (XOR2_X1)                0.08       0.23 f
+  ST/PGNetwork_1/PGBlock_17/gp[0] (PGNetBlock_16)         0.00       0.23 f
+  ST/PGNetwork_1/gpSignals[34] (PGNetwork_N32)            0.00       0.23 f
+  ST/ST_row1And2_1/input[34] (ST_row1And2_N32)            0.00       0.23 f
+  ST/ST_row1And2_1/TB_4/GikPik_right[0] (triBlock_4)      0.00       0.23 f
+  ST/ST_row1And2_1/TB_4/PG_2/GikPik[0] (GeneralPropagateGenerate_11)
+                                                          0.00       0.23 f
+  ST/ST_row1And2_1/TB_4/PG_2/U2/ZN (AOI21_X1)             0.05       0.28 r
+  ST/ST_row1And2_1/TB_4/PG_2/U1/ZN (INV_X1)               0.03       0.30 f
+  ST/ST_row1And2_1/TB_4/PG_2/GijPij[1] (GeneralPropagateGenerate_11)
+                                                          0.00       0.30 f
+  ST/ST_row1And2_1/TB_4/PG_3/Gk_1Pk_1[1] (GeneralPropagateGenerate_10)
+                                                          0.00       0.30 f
+  ST/ST_row1And2_1/TB_4/PG_3/U2/ZN (AOI21_X1)             0.04       0.34 r
+  ST/ST_row1And2_1/TB_4/PG_3/U1/ZN (INV_X1)               0.03       0.37 f
+  ST/ST_row1And2_1/TB_4/PG_3/GijPij[1] (GeneralPropagateGenerate_10)
+                                                          0.00       0.37 f
+  ST/ST_row1And2_1/TB_4/GijPij[1] (triBlock_4)            0.00       0.37 f
+  ST/ST_row1And2_1/output[39] (ST_row1And2_N32)           0.00       0.37 f
+  ST/PG_1_0_2_0/Gk_1Pk_1[1] (GeneralPropagateGenerate_26)
+                                                          0.00       0.37 f
+  ST/PG_1_0_2_0/U2/ZN (AOI21_X1)                          0.04       0.42 r
+  ST/PG_1_0_2_0/U1/ZN (INV_X1)                            0.03       0.45 f
+  ST/PG_1_0_2_0/GijPij[1] (GeneralPropagateGenerate_26)
+                                                          0.00       0.45 f
+  ST/PG_1_1_1_0/Gk_1Pk_1[1] (GeneralPropagateGenerate_24)
+                                                          0.00       0.45 f
+  ST/PG_1_1_1_0/U2/ZN (AOI21_X1)                          0.04       0.49 r
+  ST/PG_1_1_1_0/U3/ZN (INV_X1)                            0.03       0.51 f
+  ST/PG_1_1_1_0/GijPij[1] (GeneralPropagateGenerate_24)
+                                                          0.00       0.51 f
+  ST/G_1_2_0_2/GikPik[1] (GeneralGenerate_5)              0.00       0.51 f
+  ST/G_1_2_0_2/U2/ZN (AOI21_X1)                           0.05       0.57 r
+  ST/G_1_2_0_2/U1/ZN (INV_X1)                             0.04       0.61 f
+  ST/G_1_2_0_2/Gij (GeneralGenerate_5)                    0.00       0.61 f
+  ST/carryVector[6] (SparseTree_N32_RADIX4)               0.00       0.61 f
+  CSSG/carry_vector[6] (CSSG_generic_N32_RADIX4)          0.00       0.61 f
+  CSSG/CSB_7/Cin (CSB_generic_N4_1)                       0.00       0.61 f
+  CSSG/CSB_7/MUX21_1/SEL (MUX21_GENERIC_N4_1)             0.00       0.61 f
+  CSSG/CSB_7/MUX21_1/U1/Z (MUX2_X1)                       0.07       0.68 r
+  CSSG/CSB_7/MUX21_1/Y[0] (MUX21_GENERIC_N4_1)            0.00       0.68 r
+  CSSG/CSB_7/S[0] (CSB_generic_N4_1)                      0.00       0.68 r
+  CSSG/S[28] (CSSG_generic_N32_RADIX4)                    0.00       0.68 r
+  Sum[28] (out)                                           0.00       0.68 r
+  data arrival time                                                  0.68
+
+  max_delay                                               0.68       0.68
+  output external delay                                   0.00       0.68
+  data required time                                                 0.68
+  --------------------------------------------------------------------------
+  data required time                                                 0.68
+  data arrival time                                                 -0.68
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1

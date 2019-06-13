@@ -1,0 +1,52 @@
+
+Cadence Innovus(TM) Implementation System.
+Copyright 2017 Cadence Design Systems, Inc. All rights reserved worldwide.
+
+Version:	v17.11-s080_1, built Fri Aug 4 11:13:11 PDT 2017
+Options:	
+Date:		Thu Jun 13 11:46:49 2019
+Host:		localhost.localdomain (x86_64 w/Linux 3.10.0-957.5.1.el7.x86_64) (1core*8cpus*Westmere E56xx/L56xx/X56xx (Nehalem-C) 4096KB)
+OS:		CentOS Linux release 7.6.1810 (Core) 
+
+License:
+		invs	Innovus Implementation System	17.1	checkout succeeded
+		8 CPU jobs allowed with the current license(s). Use setMultiCpuUsage to set your required CPU count.
+Change the soft stacksize limit to 0.2%RAM (96 mbytes). Set global soft_stack_size_limit to change the value.
+
+**INFO:  MMMC transition support version v31-84 
+
+<CMD> set_global _enable_mmmc_by_default_flow      $CTE::mmmc_default
+<CMD> suppressMessage ENCEXT-2799
+<CMD> getDrawView
+<CMD> loadWorkspace -name Physical
+<CMD> win
+<CMD> set defHierChar /
+Set Default Input Pin Transition as 0.1 ps.
+<CMD> set delaycal_input_transition_delay 0.1ps
+<CMD> set fpIsMaxIoHeight 0
+<CMD> set init_gnd_net gnd
+<CMD> set init_mmmc_file Default.view
+<CMD> set init_oa_search_lib {}
+<CMD> set init_pwr_net vdd
+<CMD> set init_verilog ADD-structural-topt.v
+<CMD> set init_lef_file /software/dk/nangate45/lef/NangateOpenCellLibrary.lef
+<CMD> init_design
+#% Begin Load MMMC data ... (date=06/13 11:47:35, mem=419.8M)
+**ERROR: (TCLCMD-989):	cannot open SDC file 'SUM.sdc' for mode 'coherent-synthesis'
+<CMD> init_design
+% Begin Load MMMC data ... (date=06/13 11:48:19, mem=419.9M)
+**ERROR: (TCLCMD-989):	cannot open SDC file 'SUM.sdc' for mode 'coherent-synthesis'
+<CMD> init_design
+% Begin Load MMMC data ... (date=06/13 11:48:29, mem=419.9M)
+**ERROR: (TCLCMD-989):	cannot open SDC file 'SUM.sdc' for mode 'coherent-synthesis'
+<CMD> init_design
+% Begin Load MMMC data ... (date=06/13 11:48:30, mem=419.9M)
+**ERROR: (TCLCMD-989):	cannot open SDC file 'SUM.sdc' for mode 'coherent-synthesis'
+<CMD> init_design
+% Begin Load MMMC data ... (date=06/13 11:48:32, mem=420.0M)
+**ERROR: (TCLCMD-989):	cannot open SDC file 'SUM.sdc' for mode 'coherent-synthesis'
+
+*** Memory Usage v#1 (Current mem = 502.566M, initial mem = 179.684M) ***
+*** Message Summary: 0 warning(s), 5 error(s)
+
+--- Ending "Innovus" (totcpu=0:00:35.9, real=0:02:03, mem=502.6M) ---
