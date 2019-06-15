@@ -1,0 +1,28 @@
+ 
+****************************************
+Report : area
+Design : Booth
+Version: F-2011.09-SP3
+Date   : Sat Jun 15 17:05:31 2019
+****************************************
+
+Library(s) Used:
+
+    NangateOpenCellLibrary (File: /home/mariagrazia.graziano/do/libnangate/NangateOpenCellLibrary_typical_ecsm.db)
+
+Number of ports:                          130
+Number of nets:                          2173
+Number of cells:                           26
+Number of combinational cells:              8
+Number of sequential cells:                 0
+Number of macros:                           0
+Number of buf/inv:                          8
+Number of references:                      20
+
+Combinational area:       14710.863950
+Noncombinational area:    2860.032013
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:          17570.895963
+Total area:                 undefined
+1

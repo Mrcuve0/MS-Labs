@@ -8,7 +8,7 @@ use WORK.constants.all;
 --------------------------------------------------------------------------------
 -- Definition of the overall structure composing the Sparse Tree
 
--- Contains the structures "PG-Network", “ST_row1And2" and 
+-- Contains the structures "PG-Network", "ST_row1And2" and 
 -- generates the remaining part of the tree (using G and PG blocks).
 
 -- The generation and interconnection of the remaining part of the tree is 

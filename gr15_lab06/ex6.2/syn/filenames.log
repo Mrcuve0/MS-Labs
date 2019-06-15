@@ -174,6 +174,7 @@
 /home/ms19.15/MS/gr15_lab06/ex6.2/syn/ST_row1And2.vhd
 /home/ms19.15/MS/gr15_lab06/ex6.2/syn/SparseTree.vhd
 /home/ms19.15/MS/gr15_lab06/ex6.2/syn/completeAdder.vhd
+/home/ms19.15/MS/gr15_lab06/ex6.2/syn/completeAdderSynchronous.vhd
 /software/synopsys/syn_current_64/libraries/syn/gtech.db
 /software/synopsys/syn_current_64/libraries/syn/standard.sldb
 /home/ms19.15/synopsys_cache_F-2011.09-SP3/DW01/DW01_MUX/str/NangateOpenCellLibrary_typical_ecsm_7321_8167_4702/element.ddc
@@ -182,6 +183,13 @@
 /home/ms19.15/synopsys_cache_F-2011.09-SP3/DW01/DW01_mmux/str/4/NangateOpenCellLibrary_typical_ecsm_7321_8167_4702/element.ddc
 /home/ms19.15/synopsys_cache_F-2011.09-SP3/DW01/DW01_mmux/str/5/NangateOpenCellLibrary_typical_ecsm_7321_8167_4702/element.ddc
 /home/ms19.15/synopsys_cache_F-2011.09-SP3/DW01/DW01_NOT/str/NangateOpenCellLibrary_typical_ecsm_7321_8167_4702/element.ddc
+/home/ms19.15/synopsys_cache_F-2011.09-SP3/DW01/DW01_MUX/str/NangateOpenCellLibrary_typical_ecsm_7321/element.ddc
+/home/ms19.15/synopsys_cache_F-2011.09-SP3/DW01/DW01_mmux/str/2/NangateOpenCellLibrary_typical_ecsm_7321/element.ddc
+/home/ms19.15/synopsys_cache_F-2011.09-SP3/DW01/DW01_mmux/str/3/NangateOpenCellLibrary_typical_ecsm_7321/element.ddc
+/home/ms19.15/synopsys_cache_F-2011.09-SP3/DW01/DW01_mmux/str/4/NangateOpenCellLibrary_typical_ecsm_7321/element.ddc
+/home/ms19.15/synopsys_cache_F-2011.09-SP3/DW01/DW01_mmux/str/5/NangateOpenCellLibrary_typical_ecsm_7321/element.ddc
+/home/ms19.15/synopsys_cache_F-2011.09-SP3/DW01/DW01_NOT/str/NangateOpenCellLibrary_typical_ecsm_7321/element.ddc
 /home/mariagrazia.graziano/do/libnangate/NangateOpenCellLibrary_typical_ecsm.db
 /home/mariagrazia.graziano/do/libnangate/NangateOpenCellLibrary_typical_ecsm.db
 /home/mariagrazia.graziano/do/libnangate/NangateOpenCellLibrary_typical_ecsm.db
+/software/synopsys/syn_current_64/libraries/syn/generic.sdb

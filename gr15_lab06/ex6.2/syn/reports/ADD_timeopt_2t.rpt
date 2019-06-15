@@ -5,84 +5,126 @@ Report : timing
         -path full
         -delay max
         -max_paths 1
-Design : completeAdder
+Design : completeAdderSynchronous
 Version: F-2011.09-SP3
-Date   : Thu Jun 13 11:44:21 2019
+Date   : Sat Jun 15 14:27:42 2019
 ****************************************
 
 Operating Conditions: typical   Library: NangateOpenCellLibrary
 Wire Load Model Mode: top
 
-  Startpoint: Cin (input port)
-  Endpoint: Sum[28] (output port)
-  Path Group: default
+  Startpoint: Qcin_reg (rising edge-triggered flip-flop clocked by Clk)
+  Endpoint: Sum_tle_reg[27]
+            (rising edge-triggered flip-flop clocked by Clk)
+  Path Group: Clk
   Path Type: max
 
   Des/Clust/Port     Wire Load Model       Library
   ------------------------------------------------
-  completeAdder      5K_hvratio_1_4        NangateOpenCellLibrary
+  completeAdderSynchronous
+                     5K_hvratio_1_4        NangateOpenCellLibrary
 
   Point                                                   Incr       Path
   --------------------------------------------------------------------------
-  input external delay                                    0.00       0.00 f
-  Cin (in)                                                0.00       0.00 f
-  U92/Z (BUF_X2)                                          0.07       0.07 f
-  U56/Z (XOR2_X1)                                         0.08       0.16 f
-  ST/B[17] (SparseTree_N32_RADIX4)                        0.00       0.16 f
-  ST/PGNetwork_1/B[17] (PGNetwork_N32)                    0.00       0.16 f
-  ST/PGNetwork_1/PGBlock_17/b (PGNetBlock_16)             0.00       0.16 f
-  ST/PGNetwork_1/PGBlock_17/U2/Z (XOR2_X1)                0.08       0.23 f
-  ST/PGNetwork_1/PGBlock_17/gp[0] (PGNetBlock_16)         0.00       0.23 f
-  ST/PGNetwork_1/gpSignals[34] (PGNetwork_N32)            0.00       0.23 f
-  ST/ST_row1And2_1/input[34] (ST_row1And2_N32)            0.00       0.23 f
-  ST/ST_row1And2_1/TB_4/GikPik_right[0] (triBlock_4)      0.00       0.23 f
-  ST/ST_row1And2_1/TB_4/PG_2/GikPik[0] (GeneralPropagateGenerate_11)
-                                                          0.00       0.23 f
-  ST/ST_row1And2_1/TB_4/PG_2/U2/ZN (AOI21_X1)             0.05       0.28 r
-  ST/ST_row1And2_1/TB_4/PG_2/U1/ZN (INV_X1)               0.03       0.30 f
-  ST/ST_row1And2_1/TB_4/PG_2/GijPij[1] (GeneralPropagateGenerate_11)
-                                                          0.00       0.30 f
-  ST/ST_row1And2_1/TB_4/PG_3/Gk_1Pk_1[1] (GeneralPropagateGenerate_10)
-                                                          0.00       0.30 f
-  ST/ST_row1And2_1/TB_4/PG_3/U2/ZN (AOI21_X1)             0.04       0.34 r
-  ST/ST_row1And2_1/TB_4/PG_3/U1/ZN (INV_X1)               0.03       0.37 f
-  ST/ST_row1And2_1/TB_4/PG_3/GijPij[1] (GeneralPropagateGenerate_10)
-                                                          0.00       0.37 f
-  ST/ST_row1And2_1/TB_4/GijPij[1] (triBlock_4)            0.00       0.37 f
-  ST/ST_row1And2_1/output[39] (ST_row1And2_N32)           0.00       0.37 f
-  ST/PG_1_0_2_0/Gk_1Pk_1[1] (GeneralPropagateGenerate_26)
-                                                          0.00       0.37 f
-  ST/PG_1_0_2_0/U2/ZN (AOI21_X1)                          0.04       0.42 r
-  ST/PG_1_0_2_0/U1/ZN (INV_X1)                            0.03       0.45 f
-  ST/PG_1_0_2_0/GijPij[1] (GeneralPropagateGenerate_26)
-                                                          0.00       0.45 f
-  ST/PG_1_1_1_0/Gk_1Pk_1[1] (GeneralPropagateGenerate_24)
-                                                          0.00       0.45 f
-  ST/PG_1_1_1_0/U2/ZN (AOI21_X1)                          0.04       0.49 r
-  ST/PG_1_1_1_0/U3/ZN (INV_X1)                            0.03       0.51 f
-  ST/PG_1_1_1_0/GijPij[1] (GeneralPropagateGenerate_24)
-                                                          0.00       0.51 f
-  ST/G_1_2_0_2/GikPik[1] (GeneralGenerate_5)              0.00       0.51 f
-  ST/G_1_2_0_2/U2/ZN (AOI21_X1)                           0.05       0.57 r
-  ST/G_1_2_0_2/U1/ZN (INV_X1)                             0.04       0.61 f
-  ST/G_1_2_0_2/Gij (GeneralGenerate_5)                    0.00       0.61 f
-  ST/carryVector[6] (SparseTree_N32_RADIX4)               0.00       0.61 f
-  CSSG/carry_vector[6] (CSSG_generic_N32_RADIX4)          0.00       0.61 f
-  CSSG/CSB_7/Cin (CSB_generic_N4_1)                       0.00       0.61 f
-  CSSG/CSB_7/MUX21_1/SEL (MUX21_GENERIC_N4_1)             0.00       0.61 f
-  CSSG/CSB_7/MUX21_1/U1/Z (MUX2_X1)                       0.07       0.68 r
-  CSSG/CSB_7/MUX21_1/Y[0] (MUX21_GENERIC_N4_1)            0.00       0.68 r
-  CSSG/CSB_7/S[0] (CSB_generic_N4_1)                      0.00       0.68 r
-  CSSG/S[28] (CSSG_generic_N32_RADIX4)                    0.00       0.68 r
-  Sum[28] (out)                                           0.00       0.68 r
-  data arrival time                                                  0.68
+  clock Clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  Qcin_reg/CK (SDFF_X1)                                   0.00       0.00 r
+  Qcin_reg/Q (SDFF_X1)                                    0.07       0.07 f
+  completeAdder_1/Cin (completeAdder_N32_RADIX4)          0.00       0.07 f
+  completeAdder_1/U34/Z (BUF_X1)                          0.05       0.12 f
+  completeAdder_1/U32/Z (XOR2_X1)                         0.08       0.20 f
+  completeAdder_1/ST/B[0] (SparseTree_N32_RADIX4)         0.00       0.20 f
+  completeAdder_1/ST/PGNetwork_1/B[0] (PGNetwork_N32)     0.00       0.20 f
+  completeAdder_1/ST/PGNetwork_1/SpecBlock_0/b (SpecialPGBlock)
+                                                          0.00       0.20 f
+  completeAdder_1/ST/PGNetwork_1/SpecBlock_0/PGBlock/b (PGNetBlock_1)
+                                                          0.00       0.20 f
+  completeAdder_1/ST/PGNetwork_1/SpecBlock_0/PGBlock/U2/Z (XOR2_X1)
+                                                          0.08       0.27 f
+  completeAdder_1/ST/PGNetwork_1/SpecBlock_0/PGBlock/gp[0] (PGNetBlock_1)
+                                                          0.00       0.27 f
+  completeAdder_1/ST/PGNetwork_1/SpecBlock_0/GGBlock/GikPik[0] (GeneralGenerate_3)
+                                                          0.00       0.27 f
+  completeAdder_1/ST/PGNetwork_1/SpecBlock_0/GGBlock/U2/ZN (AOI21_X1)
+                                                          0.04       0.32 r
+  completeAdder_1/ST/PGNetwork_1/SpecBlock_0/GGBlock/U1/ZN (INV_X1)
+                                                          0.03       0.34 f
+  completeAdder_1/ST/PGNetwork_1/SpecBlock_0/GGBlock/Gij (GeneralGenerate_3)
+                                                          0.00       0.34 f
+  completeAdder_1/ST/PGNetwork_1/SpecBlock_0/G1_0 (SpecialPGBlock)
+                                                          0.00       0.34 f
+  completeAdder_1/ST/PGNetwork_1/gpSignals[0] (PGNetwork_N32)
+                                                          0.00       0.34 f
+  completeAdder_1/ST/ST_row1And2_1/input[0] (ST_row1And2_N32)
+                                                          0.00       0.34 f
+  completeAdder_1/ST/ST_row1And2_1/TBS_0/Gk_1_right (triBlockSpecial)
+                                                          0.00       0.34 f
+  completeAdder_1/ST/ST_row1And2_1/TBS_0/G_1/Gk_1 (GeneralGenerate_2)
+                                                          0.00       0.34 f
+  completeAdder_1/ST/ST_row1And2_1/TBS_0/G_1/U1/ZN (AOI21_X1)
+                                                          0.04       0.38 r
+  completeAdder_1/ST/ST_row1And2_1/TBS_0/G_1/U2/ZN (INV_X1)
+                                                          0.03       0.41 f
+  completeAdder_1/ST/ST_row1And2_1/TBS_0/G_1/Gij (GeneralGenerate_2)
+                                                          0.00       0.41 f
+  completeAdder_1/ST/ST_row1And2_1/TBS_0/G_2/Gk_1 (GeneralGenerate_1)
+                                                          0.00       0.41 f
+  completeAdder_1/ST/ST_row1And2_1/TBS_0/G_2/U1/ZN (AOI21_X1)
+                                                          0.04       0.45 r
+  completeAdder_1/ST/ST_row1And2_1/TBS_0/G_2/U2/ZN (INV_X1)
+                                                          0.03       0.48 f
+  completeAdder_1/ST/ST_row1And2_1/TBS_0/G_2/Gij (GeneralGenerate_1)
+                                                          0.00       0.48 f
+  completeAdder_1/ST/ST_row1And2_1/TBS_0/Gij (triBlockSpecial)
+                                                          0.00       0.48 f
+  completeAdder_1/ST/ST_row1And2_1/output[7] (ST_row1And2_N32)
+                                                          0.00       0.48 f
+  completeAdder_1/ST/G_1_0_0_0/Gk_1 (GeneralGenerate_0)
+                                                          0.00       0.48 f
+  completeAdder_1/ST/G_1_0_0_0/U2/ZN (AOI21_X1)           0.04       0.52 r
+  completeAdder_1/ST/G_1_0_0_0/U1/ZN (INV_X1)             0.03       0.55 f
+  completeAdder_1/ST/G_1_0_0_0/Gij (GeneralGenerate_0)
+                                                          0.00       0.55 f
+  completeAdder_1/ST/G_1_1_0_1/Gk_1 (GeneralGenerate_8)
+                                                          0.00       0.55 f
+  completeAdder_1/ST/G_1_1_0_1/U2/ZN (AOI21_X1)           0.04       0.59 r
+  completeAdder_1/ST/G_1_1_0_1/U1/ZN (INV_X1)             0.04       0.63 f
+  completeAdder_1/ST/G_1_1_0_1/Gij (GeneralGenerate_8)
+                                                          0.00       0.63 f
+  completeAdder_1/ST/G_1_2_0_1/Gk_1 (GeneralGenerate_6)
+                                                          0.00       0.63 f
+  completeAdder_1/ST/G_1_2_0_1/U2/ZN (AOI21_X1)           0.05       0.68 r
+  completeAdder_1/ST/G_1_2_0_1/U1/ZN (INV_X1)             0.04       0.72 f
+  completeAdder_1/ST/G_1_2_0_1/Gij (GeneralGenerate_6)
+                                                          0.00       0.72 f
+  completeAdder_1/ST/carryVector[5] (SparseTree_N32_RADIX4)
+                                                          0.00       0.72 f
+  completeAdder_1/CSSG/carry_vector[5] (CSSG_generic_N32_RADIX4)
+                                                          0.00       0.72 f
+  completeAdder_1/CSSG/CSB_6/Cin (CSB_generic_N4_2)       0.00       0.72 f
+  completeAdder_1/CSSG/CSB_6/MUX21_1/SEL (MUX21_GENERIC_N4_2)
+                                                          0.00       0.72 f
+  completeAdder_1/CSSG/CSB_6/MUX21_1/U4/ZN (INV_X1)       0.04       0.76 r
+  completeAdder_1/CSSG/CSB_6/MUX21_1/U6/ZN (AOI22_X1)     0.03       0.79 f
+  completeAdder_1/CSSG/CSB_6/MUX21_1/U5/ZN (INV_X1)       0.03       0.82 r
+  completeAdder_1/CSSG/CSB_6/MUX21_1/Y[3] (MUX21_GENERIC_N4_2)
+                                                          0.00       0.82 r
+  completeAdder_1/CSSG/CSB_6/S[3] (CSB_generic_N4_2)      0.00       0.82 r
+  completeAdder_1/CSSG/S[27] (CSSG_generic_N32_RADIX4)
+                                                          0.00       0.82 r
+  completeAdder_1/Sum[27] (completeAdder_N32_RADIX4)      0.00       0.82 r
+  U135/ZN (AND2_X1)                                       0.04       0.86 r
+  Sum_tle_reg[27]/D (DFF_X1)                              0.01       0.87 r
+  data arrival time                                                  0.87
 
-  max_delay                                               0.68       0.68
-  output external delay                                   0.00       0.68
-  data required time                                                 0.68
+  clock Clk (rise edge)                                   0.90       0.90
+  clock network delay (ideal)                             0.00       0.90
+  Sum_tle_reg[27]/CK (DFF_X1)                             0.00       0.90 r
+  library setup time                                     -0.03       0.87
+  data required time                                                 0.87
   --------------------------------------------------------------------------
-  data required time                                                 0.68
-  data arrival time                                                 -0.68
+  data required time                                                 0.87
+  data arrival time                                                 -0.87
   --------------------------------------------------------------------------
   slack (MET)                                                        0.00
 

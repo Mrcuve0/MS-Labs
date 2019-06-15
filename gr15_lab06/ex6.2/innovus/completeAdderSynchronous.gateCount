@@ -1,0 +1,5 @@
+Gate area 0.7980 um^2
+Level 0 Module completeAdderSynchronous                 Gates=      1516 Cells=     662 Area=    1210.0 um^2
+Level 1 Module completeAdder_1                          Gates=785        Cells=529      Area=     626.4 um^2
+Level 2 Module completeAdder_1/ST                       Gates=218        Cells=168      Area=     174.5 um^2
+Level 2 Module completeAdder_1/CSSG                     Gates=492        Cells=322      Area=     392.6 um^2
