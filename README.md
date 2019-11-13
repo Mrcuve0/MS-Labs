@@ -10,6 +10,13 @@
 
 You can find everything you need in this repository, which is organized in subfolders. In each subfolder you'll find a pdf file with the original requirements of the lab.
 
+### **TOOLS**
+
+* Editor: ***EMACS***
+* Simulators: ***GHDL*** and ***Mentor Graphics Modelsim***
+* Synthesizers: ***Synopsys Design Compiler/Design Vision***
+* Physical Implementation: ***Cadence Innovus***  
+
 #### **LAB0**
 ***Setup & First VHDL simulations and syntheses.***
 
