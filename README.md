@@ -17,6 +17,8 @@ You can find everything you need in this repository, which is organized in subfo
 * Synthesizers: ***Synopsys Design Compiler/Design Vision***
 * Physical Implementation: ***Cadence Innovus***  
 
+### **INDEX**
+
 #### **LAB0**
 ***Setup & First VHDL simulations and syntheses.***
 
@@ -109,7 +111,7 @@ Please, refer to the badges "`development`" you can find at the top of each READ
 3. [![DevelopmentStatus](https://img.shields.io/badge/Development-Stopped-red.svg)](https://img.shields.io/badge/Development-Stopped-red.svg)
 > This means I'd prefer to consider this project abandoned. I could reconsider this development status only if some really big opportunities present itselves and really worth the effort. Issues and PR will be probably read but not considered.
 
-*As a general rule*, take in mind that my entire [GitHub profile](https://github.com/Mrcuve0) (themes included!) is based on my sparse time and it is mainly passion-driven. As for now, *my number one priority* is finishing my **Master's Degree in Embedded Systems**: don't panic if I cannot reply to your issue even 
+*As a general rule*, take in mind that my entire [GitHub profile](https://github.com/Mrcuve0) (themes included!) is based on my sparse time and it is mainly passion-driven. As for now, *my number one priority* is finishing my **Master's Degree in Embedded Systems**: don't panic if I cannot reply to your issue even after a week, I'm probably really busy and I'm making already restless nights.
 
 ### **LICENSES**
 
